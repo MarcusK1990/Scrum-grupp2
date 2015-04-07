@@ -10,7 +10,10 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Test test test!!!");
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.Clear();
+            Console.WriteLine("\n Test Console App ver. 0.9");
             Console.ReadKey();
         }
     }
