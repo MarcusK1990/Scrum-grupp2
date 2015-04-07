@@ -13,9 +13,11 @@ namespace ConsoleApplication1
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Black;
             Console.Clear();
+            Console.WriteLine("Blaha");
             Console.WriteLine("\n Test Console App ver. 0.9");
             Console.WriteLine("\n Slumpat nummer mellan 0 - 999: " + new Random().Next(0, 1000));
             Console.ReadKey();
+            
         }
     }
 }
