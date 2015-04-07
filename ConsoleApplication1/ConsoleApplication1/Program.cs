@@ -10,11 +10,11 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Test test test!!!");
+            Console.WriteLine("Test test test");
             Console.ReadKey();
-            Console.WriteLine("Test test test!!!");
+            Console.WriteLine("Test test test");
             Console.ReadKey();
-            Console.WriteLine("Test test test!!!");
+            Console.WriteLine("Test test test");
             Console.ReadKey();
         }
     }
