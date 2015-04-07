@@ -8,14 +8,6 @@ namespace ConsoleApplication1
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Test test test test");
-            Console.ReadKey();
-            Console.WriteLine("Test test test test");
-            Console.ReadKey();
-            Console.WriteLine("Test test test test");
-            Console.ReadKey();
-        }
+      
     }
 }
