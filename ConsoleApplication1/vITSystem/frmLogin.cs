@@ -20,7 +20,7 @@ namespace vITSystem
         private void btnLogin_Click(object sender, EventArgs e)
         {
             
-            MessageBox.Show("välkommen");
+            MessageBox.Show("Välkommen");
             this.Hide();
 
             frmSystem form = new frmSystem();

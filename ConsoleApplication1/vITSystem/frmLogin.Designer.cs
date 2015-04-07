@@ -70,7 +70,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(114, 121);
+            this.btnLogin.Location = new System.Drawing.Point(122, 138);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 4;
@@ -78,7 +78,7 @@
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // Form1
+            // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -88,7 +88,7 @@
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbUsername);
-            this.Name = "Form1";
+            this.Name = "frmLogin";
             this.Text = "Logga in";
             this.ResumeLayout(false);
             this.PerformLayout();
