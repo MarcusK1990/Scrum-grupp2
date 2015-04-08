@@ -22,5 +22,10 @@ namespace vITSystem
             System.Diagnostics.Process.Start("http://i.imgur.com/8N79SPD.png");
         }
 
+        private void frmSystem_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
     }
 }

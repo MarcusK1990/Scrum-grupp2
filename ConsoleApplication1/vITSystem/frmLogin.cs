@@ -19,8 +19,9 @@ namespace vITSystem
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            string testString = tbUsername.Text;
             
-            MessageBox.Show("välkommen");
+            MessageBox.Show(testString.Length > 0 ? "Välkommen, " + testString + "!\n\n:)" : "Var det för jobbigt att fylla i användarnamnet? ;)");
             this.Hide();
 
             frmSystem form = new frmSystem();
