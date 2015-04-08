@@ -12,9 +12,13 @@ namespace vITSystem
 {
     public partial class frmSystem : Form
     {
+        Random rnd;
+
         public frmSystem()
         {
             InitializeComponent();
+            timer1.Start();
+            rnd = new Random();
         }
 
         private void btnGeMigCash_Click(object sender, EventArgs e){
@@ -25,6 +29,17 @@ namespace vITSystem
         private void frmSystem_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label1.Text = "" + timer1.Interval;
+            if (timer1.Interval > 50)
+            {
+                timer1.Stop();
+                timer1.Start();
+                tabPage3.BackColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
+            }
         }
 
     }
