@@ -1,4 +1,2 @@
 # Scrum-grupp2
-testar att redigera readme-filen
-
-hej hej
+Ignorera ConsoleApplication1, ni ska bara arbeta med vIT-System.
