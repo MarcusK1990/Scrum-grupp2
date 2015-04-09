@@ -23,17 +23,32 @@ namespace vIT_System
         {
             DataTable dataTable = new DataTable();
             dataTable.Clear();
+            dataTable.Columns.Add("id");
             dataTable.Columns.Add("username");
             dataTable.Columns.Add("password");
 
             DataRow foo = dataTable.NewRow();
+            foo["id"] = "0";
             foo["username"] = "admin";
             foo["password"] = "pass123";
             dataTable.Rows.Add(foo);
 
             foo = dataTable.NewRow();
+            foo["id"] = "1";
             foo["username"] = "chefen22";
             foo["password"] = "qwerty";
+            dataTable.Rows.Add(foo);
+
+            return dataTable;
+        }
+        private DataTable createChefDataTable()
+        {
+            DataTable dataTable = new DataTable();
+            dataTable.Clear();
+            dataTable.Columns.Add("id");
+
+            DataRow foo = dataTable.NewRow();
+            foo["id"] = "1";
             dataTable.Rows.Add(foo);
 
             return dataTable;
@@ -41,12 +56,25 @@ namespace vIT_System
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            // 1: validera inmatning
+            // 2: hämta rader från tabellen Konsulter i databasen
+            // 3: kontrollera om inmatat användarnamn existerar i raderna
+            // -- 3.1: om nej, avbryt
+            // 4: kontrollera om inmatat lösen stämmer med lösenordet i raden med användarnamnet
+            // -- 4.1: om nej, avbryt
+            // 5: hämta rader från tabellen Chefer i databasen
+            // 6: kontrollera om det finns ett userID i Chef-tabellen med samma värde som i raden med anv.namnet
+            // -- 6.1: om ja, aktivera admin-läge
+            // -- 6.2: om nej, aktivera basic-läge
+            // 7: godkänn inloggning och öppna huvudmeny. passa vidare lägesvärdet som parameter
+
             // Skapa en test-DataTable
             DataTable dt = createTestDataTable();
 
             // Hitta matchande användarnamn i DataTable
             string username = "";
             string password = "";
+            string id = "";
 
             bool foundMatch = false;
 
@@ -73,6 +101,7 @@ namespace vIT_System
             {
                 if (dr["username"].ToString().Equals(txtUsername.Text))
                 {
+                    id = dr["id"].ToString();
                     username = dr["username"].ToString();
                     password = dr["password"].ToString();
                     foundMatch = true;
@@ -91,6 +120,21 @@ namespace vIT_System
                 MessageBox.Show("Fel lösenord!");
                 txtPassword.Clear();
                 return;
+            }
+
+            //checka om det är en chef som loggar in
+            DataTable chefDt = createChefDataTable();
+
+            bool foundChef = false;
+
+            foreach (DataRow dr in chefDt.Rows)
+            {
+                if (dr["id"].Equals(id))
+                {
+                    foundChef = true;
+                    // sätt igång chef-läge
+                    MessageBox.Show("Det är en chef som loggar in");
+                }
             }
             Form1 form = new Form1();
             form.Visible = true;
