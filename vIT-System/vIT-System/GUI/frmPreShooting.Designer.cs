@@ -78,6 +78,7 @@
             this.btnSendPre.TabIndex = 4;
             this.btnSendPre.Text = "Skicka";
             this.btnSendPre.UseVisualStyleBackColor = true;
+            this.btnSendPre.Click += new System.EventHandler(this.btnSendPre_Click);
             // 
             // cbBoss
             // 
@@ -110,6 +111,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmPreShooting";
             this.Text = "Förskottsansökan";
+            this.Load += new System.EventHandler(this.frmPreShooting_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
