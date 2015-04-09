@@ -16,5 +16,16 @@ namespace vIT_System.GUI
         {
             InitializeComponent();
         }
+
+        private void frmPreShooting_Load(object sender, EventArgs e)
+        {
+             //Ladda in chefer från databasen i comboboxen 
+        }
+
+        //Posta innehållet i formuläret till databasen
+        private void btnSendPre_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
