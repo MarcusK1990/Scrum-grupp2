@@ -33,6 +33,7 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
+            this.chkOffline = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // txtUsername
@@ -78,11 +79,22 @@
             this.lblPassword.TabIndex = 4;
             this.lblPassword.Text = "Lösenord:";
             // 
+            // chkOffline
+            // 
+            this.chkOffline.AutoSize = true;
+            this.chkOffline.Location = new System.Drawing.Point(116, 191);
+            this.chkOffline.Name = "chkOffline";
+            this.chkOffline.Size = new System.Drawing.Size(98, 17);
+            this.chkOffline.TabIndex = 5;
+            this.chkOffline.Text = "Logga in offline";
+            this.chkOffline.UseVisualStyleBackColor = true;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(330, 338);
+            this.Controls.Add(this.chkOffline);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.btnLogin);
@@ -102,5 +114,6 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.CheckBox chkOffline;
     }
 }

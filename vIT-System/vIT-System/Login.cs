@@ -39,8 +39,7 @@ namespace vIT_System
             }
             if (userName.Equals("username") && passWord.Equals("password"))
             {
-                Form1 form = new Form1();
-                form.Visible = true;
+                Form1 form = new Form1 {Visible = true};
                 Visible = false;
             }
 
