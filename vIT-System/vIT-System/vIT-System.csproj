@@ -88,6 +88,7 @@
     <Compile Include="Ansokning\hamtaAnsokning.Designer.cs">
       <DependentUpon>hamtaAnsokning.cs</DependentUpon>
     </Compile>
+    <Compile Include="SQLHelper\SQLhelp.cs" />
     <EmbeddedResource Include="Ansokning\hamtaAnsokning.resx">
       <DependentUpon>hamtaAnsokning.cs</DependentUpon>
     </EmbeddedResource>
