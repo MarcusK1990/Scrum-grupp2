@@ -1,6 +1,6 @@
-﻿namespace vIT_System
+﻿namespace vIT_System.GUI
 {
-    partial class Form1
+    partial class frmMyApplications
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // frmMyApplications
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(613, 432);
+            this.Name = "frmMyApplications";
+            this.Text = "Mina ansökningar";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
     }
 }
-
