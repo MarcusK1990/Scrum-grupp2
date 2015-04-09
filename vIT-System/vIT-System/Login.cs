@@ -76,7 +76,8 @@ namespace vIT_System
                 txtPassword.Clear();
                 return;
             }
-            Form1 form = new Form1 {Visible = true};
+            Form1 form = new Form1();
+            form.Visible = true;
             Visible = false;
 
         }
