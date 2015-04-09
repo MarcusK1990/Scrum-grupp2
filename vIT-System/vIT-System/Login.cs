@@ -75,6 +75,7 @@ namespace vIT_System
             string username = "";
             string password = "";
             string id = "";
+            int mode = 0;
 
             bool foundMatch = false;
 
@@ -133,10 +134,10 @@ namespace vIT_System
                 {
                     foundChef = true;
                     // sätt igång chef-läge
-                    MessageBox.Show("Det är en chef som loggar in");
+                    mode = 2;
                 }
             }
-            Form1 form = new Form1();
+            Logintest form = new Logintest(mode);
             form.Visible = true;
             Visible = false;
 
@@ -144,8 +145,8 @@ namespace vIT_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form1 form = new Form1();
-            form.Visible = true;
+            Form logintest = new Logintest(1);
+            logintest.Visible = true;
             Visible = false;
         }
 
