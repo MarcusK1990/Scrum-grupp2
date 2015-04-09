@@ -50,6 +50,12 @@
     <Compile Include="GUI\frmCompensation.Designer.cs">
       <DependentUpon>frmCompensation.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmMenu.Designer.cs">
+      <DependentUpon>frmMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmMyApplications.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,12 +67,6 @@
     </Compile>
     <Compile Include="GUI\frmPreShooting.Designer.cs">
       <DependentUpon>frmPreShooting.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\Menu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\Menu.Designer.cs">
-      <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -86,14 +86,14 @@
     <EmbeddedResource Include="GUI\frmCompensation.resx">
       <DependentUpon>frmCompensation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmMenu.resx">
+      <DependentUpon>frmMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmMyApplications.resx">
       <DependentUpon>frmMyApplications.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmPreShooting.resx">
       <DependentUpon>frmPreShooting.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Menu.resx">
-      <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
