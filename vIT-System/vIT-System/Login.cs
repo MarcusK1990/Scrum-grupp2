@@ -41,9 +41,6 @@ namespace vIT_System
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //string userName = txtUsername.Text;
-            //string passWord = txtPassword.Text;
-
             // Skapa en test-DataTable
             DataTable dt = createTestDataTable();
 
