@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using vIT_System.GUI;
+using vIT_System.Rapport;
 
 namespace vIT_System
 {
@@ -17,7 +18,7 @@ namespace vIT_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMenu());
+            Application.Run(new hamtaAnsokning());
         }
     }
 }

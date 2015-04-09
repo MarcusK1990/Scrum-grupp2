@@ -68,20 +68,29 @@
     <Compile Include="GUI\frmPreShooting.Designer.cs">
       <DependentUpon>frmPreShooting.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="Login\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="Login\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Logintest.cs">
+    <Compile Include="Login\Logintest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Logintest.Designer.cs">
+    <Compile Include="Login\Logintest.Designer.cs">
       <DependentUpon>Logintest.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ansokning\hamtaAnsokning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ansokning\hamtaAnsokning.Designer.cs">
+      <DependentUpon>hamtaAnsokning.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Ansokning\hamtaAnsokning.resx">
+      <DependentUpon>hamtaAnsokning.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx" />
     <EmbeddedResource Include="GUI\frmCompensation.resx">
       <DependentUpon>frmCompensation.cs</DependentUpon>
@@ -95,10 +104,10 @@
     <EmbeddedResource Include="GUI\frmPreShooting.resx">
       <DependentUpon>frmPreShooting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="Login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Logintest.resx">
+    <EmbeddedResource Include="Login\Logintest.resx">
       <DependentUpon>Logintest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
