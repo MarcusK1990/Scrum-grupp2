@@ -17,17 +17,11 @@ namespace vIT_System{
         public Form1(){
             InitializeComponent();
             using (var test = new vITsEntities1()){
-                
+              
             }
         }
-
-        SqlConnection connection = new SqlConnection(@"Data Source=STAIS3R\SQLEXPRESS;Initial Catalog=vITs;Integrated Security=True");
-
         private void button1_Click(object sender, EventArgs e){
 
-            //connection.Open();
-            //using (SqlCommand command = new SqlCommand("Select * from Ansokan", connection))
-            //{
              InitializeComponent();
     
     }
@@ -37,5 +31,4 @@ namespace vIT_System{
         }
 
 
-    }
-}
+    
