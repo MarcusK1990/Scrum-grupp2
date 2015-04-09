@@ -1,0 +1,530 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="vITsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Ansokan">
+          <Key>
+            <PropertyRef Name="AId" />
+          </Key>
+          <Property Name="AId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Avresa" Type="smalldatetime" />
+          <Property Name="Hemresa" Type="smalldatetime" />
+          <Property Name="TotalSumma" Type="int" />
+          <Property Name="FId" Type="int" />
+          <Property Name="Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Anstallda">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Losenord" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Fnamn" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Enamn" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PersNr" Type="int" Nullable="false" />
+          <Property Name="Mail" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Chef" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Fardmedel">
+          <Key>
+            <PropertyRef Name="FardId" />
+          </Key>
+          <Property Name="FardId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Typ" Type="varchar" MaxLength="30" />
+          <Property Name="Milersattning" Type="int" />
+          <Property Name="Kvitto" Type="varchar" MaxLength="30" />
+          <Property Name="AId" Type="int" />
+        </EntityType>
+        <EntityType Name="Forskott">
+          <Key>
+            <PropertyRef Name="FId" />
+          </Key>
+          <Property Name="FId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Summa" Type="int" Nullable="false" />
+          <Property Name="Beskrivning" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Traktamente">
+          <Key>
+            <PropertyRef Name="TId" />
+          </Key>
+          <Property Name="TId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Land" Type="varchar" MaxLength="30" />
+          <Property Name="StartDatum" Type="smalldatetime" />
+          <Property Name="SlutDatum" Type="smalldatetime" />
+          <Property Name="TrakSumma" Type="int" />
+          <Property Name="AId" Type="int" />
+        </EntityType>
+        <EntityType Name="Uppehall">
+          <Key>
+            <PropertyRef Name="UppId" />
+          </Key>
+          <Property Name="UppId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dagar" Type="int" />
+          <Property Name="Kommentar" Type="varchar" MaxLength="30" />
+          <Property Name="AId" Type="int" />
+        </EntityType>
+        <EntityType Name="Utgifter">
+          <Key>
+            <PropertyRef Name="UtId" />
+          </Key>
+          <Property Name="UtId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Typ" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Valuta" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ValutaKurs" Type="int" Nullable="false" />
+          <Property Name="Kvitto" Type="varchar" MaxLength="30" />
+          <Property Name="UtSumma" Type="int" Nullable="false" />
+          <Property Name="Moms" Type="int" Nullable="false" />
+          <Property Name="AId" Type="int" />
+        </EntityType>
+        <Association Name="FK__Ansokan__FId__164452B1">
+          <End Role="Forskott" Type="Self.Forskott" Multiplicity="0..1" />
+          <End Role="Ansokan" Type="Self.Ansokan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Forskott">
+              <PropertyRef Name="FId" />
+            </Principal>
+            <Dependent Role="Ansokan">
+              <PropertyRef Name="FId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ansokan__Id__173876EA">
+          <End Role="Anstallda" Type="Self.Anstallda" Multiplicity="0..1" />
+          <End Role="Ansokan" Type="Self.Ansokan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Anstallda">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ansokan">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Fardmedel__AId__22AA2996">
+          <End Role="Ansokan" Type="Self.Ansokan" Multiplicity="0..1" />
+          <End Role="Fardmedel" Type="Self.Fardmedel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ansokan">
+              <PropertyRef Name="AId" />
+            </Principal>
+            <Dependent Role="Fardmedel">
+              <PropertyRef Name="AId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Forskott__Id__1367E606">
+          <End Role="Anstallda" Type="Self.Anstallda" Multiplicity="0..1" />
+          <End Role="Forskott" Type="Self.Forskott" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Anstallda">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Forskott">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Traktamente__AId__1CF15040">
+          <End Role="Ansokan" Type="Self.Ansokan" Multiplicity="0..1" />
+          <End Role="Traktamente" Type="Self.Traktamente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ansokan">
+              <PropertyRef Name="AId" />
+            </Principal>
+            <Dependent Role="Traktamente">
+              <PropertyRef Name="AId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Uppehall__AId__1FCDBCEB">
+          <End Role="Ansokan" Type="Self.Ansokan" Multiplicity="0..1" />
+          <End Role="Uppehall" Type="Self.Uppehall" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ansokan">
+              <PropertyRef Name="AId" />
+            </Principal>
+            <Dependent Role="Uppehall">
+              <PropertyRef Name="AId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Utgifter__AId__1A14E395">
+          <End Role="Ansokan" Type="Self.Ansokan" Multiplicity="0..1" />
+          <End Role="Utgifter" Type="Self.Utgifter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ansokan">
+              <PropertyRef Name="AId" />
+            </Principal>
+            <Dependent Role="Utgifter">
+              <PropertyRef Name="AId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="vITsModelStoreContainer">
+          <EntitySet Name="Ansokan" EntityType="Self.Ansokan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Anstallda" EntityType="Self.Anstallda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fardmedel" EntityType="Self.Fardmedel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Forskott" EntityType="Self.Forskott" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Traktamente" EntityType="Self.Traktamente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Uppehall" EntityType="Self.Uppehall" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utgifter" EntityType="Self.Utgifter" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Ansokan__FId__164452B1" Association="Self.FK__Ansokan__FId__164452B1">
+            <End Role="Forskott" EntitySet="Forskott" />
+            <End Role="Ansokan" EntitySet="Ansokan" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ansokan__Id__173876EA" Association="Self.FK__Ansokan__Id__173876EA">
+            <End Role="Anstallda" EntitySet="Anstallda" />
+            <End Role="Ansokan" EntitySet="Ansokan" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Fardmedel__AId__22AA2996" Association="Self.FK__Fardmedel__AId__22AA2996">
+            <End Role="Ansokan" EntitySet="Ansokan" />
+            <End Role="Fardmedel" EntitySet="Fardmedel" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Forskott__Id__1367E606" Association="Self.FK__Forskott__Id__1367E606">
+            <End Role="Anstallda" EntitySet="Anstallda" />
+            <End Role="Forskott" EntitySet="Forskott" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Traktamente__AId__1CF15040" Association="Self.FK__Traktamente__AId__1CF15040">
+            <End Role="Ansokan" EntitySet="Ansokan" />
+            <End Role="Traktamente" EntitySet="Traktamente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Uppehall__AId__1FCDBCEB" Association="Self.FK__Uppehall__AId__1FCDBCEB">
+            <End Role="Ansokan" EntitySet="Ansokan" />
+            <End Role="Uppehall" EntitySet="Uppehall" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Utgifter__AId__1A14E395" Association="Self.FK__Utgifter__AId__1A14E395">
+            <End Role="Ansokan" EntitySet="Ansokan" />
+            <End Role="Utgifter" EntitySet="Utgifter" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="vITsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Ansokan">
+          <Key>
+            <PropertyRef Name="AId" />
+          </Key>
+          <Property Name="AId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Avresa" Type="DateTime" Precision="0" />
+          <Property Name="Hemresa" Type="DateTime" Precision="0" />
+          <Property Name="TotalSumma" Type="Int32" />
+          <Property Name="FId" Type="Int32" />
+          <Property Name="Id" Type="Int32" />
+          <NavigationProperty Name="Forskott" Relationship="Self.FK__Ansokan__FId__164452B1" FromRole="Ansokan" ToRole="Forskott" />
+          <NavigationProperty Name="Anstallda" Relationship="Self.FK__Ansokan__Id__173876EA" FromRole="Ansokan" ToRole="Anstallda" />
+          <NavigationProperty Name="Fardmedel" Relationship="Self.FK__Fardmedel__AId__22AA2996" FromRole="Ansokan" ToRole="Fardmedel" />
+          <NavigationProperty Name="Traktamente" Relationship="Self.FK__Traktamente__AId__1CF15040" FromRole="Ansokan" ToRole="Traktamente" />
+          <NavigationProperty Name="Uppehall" Relationship="Self.FK__Uppehall__AId__1FCDBCEB" FromRole="Ansokan" ToRole="Uppehall" />
+          <NavigationProperty Name="Utgifter" Relationship="Self.FK__Utgifter__AId__1A14E395" FromRole="Ansokan" ToRole="Utgifter" />
+        </EntityType>
+        <EntityType Name="Anstallda">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Losenord" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fnamn" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Enamn" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PersNr" Type="Int32" Nullable="false" />
+          <Property Name="Mail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Chef" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Ansokan" Relationship="Self.FK__Ansokan__Id__173876EA" FromRole="Anstallda" ToRole="Ansokan" />
+          <NavigationProperty Name="Forskott" Relationship="Self.FK__Forskott__Id__1367E606" FromRole="Anstallda" ToRole="Forskott" />
+        </EntityType>
+        <EntityType Name="Fardmedel">
+          <Key>
+            <PropertyRef Name="FardId" />
+          </Key>
+          <Property Name="FardId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Typ" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Milersattning" Type="Int32" />
+          <Property Name="Kvitto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="AId" Type="Int32" />
+          <NavigationProperty Name="Ansokan" Relationship="Self.FK__Fardmedel__AId__22AA2996" FromRole="Fardmedel" ToRole="Ansokan" />
+        </EntityType>
+        <EntityType Name="Forskott">
+          <Key>
+            <PropertyRef Name="FId" />
+          </Key>
+          <Property Name="FId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Summa" Type="Int32" Nullable="false" />
+          <Property Name="Beskrivning" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id" Type="Int32" />
+          <NavigationProperty Name="Ansokan" Relationship="Self.FK__Ansokan__FId__164452B1" FromRole="Forskott" ToRole="Ansokan" />
+          <NavigationProperty Name="Anstallda" Relationship="Self.FK__Forskott__Id__1367E606" FromRole="Forskott" ToRole="Anstallda" />
+        </EntityType>
+        <EntityType Name="Traktamente">
+          <Key>
+            <PropertyRef Name="TId" />
+          </Key>
+          <Property Name="TId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Land" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="StartDatum" Type="DateTime" Precision="0" />
+          <Property Name="SlutDatum" Type="DateTime" Precision="0" />
+          <Property Name="TrakSumma" Type="Int32" />
+          <Property Name="AId" Type="Int32" />
+          <NavigationProperty Name="Ansokan" Relationship="Self.FK__Traktamente__AId__1CF15040" FromRole="Traktamente" ToRole="Ansokan" />
+        </EntityType>
+        <EntityType Name="Uppehall">
+          <Key>
+            <PropertyRef Name="UppId" />
+          </Key>
+          <Property Name="UppId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dagar" Type="Int32" />
+          <Property Name="Kommentar" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="AId" Type="Int32" />
+          <NavigationProperty Name="Ansokan" Relationship="Self.FK__Uppehall__AId__1FCDBCEB" FromRole="Uppehall" ToRole="Ansokan" />
+        </EntityType>
+        <EntityType Name="Utgifter">
+          <Key>
+            <PropertyRef Name="UtId" />
+          </Key>
+          <Property Name="UtId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Typ" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Valuta" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ValutaKurs" Type="Int32" Nullable="false" />
+          <Property Name="Kvitto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="UtSumma" Type="Int32" Nullable="false" />
+          <Property Name="Moms" Type="Int32" Nullable="false" />
+          <Property Name="AId" Type="Int32" />
+          <NavigationProperty Name="Ansokan" Relationship="Self.FK__Utgifter__AId__1A14E395" FromRole="Utgifter" ToRole="Ansokan" />
+        </EntityType>
+        <Association Name="FK__Ansokan__FId__164452B1">
+          <End Role="Forskott" Type="Self.Forskott" Multiplicity="0..1" />
+          <End Role="Ansokan" Type="Self.Ansokan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Forskott">
+              <PropertyRef Name="FId" />
+            </Principal>
+            <Dependent Role="Ansokan">
+              <PropertyRef Name="FId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ansokan__Id__173876EA">
+          <End Role="Anstallda" Type="Self.Anstallda" Multiplicity="0..1" />
+          <End Role="Ansokan" Type="Self.Ansokan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Anstallda">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ansokan">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Fardmedel__AId__22AA2996">
+          <End Role="Ansokan" Type="Self.Ansokan" Multiplicity="0..1" />
+          <End Role="Fardmedel" Type="Self.Fardmedel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ansokan">
+              <PropertyRef Name="AId" />
+            </Principal>
+            <Dependent Role="Fardmedel">
+              <PropertyRef Name="AId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Traktamente__AId__1CF15040">
+          <End Role="Ansokan" Type="Self.Ansokan" Multiplicity="0..1" />
+          <End Role="Traktamente" Type="Self.Traktamente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ansokan">
+              <PropertyRef Name="AId" />
+            </Principal>
+            <Dependent Role="Traktamente">
+              <PropertyRef Name="AId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Uppehall__AId__1FCDBCEB">
+          <End Role="Ansokan" Type="Self.Ansokan" Multiplicity="0..1" />
+          <End Role="Uppehall" Type="Self.Uppehall" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ansokan">
+              <PropertyRef Name="AId" />
+            </Principal>
+            <Dependent Role="Uppehall">
+              <PropertyRef Name="AId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Utgifter__AId__1A14E395">
+          <End Role="Ansokan" Type="Self.Ansokan" Multiplicity="0..1" />
+          <End Role="Utgifter" Type="Self.Utgifter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ansokan">
+              <PropertyRef Name="AId" />
+            </Principal>
+            <Dependent Role="Utgifter">
+              <PropertyRef Name="AId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Forskott__Id__1367E606">
+          <End Role="Anstallda" Type="Self.Anstallda" Multiplicity="0..1" />
+          <End Role="Forskott" Type="Self.Forskott" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Anstallda">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Forskott">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="vITsEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Ansokan" EntityType="Self.Ansokan" />
+          <EntitySet Name="Anstallda" EntityType="Self.Anstallda" />
+          <EntitySet Name="Fardmedel" EntityType="Self.Fardmedel" />
+          <EntitySet Name="Forskott" EntityType="Self.Forskott" />
+          <EntitySet Name="Traktamente" EntityType="Self.Traktamente" />
+          <EntitySet Name="Uppehall" EntityType="Self.Uppehall" />
+          <EntitySet Name="Utgifter" EntityType="Self.Utgifter" />
+          <AssociationSet Name="FK__Ansokan__FId__164452B1" Association="Self.FK__Ansokan__FId__164452B1">
+            <End Role="Forskott" EntitySet="Forskott" />
+            <End Role="Ansokan" EntitySet="Ansokan" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ansokan__Id__173876EA" Association="Self.FK__Ansokan__Id__173876EA">
+            <End Role="Anstallda" EntitySet="Anstallda" />
+            <End Role="Ansokan" EntitySet="Ansokan" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Fardmedel__AId__22AA2996" Association="Self.FK__Fardmedel__AId__22AA2996">
+            <End Role="Ansokan" EntitySet="Ansokan" />
+            <End Role="Fardmedel" EntitySet="Fardmedel" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Traktamente__AId__1CF15040" Association="Self.FK__Traktamente__AId__1CF15040">
+            <End Role="Ansokan" EntitySet="Ansokan" />
+            <End Role="Traktamente" EntitySet="Traktamente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Uppehall__AId__1FCDBCEB" Association="Self.FK__Uppehall__AId__1FCDBCEB">
+            <End Role="Ansokan" EntitySet="Ansokan" />
+            <End Role="Uppehall" EntitySet="Uppehall" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Utgifter__AId__1A14E395" Association="Self.FK__Utgifter__AId__1A14E395">
+            <End Role="Ansokan" EntitySet="Ansokan" />
+            <End Role="Utgifter" EntitySet="Utgifter" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Forskott__Id__1367E606" Association="Self.FK__Forskott__Id__1367E606">
+            <End Role="Anstallda" EntitySet="Anstallda" />
+            <End Role="Forskott" EntitySet="Forskott" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="vITsModelStoreContainer" CdmEntityContainer="vITsEntities1">
+          <EntitySetMapping Name="Ansokan">
+            <EntityTypeMapping TypeName="vITsModel.Ansokan">
+              <MappingFragment StoreEntitySet="Ansokan">
+                <ScalarProperty Name="AId" ColumnName="AId" />
+                <ScalarProperty Name="Avresa" ColumnName="Avresa" />
+                <ScalarProperty Name="Hemresa" ColumnName="Hemresa" />
+                <ScalarProperty Name="TotalSumma" ColumnName="TotalSumma" />
+                <ScalarProperty Name="FId" ColumnName="FId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Anstallda">
+            <EntityTypeMapping TypeName="vITsModel.Anstallda">
+              <MappingFragment StoreEntitySet="Anstallda">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Losenord" ColumnName="Losenord" />
+                <ScalarProperty Name="Fnamn" ColumnName="Fnamn" />
+                <ScalarProperty Name="Enamn" ColumnName="Enamn" />
+                <ScalarProperty Name="PersNr" ColumnName="PersNr" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="Chef" ColumnName="Chef" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fardmedel">
+            <EntityTypeMapping TypeName="vITsModel.Fardmedel">
+              <MappingFragment StoreEntitySet="Fardmedel">
+                <ScalarProperty Name="FardId" ColumnName="FardId" />
+                <ScalarProperty Name="Typ" ColumnName="Typ" />
+                <ScalarProperty Name="Milersattning" ColumnName="Milersattning" />
+                <ScalarProperty Name="Kvitto" ColumnName="Kvitto" />
+                <ScalarProperty Name="AId" ColumnName="AId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Forskott">
+            <EntityTypeMapping TypeName="vITsModel.Forskott">
+              <MappingFragment StoreEntitySet="Forskott">
+                <ScalarProperty Name="FId" ColumnName="FId" />
+                <ScalarProperty Name="Summa" ColumnName="Summa" />
+                <ScalarProperty Name="Beskrivning" ColumnName="Beskrivning" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Traktamente">
+            <EntityTypeMapping TypeName="vITsModel.Traktamente">
+              <MappingFragment StoreEntitySet="Traktamente">
+                <ScalarProperty Name="TId" ColumnName="TId" />
+                <ScalarProperty Name="Land" ColumnName="Land" />
+                <ScalarProperty Name="StartDatum" ColumnName="StartDatum" />
+                <ScalarProperty Name="SlutDatum" ColumnName="SlutDatum" />
+                <ScalarProperty Name="TrakSumma" ColumnName="TrakSumma" />
+                <ScalarProperty Name="AId" ColumnName="AId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uppehall">
+            <EntityTypeMapping TypeName="vITsModel.Uppehall">
+              <MappingFragment StoreEntitySet="Uppehall">
+                <ScalarProperty Name="UppId" ColumnName="UppId" />
+                <ScalarProperty Name="Dagar" ColumnName="Dagar" />
+                <ScalarProperty Name="Kommentar" ColumnName="Kommentar" />
+                <ScalarProperty Name="AId" ColumnName="AId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Utgifter">
+            <EntityTypeMapping TypeName="vITsModel.Utgifter">
+              <MappingFragment StoreEntitySet="Utgifter">
+                <ScalarProperty Name="UtId" ColumnName="UtId" />
+                <ScalarProperty Name="Typ" ColumnName="Typ" />
+                <ScalarProperty Name="Valuta" ColumnName="Valuta" />
+                <ScalarProperty Name="ValutaKurs" ColumnName="ValutaKurs" />
+                <ScalarProperty Name="Kvitto" ColumnName="Kvitto" />
+                <ScalarProperty Name="UtSumma" ColumnName="UtSumma" />
+                <ScalarProperty Name="Moms" ColumnName="Moms" />
+                <ScalarProperty Name="AId" ColumnName="AId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using System.Data.SqlClient;
+using vIT_System.GUI;
 
 namespace vIT_System
 {
@@ -145,7 +146,7 @@ namespace vIT_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form logintest = new Logintest(1);
+            Form logintest = new frmCompensation();
             logintest.Visible = true;
             Visible = false;
         }
