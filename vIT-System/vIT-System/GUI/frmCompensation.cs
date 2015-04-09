@@ -8,24 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace vIT_System
+namespace vIT_System.GUI
 {
-    public partial class Login : Form
+    public partial class frmCompensation : Form
     {
-        public Login()
+        public frmCompensation()
         {
             InitializeComponent();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            string userName = txtUsername.Text;
-            string passWord = txtPassword.Text;
-            string sql = "";
-
-
+            DialogResult result = openFileDialog1.ShowDialog();
+          //  string file = openFileDialog1.FileName;
+            
         }
-
-
     }
 }
