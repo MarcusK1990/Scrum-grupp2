@@ -42,6 +42,7 @@ namespace vIT_System.Rapport
 
         private void button1_Click(object sender, EventArgs e)
         {
+            gridAnsokning.Refresh();
             DataTable dt = createTestDataTable();
 
             gridAnsokning.DataSource = dt;

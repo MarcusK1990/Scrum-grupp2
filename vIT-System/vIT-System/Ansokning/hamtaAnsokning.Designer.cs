@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.gridAnsokning = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAnsokning = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridAnsokning)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,22 +41,22 @@
             this.gridAnsokning.Size = new System.Drawing.Size(535, 219);
             this.gridAnsokning.TabIndex = 0;
             // 
-            // button1
+            // btnAnsokning
             // 
-            this.button1.Location = new System.Drawing.Point(231, 312);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAnsokning.Location = new System.Drawing.Point(220, 312);
+            this.btnAnsokning.Name = "btnAnsokning";
+            this.btnAnsokning.Size = new System.Drawing.Size(119, 23);
+            this.btnAnsokning.TabIndex = 1;
+            this.btnAnsokning.Text = "Se ansökningar";
+            this.btnAnsokning.UseVisualStyleBackColor = true;
+            this.btnAnsokning.Click += new System.EventHandler(this.button1_Click);
             // 
             // hamtaAnsokning
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(559, 388);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAnsokning);
             this.Controls.Add(this.gridAnsokning);
             this.Name = "hamtaAnsokning";
             this.Text = "hamtaAnsokning";
@@ -68,7 +68,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView gridAnsokning;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAnsokning;
 
     }
 }
