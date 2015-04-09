@@ -50,6 +50,25 @@ namespace vIT_System
 
             bool foundMatch = false;
 
+            bool foundError = false;
+            string felMeddelande = "Följande fel har uppstått ";
+
+            if (txtUsername.Text.Equals(""))
+            {
+                felMeddelande = felMeddelande + "\n Fältet för användarnamn är tomt!";
+                foundError = true;
+            }
+            if (txtPassword.Text.Equals(""))
+            {
+                felMeddelande = felMeddelande + "\n Fältet för lösenord är tomt!";
+                foundError = true;
+            }
+            if (foundError)
+            {
+                MessageBox.Show(felMeddelande);
+                return;
+            }
+
             foreach (DataRow dr in dt.Rows)
             {
                 if (dr["username"].ToString().Equals(txtUsername.Text))
@@ -81,7 +100,9 @@ namespace vIT_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Form1 form = new Form1();
+            form.Visible = true;
+            Visible = false;
         }
 
 
