@@ -31,6 +31,11 @@ namespace vIT_System
         {
 
         }
+
+        private void Logintest_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
         
 
     }

@@ -55,6 +55,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "Logintest";
             this.Text = "Logintest";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Logintest_FormClosing);
             this.Load += new System.EventHandler(this.Logintest_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
