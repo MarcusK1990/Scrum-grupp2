@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace vIT_System
 {
-    static class ApplicationMode
+    public static class ApplicationMode
     {
         public enum Mode
         {
