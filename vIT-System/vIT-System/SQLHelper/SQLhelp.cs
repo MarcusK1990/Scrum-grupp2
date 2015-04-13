@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,12 +13,13 @@ namespace vIT_System
     {
         public static void SqlConnect()
         {
-            using (SqlConnection sql = new SqlConnection("LÄGG TILL PARAMETRAR"))
+            using (SqlConnection sql = new SqlConnection("LÄGG TILL CONNECTIONSTRING"))
             {
                 try
                 {
                     sql.Open();
                     MessageBox.Show("Funka");
+                    SqlQuery("Insert into test values (2)");
                 }
                 catch(Exception ex)
                 {
