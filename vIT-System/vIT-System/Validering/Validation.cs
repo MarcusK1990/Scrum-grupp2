@@ -36,7 +36,7 @@ namespace vIT_System
         /// <returns>Boolean</returns>
         public static bool IsEmpty(string str)
         {
-            return (str.Length == 0) ? true : false;
+            return String.IsNullOrWhiteSpace(str);
         }
         /// <summary>
         /// Testa om en sträng följer formatet [text]@[text].[text]

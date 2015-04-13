@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using vIT_System.XmlRelaterat;
+using vIT_System.Validering;
 
 namespace vIT_System.GUI
 {
     public partial class frmCompensation : Form
     {
         public List<Utgift> totalOutpoison;
-        
+                
         public frmCompensation()
         {
             InitializeComponent();
@@ -156,6 +157,12 @@ namespace vIT_System.GUI
             {
                 MessageBox.Show(felMedelande);
             }
+
+            
+
+            // Önskedrömmen -->
+            //ValidationCheck.checkValidering(tbEfterNamn, "tom", "siffror", "längre", "efternamn");
+
            
            
         }
@@ -165,6 +172,26 @@ namespace vIT_System.GUI
             tbEmail.Enabled = true;
             tbForNamn.Enabled = true;
             tbEfterNamn.Enabled = true;
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            var felmeddelanden = "";
+            var f1 = "Följande fel har uppstått: \n";
+            ValidationCheck.checkValidering(tbEfterNamn, "tom", "efternamn");
+            ValidationCheck.checkValidering(tbEfterNamn, "längre", "efternamn");
+            ValidationCheck.checkValidering(tbEfterNamn, "siffor", "efternamn");
+
+            ValidationCheck.checkValidering(tbForNamn, "tom", "förnamn");
+            ValidationCheck.checkValidering(tbForNamn, "längre", "förnamn");
+            ValidationCheck.checkValidering(tbForNamn, "siffor", "förnamn");
+
+            ValidationCheck.checkValidering(tbEmail, "tom", "email");
+            ValidationCheck.checkValidering(tbEmail, "längre", "email");
+            ValidationCheck.checkValidering(tbEmail, "email", "email");
+
+            felmeddelanden = ValidationCheck.rickardsträng;
+            MessageBox.Show(f1 + felmeddelanden);
         }
     }
 }
