@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace vIT_System
 {
-    class SQLhelp
+    static class SQLhelp
     {
-        public void SqlConnect()
+        public static void SqlConnect()
         {
             using (SqlConnection sql = new SqlConnection("LÄGG TILL PARAMETRAR"))
             {
@@ -26,7 +26,7 @@ namespace vIT_System
             }
         }
 
-        public void SqlQuery(String query)
+        public static void SqlQuery(String query)
         {
             try
             {
