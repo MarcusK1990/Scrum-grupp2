@@ -28,6 +28,8 @@ namespace vIT_System.XmlRelaterat
             
         }
     
+        public CompensationModel()
+        { }
     }
    
     
