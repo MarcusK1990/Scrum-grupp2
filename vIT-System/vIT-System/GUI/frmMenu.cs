@@ -12,9 +12,20 @@ namespace vIT_System.GUI
 {
     public partial class frmMenu : Form
     {
+        private string MenyForNamn { get; set; }
+        private string MenyEfterNamn { get; set; }
+        private string MenyEmail { get; set; }
         public frmMenu()
         {
             InitializeComponent();
+        }
+
+        public frmMenu(string Namn, string Efternamn, string Email)
+        {
+            InitializeComponent();
+            MenyForNamn = Namn;
+            MenyEfterNamn = Efternamn;
+            MenyEmail = Email;
         }
 
         private void skapaFörskottsansökanToolStripMenuItem_Click(object sender, EventArgs e)
@@ -25,7 +36,7 @@ namespace vIT_System.GUI
 
         private void mItemTravel_Click(object sender, EventArgs e)
         {
-            frmCompensation form = new frmCompensation();
+            frmCompensation form = new frmCompensation(MenyEmail, MenyForNamn, MenyEfterNamn);
             form.Show();
         }
 
