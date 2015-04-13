@@ -14,10 +14,12 @@ namespace vIT_System.GUI
     public partial class frmCompensation : Form
     {
         public List<Utgift> totalOutpoison;
+        
         public frmCompensation()
         {
             InitializeComponent();
-            totalOutpoison = new List<Utgift>(); 
+            totalOutpoison = new List<Utgift>();
+
         }
         public frmCompensation(string email, string namn, string efternamn)
         {
@@ -26,8 +28,10 @@ namespace vIT_System.GUI
             tbEmail.Text = email;
             tbForNamn.Text = namn;
             tbEfterNamn.Text = efternamn;
+            
         
         }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -70,7 +74,9 @@ namespace vIT_System.GUI
 
         private void btnSparaUtkast_Click(object sender, EventArgs e)
         {
+            checkValidering();
             var äcksämäll = new Xmelliserare();
+            
             var utkast = new CompensationModel
             {
                 eMail = tbEmail.Text,
@@ -87,13 +93,78 @@ namespace vIT_System.GUI
                 middag = Convert.ToInt32(tbMiddag.Text),
                 utgifter = totalOutpoison
             };
-
+            
             äcksämäll.SkrivXmlCompensationModel(utkast);
 
             var asd = new CompensationModel(totalOutpoison);
             Console.WriteLine("TotalOutpoison Count: " + totalOutpoison.Count);
             Console.WriteLine("asd listan Count: " + asd.utgifter.Count);
 
+        }
+
+        private void checkValidering()
+        {
+            Boolean fel = false;
+            string felMedelande = "Följande fel har uppstått: \n";
+
+            if (Validation.IsEmpty(tbEmail.Text))
+            {
+                fel = true;
+                felMedelande += "\n• Fältet för Email är tomt.";
+            }
+            if (Validation.IsEmailAddress(tbEmail.Text))
+            {
+                fel = true;
+                felMedelande += "\n• Fältet för Email är inte i rätt format.";
+            }
+            if (Validation.IsLongerThan(tbEmail.Text, 255))
+            {
+                fel = true;
+                felMedelande += "\n• Fältet för Email innehåller för många tecken.";
+            }
+            if (Validation.IsEmpty(tbForNamn.Text))
+            {
+                fel = true;
+                felMedelande += "\n• Fältet för förnamn är tomt.";
+            }
+            if (Validation.IsNumeric(tbForNamn.Text))
+            {
+                fel = true;
+                felMedelande += "\n• Fältet för förnamn innehåller siffror.";
+            }
+            if (Validation.IsLongerThan(tbForNamn.Text, 255))
+            {
+                fel = true;
+                felMedelande += "\n• Fältet för förnamn innehåller för många tecken.";
+            }
+            if (Validation.IsEmpty(tbEfterNamn.Text))
+            {
+                fel = true;
+                felMedelande += "\n• Fältet för efternamn är tomt.";
+            }
+            if (Validation.IsNumeric(tbEfterNamn.Text))
+            {
+                fel = true;
+                felMedelande += "\n• Fältet för efternamn innehåller siffror.";
+            }
+            if (Validation.IsLongerThan(tbEfterNamn.Text, 255))
+            {
+                fel = true;
+                felMedelande += "\n• Fältet för efternamn innehåller för många tecken.";
+            }
+            if (fel)
+            {
+                MessageBox.Show(felMedelande);
+            }
+           
+           
+        }
+
+        private void frmCompensation_Load(object sender, EventArgs e)
+        {
+            tbEmail.Enabled = true;
+            tbForNamn.Enabled = true;
+            tbEfterNamn.Enabled = true;
         }
     }
 }

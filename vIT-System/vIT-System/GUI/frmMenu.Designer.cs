@@ -33,6 +33,7 @@
             this.mItemPreShoot = new System.Windows.Forms.ToolStripMenuItem();
             this.mItemTravel = new System.Windows.Forms.ToolStripMenuItem();
             this.mItemMyAppli = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,11 +78,21 @@
             this.mItemMyAppli.Text = "Mina ansökningar";
             this.mItemMyAppli.Click += new System.EventHandler(this.mItemMyAppli_Click);
             // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Location = new System.Drawing.Point(101, 92);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(0, 39);
+            this.lblStatus.TabIndex = 1;
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMenu";
@@ -100,5 +111,6 @@
         private System.Windows.Forms.ToolStripMenuItem mItemPreShoot;
         private System.Windows.Forms.ToolStripMenuItem mItemTravel;
         private System.Windows.Forms.ToolStripMenuItem mItemMyAppli;
+        private System.Windows.Forms.Label lblStatus;
     }
 }

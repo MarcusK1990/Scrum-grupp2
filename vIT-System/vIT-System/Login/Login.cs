@@ -18,6 +18,7 @@ namespace vIT_System
         public string email { get; set; }
         public string namn { get; set; }
         public string efterNamn { get; set; }
+        ApplicationMode.Mode mode { get; set; }
 
         public Login()
         {
@@ -80,7 +81,7 @@ namespace vIT_System
             string username = "";
             string password = "";
             string id = "";
-            ApplicationMode.Mode mode = ApplicationMode.Mode.STANDARD;
+            
 
             bool foundMatch = false;
 
@@ -165,7 +166,7 @@ namespace vIT_System
             efterNamn = username.Substring(2, 5);
             email = username + "@email.com";
 
-            var menyn = new frmMenu(namn, efterNamn, email);
+            var menyn = new frmMenu(namn, efterNamn, email, mode);
             menyn.Visible = true;
             this.Visible = false;
 
@@ -173,7 +174,9 @@ namespace vIT_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form logintest = new frmMenu();
+            
+            mode = ApplicationMode.Mode.OFFLINE;
+            Form logintest = new frmMenu(mode);
             logintest.Visible = true;
             Visible = false;
         }

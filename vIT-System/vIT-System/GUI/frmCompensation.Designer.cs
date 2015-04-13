@@ -598,6 +598,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmCompensation";
             this.Text = "reseersättning";
+            this.Load += new System.EventHandler(this.frmCompensation_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

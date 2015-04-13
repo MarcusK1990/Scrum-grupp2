@@ -15,17 +15,36 @@ namespace vIT_System.GUI
         private string MenyForNamn { get; set; }
         private string MenyEfterNamn { get; set; }
         private string MenyEmail { get; set; }
-        public frmMenu()
+        private ApplicationMode.Mode MenyMode { get; set; }
+        public frmMenu(ApplicationMode.Mode mode)
         {
             InitializeComponent();
+            if (mode == ApplicationMode.Mode.OFFLINE)
+            {
+                lblStatus.Text = "Offline";
+            }
         }
 
-        public frmMenu(string Namn, string Efternamn, string Email)
+        public frmMenu(string Namn, string Efternamn, string Email, ApplicationMode.Mode mode)
         {
             InitializeComponent();
+            if (mode == ApplicationMode.Mode.OFFLINE)
+            {
+                lblStatus.Text = "Offline";
+            }
+            if (mode == ApplicationMode.Mode.ADMINISTRATOR)
+            {
+                lblStatus.Text = "Admin";
+            }
+            if (mode == ApplicationMode.Mode.STANDARD)
+            {
+                lblStatus.Text = "Konsult";
+            }
             MenyForNamn = Namn;
             MenyEfterNamn = Efternamn;
             MenyEmail = Email;
+            MenyMode = mode;
+
         }
 
         private void skapaFörskottsansökanToolStripMenuItem_Click(object sender, EventArgs e)
@@ -36,8 +55,16 @@ namespace vIT_System.GUI
 
         private void mItemTravel_Click(object sender, EventArgs e)
         {
+            if (MenyMode == ApplicationMode.Mode.STANDARD) { 
             frmCompensation form = new frmCompensation(MenyEmail, MenyForNamn, MenyEfterNamn);
             form.Show();
+        
+            }
+            if (MenyMode == ApplicationMode.Mode.OFFLINE)
+            {
+                frmCompensation form = new frmCompensation();
+                form.Show();               
+            }
         }
 
         private void mItemMyAppli_Click(object sender, EventArgs e)
