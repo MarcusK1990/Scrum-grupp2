@@ -8,27 +8,35 @@ using System.Windows.Forms;
 
 namespace vIT_System
 {
-    class SQLhelp
+    static class SQLhelp
     {
-        public void SqlConnect()
+        public static void SqlConnect()
         {
             using (SqlConnection sql = new SqlConnection("LÄGG TILL PARAMETRAR"))
             {
                 try
                 {
                     sql.Open();
+                    MessageBox.Show("Funka");
                 }
                 catch(Exception ex)
                 {
-                    MessageBox.Show("SQLfel: \n" + ex);
+                    MessageBox.Show("SQLfel: \n" + ex.ToString());
                 }
             }
         }
 
-        public void SqlQuery(String query)
+        public static void SqlQuery(String query)
         {
-            SqlCommand comm = new SqlCommand(query);
-            comm.ExecuteNonQuery();
+            try
+            {
+                SqlCommand comm = new SqlCommand(query);
+                comm.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }
