@@ -10,7 +10,7 @@ namespace vIT_System
 {
     class SQLhelp
     {
-        public static void SqlConnect()
+        public void SqlConnect()
         {
             using (SqlConnection sql = new SqlConnection("LÄGG TILL PARAMETRAR"))
             {
@@ -25,7 +25,7 @@ namespace vIT_System
             }
         }
 
-        public static void SqlQuery(String query)
+        public void SqlQuery(String query)
         {
             SqlCommand comm = new SqlCommand(query);
             comm.ExecuteNonQuery();
