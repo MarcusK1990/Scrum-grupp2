@@ -190,6 +190,8 @@ namespace vIT_System.GUI
             ValidationCheck.checkValidering(tbEmail, "längre", "email");
             ValidationCheck.checkValidering(tbEmail, "email", "email");
 
+            //VALIDERING FÖR SIFFROR ÄR FEL. OM STRÄNGEN ÄR TOM SÄGER IsNumeric ATT DEN INNEHÅLLER SIFFROR.
+
             felmeddelanden = ValidationCheck.rickardsträng;
             MessageBox.Show(f1 + felmeddelanden);
         }
