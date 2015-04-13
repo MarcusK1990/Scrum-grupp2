@@ -13,11 +13,20 @@ namespace vIT_System.GUI
 {
     public partial class frmCompensation : Form
     {
-        public List<utgift> totalOutpoison;
+        public List<Utgift> totalOutpoison;
         public frmCompensation()
         {
             InitializeComponent();
-            totalOutpoison = new List<utgift>(); 
+            totalOutpoison = new List<Utgift>(); 
+        }
+        public frmCompensation(string email, string namn, string efternamn)
+        {
+            InitializeComponent();
+            totalOutpoison = new List<Utgift>();
+            tbEmail.Text = email;
+            tbForNamn.Text = namn;
+            tbEfterNamn.Text = efternamn;
+        
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -31,7 +40,7 @@ namespace vIT_System.GUI
         {
             double parsedBelopp = 0;
             double.TryParse(tbBelopp.Text, out parsedBelopp);
-            var nyUtgift = new utgift
+            var nyUtgift = new Utgift
             {
                 belopp = parsedBelopp,
                 andaMal = tbAndaMal.Text,
@@ -57,6 +66,34 @@ namespace vIT_System.GUI
                 total += totalOutpoison[i].belopp;
             }
             labelTotal.Text = total.ToString();
+        }
+
+        private void btnSparaUtkast_Click(object sender, EventArgs e)
+        {
+            var äcksämäll = new Xmelliserare();
+            var utkast = new CompensationModel
+            {
+                eMail = tbEmail.Text,
+                forNamn = tbForNamn.Text,
+                eftNamn = tbEfterNamn.Text,
+                //Bild nånting hur fan man nu gör det
+                milErsattning = Convert.ToInt32(tbMilErsattning.Text),
+                utresa = dtpUtResa.Value,
+                hemresa = dtpHemResa.Value,
+                semesterDagar = tbSemesterdagar.Text,
+                land = cbLand.SelectedItem.ToString(),
+                frukost = Convert.ToInt32(tbFrukost.Text),
+                lunch = Convert.ToInt32(tbLunch.Text),
+                middag = Convert.ToInt32(tbMiddag.Text),
+                utgifter = totalOutpoison
+            };
+
+            äcksämäll.SkrivXmlCompensationModel(utkast);
+
+            var asd = new CompensationModel(totalOutpoison);
+            Console.WriteLine("TotalOutpoison Count: " + totalOutpoison.Count);
+            Console.WriteLine("asd listan Count: " + asd.utgifter.Count);
+
         }
     }
 }

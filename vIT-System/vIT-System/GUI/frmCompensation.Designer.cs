@@ -32,14 +32,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.tbFornamn = new System.Windows.Forms.TextBox();
-            this.tbEfternamn = new System.Windows.Forms.TextBox();
-            this.dTPUtresa = new System.Windows.Forms.DateTimePicker();
-            this.dTPHemresa = new System.Windows.Forms.DateTimePicker();
+            this.tbForNamn = new System.Windows.Forms.TextBox();
+            this.tbEfterNamn = new System.Windows.Forms.TextBox();
+            this.dtpUtResa = new System.Windows.Forms.DateTimePicker();
+            this.dtpHemResa = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.tbEMail = new System.Windows.Forms.TextBox();
+            this.tbEmail = new System.Windows.Forms.TextBox();
             this.tbBelopp = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnKvitto = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -76,7 +76,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnLaggTillMilersattning = new System.Windows.Forms.Button();
-            this.tbMilersattning = new System.Windows.Forms.TextBox();
+            this.tbMilErsattning = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.btnSparaUtkast = new System.Windows.Forms.Button();
             this.btnSkickaAnsokan = new System.Windows.Forms.Button();
@@ -123,33 +123,35 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Hemresa";
             // 
-            // tbFornamn
+            // tbForNamn
             // 
-            this.tbFornamn.Location = new System.Drawing.Point(130, 66);
-            this.tbFornamn.Name = "tbFornamn";
-            this.tbFornamn.Size = new System.Drawing.Size(155, 20);
-            this.tbFornamn.TabIndex = 4;
+            this.tbForNamn.Enabled = false;
+            this.tbForNamn.Location = new System.Drawing.Point(130, 66);
+            this.tbForNamn.Name = "tbForNamn";
+            this.tbForNamn.Size = new System.Drawing.Size(155, 20);
+            this.tbForNamn.TabIndex = 4;
             // 
-            // tbEfternamn
+            // tbEfterNamn
             // 
-            this.tbEfternamn.Location = new System.Drawing.Point(130, 103);
-            this.tbEfternamn.Name = "tbEfternamn";
-            this.tbEfternamn.Size = new System.Drawing.Size(155, 20);
-            this.tbEfternamn.TabIndex = 5;
+            this.tbEfterNamn.Enabled = false;
+            this.tbEfterNamn.Location = new System.Drawing.Point(130, 103);
+            this.tbEfterNamn.Name = "tbEfterNamn";
+            this.tbEfterNamn.Size = new System.Drawing.Size(155, 20);
+            this.tbEfterNamn.TabIndex = 5;
             // 
-            // dTPUtresa
+            // dtpUtResa
             // 
-            this.dTPUtresa.Location = new System.Drawing.Point(67, 33);
-            this.dTPUtresa.Name = "dTPUtresa";
-            this.dTPUtresa.Size = new System.Drawing.Size(145, 20);
-            this.dTPUtresa.TabIndex = 6;
+            this.dtpUtResa.Location = new System.Drawing.Point(67, 33);
+            this.dtpUtResa.Name = "dtpUtResa";
+            this.dtpUtResa.Size = new System.Drawing.Size(145, 20);
+            this.dtpUtResa.TabIndex = 6;
             // 
-            // dTPHemresa
+            // dtpHemResa
             // 
-            this.dTPHemresa.Location = new System.Drawing.Point(67, 64);
-            this.dTPHemresa.Name = "dTPHemresa";
-            this.dTPHemresa.Size = new System.Drawing.Size(145, 20);
-            this.dTPHemresa.TabIndex = 7;
+            this.dtpHemResa.Location = new System.Drawing.Point(67, 64);
+            this.dtpHemResa.Name = "dtpHemResa";
+            this.dtpHemResa.Size = new System.Drawing.Size(145, 20);
+            this.dtpHemResa.TabIndex = 7;
             // 
             // label5
             // 
@@ -160,12 +162,13 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "E-Mail";
             // 
-            // tbEMail
+            // tbEmail
             // 
-            this.tbEMail.Location = new System.Drawing.Point(130, 32);
-            this.tbEMail.Name = "tbEMail";
-            this.tbEMail.Size = new System.Drawing.Size(155, 20);
-            this.tbEMail.TabIndex = 9;
+            this.tbEmail.Enabled = false;
+            this.tbEmail.Location = new System.Drawing.Point(130, 32);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(155, 20);
+            this.tbEmail.TabIndex = 9;
             // 
             // tbBelopp
             // 
@@ -174,15 +177,15 @@
             this.tbBelopp.Size = new System.Drawing.Size(81, 20);
             this.tbBelopp.TabIndex = 11;
             // 
-            // button1
+            // btnKvitto
             // 
-            this.button1.Location = new System.Drawing.Point(54, 108);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Bifoga kvitto";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnKvitto.Location = new System.Drawing.Point(54, 108);
+            this.btnKvitto.Name = "btnKvitto";
+            this.btnKvitto.Size = new System.Drawing.Size(75, 23);
+            this.btnKvitto.TabIndex = 12;
+            this.btnKvitto.Text = "Bifoga kvitto";
+            this.btnKvitto.UseVisualStyleBackColor = true;
+            this.btnKvitto.Click += new System.EventHandler(this.button1_Click);
             // 
             // openFileDialog1
             // 
@@ -200,7 +203,7 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.tbAndaMal);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnKvitto);
             this.groupBox1.Controls.Add(this.tbBelopp);
             this.groupBox1.Location = new System.Drawing.Point(39, 147);
             this.groupBox1.Name = "groupBox1";
@@ -320,10 +323,10 @@
             this.groupBox2.Controls.Add(this.btnLaggTillResa);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.tbSemesterdagar);
-            this.groupBox2.Controls.Add(this.dTPUtresa);
+            this.groupBox2.Controls.Add(this.dtpUtResa);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.dTPHemresa);
+            this.groupBox2.Controls.Add(this.dtpHemResa);
             this.groupBox2.Location = new System.Drawing.Point(386, 15);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(444, 126);
@@ -513,7 +516,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.btnLaggTillMilersattning);
-            this.groupBox3.Controls.Add(this.tbMilersattning);
+            this.groupBox3.Controls.Add(this.tbMilErsattning);
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Location = new System.Drawing.Point(145, 358);
             this.groupBox3.Name = "groupBox3";
@@ -531,12 +534,12 @@
             this.btnLaggTillMilersattning.Text = "Lägg till";
             this.btnLaggTillMilersattning.UseVisualStyleBackColor = true;
             // 
-            // tbMilersattning
+            // tbMilErsattning
             // 
-            this.tbMilersattning.Location = new System.Drawing.Point(61, 27);
-            this.tbMilersattning.Name = "tbMilersattning";
-            this.tbMilersattning.Size = new System.Drawing.Size(68, 20);
-            this.tbMilersattning.TabIndex = 23;
+            this.tbMilErsattning.Location = new System.Drawing.Point(61, 27);
+            this.tbMilErsattning.Name = "tbMilErsattning";
+            this.tbMilErsattning.Size = new System.Drawing.Size(68, 20);
+            this.tbMilErsattning.TabIndex = 23;
             // 
             // label14
             // 
@@ -555,6 +558,7 @@
             this.btnSparaUtkast.TabIndex = 28;
             this.btnSparaUtkast.Text = "Spara utkast";
             this.btnSparaUtkast.UseVisualStyleBackColor = true;
+            this.btnSparaUtkast.Click += new System.EventHandler(this.btnSparaUtkast_Click);
             // 
             // btnSkickaAnsokan
             // 
@@ -586,10 +590,10 @@
             this.Controls.Add(this.groaupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.tbEMail);
+            this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.tbEfternamn);
-            this.Controls.Add(this.tbFornamn);
+            this.Controls.Add(this.tbEfterNamn);
+            this.Controls.Add(this.tbForNamn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmCompensation";
@@ -613,14 +617,14 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tbFornamn;
-        private System.Windows.Forms.TextBox tbEfternamn;
-        private System.Windows.Forms.DateTimePicker dTPUtresa;
-        private System.Windows.Forms.DateTimePicker dTPHemresa;
+        private System.Windows.Forms.TextBox tbForNamn;
+        private System.Windows.Forms.TextBox tbEfterNamn;
+        private System.Windows.Forms.DateTimePicker dtpUtResa;
+        private System.Windows.Forms.DateTimePicker dtpHemResa;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox tbEMail;
+        private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.TextBox tbBelopp;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnKvitto;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cbValuta;
@@ -647,7 +651,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnLaggTillMilersattning;
-        private System.Windows.Forms.TextBox tbMilersattning;
+        private System.Windows.Forms.TextBox tbMilErsattning;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button btnLaggTillAvdrag;

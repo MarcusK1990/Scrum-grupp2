@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace vIT_System.XmlRelaterat
 {
-    public class utgift
+    public class Utgift
     {
         public int utgiftID { get; set; }
         public double belopp { get; set; }

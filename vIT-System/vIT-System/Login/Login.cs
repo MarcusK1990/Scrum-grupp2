@@ -15,6 +15,10 @@ namespace vIT_System
 {
     public partial class Login : Form
     {
+        public string email { get; set; }
+        public string namn { get; set; }
+        public string efterNamn { get; set; }
+
         public Login()
         {
             InitializeComponent();
@@ -142,11 +146,19 @@ namespace vIT_System
             form.Visible = true;
             Visible = false;
 
+            namn = username.Substring(0, 2);
+            efterNamn = username.Substring(2, 5);
+            email = username + "@email.com";
+
+            var menyn = new frmMenu(namn, efterNamn, email);
+            menyn.Visible = true;
+            this.Visible = false;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form logintest = new frmCompensation();
+            Form logintest = new frmMenu();
             logintest.Visible = true;
             Visible = false;
         }
