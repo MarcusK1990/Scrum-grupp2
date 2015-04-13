@@ -14,6 +14,7 @@ namespace vIT_System
     
     public partial class Forskott
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Forskott()
         {
             this.Ansokan = new HashSet<Ansokan>();
@@ -24,6 +25,7 @@ namespace vIT_System
         public string Beskrivning { get; set; }
         public Nullable<int> Id { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ansokan> Ansokan { get; set; }
         public virtual Anstallda Anstallda { get; set; }
     }
