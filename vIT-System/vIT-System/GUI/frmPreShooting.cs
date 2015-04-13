@@ -25,7 +25,8 @@ namespace vIT_System.GUI
         //Posta innehållet i formuläret till databasen
         private void btnSendPre_Click(object sender, EventArgs e)
         {
-
+           var anst = TestaLiteSql.Q1();
+           tbSum.Text = anst.Fnamn.ToString();
         }
     }
 }

@@ -14,6 +14,7 @@ namespace vIT_System
     
     public partial class Anstallda
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Anstallda()
         {
             this.Ansokan = new HashSet<Ansokan>();
@@ -28,7 +29,9 @@ namespace vIT_System
         public string Mail { get; set; }
         public string Chef { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ansokan> Ansokan { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Forskott> Forskott { get; set; }
     }
 }
