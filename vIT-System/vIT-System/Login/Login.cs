@@ -34,13 +34,13 @@ namespace vIT_System
 
             DataRow foo = dataTable.NewRow();
             foo["id"] = "0";
-            foo["username"] = "admin";
+            foo["username"] = "admin@example.com";
             foo["password"] = "pass123";
             dataTable.Rows.Add(foo);
 
             foo = dataTable.NewRow();
             foo["id"] = "1";
-            foo["username"] = "chefen22";
+            foo["username"] = "adam@edumail.org";
             foo["password"] = "qwerty";
             dataTable.Rows.Add(foo);
 
@@ -80,21 +80,36 @@ namespace vIT_System
             string username = "";
             string password = "";
             string id = "";
-            int mode = 0;
+            ApplicationMode.Mode mode = ApplicationMode.Mode.STANDARD;
 
             bool foundMatch = false;
 
             bool foundError = false;
-            string felMeddelande = "Följande fel har uppstått ";
+            string felMeddelande = "Följande fel har uppstått:\n";
 
-            if (txtUsername.Text.Equals(""))
+            if (Validation.IsEmpty(txtUsername.Text))
             {
-                felMeddelande = felMeddelande + "\n Fältet för användarnamn är tomt!";
+                felMeddelande = felMeddelande + "\n• Fältet för användarnamn måste vara ifyllt";
                 foundError = true;
             }
-            if (txtPassword.Text.Equals(""))
+            if (Validation.IsLongerThan(txtUsername.Text, 255))
             {
-                felMeddelande = felMeddelande + "\n Fältet för lösenord är tomt!";
+                felMeddelande = felMeddelande + "\n• Användarnamn måste vara kortare än 256 tecken";
+                foundError = true;
+            }
+            if (!Validation.IsEmailAddress(txtUsername.Text))
+            {
+                felMeddelande = felMeddelande + "\n• Användarnamn måste vara en mailadress";
+                foundError = true;
+            }
+            if (Validation.IsEmpty(txtPassword.Text))
+            {
+                felMeddelande = felMeddelande + "\n• Fältet för lösenord måste vara ifyllt";
+                foundError = true;
+            }
+            if (Validation.IsLongerThan(txtPassword.Text, 255))
+            {
+                felMeddelande = felMeddelande + "\n• Lösenord måste vara kortare än 256 tecken";
                 foundError = true;
             }
             if (foundError)
@@ -139,7 +154,7 @@ namespace vIT_System
                 {
                     foundChef = true;
                     // sätt igång chef-läge
-                    mode = 2;
+                    mode = ApplicationMode.Mode.ADMINISTRATOR;
                 }
             }
             Logintest form = new Logintest(mode);
