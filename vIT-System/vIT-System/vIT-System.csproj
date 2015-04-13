@@ -104,6 +104,7 @@
       <DependentUpon>hamtaAnsokning.cs</DependentUpon>
     </Compile>
     <Compile Include="SQLHelper\SQLhelp.cs" />
+    <Compile Include="XmlRelaterat\utgift.cs" />
     <EmbeddedResource Include="Ansokning\hamtaAnsokning.resx">
       <DependentUpon>hamtaAnsokning.cs</DependentUpon>
     </EmbeddedResource>
