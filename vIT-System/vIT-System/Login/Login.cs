@@ -15,6 +15,7 @@ namespace vIT_System
 {
     public partial class Login : Form
     {
+        SQLhelp sqlh = new SQLhelp();
         public Login()
         {
             InitializeComponent();
@@ -148,7 +149,7 @@ namespace vIT_System
         {
             Form logintest = new frmCompensation();
             logintest.Visible = true;
-            Visible = false;
+            Visible = false;    
         }
 
 
