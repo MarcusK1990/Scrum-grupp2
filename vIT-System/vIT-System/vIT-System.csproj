@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enum\ApplicationMode.cs" />
     <Compile Include="GUI\frmCompensation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +105,7 @@
       <DependentUpon>hamtaAnsokning.cs</DependentUpon>
     </Compile>
     <Compile Include="SQLHelper\SQLhelp.cs" />
+    <Compile Include="Validering\Validation.cs" />
     <Compile Include="XmlRelaterat\utgift.cs" />
     <EmbeddedResource Include="Ansokning\hamtaAnsokning.resx">
       <DependentUpon>hamtaAnsokning.cs</DependentUpon>

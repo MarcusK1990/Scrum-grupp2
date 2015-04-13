@@ -12,16 +12,16 @@ namespace vIT_System
 {
     public partial class Logintest : Form
     {
-        public Logintest(int mode)
+        public Logintest(ApplicationMode.Mode mode)
         {
             InitializeComponent();
-            if (mode == 1)
+            if (mode == ApplicationMode.Mode.OFFLINE)
             {
                 MessageBox.Show("Offline");
                 textBox1.Enabled = false;
                 textBox2.Enabled = false;
             }
-            if (mode == 2)
+            if (mode == ApplicationMode.Mode.ADMINISTRATOR)
             {
                 textBox1.BackColor = Color.Aqua;
             }
