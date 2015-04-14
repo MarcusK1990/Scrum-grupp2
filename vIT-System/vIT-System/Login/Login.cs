@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using System.Data.SqlClient;
 using vIT_System.GUI;
+using vIT_System.SQL;
 
 namespace vIT_System
 {
@@ -20,9 +21,12 @@ namespace vIT_System
         public string efterNamn { get; set; }
         ApplicationMode.Mode mode { get; set; }
 
+        private SqlHelper sqlHelper;
+
         public Login()
         {
             InitializeComponent();
+            sqlHelper = new SqlHelper("Database\\vITs.mdf");
         }
 
         private DataTable createTestDataTable()
@@ -75,7 +79,7 @@ namespace vIT_System
             // 7: godkänn inloggning och öppna huvudmeny. passa vidare lägesvärdet som parameter
 
             // Skapa en test-DataTable
-            DataTable dt = createTestDataTable();
+            DataTable dt = sqlHelper.Fetch("SELECT * FROM ANSTALLDA");
 
             // Hitta matchande användarnamn i DataTable
             string username = "";
@@ -121,11 +125,12 @@ namespace vIT_System
 
             foreach (DataRow dr in dt.Rows)
             {
-                if (dr["username"].ToString().Equals(txtUsername.Text))
+                System.Diagnostics.Debug.WriteLine(dr["mail"].ToString());
+                if (dr["mail"].ToString().Equals(txtUsername.Text))
                 {
                     id = dr["id"].ToString();
-                    username = dr["username"].ToString();
-                    password = dr["password"].ToString();
+                    username = dr["mail"].ToString();
+                    password = dr["losenord"].ToString();
                     foundMatch = true;
                     break;
                 }
