@@ -153,6 +153,7 @@
     </Compile>
     <Compile Include="Validering\Validation.cs" />
     <Compile Include="Validering\ValidationCheck.cs" />
+    <Compile Include="XmlRelaterat\ComboboxItem.cs" />
     <Compile Include="XmlRelaterat\CompensationModel.cs" />
     <Compile Include="XmlRelaterat\Utgift.cs" />
     <Compile Include="XmlRelaterat\Xmelliserare.cs" />

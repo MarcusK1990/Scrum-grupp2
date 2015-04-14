@@ -75,13 +75,12 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnLaggTillMilersattning = new System.Windows.Forms.Button();
             this.tbMilErsattning = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.btnSparaUtkast = new System.Windows.Forms.Button();
             this.btnSkickaAnsokan = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnLaddaUtkast = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groaupBox3.SuspendLayout();
@@ -405,11 +404,11 @@
             // 
             // btnLaggTillAvdrag
             // 
-            this.btnLaggTillAvdrag.Location = new System.Drawing.Point(264, 29);
+            this.btnLaggTillAvdrag.Location = new System.Drawing.Point(180, 211);
             this.btnLaggTillAvdrag.Name = "btnLaggTillAvdrag";
-            this.btnLaggTillAvdrag.Size = new System.Drawing.Size(75, 23);
+            this.btnLaggTillAvdrag.Size = new System.Drawing.Size(151, 23);
             this.btnLaggTillAvdrag.TabIndex = 26;
-            this.btnLaggTillAvdrag.Text = "Lägg till";
+            this.btnLaggTillAvdrag.Text = "Uppdatera sammanställning";
             this.btnLaggTillAvdrag.UseVisualStyleBackColor = true;
             // 
             // label25
@@ -516,24 +515,14 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.btnLaggTillMilersattning);
             this.groupBox3.Controls.Add(this.tbMilErsattning);
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Location = new System.Drawing.Point(145, 358);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(172, 100);
+            this.groupBox3.Size = new System.Drawing.Size(172, 70);
             this.groupBox3.TabIndex = 18;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Milersättning";
-            // 
-            // btnLaggTillMilersattning
-            // 
-            this.btnLaggTillMilersattning.Location = new System.Drawing.Point(61, 53);
-            this.btnLaggTillMilersattning.Name = "btnLaggTillMilersattning";
-            this.btnLaggTillMilersattning.Size = new System.Drawing.Size(75, 23);
-            this.btnLaggTillMilersattning.TabIndex = 24;
-            this.btnLaggTillMilersattning.Text = "Lägg till";
-            this.btnLaggTillMilersattning.UseVisualStyleBackColor = true;
             // 
             // tbMilErsattning
             // 
@@ -563,12 +552,13 @@
             // 
             // btnSkickaAnsokan
             // 
-            this.btnSkickaAnsokan.Location = new System.Drawing.Point(709, 435);
+            this.btnSkickaAnsokan.Location = new System.Drawing.Point(709, 411);
             this.btnSkickaAnsokan.Name = "btnSkickaAnsokan";
-            this.btnSkickaAnsokan.Size = new System.Drawing.Size(109, 23);
+            this.btnSkickaAnsokan.Size = new System.Drawing.Size(109, 47);
             this.btnSkickaAnsokan.TabIndex = 29;
             this.btnSkickaAnsokan.Text = "Skicka ansökan";
             this.btnSkickaAnsokan.UseVisualStyleBackColor = true;
+            this.btnSkickaAnsokan.Click += new System.EventHandler(this.btnSkickaAnsokan_Click);
             // 
             // label27
             // 
@@ -579,22 +569,22 @@
             this.label27.TabIndex = 23;
             this.label27.Text = "AnsökningsID";
             // 
-            // button1
+            // btnLaddaUtkast
             // 
-            this.button1.Location = new System.Drawing.Point(280, 35);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 30;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnLaddaUtkast.Location = new System.Drawing.Point(489, 435);
+            this.btnLaddaUtkast.Name = "btnLaddaUtkast";
+            this.btnLaddaUtkast.Size = new System.Drawing.Size(75, 23);
+            this.btnLaddaUtkast.TabIndex = 31;
+            this.btnLaddaUtkast.Text = "Ladda utkast";
+            this.btnLaddaUtkast.UseVisualStyleBackColor = true;
+            this.btnLaddaUtkast.Click += new System.EventHandler(this.btnLaddaUtkast_Click);
             // 
             // frmCompensation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(863, 504);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnLaddaUtkast);
             this.Controls.Add(this.label27);
             this.Controls.Add(this.btnSkickaAnsokan);
             this.Controls.Add(this.btnSparaUtkast);
@@ -663,7 +653,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button btnLaggTillMilersattning;
         private System.Windows.Forms.TextBox tbMilErsattning;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label18;
@@ -679,7 +668,7 @@
         private System.Windows.Forms.Button btnSparaUtkast;
         private System.Windows.Forms.Button btnSkickaAnsokan;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnLaddaUtkast;
    
     }
 }
