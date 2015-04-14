@@ -140,7 +140,7 @@
     <Compile Include="Ansokning\hamtaAnsokning.Designer.cs">
       <DependentUpon>hamtaAnsokning.cs</DependentUpon>
     </Compile>
-    <Compile Include="SQLHelper\SQLhelp.cs" />
+    <Compile Include="SQL\SqlHelper.cs" />
     <Compile Include="TestaLiteSql.cs" />
     <Compile Include="Traktamente.cs">
       <DependentUpon>DataEntity.tt</DependentUpon>

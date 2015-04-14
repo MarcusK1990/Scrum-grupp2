@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using System.Data.SqlClient;
 using vIT_System.GUI;
+using vIT_System.SQL;
 
 namespace vIT_System
 {
@@ -20,9 +21,12 @@ namespace vIT_System
         public string efterNamn { get; set; }
         ApplicationMode.Mode mode { get; set; }
 
+        private SqlHelper sqlHelper;
+
         public Login()
         {
             InitializeComponent();
+            sqlHelper = new SqlHelper("Database\\vITs.mdf");
         }
 
         private DataTable createTestDataTable()
