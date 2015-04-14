@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace vIT_System.SQL
 {
-    class SqlHelper
+    public class SqlHelper
     {
         private string dbPath;
         private SqlConnection con;
