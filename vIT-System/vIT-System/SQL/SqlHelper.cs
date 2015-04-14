@@ -42,6 +42,11 @@ namespace vIT_System.SQL
                 System.Diagnostics.Debug.WriteLine("An error occurred:\n" + e.Message);
             }
         }
+        /// <summary>
+        /// Hämtar resultatet från en SQL-query i form av en DataTable
+        /// </summary>
+        /// <param name="query">Din SQL-query</param>
+        /// <returns>DataTable</returns>
         public DataTable Fetch(string query)
         {
             DataTable dt = new DataTable();
@@ -66,6 +71,30 @@ namespace vIT_System.SQL
             }
 
             return dt;
+        }
+        /// <summary>
+        /// Används för SQL-queries som ändrar på databasen utan att returnera data (t.ex. insert, alter, drop)
+        /// </summary>
+        /// <param name="query">Din SQL-query</param>
+        public void Modify(string query)
+        {
+            try
+            {
+                con.Open();
+
+                System.Diagnostics.Debug.WriteLine("Connected to DB");
+                cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+                System.Diagnostics.Debug.WriteLine("Successfully executed query");
+
+                con.Close();
+                System.Diagnostics.Debug.WriteLine("Closed connection to DB");
+
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("An error occurred:\n" + e.Message);
+            }
         }
     }
 }
