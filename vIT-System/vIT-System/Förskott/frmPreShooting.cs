@@ -31,35 +31,27 @@ namespace vIT_System.GUI
                 cbBoss.Items.Add(chef);
             }
 
+            //Fhämtar alla uppdrag som finns i databasen och fyller comboboxen
+            var uppdraglista = DataPreShooting.FillCbChooseUppdrag();
+            foreach (var uppd in uppdraglista)
+            {
+                cbChooseUppdrag.Items.Add(uppd);
+            }
+
         }
 
         //Posta innehållet i formuläret till databasen
         private void btnSendPre_Click(object sender, EventArgs e)
         {
-            var sqldb = new SqlConnection("Data Source=(localdb)\\v11.0;AttachDbFilename=C:\\Users\\sofia\\Source\\Repos\\Scrum-grupp2\\vIT-System\\vIT-System\\Database\\vITs.mdf;Integrated Security=True");
-            var query = "select id from anstallda where fnamn = '" + cbBoss.SelectedItem + "'";
+            var motiv = tbMotivation.Text;
+            var sum = Convert.ToInt32(tbSum.Text);
 
-            SqlCommand sqlSelect = new SqlCommand(query, sqldb);
-            SqlDataReader myReader;
-            var idhamtat = 0;
-            try
-            {
-                sqldb.Open();
-                myReader = sqlSelect.ExecuteReader();
-                while (myReader.Read())
-                {
-                    idhamtat = myReader.GetInt32(0);
-                }
-                myReader.Close();
-            }
-            catch (FormatException)
-            {
+            var bossID = DataPreShooting.getBoss(cbBoss.SelectedItem.ToString());
 
-            }
-            var query2 = ("insert into forskott values (" + Convert.ToInt32(tbSum.Text) + ", '" + tbMotivation.Text + "', " + idhamtat + ")");
-            SqlCommand sqlInsert = new SqlCommand(query2, sqldb);
+  
+            //var query2 = ("insert into forskott values (" + Convert.ToInt32(tbSum.Text) + ", '" + tbMotivation.Text + "', " + idhamtat + ")");
+            //SqlCommand sqlInsert = new SqlCommand(query2, sqldb);
 
-            sqldb.Close();
         }
     }
 }

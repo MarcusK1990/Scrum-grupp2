@@ -35,6 +35,8 @@
             this.btnSendPre = new System.Windows.Forms.Button();
             this.cbBoss = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.cbChooseUppdrag = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -51,7 +53,7 @@
             this.tbMotivation.Location = new System.Drawing.Point(126, 65);
             this.tbMotivation.Multiline = true;
             this.tbMotivation.Name = "tbMotivation";
-            this.tbMotivation.Size = new System.Drawing.Size(300, 200);
+            this.tbMotivation.Size = new System.Drawing.Size(300, 160);
             this.tbMotivation.TabIndex = 1;
             // 
             // label2
@@ -97,11 +99,30 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Chef";
             // 
+            // cbChooseUppdrag
+            // 
+            this.cbChooseUppdrag.FormattingEnabled = true;
+            this.cbChooseUppdrag.Location = new System.Drawing.Point(126, 252);
+            this.cbChooseUppdrag.Name = "cbChooseUppdrag";
+            this.cbChooseUppdrag.Size = new System.Drawing.Size(121, 21);
+            this.cbChooseUppdrag.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(48, 255);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(51, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Uppdrag:";
+            // 
             // frmPreShooting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(565, 429);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.cbChooseUppdrag);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbBoss);
             this.Controls.Add(this.btnSendPre);
@@ -126,5 +147,7 @@
         private System.Windows.Forms.Button btnSendPre;
         private System.Windows.Forms.ComboBox cbBoss;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbChooseUppdrag;
+        private System.Windows.Forms.Label label4;
     }
 }
