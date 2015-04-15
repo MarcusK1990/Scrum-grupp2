@@ -89,17 +89,15 @@ namespace vIT_System.GUI
                 ValidationCheck.felString = "";
                 return;
             }
-            
+            double parsadValutakursdouble = 0;
+            Double.TryParse(cbValuta.SelectedValue.ToString(), out parsadValutakursdouble);
             var nyUtgift = new Utgift
             {
                 belopp = parsedBelopp,
                 andaMal = tbAndaMal.Text,
-                valuta = "SEK", //cbValuta.SelectedItem.Text
-                moms = 2,
-                utgiftID = 1
-
-                //moms = tb            
-
+                valuta = cbValuta.SelectedText,
+                valutaKurs = parsadValutakursdouble,
+                moms = 2 // % eller ?!?!?!        
             };
             totalOutpoison.Add(nyUtgift);
             UppdateraTotalSumma();
@@ -126,18 +124,18 @@ namespace vIT_System.GUI
 
             var utkast = new CompensationModel
             {
-                eMail = "test@email.com", //tbEmail.Text,
-                forNamn = "Test", //tbForNamn.Text,
-                eftNamn = "Exempel", //tbEfterNamn.Text,
+                eMail = tbEmail.Text,
+                forNamn = tbForNamn.Text,
+                eftNamn = tbEfterNamn.Text,
                 //Bild nånting hur fan man nu gör det
-                milErsattning = 23,        //Convert.ToInt32(tbMilErsattning.Text),
+                milErsattning = Convert.ToInt32(tbMilErsattning.Text),
                 utresa = dtpUtResa.Value.ToString("yyyy-MM-dd"),
                 hemresa = dtpHemResa.Value.ToString("yyyy-MM-dd"),
-                semesterDagar = 2.ToString(), // tbSemesterdagar.Text,
-                land = "ett land långt borta",  //cbLand.SelectedItem.ToString(),
-                frukost = 12, //Convert.ToInt32(tbFrukost.Text),
-                lunch = 2, //Convert.ToInt32(tbLunch.Text),
-                middag = 3, //Convert.ToInt32(tbMiddag.Text),
+                semesterDagar = tbSemesterdagar.Text,
+                land = cbLand.SelectedItem.ToString(),
+                frukost = Convert.ToInt32(tbFrukost.Text),
+                lunch = Convert.ToInt32(tbLunch.Text),
+                middag = Convert.ToInt32(tbMiddag.Text),
                 utgifter = totalOutpoison
             };
 
@@ -222,6 +220,7 @@ namespace vIT_System.GUI
         private void btnSkickaAnsokan_Click(object sender, EventArgs e)
         {
             validera();
+            //det som ska sparas i db
         }
     }
 }

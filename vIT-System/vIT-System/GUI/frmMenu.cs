@@ -31,10 +31,7 @@ namespace vIT_System.GUI
         public frmMenu(string Namn, string Efternamn, string Email, ApplicationMode.Mode mode)
         {
             InitializeComponent();
-            if (mode == ApplicationMode.Mode.OFFLINE)
-            {
-                lblStatus.Text = "Offline";
-            }
+            
             if (mode == ApplicationMode.Mode.ADMINISTRATOR)
             {
                 lblStatus.Text = "Admin";

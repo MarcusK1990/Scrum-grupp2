@@ -8,11 +8,10 @@ namespace vIT_System.XmlRelaterat
 {
     public class Utgift
     {
-        public int utgiftID { get; set; }
+        public double valutaKurs { get; set; }
         public double belopp { get; set; }
         public string valuta { get; set; }
         public string andaMal { get; set; }
         public int moms { get; set; }
-
     }
 }
