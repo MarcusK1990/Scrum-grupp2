@@ -96,6 +96,7 @@
     <Compile Include="Forskott.cs">
       <DependentUpon>DataEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Förskott\DataPreShooting.cs" />
     <Compile Include="GUI\frmCompensation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,11 +115,17 @@
     <Compile Include="GUI\frmMyApplications.Designer.cs">
       <DependentUpon>frmMyApplications.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\frmPreShooting.cs">
+    <Compile Include="Förskott\frmPreShooting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\frmPreShooting.Designer.cs">
+    <Compile Include="Förskott\frmPreShooting.Designer.cs">
       <DependentUpon>frmPreShooting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Konsulthantering\Konsulthantering.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Konsulthantering\Konsulthantering.Designer.cs">
+      <DependentUpon>Konsulthantering.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\Login.cs">
       <SubType>Form</SubType>
@@ -153,6 +160,7 @@
     </Compile>
     <Compile Include="Validering\Validation.cs" />
     <Compile Include="Validering\ValidationCheck.cs" />
+    <Compile Include="XmlRelaterat\ComboboxItem.cs" />
     <Compile Include="XmlRelaterat\CompensationModel.cs" />
     <Compile Include="XmlRelaterat\Utgift.cs" />
     <Compile Include="XmlRelaterat\Xmelliserare.cs" />
@@ -169,8 +177,11 @@
     <EmbeddedResource Include="GUI\frmMyApplications.resx">
       <DependentUpon>frmMyApplications.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\frmPreShooting.resx">
+    <EmbeddedResource Include="Förskott\frmPreShooting.resx">
       <DependentUpon>frmPreShooting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Konsulthantering\Konsulthantering.resx">
+      <DependentUpon>Konsulthantering.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

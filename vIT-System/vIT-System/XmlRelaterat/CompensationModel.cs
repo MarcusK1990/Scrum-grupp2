@@ -12,8 +12,8 @@ namespace vIT_System.XmlRelaterat
         public string forNamn { get; set; }
         public string eftNamn { get; set; }
         public int milErsattning { get; set; }
-        public DateTime utresa { get; set; }
-        public DateTime hemresa { get; set; }
+        public string utresa { get; set; }
+        public string hemresa { get; set; }
         public string semesterDagar { get; set; }
         public string land { get; set; }
         public int frukost { get; set; }
