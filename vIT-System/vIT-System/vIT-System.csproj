@@ -96,6 +96,7 @@
     <Compile Include="Forskott.cs">
       <DependentUpon>DataEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Förskott\DataPreShooting.cs" />
     <Compile Include="GUI\frmCompensation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,10 +115,10 @@
     <Compile Include="GUI\frmMyApplications.Designer.cs">
       <DependentUpon>frmMyApplications.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\frmPreShooting.cs">
+    <Compile Include="Förskott\frmPreShooting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\frmPreShooting.Designer.cs">
+    <Compile Include="Förskott\frmPreShooting.Designer.cs">
       <DependentUpon>frmPreShooting.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\Login.cs">
@@ -170,7 +171,7 @@
     <EmbeddedResource Include="GUI\frmMyApplications.resx">
       <DependentUpon>frmMyApplications.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\frmPreShooting.resx">
+    <EmbeddedResource Include="Förskott\frmPreShooting.resx">
       <DependentUpon>frmPreShooting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\Login.resx">
