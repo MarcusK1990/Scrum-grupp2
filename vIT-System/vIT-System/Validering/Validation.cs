@@ -45,8 +45,13 @@ namespace vIT_System
         /// <returns>Boolean</returns>
         public static bool IsEmailAddress(string str)
         {
+            if (String.IsNullOrWhiteSpace(str))
+            {
+                return true;
+            }
             Regex regex = new Regex("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z0-9]+");
             return regex.IsMatch(str);
+            
         }
         /// <summary>
         /// Testa om en sträng enbart innehåller bokstäver
@@ -55,8 +60,12 @@ namespace vIT_System
         /// <returns>Boolean</returns>
         public static bool IsAlphabetic(string str)
         {
-            Regex regex = new Regex("[0-9]");
-            return !regex.IsMatch(str);
+            if (!String.IsNullOrWhiteSpace(str))
+            {
+                Regex regex = new Regex("[0-9]");
+                return !regex.IsMatch(str);
+            }
+            return false;
         }
         /// <summary>
         /// Testa om en sträng enbart innehåller siffror
@@ -65,8 +74,12 @@ namespace vIT_System
         /// <returns>Boolean</returns>
         public static bool IsNumeric(string str)
         {
-            Regex regex = new Regex("[A-Za-z]");
-            return !regex.IsMatch(str);
+            if (!String.IsNullOrWhiteSpace(str))
+            {
+                Regex regex = new Regex("[A-Za-z]");
+                return !regex.IsMatch(str);
+            }
+            return false;
         }
     }
 }

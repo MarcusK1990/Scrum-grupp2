@@ -16,12 +16,15 @@ namespace vIT_System.GUI
         private string MenyEfterNamn { get; set; }
         private string MenyEmail { get; set; }
         private ApplicationMode.Mode MenyMode { get; set; }
+
+
         public frmMenu(ApplicationMode.Mode mode)
         {
             InitializeComponent();
             if (mode == ApplicationMode.Mode.OFFLINE)
             {
                 lblStatus.Text = "Offline";
+                MenyMode = ApplicationMode.Mode.OFFLINE;
             }
         }
 
@@ -56,13 +59,13 @@ namespace vIT_System.GUI
         private void mItemTravel_Click(object sender, EventArgs e)
         {
             if (MenyMode == ApplicationMode.Mode.STANDARD) { 
-            frmCompensation form = new frmCompensation(MenyEmail, MenyForNamn, MenyEfterNamn);
+            frmCompensation form = new frmCompensation(MenyEmail, MenyForNamn, MenyEfterNamn, MenyMode);
             form.Show();
         
             }
             if (MenyMode == ApplicationMode.Mode.OFFLINE)
             {
-                frmCompensation form = new frmCompensation();
+                frmCompensation form = new frmCompensation(MenyMode);
                 form.Show();               
             }
         }

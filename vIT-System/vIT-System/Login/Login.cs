@@ -181,9 +181,9 @@ namespace vIT_System
         {
             
             mode = ApplicationMode.Mode.OFFLINE;
-            Form logintest = new frmMenu(mode);
-            logintest.Visible = true;
-            Visible = false;
+            var menyn = new frmMenu(mode);
+            menyn.Visible = true;
+            this.Visible = false;
         }
 
 
