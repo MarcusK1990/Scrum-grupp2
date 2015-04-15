@@ -58,21 +58,21 @@
             this.label22 = new System.Windows.Forms.Label();
             this.cbLand = new System.Windows.Forms.ComboBox();
             this.btnLaggTillResa = new System.Windows.Forms.Button();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.tbMiddag = new System.Windows.Forms.TextBox();
+            this.tbLunch = new System.Windows.Forms.TextBox();
+            this.tbFrukost = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.groaupBox3 = new System.Windows.Forms.GroupBox();
             this.label26 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.btnLaggTillAvdrag = new System.Windows.Forms.Button();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.tbFrukost = new System.Windows.Forms.TextBox();
-            this.tbLunch = new System.Windows.Forms.TextBox();
-            this.tbMiddag = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tbMilErsattning = new System.Windows.Forms.TextBox();
@@ -205,9 +205,9 @@
             this.groupBox1.Controls.Add(this.tbAndaMal);
             this.groupBox1.Controls.Add(this.btnKvitto);
             this.groupBox1.Controls.Add(this.tbBelopp);
-            this.groupBox1.Location = new System.Drawing.Point(39, 147);
+            this.groupBox1.Location = new System.Drawing.Point(388, 251);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(430, 192);
+            this.groupBox1.Size = new System.Drawing.Size(377, 192);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Utgifter";
@@ -321,15 +321,22 @@
             this.groupBox2.Controls.Add(this.label22);
             this.groupBox2.Controls.Add(this.cbLand);
             this.groupBox2.Controls.Add(this.btnLaggTillResa);
+            this.groupBox2.Controls.Add(this.label25);
             this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.label23);
+            this.groupBox2.Controls.Add(this.label24);
+            this.groupBox2.Controls.Add(this.tbMiddag);
             this.groupBox2.Controls.Add(this.tbSemesterdagar);
             this.groupBox2.Controls.Add(this.dtpUtResa);
+            this.groupBox2.Controls.Add(this.tbLunch);
+            this.groupBox2.Controls.Add(this.tbFrukost);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.dtpHemResa);
+            this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Location = new System.Drawing.Point(386, 15);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(444, 126);
+            this.groupBox2.Size = new System.Drawing.Size(444, 162);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Resa";
@@ -353,41 +360,91 @@
             // 
             // btnLaggTillResa
             // 
-            this.btnLaggTillResa.Location = new System.Drawing.Point(352, 97);
+            this.btnLaggTillResa.Location = new System.Drawing.Point(339, 127);
             this.btnLaggTillResa.Name = "btnLaggTillResa";
             this.btnLaggTillResa.Size = new System.Drawing.Size(75, 23);
             this.btnLaggTillResa.TabIndex = 23;
             this.btnLaggTillResa.Text = "Lägg till";
             this.btnLaggTillResa.UseVisualStyleBackColor = true;
             // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(20, 132);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(31, 13);
+            this.label25.TabIndex = 17;
+            this.label25.Text = "Antal";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(156, 107);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(42, 13);
+            this.label23.TabIndex = 15;
+            this.label23.Text = "Middag";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(106, 107);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(37, 13);
+            this.label24.TabIndex = 16;
+            this.label24.Text = "Lunch";
+            // 
+            // tbMiddag
+            // 
+            this.tbMiddag.Location = new System.Drawing.Point(159, 129);
+            this.tbMiddag.Name = "tbMiddag";
+            this.tbMiddag.Size = new System.Drawing.Size(32, 20);
+            this.tbMiddag.TabIndex = 12;
+            // 
+            // tbLunch
+            // 
+            this.tbLunch.Location = new System.Drawing.Point(113, 129);
+            this.tbLunch.Name = "tbLunch";
+            this.tbLunch.Size = new System.Drawing.Size(30, 20);
+            this.tbLunch.TabIndex = 13;
+            // 
+            // tbFrukost
+            // 
+            this.tbFrukost.Location = new System.Drawing.Point(67, 129);
+            this.tbFrukost.Name = "tbFrukost";
+            this.tbFrukost.Size = new System.Drawing.Size(34, 20);
+            this.tbFrukost.TabIndex = 14;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(59, 107);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(42, 13);
+            this.label16.TabIndex = 1;
+            this.label16.Text = "Frukost";
+            // 
             // groaupBox3
             // 
             this.groaupBox3.Controls.Add(this.label26);
             this.groaupBox3.Controls.Add(this.label18);
             this.groaupBox3.Controls.Add(this.btnLaggTillAvdrag);
-            this.groaupBox3.Controls.Add(this.label25);
-            this.groaupBox3.Controls.Add(this.label24);
-            this.groaupBox3.Controls.Add(this.label23);
-            this.groaupBox3.Controls.Add(this.tbFrukost);
-            this.groaupBox3.Controls.Add(this.tbLunch);
-            this.groaupBox3.Controls.Add(this.tbMiddag);
             this.groaupBox3.Controls.Add(this.label21);
             this.groaupBox3.Controls.Add(this.label20);
             this.groaupBox3.Controls.Add(this.label19);
             this.groaupBox3.Controls.Add(this.label17);
-            this.groaupBox3.Controls.Add(this.label16);
             this.groaupBox3.Controls.Add(this.label15);
-            this.groaupBox3.Location = new System.Drawing.Point(499, 147);
+            this.groaupBox3.Location = new System.Drawing.Point(46, 152);
             this.groaupBox3.Name = "groaupBox3";
-            this.groaupBox3.Size = new System.Drawing.Size(352, 240);
+            this.groaupBox3.Size = new System.Drawing.Size(314, 153);
             this.groaupBox3.TabIndex = 17;
             this.groaupBox3.TabStop = false;
-            this.groaupBox3.Text = "Sammanställning";
+            this.groaupBox3.Text = "Traktamente";
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(24, 134);
+            this.label26.Location = new System.Drawing.Point(6, 69);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(106, 13);
             this.label26.TabIndex = 28;
@@ -396,7 +453,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(24, 157);
+            this.label18.Location = new System.Drawing.Point(6, 82);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(76, 13);
             this.label18.TabIndex = 27;
@@ -404,65 +461,17 @@
             // 
             // btnLaggTillAvdrag
             // 
-            this.btnLaggTillAvdrag.Location = new System.Drawing.Point(180, 211);
+            this.btnLaggTillAvdrag.Location = new System.Drawing.Point(150, 123);
             this.btnLaggTillAvdrag.Name = "btnLaggTillAvdrag";
             this.btnLaggTillAvdrag.Size = new System.Drawing.Size(151, 23);
             this.btnLaggTillAvdrag.TabIndex = 26;
             this.btnLaggTillAvdrag.Text = "Uppdatera sammanställning";
             this.btnLaggTillAvdrag.UseVisualStyleBackColor = true;
             // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(24, 36);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(31, 13);
-            this.label25.TabIndex = 17;
-            this.label25.Text = "Antal";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(146, 16);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(37, 13);
-            this.label24.TabIndex = 16;
-            this.label24.Text = "Lunch";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(200, 16);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(42, 13);
-            this.label23.TabIndex = 15;
-            this.label23.Text = "Middag";
-            // 
-            // tbFrukost
-            // 
-            this.tbFrukost.Location = new System.Drawing.Point(90, 32);
-            this.tbFrukost.Name = "tbFrukost";
-            this.tbFrukost.Size = new System.Drawing.Size(34, 20);
-            this.tbFrukost.TabIndex = 14;
-            // 
-            // tbLunch
-            // 
-            this.tbLunch.Location = new System.Drawing.Point(149, 32);
-            this.tbLunch.Name = "tbLunch";
-            this.tbLunch.Size = new System.Drawing.Size(30, 20);
-            this.tbLunch.TabIndex = 13;
-            // 
-            // tbMiddag
-            // 
-            this.tbMiddag.Location = new System.Drawing.Point(203, 32);
-            this.tbMiddag.Name = "tbMiddag";
-            this.tbMiddag.Size = new System.Drawing.Size(32, 20);
-            this.tbMiddag.TabIndex = 12;
-            // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(24, 201);
+            this.label21.Location = new System.Drawing.Point(8, 128);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(83, 13);
             this.label21.TabIndex = 6;
@@ -471,7 +480,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(21, 113);
+            this.label20.Location = new System.Drawing.Point(6, 54);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(104, 13);
             this.label20.TabIndex = 5;
@@ -480,7 +489,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(21, 87);
+            this.label19.Location = new System.Drawing.Point(6, 41);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(181, 13);
             this.label19.TabIndex = 4;
@@ -489,25 +498,16 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(21, 179);
+            this.label17.Location = new System.Drawing.Point(7, 95);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(77, 13);
             this.label17.TabIndex = 2;
             this.label17.Text = "Summa utgifter";
             // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(87, 16);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(42, 13);
-            this.label16.TabIndex = 1;
-            this.label16.Text = "Frukost";
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(21, 16);
+            this.label15.Location = new System.Drawing.Point(6, 28);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(44, 13);
             this.label15.TabIndex = 0;
@@ -517,7 +517,7 @@
             // 
             this.groupBox3.Controls.Add(this.tbMilErsattning);
             this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Location = new System.Drawing.Point(145, 358);
+            this.groupBox3.Location = new System.Drawing.Point(388, 176);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(172, 70);
             this.groupBox3.TabIndex = 18;
@@ -542,7 +542,7 @@
             // 
             // btnSparaUtkast
             // 
-            this.btnSparaUtkast.Location = new System.Drawing.Point(581, 435);
+            this.btnSparaUtkast.Location = new System.Drawing.Point(625, 467);
             this.btnSparaUtkast.Name = "btnSparaUtkast";
             this.btnSparaUtkast.Size = new System.Drawing.Size(75, 23);
             this.btnSparaUtkast.TabIndex = 28;
@@ -552,7 +552,7 @@
             // 
             // btnSkickaAnsokan
             // 
-            this.btnSkickaAnsokan.Location = new System.Drawing.Point(709, 411);
+            this.btnSkickaAnsokan.Location = new System.Drawing.Point(721, 443);
             this.btnSkickaAnsokan.Name = "btnSkickaAnsokan";
             this.btnSkickaAnsokan.Size = new System.Drawing.Size(109, 47);
             this.btnSkickaAnsokan.TabIndex = 29;
@@ -571,7 +571,7 @@
             // 
             // btnLaddaUtkast
             // 
-            this.btnLaddaUtkast.Location = new System.Drawing.Point(489, 435);
+            this.btnLaddaUtkast.Location = new System.Drawing.Point(524, 467);
             this.btnLaddaUtkast.Name = "btnLaddaUtkast";
             this.btnLaddaUtkast.Size = new System.Drawing.Size(75, 23);
             this.btnLaddaUtkast.TabIndex = 31;
