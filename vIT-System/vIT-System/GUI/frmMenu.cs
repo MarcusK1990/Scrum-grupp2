@@ -35,6 +35,7 @@ namespace vIT_System.GUI
             if (mode == ApplicationMode.Mode.ADMINISTRATOR)
             {
                 lblStatus.Text = "Admin";
+                chefToolStripMenuItem.Visible = true;
             }
             if (mode == ApplicationMode.Mode.STANDARD)
             {
@@ -70,6 +71,12 @@ namespace vIT_System.GUI
         private void mItemMyAppli_Click(object sender, EventArgs e)
         {
             frmMyApplications form = new frmMyApplications();
+            form.Show();
+        }
+
+        private void hanteraKonsulterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Konsulthantering form = new Konsulthantering();
             form.Show();
         }
     }

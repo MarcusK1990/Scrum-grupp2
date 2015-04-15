@@ -46,15 +46,23 @@
             this.btnRadera = new System.Windows.Forms.Button();
             this.btnNyAnställd = new System.Windows.Forms.Button();
             this.btnSpara = new System.Windows.Forms.Button();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listvKonsulter
             // 
+            this.listvKonsulter.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
             this.listvKonsulter.Location = new System.Drawing.Point(12, 12);
             this.listvKonsulter.Name = "listvKonsulter";
-            this.listvKonsulter.Size = new System.Drawing.Size(200, 331);
+            this.listvKonsulter.Size = new System.Drawing.Size(268, 331);
             this.listvKonsulter.TabIndex = 0;
             this.listvKonsulter.UseCompatibleStateImageBehavior = false;
+            this.listvKonsulter.View = System.Windows.Forms.View.Details;
             // 
             // tbFörnamn
             // 
@@ -200,6 +208,21 @@
             this.btnSpara.Text = "Spara ändringar";
             this.btnSpara.UseVisualStyleBackColor = true;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ID";
+            this.columnHeader1.Width = 30;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Förnamn";
+            this.columnHeader2.Width = 115;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Efternamn";
+            this.columnHeader3.Width = 120;
+            // 
             // Konsulthantering
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -250,5 +273,8 @@
         private System.Windows.Forms.Button btnRadera;
         private System.Windows.Forms.Button btnNyAnställd;
         private System.Windows.Forms.Button btnSpara;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
     }
 }
