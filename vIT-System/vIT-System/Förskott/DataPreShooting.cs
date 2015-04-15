@@ -21,13 +21,13 @@ namespace vIT_System.Förskott
             sqlCon.Close();
             myReader.Close();
         }
-
+//Hämtar bossarnas namn och returnerar en lista av dem
         public static List<string> FillCbBoss()
         {
-
             var sqldb = new SqlConnection("Data Source=(localdb)\\v11.0;AttachDbFilename=C:\\Users\\sofia\\Source\\Repos\\Scrum-grupp2\\vIT-System\\vIT-System\\Database\\vITs.mdf;Integrated Security=True");
             var query = "select Fnamn from Anstallda where Anstallda.Chef = 'ja'";
-            SqlCommand sqlC = new SqlCommand(query, sqldb);
+            
+            var sqlC = new SqlCommand(query, sqldb);
             SqlDataReader myReader;
             var lista = new List<string>();
             try
@@ -48,6 +48,5 @@ namespace vIT_System.Förskott
             }
             return lista;
         }
-
     }
 }

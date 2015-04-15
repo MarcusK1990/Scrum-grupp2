@@ -24,7 +24,7 @@ namespace vIT_System.GUI
 
         private void frmPreShooting_Load(object sender, EventArgs e)
         {
-            //Fyll upp combobox med alla chefer som finns
+            //Hämtar alla bossar och fyller upp combobox med alla chefer som finns
             var lista = DataPreShooting.FillCbBoss();
             foreach (var chef in lista)
             {
