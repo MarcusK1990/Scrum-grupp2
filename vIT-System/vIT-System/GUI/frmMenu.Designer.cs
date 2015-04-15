@@ -34,13 +34,16 @@
             this.mItemTravel = new System.Windows.Forms.ToolStripMenuItem();
             this.mItemMyAppli = new System.Windows.Forms.ToolStripMenuItem();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.chefToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hanteraKonsulterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.väljToolStripMenuItem});
+            this.väljToolStripMenuItem,
+            this.chefToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(284, 24);
@@ -87,6 +90,22 @@
             this.lblStatus.Size = new System.Drawing.Size(0, 39);
             this.lblStatus.TabIndex = 1;
             // 
+            // chefToolStripMenuItem
+            // 
+            this.chefToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hanteraKonsulterToolStripMenuItem});
+            this.chefToolStripMenuItem.Name = "chefToolStripMenuItem";
+            this.chefToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.chefToolStripMenuItem.Text = "Chef";
+            this.chefToolStripMenuItem.Visible = false;
+            // 
+            // hanteraKonsulterToolStripMenuItem
+            // 
+            this.hanteraKonsulterToolStripMenuItem.Name = "hanteraKonsulterToolStripMenuItem";
+            this.hanteraKonsulterToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.hanteraKonsulterToolStripMenuItem.Text = "Hantera konsulter";
+            this.hanteraKonsulterToolStripMenuItem.Click += new System.EventHandler(this.hanteraKonsulterToolStripMenuItem_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -112,5 +131,7 @@
         private System.Windows.Forms.ToolStripMenuItem mItemTravel;
         private System.Windows.Forms.ToolStripMenuItem mItemMyAppli;
         private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.ToolStripMenuItem chefToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hanteraKonsulterToolStripMenuItem;
     }
 }
