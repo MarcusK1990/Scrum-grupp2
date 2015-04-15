@@ -4,6 +4,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using vIT_System.Data;
 
 namespace vIT_System.Förskott
 {
@@ -25,7 +27,9 @@ namespace vIT_System.Förskott
         //Hämtar bossarnas namn och returnerar en lista av dem
         public static List<string> FillCbBoss()
         {
-            var sqldb = new SqlConnection("Data Source=(localdb)\\v11.0;AttachDbFilename=C:\\Users\\sofia\\Source\\Repos\\Scrum-grupp2\\vIT-System\\vIT-System\\Database\\vITs.mdf;Integrated Security=True");
+           var path = Helpers.getSourcePath();
+
+            var sqldb = new SqlConnection(path);
             var query = "select Fnamn from Anstallda where Anstallda.Chef = 'ja'";
 
             var sqlC = new SqlCommand(query, sqldb);
@@ -49,10 +53,13 @@ namespace vIT_System.Förskott
             }
             return lista;
         }
-
+        //hämtar de uppdrag som finns i databasen och returnerar en lista med dem.
         public static List<string> FillCbChooseUppdrag()
         {
-            var sqldb = new SqlConnection("Data Source=(localdb)\\v11.0;AttachDbFilename=C:\\Users\\sofia\\Source\\Repos\\Scrum-grupp2\\vIT-System\\vIT-System\\Database\\vITs.mdf;Integrated Security=True");
+            var path = Helpers.getSourcePath();
+
+            var sqldb = new SqlConnection(path);
+
             var query = "select Uppdragnamn from Uppdrag";
 
             var sqlC = new SqlCommand(query, sqldb);
@@ -77,13 +84,16 @@ namespace vIT_System.Förskott
             return lista;
         }
 
-        public static int getBoss(string cbBoss) 
+        public static int getBoss(string cbBoss)
         {
-            var sqldb = new SqlConnection("Data Source=(localdb)\\v11.0;AttachDbFilename=C:\\Users\\sofia\\Source\\Repos\\Scrum-grupp2\\vIT-System\\vIT-System\\Database\\vITs.mdf;Integrated Security=True");
+            var path = Helpers.getSourcePath();
+
+            var sqldb = new SqlConnection(path);
+            
             var query = "select id from anstallda where fnamn = '" + cbBoss + "'";
             SqlCommand sqlSelect = new SqlCommand(query, sqldb);
 
-             SqlDataReader myReader;
+            SqlDataReader myReader;
             var idhamtat = 0;
             try
             {
@@ -93,13 +103,28 @@ namespace vIT_System.Förskott
                 {
                     idhamtat = myReader.GetInt32(0);
                 }
-                
+
                 myReader.Close();
             }
             catch (FormatException)
-            { 
+            {
             }
             return idhamtat;
+        }
+
+        public static void savePreShooting(int summa, string beskr, int id)
+        {
+            //Behöver man inte veta vem det är som har skickat, är det de som är id?
+            //behöver även en kolumn med uppdrag
+            var path = Helpers.getSourcePath();
+
+            var sqldb = new SqlConnection(path); 
+            
+            sqldb.Open(); 
+            var query = "insert into forskott values (" +summa + ", '"+ beskr + "', " + id +")";
+            var sqlComm = new SqlCommand(query, sqldb);
+            sqlComm.ExecuteNonQuery();
+            
         }
     }
 }

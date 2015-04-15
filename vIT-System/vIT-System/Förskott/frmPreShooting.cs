@@ -32,11 +32,12 @@ namespace vIT_System.GUI
             }
 
             //Fhämtar alla uppdrag som finns i databasen och fyller comboboxen
-            var uppdraglista = DataPreShooting.FillCbChooseUppdrag();
-            foreach (var uppd in uppdraglista)
-            {
-                cbChooseUppdrag.Items.Add(uppd);
-            }
+            //denna fungerar inte förrän det finns en uppdtagstabell i databasen
+            //var uppdraglista = DataPreShooting.FillCbChooseUppdrag();
+            //foreach (var uppd in uppdraglista)
+            //{
+            //    cbChooseUppdrag.Items.Add(uppd);
+            //}
 
         }
 
@@ -45,13 +46,15 @@ namespace vIT_System.GUI
         {
             var motiv = tbMotivation.Text;
             var sum = Convert.ToInt32(tbSum.Text);
+            //var uppd = cbChooseUppdrag.SelectedItem.ToString();
 
+            //Hämta bossens id genom att skicka med dennes namn som är valt i comboboxen
             var bossID = DataPreShooting.getBoss(cbBoss.SelectedItem.ToString());
 
+            DataPreShooting.savePreShooting(sum, motiv, bossID);
   
-            //var query2 = ("insert into forskott values (" + Convert.ToInt32(tbSum.Text) + ", '" + tbMotivation.Text + "', " + idhamtat + ")");
-            //SqlCommand sqlInsert = new SqlCommand(query2, sqldb);
-
+            tbMotivation.Text = "";
+            tbSum.Text = "";
         }
     }
 }

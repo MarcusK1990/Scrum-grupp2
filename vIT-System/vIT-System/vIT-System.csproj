@@ -89,6 +89,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataEntity.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Data\Helpers.cs" />
     <Compile Include="Enum\ApplicationMode.cs" />
     <Compile Include="Fardmedel.cs">
       <DependentUpon>DataEntity.tt</DependentUpon>
@@ -243,9 +244,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
