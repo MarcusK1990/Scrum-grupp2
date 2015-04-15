@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.listvKonsulter = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tbFörnamn = new System.Windows.Forms.TextBox();
             this.lblFörnamn = new System.Windows.Forms.Label();
             this.tbEfternamn = new System.Windows.Forms.TextBox();
@@ -46,9 +49,6 @@
             this.btnRadera = new System.Windows.Forms.Button();
             this.btnNyAnställd = new System.Windows.Forms.Button();
             this.btnSpara = new System.Windows.Forms.Button();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listvKonsulter
@@ -58,11 +58,27 @@
             this.columnHeader2,
             this.columnHeader3});
             this.listvKonsulter.Location = new System.Drawing.Point(12, 12);
+            this.listvKonsulter.MultiSelect = false;
             this.listvKonsulter.Name = "listvKonsulter";
             this.listvKonsulter.Size = new System.Drawing.Size(268, 331);
             this.listvKonsulter.TabIndex = 0;
             this.listvKonsulter.UseCompatibleStateImageBehavior = false;
             this.listvKonsulter.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ID";
+            this.columnHeader1.Width = 30;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Förnamn";
+            this.columnHeader2.Width = 115;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Efternamn";
+            this.columnHeader3.Width = 120;
             // 
             // tbFörnamn
             // 
@@ -180,6 +196,7 @@
             this.btnRedigera.TabIndex = 4;
             this.btnRedigera.Text = "Redigera";
             this.btnRedigera.UseVisualStyleBackColor = true;
+            this.btnRedigera.Click += new System.EventHandler(this.btnRedigera_Click);
             // 
             // btnRadera
             // 
@@ -189,6 +206,7 @@
             this.btnRadera.TabIndex = 5;
             this.btnRadera.Text = "Radera";
             this.btnRadera.UseVisualStyleBackColor = true;
+            this.btnRadera.Click += new System.EventHandler(this.btnRadera_Click);
             // 
             // btnNyAnställd
             // 
@@ -198,6 +216,7 @@
             this.btnNyAnställd.TabIndex = 5;
             this.btnNyAnställd.Text = "Ny anställd";
             this.btnNyAnställd.UseVisualStyleBackColor = true;
+            this.btnNyAnställd.Click += new System.EventHandler(this.btnNyAnställd_Click);
             // 
             // btnSpara
             // 
@@ -207,21 +226,7 @@
             this.btnSpara.TabIndex = 5;
             this.btnSpara.Text = "Spara ändringar";
             this.btnSpara.UseVisualStyleBackColor = true;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "ID";
-            this.columnHeader1.Width = 30;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Förnamn";
-            this.columnHeader2.Width = 115;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Efternamn";
-            this.columnHeader3.Width = 120;
+            this.btnSpara.Click += new System.EventHandler(this.btnSpara_Click);
             // 
             // Konsulthantering
             // 
