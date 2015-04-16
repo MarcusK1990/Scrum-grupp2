@@ -11,27 +11,14 @@ namespace vIT_System.Förskott
 {
     public static class DataPreShooting
     {
-        //public static void accessDB(string path, string query)
-        //{
-        ////    SqlConnection sqlCon = new SqlConnection(path);
-        ////    SqlCommand sqlCom = new SqlCommand(query, sqlCon);
-        ////    SqlDataReader myReader;
-
-        ////    sqlCon.Open();
-
-        ////    myReader = sqlCom.ExecuteReader();
-        ////    sqlCon.Close();
-        ////    myReader.Close();
-        //}
-
         //Hämtar bossarnas namn och returnerar en lista av dem
         public static List<string> FillCbBoss()
         {
-           var path = Helpers.getSourcePath();
+            var path = Helpers.getSourcePath();
 
             var sqldb = new SqlConnection(path);
             var query = "select Fnamn from Anstallda where Anstallda.Chef = 'ja'";
-
+            
             var sqlC = new SqlCommand(query, sqldb);
             SqlDataReader myReader;
             var lista = new List<string>();
@@ -57,9 +44,7 @@ namespace vIT_System.Förskott
         public static List<string> FillCbChooseUppdrag()
         {
             var path = Helpers.getSourcePath();
-
             var sqldb = new SqlConnection(path);
-
             var query = "select Uppdragnamn from Uppdrag";
 
             var sqlC = new SqlCommand(query, sqldb);
