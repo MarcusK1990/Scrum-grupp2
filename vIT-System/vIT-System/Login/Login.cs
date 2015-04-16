@@ -85,6 +85,7 @@ namespace vIT_System
             string username = "";
             string password = "";
             string id = "";
+            bool isBoss = false;
             
 
             bool foundMatch = false;
@@ -131,6 +132,7 @@ namespace vIT_System
                     id = dr["id"].ToString();
                     username = dr["mail"].ToString();
                     password = dr["losenord"].ToString();
+                    //isBoss = Convert.ToInt32(dr["chef"].ToString());
                     foundMatch = true;
                     break;
                 }
