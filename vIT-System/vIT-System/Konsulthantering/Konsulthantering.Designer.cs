@@ -57,6 +57,7 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
+            this.listvKonsulter.FullRowSelect = true;
             this.listvKonsulter.Location = new System.Drawing.Point(12, 12);
             this.listvKonsulter.MultiSelect = false;
             this.listvKonsulter.Name = "listvKonsulter";
@@ -73,7 +74,7 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Förnamn";
-            this.columnHeader2.Width = 115;
+            this.columnHeader2.Width = 114;
             // 
             // columnHeader3
             // 
