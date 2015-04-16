@@ -92,6 +92,18 @@ namespace vIT_System
 
             MessageBox.Show("Konsulten har uppdaterats.");
 
+            DataTable dt = sqlHelper.Fetch("select * from anstallda");
+
+            listvKonsulter.Items.Clear();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                ListViewItem lvi = new ListViewItem(dr["id"].ToString());
+                lvi.SubItems.Add(dr["fnamn"].ToString());
+                lvi.SubItems.Add(dr["enamn"].ToString());
+
+                listvKonsulter.Items.Add(lvi);
+            }
         }
     }
 }
