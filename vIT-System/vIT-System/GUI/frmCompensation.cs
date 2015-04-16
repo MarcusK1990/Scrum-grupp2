@@ -158,6 +158,7 @@ namespace vIT_System.GUI
                 tbEfterNamn.Enabled = true;
             }
             LaddaComboBox();
+            hämtaLänder();
         }
 
         private void btnLaddaUtkast_Click(object sender, EventArgs e)
@@ -221,6 +222,21 @@ namespace vIT_System.GUI
         {
             validera();
             //det som ska sparas i db
+        }
+
+        private void hämtaLänder()
+        {
+            string[,] länder = vIT_System.Traktamentestabell.Traktamentestabell.HämtaLänderOchBelopp();
+
+            cbLand.Items.Clear();
+
+            for (int i = 0; i < länder.GetLength(0); i++)
+            {
+                System.Diagnostics.Debug.WriteLine(länder[i, 0] + " + " + länder[i, 1]);
+                cbLand.Items.Add(new ComboboxItem { Text = länder[i, 0], Value = Convert.ToDouble(länder[i, 1]) });
+            }
+
+            cbLand.SelectedIndex = 0;
         }
     }
 }

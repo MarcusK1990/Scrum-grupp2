@@ -66,5 +66,29 @@ namespace vIT_System.Traktamentestabell
             // om landet inte hittas returneras beloppet för Övrigt (den sista raden i tabellen)
             return dataTable.Rows[dataTable.Rows.Count - 1]["belopp"].ToString();
         }
+        public static string[] HämtaLänder()
+        {
+            string[] länder = new string[dataTable.Rows.Count];
+            
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+            {
+                länder[i] = dataTable.Rows[i]["land"].ToString();
+            }
+
+            return länder;
+        }
+        public static string[,] HämtaLänderOchBelopp()
+        {
+            string[,] länder = new string[dataTable.Rows.Count, 2];
+
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+            {
+                länder[i, 0] = dataTable.Rows[i]["land"].ToString();
+                länder[i, 1] = dataTable.Rows[i]["belopp"].ToString();
+            }
+
+            return länder;
+        }
+
     }
 }
