@@ -26,7 +26,7 @@ namespace vIT_System
         public Login()
         {
             InitializeComponent();
-            sqlHelper = new SqlHelper("Database\\vITs.mdf");
+            sqlHelper = new SqlHelper("Database\\vITs2.mdf");
         }
 
         private DataTable createTestDataTable()
