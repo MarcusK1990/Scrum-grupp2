@@ -93,23 +93,23 @@ namespace vIT_System
                 string felmeddelande = "Följande fel har upstått:\n";
 
                 if (Validation.IsEmpty(tbFörnamn.Text)) { felmeddelande += "\n• Fältet för förnamn måste vara ifyllt"; foundError = true; }
-                if (Validation.IsShorterThan(tbFörnamn.Text, 256)) { felmeddelande += "\n• Förnamn måste vara kortare än 256 tecken"; foundError = true; }
-                if (Validation.IsAlphabetic(tbFörnamn.Text)) { felmeddelande += "\n• Förnamn får endast innehålla bokstäver"; foundError = true; }
+                if (Validation.IsLongerThan(tbFörnamn.Text, 256)) { felmeddelande += "\n• Förnamn måste vara kortare än 256 tecken"; foundError = true; }
+                if (!Validation.IsAlphabetic(tbFörnamn.Text)) { felmeddelande += "\n• Förnamn får endast innehålla bokstäver"; foundError = true; }
 
                 if (Validation.IsEmpty(tbEfternamn.Text)) { felmeddelande += "\n• Fältet för Efternamn måste vara ifyllt"; foundError = true; }
-                if (Validation.IsShorterThan(tbEfternamn.Text, 256)) { felmeddelande += "\n• Efternamn måste vara kortare än 256 tecken"; foundError = true; }
-                if (Validation.IsAlphabetic(tbEfternamn.Text)) { felmeddelande += "\n• Efternamn får endast innehålla bokstäver"; foundError = true; }
+                if (Validation.IsLongerThan(tbEfternamn.Text, 256)) { felmeddelande += "\n• Efternamn måste vara kortare än 256 tecken"; foundError = true; }
+                if (!Validation.IsAlphabetic(tbEfternamn.Text)) { felmeddelande += "\n• Efternamn får endast innehålla bokstäver"; foundError = true; }
 
                 if (Validation.IsEmpty(tbPersonnummer.Text)) { felmeddelande += "\n• Fältet för personnummer måste vara ifyllt"; foundError = true; }
-                if (Validation.IsShorterThan(tbPersonnummer.Text, 13)) { felmeddelande += "\n• Personnummer måste vara kortare än 13 tecken"; foundError = true; }
-                if (Validation.IsNumeric(tbPersonnummer.Text)) { felmeddelande += "\n• Personnummer får endast innehålla siffror"; foundError = true; }
+                if (Validation.IsLongerThan(tbPersonnummer.Text, 13)) { felmeddelande += "\n• Personnummer måste vara kortare än 13 tecken"; foundError = true; }
+                if (!Validation.IsNumeric(tbPersonnummer.Text)) { felmeddelande += "\n• Personnummer får endast innehålla siffror"; foundError = true; }
 
                 if (Validation.IsEmpty(tbMailadress.Text)) { felmeddelande += "\n• Fältet för mailadress måste vara ifyllt"; foundError = true; }
-                if (Validation.IsShorterThan(tbMailadress.Text, 256)) { felmeddelande += "\n• Mailadress måste vara kortare än 256 tecken"; foundError = true; }
-                if (Validation.IsEmailAddress(tbMailadress.Text)) { felmeddelande += "\n• Mailadress måste följa formatet [text]@[text].[text]"; foundError = true; }
+                if (Validation.IsLongerThan(tbMailadress.Text, 256)) { felmeddelande += "\n• Mailadress måste vara kortare än 256 tecken"; foundError = true; }
+                if (!Validation.IsEmailAddress(tbMailadress.Text)) { felmeddelande += "\n• Mailadress måste följa formatet [text]@[text].[text]"; foundError = true; }
 
                 if (Validation.IsEmpty(tbLösenord.Text)) { felmeddelande += "\n• Fältet för lösenord måste vara ifyllt"; foundError = true; }
-                if (Validation.IsShorterThan(tbLösenord.Text, 256)) { felmeddelande += "\n• Lösenord måste vara kortare än 256 tecken"; foundError = true; }
+                if (Validation.IsLongerThan(tbLösenord.Text, 256)) { felmeddelande += "\n• Lösenord måste vara kortare än 256 tecken"; foundError = true; }
 
                 if (foundError) { MessageBox.Show(felmeddelande); return; }
             }
