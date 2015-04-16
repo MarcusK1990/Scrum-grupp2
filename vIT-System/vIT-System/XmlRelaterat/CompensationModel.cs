@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace vIT_System.XmlRelaterat
 {
@@ -19,11 +20,11 @@ namespace vIT_System.XmlRelaterat
         public int frukost { get; set; }
         public int lunch { get; set; }
         public int middag { get; set; }
-        public List<Utgift> utgifter { get; set; }
+        public BindingList<Utgift> utgifter { get; set; }
 
-        public CompensationModel(List<Utgift> utkastet)
+        public CompensationModel(BindingList<Utgift> utkastet)
         {
-            utgifter = new List<Utgift>();
+            utgifter = new BindingList<Utgift>();
             utgifter = utkastet;
             
         }
