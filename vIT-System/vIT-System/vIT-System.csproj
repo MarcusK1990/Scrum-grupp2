@@ -98,12 +98,6 @@
       <DependentUpon>DataEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Förskott\DataPreShooting.cs" />
-    <Compile Include="GUI\frmCompensation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\frmCompensation.Designer.cs">
-      <DependentUpon>frmCompensation.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\frmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +142,12 @@
     <Compile Include="Ansokning\hamtaAnsokning.Designer.cs">
       <DependentUpon>hamtaAnsokning.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reseansökning\frmCompensation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reseansökning\frmCompensation.Designer.cs">
+      <DependentUpon>frmCompensation.cs</DependentUpon>
+    </Compile>
     <Compile Include="SQL\SqlHelper.cs" />
     <Compile Include="TestaLiteSql.cs" />
     <Compile Include="Traktamente.cs">
@@ -170,9 +170,6 @@
       <DependentUpon>hamtaAnsokning.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx" />
-    <EmbeddedResource Include="GUI\frmCompensation.resx">
-      <DependentUpon>frmCompensation.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -197,6 +194,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reseansökning\frmCompensation.resx">
+      <DependentUpon>frmCompensation.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="DataEntity.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DataEntity.Designer.cs</LastGenOutput>
