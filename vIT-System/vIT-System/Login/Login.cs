@@ -152,13 +152,10 @@ namespace vIT_System
             //checka om det är en chef som loggar in
             DataTable chefDt = createChefDataTable();
 
-            bool foundChef = false;
-
             foreach (DataRow dr in chefDt.Rows)
             {
                 if (dr["id"].Equals(id))
                 {
-                    foundChef = true;
                     // sätt igång chef-läge
                     mode = ApplicationMode.Mode.ADMINISTRATOR;
                 }

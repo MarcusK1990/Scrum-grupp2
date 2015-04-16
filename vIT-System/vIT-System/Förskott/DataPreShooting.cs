@@ -102,9 +102,7 @@ namespace vIT_System.Förskott
             //Behöver man inte veta vem det är som har skickat, är det de som är id?
             //behöver även en kolumn med uppdrag
             var path = Helpers.getSourcePath();
-
             var sqldb = new SqlConnection(path); 
-            
             sqldb.Open(); 
             var query = "insert into forskott values (" +summa + ", '"+ beskr + "', " + id +")";
             var sqlComm = new SqlCommand(query, sqldb);
