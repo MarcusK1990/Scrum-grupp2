@@ -1,0 +1,169 @@
+Albanien:220
+Algeriet:376
+Angola:1127
+Antigua och Barbuda:511
+Argentina:299
+Armenien:365
+Australien:665
+Azerbajdzjan:620
+Bahamas:693
+Bahrain:543
+Bangladesh:353
+Barbados:615
+Belgien:624
+Belize:391
+Benin:410
+Bolivia:223
+Bosnien-Hercegovina:283
+Botswana:244
+Brasilien:435
+Brunei Darussalam:299
+Bulgarien:357
+Burkina Faso:340
+Burma:363
+Centralafrikanska republiken:364
+Chile:345
+Colombia:430
+Costa Rica:345
+Cypern:485
+Danmark:873
+Djibouti:408
+Ecuador:406
+Egypten:336
+Elfenbenskusten:492
+El Salvador:315
+Eritrea:370
+Estland:382
+Etiopien:248
+Filippinerna:342
+Finland:678
+Frankrike:649
+Förenade Arabemiraten:555
+Gabon:734
+Gambia:220
+Georgien:362
+Ghana:247
+Grekland:565
+Grenada:349
+Grönland:873
+Guinea:369
+Guyana:442
+Haiti:507
+Honduras:243
+Hong Kong:553
+Indien:298
+Indonesien:334
+Irak:495
+Iran:442
+Irland:562
+Island:611
+Israel:688
+Italien:530
+Jamaica:384
+Japan:470
+Jordanien:654
+Kambodja:303
+Kamerun:433
+Kanada:545
+Kazakstan:451
+Kenya:441
+Kina:553
+Kirgizistan:227
+Kongo (Brazzaville):501
+Kongo (Dem. Republiken):546
+Kosovo:220
+Kroatien:404
+Kuba:380
+Kuwait:598
+Laos:238
+Lettland:419
+Libanon:572
+Liberia:444
+Libyen:422
+Litauen:347
+Luxemburg:582
+Macao:553
+Madagaskar:220
+Makedonien:267
+Malawi:220
+Malaysia:302
+Maldiverna:360
+Mali:450
+Malta:466
+Marocko:359
+Mauretanien:338
+Mauritius:395
+Mexiko:354
+Mikronesien:288
+Mocambique:404
+Moldavien:220
+Monaco:775
+Mongoliet:220
+Montenegro:366
+Myanmar:363
+Nederländerna:498
+Nederländska Antillerna:379
+Nepal:220
+Nicaragua:244
+Niger:325
+Nigeria:745
+Norge:961
+Nya Zeeland:508
+Oman:560
+Pakistan:220
+Panama:344
+Papua Nya Guinea:512
+Paraguay:230
+Peru:412
+Polen:357
+Portugal:381
+Puerto Rico:552
+Qatar:563
+Rumänien:312
+Rwanda:270
+Ryssland:599
+Saint Lucia:420
+Saint Vincent och Grenadinerna:374
+Samoa, Självständiga staten:462
+San Marino:530
+Saudiarabien:434
+Schweiz:724
+Senegal:517
+Serbien:357
+Seychellerna:356
+Sierra Leone:413
+Singapore:517
+Slovakien:401
+Slovenien:412
+Spanien:502
+Sri Lanka:280
+Storbritannien och Nordirland:680
+Sudan:370
+Swaziland:220
+Sydafrika:270
+Sydkorea:576
+Taiwan:328
+Tanzania:403
+Thailand:437
+Tjeckien:319
+Togo:431
+Tonga:398
+Trinidad och Tobago:652
+Tunisien:328
+Turkiet:374
+Turkmenistan:326
+Tyskland:571
+Uganda:325
+Ukraina:333
+Ungern:339
+Uruguay:423
+USA:552
+Uzbekistan:245
+Vanuatu:552
+Venezuela:1638
+Vietnam:249
+Vitryssland:278
+Zambia:343
+Zimbabwe:456
+Österrike:494
+Övrigt:339
