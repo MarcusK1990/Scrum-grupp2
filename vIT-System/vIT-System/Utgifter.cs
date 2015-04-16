@@ -10,8 +10,7 @@
 namespace vIT_System
 {
     using System;
-    using System.Collections.Generic;
-    
+
     public partial class Utgifter
     {
         public int UtId { get; set; }

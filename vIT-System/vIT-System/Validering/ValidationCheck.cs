@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace vIT_System.Validering
+﻿namespace vIT_System.Validering
 {
     public static class ValidationCheck
     {

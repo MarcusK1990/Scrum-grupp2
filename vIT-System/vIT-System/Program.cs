@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using vIT_System.Reseansökning;
-using vIT_System.Rapport;
 
 namespace vIT_System
 {
@@ -18,7 +13,7 @@ namespace vIT_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            Application.Run(new Login.Login());
         }
     }
 }

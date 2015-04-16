@@ -1,4 +1,4 @@
-﻿namespace vIT_System
+﻿namespace vIT_System.Login
 {
     partial class Login
     {

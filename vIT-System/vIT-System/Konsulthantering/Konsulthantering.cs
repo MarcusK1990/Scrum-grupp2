@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using vIT_System.SQL;
 
@@ -37,7 +31,7 @@ namespace vIT_System
         private void btnNyAnställd_Click(object sender, EventArgs e)
         {
             sqlHelper.Modify("insert into anstallda (losenord, fnamn, enamn, persnr, mail) values ('abc123', 'Ny', 'Anställd', 0, 'mail@example.com');");
-            MessageBox.Show("En ny anställd har lagts till!");
+            MessageBox.Show(@"En ny anställd har lagts till!");
 
             DataTable dt = sqlHelper.Fetch("select * from anstallda");
 
@@ -64,7 +58,7 @@ namespace vIT_System
                     break;
                 case DialogResult.Yes:
                     sqlHelper.Modify("delete from anstallda where id = " + listvKonsulter.SelectedItems[0].Text + ";");
-                    MessageBox.Show("Konsulten har tagits bort.");
+                    MessageBox.Show(@"Konsulten har tagits bort.");
                     break;
             }
         }
@@ -116,7 +110,7 @@ namespace vIT_System
 
             sqlHelper.Modify("update anstallda set fnamn='" + tbFörnamn.Text + "', enamn='" + tbEfternamn.Text + "', persnr='" + tbPersonnummer.Text + "', mail='" + tbMailadress.Text + "', losenord='" + tbLösenord.Text + "', chef='" + (cbÄrChef.Checked ? "true" : "false") + "' where id=" + tbId.Text + ";");
 
-            MessageBox.Show("Konsulten har uppdaterats.");
+            MessageBox.Show(@"Konsulten har uppdaterats.");
 
             DataTable dt = sqlHelper.Fetch("select * from anstallda");
 

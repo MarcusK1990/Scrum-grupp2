@@ -10,8 +10,7 @@
 namespace vIT_System
 {
     using System;
-    using System.Collections.Generic;
-    
+
     public partial class Fardmedel
     {
         public int FardId { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace vIT_System.GUI
 {
-    partial class frmMenu
+    partial class FrmMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -114,7 +114,7 @@
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "frmMenu";
+            this.Name = "FrmMenu";
             this.Text = "frmMenu";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace vIT_System
@@ -17,7 +11,7 @@ namespace vIT_System
             InitializeComponent();
             if (mode == ApplicationMode.Mode.OFFLINE)
             {
-                MessageBox.Show("Offline");
+                MessageBox.Show(@"Offline");
                 textBox1.Enabled = false;
                 textBox2.Enabled = false;
             }

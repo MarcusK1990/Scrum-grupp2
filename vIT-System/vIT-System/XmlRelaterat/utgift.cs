@@ -1,17 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace vIT_System.XmlRelaterat
+﻿namespace vIT_System.XmlRelaterat
 {
     public class Utgift
     {
-        public double valutaKurs { get; set; }
-        public double belopp { get; set; }
-        public string valuta { get; set; }
-        public string andaMal { get; set; }
-        public int moms { get; set; }
+
+        public double ValutaKurs { get; set; }
+
+        public double Belopp { get; set; }
+
+        public string Valuta { get; set; }
+
+        public string AndaMal { get; set; }
+
+        public int Moms { get; set; }
+
+        public string Konverterad { get; set; }
+
+        public string VisaIListBox{
+            get { return Valuta + " " + Belopp + " för ändamål:" + AndaMal + " (SEK " + Konverterad + ")"; }
+        }
+
+        
     }
 }

@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
+﻿using System.Data;
 using System.Text;
-using System.Threading.Tasks;
-using System.Drawing;
-using System.Windows.Forms;
 
 namespace vIT_System.Traktamentestabell
 {

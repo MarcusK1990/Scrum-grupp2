@@ -1,25 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using System.Data.SqlClient;
 using vIT_System.GUI;
 using vIT_System.SQL;
 
-namespace vIT_System
+namespace vIT_System.Login
 {
     public partial class Login : Form
     {
-        public string email { get; set; }
-        public string namn { get; set; }
-        public string efterNamn { get; set; }
-        ApplicationMode.Mode mode { get; set; }
+        public string Email { get; set; }
+        public string Namn { get; set; }
+        public string EfterNamn { get; set; }
+        ApplicationMode.Mode Mode { get; set; }
 
         private SqlHelper sqlHelper;
 
@@ -29,15 +21,15 @@ namespace vIT_System
             sqlHelper = new SqlHelper("Database\\vITs2.mdf");
         }
 
-        private DataTable createTestDataTable()
+        private DataTable CreateTestDataTable()
         {
-            DataTable dataTable = new DataTable();
+            var dataTable = new DataTable();
             dataTable.Clear();
             dataTable.Columns.Add("id");
             dataTable.Columns.Add("username");
             dataTable.Columns.Add("password");
 
-            DataRow foo = dataTable.NewRow();
+            var foo = dataTable.NewRow();
             foo["id"] = "0";
             foo["username"] = "admin@example.com";
             foo["password"] = "pass123";
@@ -53,11 +45,11 @@ namespace vIT_System
         }
         private DataTable createChefDataTable()
         {
-            DataTable dataTable = new DataTable();
+            var dataTable = new DataTable();
             dataTable.Clear();
             dataTable.Columns.Add("id");
 
-            DataRow foo = dataTable.NewRow();
+            var foo = dataTable.NewRow();
             foo["id"] = "1";
             dataTable.Rows.Add(foo);
 
@@ -79,19 +71,18 @@ namespace vIT_System
             // 7: godkänn inloggning och öppna huvudmeny. passa vidare lägesvärdet som parameter
 
             // Skapa en test-DataTable
-            DataTable dt = sqlHelper.Fetch("SELECT * FROM ANSTALLDA");
+            var dt = sqlHelper.Fetch("SELECT * FROM ANSTALLDA");
 
             // Hitta matchande användarnamn i DataTable
-            string username = "";
-            string password = "";
-            string id = "";
-            bool isBoss = false;
+            var username = "";
+            var password = "";
+            var isBoss = false;
             
 
-            bool foundMatch = false;
+            var foundMatch = false;
 
-            bool foundError = false;
-            string felMeddelande = "Följande fel har uppstått:\n";
+            var foundError = false;
+            var felMeddelande = "Följande fel har uppstått:\n";
 
             if (Validation.IsEmpty(txtUsername.Text))
             {
@@ -131,48 +122,46 @@ namespace vIT_System
                 System.Diagnostics.Debug.WriteLine(dr["mail"].ToString());
                 if (dr["mail"].ToString().Equals(txtUsername.Text))
                 {
-
-                    id = dr["id"].ToString();
                     username = dr["mail"].ToString();
                     password = dr["losenord"].ToString();
                     isBoss = Convert.ToBoolean(dr["chef"].ToString());
-                    namn = dr["fnamn"].ToString();
-                    efterNamn = dr["enamn"].ToString();
+                    Namn = dr["fnamn"].ToString();
+                    EfterNamn = dr["enamn"].ToString();
                     foundMatch = true;
                     break;
                 }
             }
             if (!foundMatch)
             {
-                MessageBox.Show("Fel användarnamn!");
+                MessageBox.Show(@"Fel användarnamn!");
                 txtUsername.Clear();
                 txtPassword.Clear();
                 return;
             }
             if (!txtPassword.Text.Equals(password))
             {
-                MessageBox.Show("Fel lösenord!");
+                MessageBox.Show(@"Fel lösenord!");
                 txtPassword.Clear();
                 return;
             }
 
-            if (isBoss) { mode = ApplicationMode.Mode.ADMINISTRATOR; }
+            if (isBoss) { Mode = ApplicationMode.Mode.ADMINISTRATOR; }
             
-            email = username;
+            Email = username;
 
-            var menyn = new frmMenu(namn, efterNamn, email, mode);
+            var menyn = new FrmMenu(Namn, EfterNamn, Email, Mode); 
             menyn.Visible = true;
-            this.Visible = false;
+            Visible = false;
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             
-            mode = ApplicationMode.Mode.OFFLINE;
-            var menyn = new frmMenu(mode);
+            Mode = ApplicationMode.Mode.OFFLINE;
+            var menyn = new FrmMenu(Mode);
             menyn.Visible = true;
-            this.Visible = false;
+            Visible = false;
         }
 
 

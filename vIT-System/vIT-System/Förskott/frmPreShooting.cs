@@ -1,14 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Data.SqlClient;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using vIT_System.SQL;
 using vIT_System.Förskott;
 using System.Net.Mail;
 
@@ -56,7 +47,7 @@ namespace vIT_System.GUI
             try
             {
                 client.Send(mail);
-                MessageBox.Show("Mail skickat!");
+                MessageBox.Show(@"Mail skickat!");
             }
             catch (Exception ex)
             {
@@ -68,7 +59,7 @@ namespace vIT_System.GUI
 
             if (Validation.IsEmpty(motiv) || Validation.IsEmpty(tbSum.Text))
             {
-                MessageBox.Show("Fyll i alla fält!");
+                MessageBox.Show(@"Fyll i alla fält!");
             }
             else
             {

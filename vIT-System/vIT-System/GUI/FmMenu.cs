@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using vIT_System.Reseansökning;
 
 namespace vIT_System.GUI
 {
-    public partial class frmMenu : Form
+    public partial class FrmMenu : Form
     {
         private string MenyForNamn { get; set; }
         private string MenyEfterNamn { get; set; }
@@ -19,65 +11,65 @@ namespace vIT_System.GUI
         private ApplicationMode.Mode MenyMode { get; set; }
 
 
-        public frmMenu(ApplicationMode.Mode mode)
+        public FrmMenu(ApplicationMode.Mode mode)
         {
             InitializeComponent();
             if (mode == ApplicationMode.Mode.OFFLINE)
             {
-                lblStatus.Text = "Offline";
+                lblStatus.Text = @"Offline";
                 MenyMode = ApplicationMode.Mode.OFFLINE;
             }
         }
 
-        public frmMenu(string Namn, string Efternamn, string Email, ApplicationMode.Mode mode)
+        public FrmMenu(string namn, string efternamn, string email, ApplicationMode.Mode mode)
         {
             InitializeComponent();
             
             if (mode == ApplicationMode.Mode.ADMINISTRATOR)
             {
-                lblStatus.Text = "Admin";
+                lblStatus.Text = @"Admin";
                 chefToolStripMenuItem.Visible = true;
             }
             if (mode == ApplicationMode.Mode.STANDARD)
             {
-                lblStatus.Text = "Konsult";
+                lblStatus.Text = @"Konsult";
             }
-            MenyForNamn = Namn;
-            MenyEfterNamn = Efternamn;
-            MenyEmail = Email;
+            MenyForNamn = namn;
+            MenyEfterNamn = efternamn;
+            MenyEmail = email;
             MenyMode = mode;
 
         }
 
         private void skapaFörskottsansökanToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmPreShooting form = new frmPreShooting();
+            var form = new frmPreShooting();
             form.Show();
         }
 
         private void mItemTravel_Click(object sender, EventArgs e)
         {
-            if (MenyMode == ApplicationMode.Mode.STANDARD) { 
-            frmCompensation form = new frmCompensation(MenyEmail, MenyForNamn, MenyEfterNamn, MenyMode);
+            FrmCompensation form;
+            if (MenyMode == ApplicationMode.Mode.STANDARD){
+                form = new FrmCompensation(MenyEmail, MenyForNamn, MenyEfterNamn, MenyMode);
+                form.Show();
+            }
+            if (MenyMode != ApplicationMode.Mode.OFFLINE){
+                return;
+            }
+            form = new FrmCompensation(MenyMode);
             form.Show();
-        
-            }
-            if (MenyMode == ApplicationMode.Mode.OFFLINE)
-            {
-                frmCompensation form = new frmCompensation(MenyMode);
-                form.Show();               
-            }
         }
 
         private void mItemMyAppli_Click(object sender, EventArgs e)
         {
-            frmMyApplications form = new frmMyApplications();
+            var form = new FrmMyApplications();
             form.Show();
         }
 
         private void hanteraKonsulterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Konsulthantering form = new Konsulthantering();
+            var form = new Konsulthantering();
             form.Show();
         }
     }

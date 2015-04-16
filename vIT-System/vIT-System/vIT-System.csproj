@@ -98,17 +98,17 @@
       <DependentUpon>DataEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Förskott\DataPreShooting.cs" />
-    <Compile Include="GUI\frmMenu.cs">
+    <Compile Include="GUI\FmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\frmMenu.Designer.cs">
-      <DependentUpon>frmMenu.cs</DependentUpon>
+    <Compile Include="GUI\FmMenu.Designer.cs">
+      <DependentUpon>FmMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\frmMyApplications.cs">
+    <Compile Include="GUI\FrmMyApplications.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\frmMyApplications.Designer.cs">
-      <DependentUpon>frmMyApplications.cs</DependentUpon>
+    <Compile Include="GUI\FrmMyApplications.Designer.cs">
+      <DependentUpon>FrmMyApplications.cs</DependentUpon>
     </Compile>
     <Compile Include="Förskott\frmPreShooting.cs">
       <SubType>Form</SubType>
@@ -142,11 +142,11 @@
     <Compile Include="Ansokning\hamtaAnsokning.Designer.cs">
       <DependentUpon>hamtaAnsokning.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\frmCompensation.cs">
+    <Compile Include="GUI\FrmCompensation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\frmCompensation.Designer.cs">
-      <DependentUpon>frmCompensation.cs</DependentUpon>
+    <Compile Include="GUI\FrmCompensation.Designer.cs">
+      <DependentUpon>FrmCompensation.cs</DependentUpon>
     </Compile>
     <Compile Include="SQL\SqlHelper.cs" />
     <Compile Include="TestaLiteSql.cs" />
@@ -165,17 +165,18 @@
     <Compile Include="XmlRelaterat\ComboboxItem.cs" />
     <Compile Include="XmlRelaterat\CompensationModel.cs" />
     <Compile Include="XmlRelaterat\Resa.cs" />
+    <Compile Include="XmlRelaterat\TestaCurrencyConverter.cs" />
     <Compile Include="XmlRelaterat\Utgift.cs" />
     <Compile Include="XmlRelaterat\Xmelliserare.cs" />
     <EmbeddedResource Include="Ansokning\hamtaAnsokning.resx">
       <DependentUpon>hamtaAnsokning.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx" />
-    <EmbeddedResource Include="GUI\frmMenu.resx">
-      <DependentUpon>frmMenu.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\FmMenu.resx">
+      <DependentUpon>FmMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\frmMyApplications.resx">
-      <DependentUpon>frmMyApplications.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\FrmMyApplications.resx">
+      <DependentUpon>FrmMyApplications.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Förskott\frmPreShooting.resx">
       <DependentUpon>frmPreShooting.cs</DependentUpon>
@@ -195,8 +196,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="GUI\frmCompensation.resx">
-      <DependentUpon>frmCompensation.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\FrmCompensation.resx">
+      <DependentUpon>FrmCompensation.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="DataEntity.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

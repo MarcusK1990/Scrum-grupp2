@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace vIT_System.GUI
 {
-    public partial class frmMyApplications : Form
+    public partial class FrmMyApplications : Form
     {
-        public frmMyApplications()
+        public FrmMyApplications()
         {
             InitializeComponent();
         }

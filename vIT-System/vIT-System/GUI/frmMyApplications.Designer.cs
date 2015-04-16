@@ -1,6 +1,6 @@
 ﻿namespace vIT_System.GUI
 {
-    partial class frmMyApplications
+    partial class FrmMyApplications
     {
         /// <summary>
         /// Required designer variable.
