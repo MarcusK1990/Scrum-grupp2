@@ -234,7 +234,7 @@ namespace vIT_System.GUI
             SmtpClient client = new SmtpClient();
 
             string from = "sergio.saxofonguden@gmail.com";
-            string to = "painblom@gmail.com";
+            string to = "sergio.saxofonguden@gmail.com";
             string subject = "Ny vits ansökan";
             string meddelande = "Du har en ny ansökan från någon utav dina anställda konsulter";
 
