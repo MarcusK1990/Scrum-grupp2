@@ -132,7 +132,7 @@ namespace vIT_System
                     id = dr["id"].ToString();
                     username = dr["mail"].ToString();
                     password = dr["losenord"].ToString();
-                    //isBoss = Convert.ToInt32(dr["chef"].ToString());
+                    isBoss = Convert.ToBoolean(dr["chef"].ToString());
                     foundMatch = true;
                     break;
                 }
@@ -151,20 +151,7 @@ namespace vIT_System
                 return;
             }
 
-            //checka om det är en chef som loggar in
-            DataTable chefDt = createChefDataTable();
-
-            foreach (DataRow dr in chefDt.Rows)
-            {
-                if (dr["id"].Equals(id))
-                {
-                    // sätt igång chef-läge
-                    mode = ApplicationMode.Mode.ADMINISTRATOR;
-                }
-            }
-            Logintest form = new Logintest(mode);
-            form.Visible = true;
-            Visible = false;
+            if (isBoss) { mode = ApplicationMode.Mode.ADMINISTRATOR; }
 
             namn = username.Substring(0, 2);
             efterNamn = username.Substring(2, 5);

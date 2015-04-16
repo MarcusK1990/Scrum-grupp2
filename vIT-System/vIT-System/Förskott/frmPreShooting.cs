@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using vIT_System.SQL;
 using vIT_System.Förskott;
-
+using System.Net.Mail;
 namespace vIT_System.GUI
 {
     public partial class frmPreShooting : Form
@@ -40,6 +40,29 @@ namespace vIT_System.GUI
         //Posta innehållet i formuläret till databasen
         private void btnSendPre_Click(object sender, EventArgs e)
         {
+            SmtpClient client = new SmtpClient();
+
+            string from = "sergio.saxofonguden@gmail.com";
+            string to = "painblom@gmail.com"; 
+            string subject = "Ny vits ansökan";
+            string meddelande = "Du har en ny ansökan från någon utav dina anställda konsulter";
+
+            MailMessage mail = new MailMessage(from, to, subject, meddelande);
+            client.Host = "smtp.gmail.com";
+            client.Port = 587;
+            client.EnableSsl = true;
+            client.Credentials = new System.Net.NetworkCredential("sergio.saxofonguden@gmail.com", "Sergio1977");
+
+            try
+            {
+                client.Send(mail);
+                MessageBox.Show("Mail skickat!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
             var motiv = tbMotivation.Text;
             var sum = 0;
 
