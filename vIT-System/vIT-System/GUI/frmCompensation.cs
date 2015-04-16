@@ -106,6 +106,13 @@ namespace vIT_System.Reseansökning
 
             //MessageBox.Show(strFilePath);
 
+            bool exist = System.IO.Directory.Exists(Application.StartupPath + "\\Images\\");
+
+            if(!exist)
+            {
+                System.IO.Directory.CreateDirectory(Application.StartupPath + "\\Images\\");
+            }
+
             System.IO.File.Copy(fullpath, Application.StartupPath + "\\Images\\" + strFileName);
 
             //// Sökväg som skall sparas i databasen (kvitto)
