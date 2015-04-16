@@ -9,6 +9,8 @@ namespace vIT_System.Data
 {
     public static class Helpers
     {
+        //Fulade till med denna metod som "trimmar" sökvägen till databsen.
+        //den trimmar bort file:\\ och \\bin\\Debug från sökvägen.
         public static string getSourcePath()
         {
             var sourceString = "Data Source=(localdb)\\v11.0;AttachDbFilename=" + Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().GetName().CodeBase) + "\\Database\\vITs.mdf;Integrated Security=True";
