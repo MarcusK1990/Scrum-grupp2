@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using vIT_System.XmlRelaterat;
 using vIT_System.Validering;
+using System.Net.Mail;
 
 namespace vIT_System.GUI
 {
@@ -68,6 +69,8 @@ namespace vIT_System.GUI
 
         private void btnUtgiter_Click(object sender, EventArgs e)
         {
+
+           
             double parsedBelopp = 0;
             double.TryParse(tbBelopp.Text, out parsedBelopp);
 
@@ -225,7 +228,30 @@ namespace vIT_System.GUI
         {
             if (!validera())
             {
+
                 return;
+            }
+            SmtpClient client = new SmtpClient();
+
+            string from = "sergio.saxofonguden@gmail.com";
+            string to = "painblom@gmail.com";
+            string subject = "Ny vits ansökan";
+            string meddelande = "Du har en ny ansökan från någon utav dina anställda konsulter";
+
+            MailMessage mail = new MailMessage(from, to, subject, meddelande);
+            client.Host = "smtp.gmail.com";
+            client.Port = 587;
+            client.EnableSsl = true;
+            client.Credentials = new System.Net.NetworkCredential("sergio.saxofonguden@gmail.com", "Sergio1977");
+
+            try
+            {
+                client.Send(mail);
+                MessageBox.Show("Mail skickat!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
             //det som ska sparas i db
         }
