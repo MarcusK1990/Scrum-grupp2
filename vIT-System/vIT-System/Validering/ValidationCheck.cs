@@ -48,7 +48,7 @@ namespace vIT_System.Validering
             {
                 felMedelande += "\n• Fältet för " + fältNamn + " innehåller siffror.";
             }
-            if (Validation.IsLetterContainer(boxAttKolla.Text) && parameter.Equals("innehållerBokstav"))
+            if (Validation.IsLetterContainer(boxAttKolla.Text) && parameter.Equals("InnehållerBokstav"))
             {
                 felMedelande += "\n• Fältet för " + fältNamn + " innehåller bokstäver.";
             }

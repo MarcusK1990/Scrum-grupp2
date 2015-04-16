@@ -42,6 +42,7 @@
             this.btnKvitto = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbUtgifter = new System.Windows.Forms.ListBox();
             this.label13 = new System.Windows.Forms.Label();
             this.labelTotal = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -80,7 +81,9 @@
             this.btnSkickaAnsokan = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.btnLaddaUtkast = new System.Windows.Forms.Button();
-            this.lbUtgifter = new System.Windows.Forms.ListBox();
+            this.lbResa = new System.Windows.Forms.ListBox();
+            this.tbÄndraISparatForumlär = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groaupBox3.SuspendLayout();
@@ -212,6 +215,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Utgifter";
             // 
+            // lbUtgifter
+            // 
+            this.lbUtgifter.FormattingEnabled = true;
+            this.lbUtgifter.Location = new System.Drawing.Point(196, 29);
+            this.lbUtgifter.Name = "lbUtgifter";
+            this.lbUtgifter.Size = new System.Drawing.Size(216, 95);
+            this.lbUtgifter.TabIndex = 23;
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -309,9 +320,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lbResa);
+            this.groupBox2.Controls.Add(this.btnLaggTillResa);
             this.groupBox2.Controls.Add(this.label22);
             this.groupBox2.Controls.Add(this.cbLand);
-            this.groupBox2.Controls.Add(this.btnLaggTillResa);
             this.groupBox2.Controls.Add(this.label25);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label23);
@@ -327,7 +339,7 @@
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Location = new System.Drawing.Point(386, 15);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(444, 162);
+            this.groupBox2.Size = new System.Drawing.Size(444, 204);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Resa";
@@ -351,12 +363,13 @@
             // 
             // btnLaggTillResa
             // 
-            this.btnLaggTillResa.Location = new System.Drawing.Point(339, 127);
+            this.btnLaggTillResa.Location = new System.Drawing.Point(52, 173);
             this.btnLaggTillResa.Name = "btnLaggTillResa";
             this.btnLaggTillResa.Size = new System.Drawing.Size(75, 23);
             this.btnLaggTillResa.TabIndex = 23;
             this.btnLaggTillResa.Text = "Lägg till";
             this.btnLaggTillResa.UseVisualStyleBackColor = true;
+            this.btnLaggTillResa.Click += new System.EventHandler(this.btnLaggTillResa_Click);
             // 
             // label25
             // 
@@ -508,7 +521,7 @@
             // 
             this.groupBox3.Controls.Add(this.tbMilErsattning);
             this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Location = new System.Drawing.Point(388, 176);
+            this.groupBox3.Location = new System.Drawing.Point(200, 331);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(172, 70);
             this.groupBox3.TabIndex = 18;
@@ -570,19 +583,37 @@
             this.btnLaddaUtkast.UseVisualStyleBackColor = true;
             this.btnLaddaUtkast.Click += new System.EventHandler(this.btnLaddaUtkast_Click);
             // 
-            // lbUtgifter
+            // lbResa
             // 
-            this.lbUtgifter.FormattingEnabled = true;
-            this.lbUtgifter.Location = new System.Drawing.Point(196, 29);
-            this.lbUtgifter.Name = "lbUtgifter";
-            this.lbUtgifter.Size = new System.Drawing.Size(216, 95);
-            this.lbUtgifter.TabIndex = 23;
+            this.lbResa.FormattingEnabled = true;
+            this.lbResa.Location = new System.Drawing.Point(218, 96);
+            this.lbResa.Name = "lbResa";
+            this.lbResa.Size = new System.Drawing.Size(216, 95);
+            this.lbResa.TabIndex = 24;
+            // 
+            // tbÄndraISparatForumlär
+            // 
+            this.tbÄndraISparatForumlär.Location = new System.Drawing.Point(32, 381);
+            this.tbÄndraISparatForumlär.Name = "tbÄndraISparatForumlär";
+            this.tbÄndraISparatForumlär.Size = new System.Drawing.Size(162, 20);
+            this.tbÄndraISparatForumlär.TabIndex = 24;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(29, 356);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(165, 13);
+            this.label10.TabIndex = 32;
+            this.label10.Text = "Här kan du ända i sparat forulär ;)";
             // 
             // frmCompensation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(863, 504);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.tbÄndraISparatForumlär);
             this.Controls.Add(this.btnLaddaUtkast);
             this.Controls.Add(this.label27);
             this.Controls.Add(this.btnSkickaAnsokan);
@@ -668,6 +699,9 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Button btnLaddaUtkast;
         private System.Windows.Forms.ListBox lbUtgifter;
+        private System.Windows.Forms.ListBox lbResa;
+        private System.Windows.Forms.TextBox tbÄndraISparatForumlär;
+        private System.Windows.Forms.Label label10;
    
     }
 }

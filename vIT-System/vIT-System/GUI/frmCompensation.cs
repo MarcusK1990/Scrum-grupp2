@@ -29,8 +29,11 @@ namespace vIT_System.Reseansökning
             
             lbUtgifter.DisplayMember = "andaMal";
             lbUtgifter.ValueMember = "valutaKurs";
-
             lbUtgifter.DataSource = TotalOutPoison;
+
+            lbResa.DisplayMember = "Resa till: " + "Land";
+            lbResa.ValueMember = "TraktamenteFörLandet";
+            lbResa.DataSource = AllaResor;
 
         }
 
@@ -49,8 +52,11 @@ namespace vIT_System.Reseansökning
 
             lbUtgifter.DisplayMember = "andaMal";
             lbUtgifter.ValueMember = "valutaKurs";
-
             lbUtgifter.DataSource = TotalOutPoison;
+
+            lbResa.DisplayMember = "Resa till: " + "Land";
+            lbResa.ValueMember = "TraktamenteFörLandet";
+            lbResa.DataSource = AllaResor;
         }
 
         private void LaddaComboBox()
@@ -91,7 +97,7 @@ namespace vIT_System.Reseansökning
             double.TryParse(tbBelopp.Text, out parsedBelopp);
 
             var felmeddelanden = "";
-            var f1 = "Följande fel har uppstått: \n";
+
             ValidationCheck.checkValidering(tbBelopp, "tom", "belopp");
             ValidationCheck.checkValidering(tbBelopp, "bokstäver", "belopp");
             ValidationCheck.checkValidering(tbBelopp, "längre255", "belopp");
@@ -104,7 +110,7 @@ namespace vIT_System.Reseansökning
 
             if (felmeddelanden.Length > 0)
             {
-                MessageBox.Show(f1 + felmeddelanden);
+                MessageBox.Show("Följande fel har uppstått: \n" + felmeddelanden);
                 ValidationCheck.felString = "";
                 return;
             }
@@ -124,6 +130,7 @@ namespace vIT_System.Reseansökning
                 valutaKurs = valtItemDouble,   //parsadValutakursdouble,
                 moms = 2 // % eller ?!?!?!        
             };
+
             TotalOutPoison.Add(nyUtgift);
             
             UppdateraTotalSumma();
@@ -131,14 +138,16 @@ namespace vIT_System.Reseansökning
 
         public void UppdateraTotalSumma()
         {
-
             //var total = totalOutpoison.Aggregate<utgift, double>(0, (current, t) => current + t.belopp);
             //labelTotal.Text = total.ToString();
+
             double total = 0;
+
             for (var i = 0; i < TotalOutPoison.Count; i++)
             {
                 total += TotalOutPoison[i].belopp;
             }
+
             labelTotal.Text = total.ToString();
         }
 
@@ -146,11 +155,10 @@ namespace vIT_System.Reseansökning
         {
             var äcksämäll = new Xmelliserare(@"C:\dump\xmlCompensationModel.xml");
 
-            if (!validera())
+            if (!ValideraVidSpara())
             {
                 return;
-            }
-            
+            }           
 
             var utkast = new CompensationModel
             {
@@ -159,21 +167,13 @@ namespace vIT_System.Reseansökning
                 eftNamn = tbEfterNamn.Text,
                 //Bild nånting hur fan man nu gör det
                 milErsattning = Convert.ToInt32(tbMilErsattning.Text),
-                utresa = dtpUtResa.Value.ToString("yyyy-MM-dd"),
-                hemresa = dtpHemResa.Value.ToString("yyyy-MM-dd"),
-                semesterDagar = tbSemesterdagar.Text,
-                land = cbLand.SelectedItem.ToString(),
-                frukost = Convert.ToInt32(tbFrukost.Text),
-                lunch = Convert.ToInt32(tbLunch.Text),
-                middag = Convert.ToInt32(tbMiddag.Text),
-                utgifter = TotalOutPoison
+                ÄndraISparadAnsökan = tbÄndraISparatForumlär.Text,
+                Utgifter = TotalOutPoison,
+                Resor = AllaResor
             };
 
             äcksämäll.SkrivCompensationModel(utkast);
 
-            var asd = new CompensationModel(TotalOutPoison);
-            Console.WriteLine("TotalOutpoison Count: " + TotalOutPoison.Count);
-            Console.WriteLine("asd listan Count: " + asd.utgifter.Count);
 
         }
 
@@ -197,22 +197,16 @@ namespace vIT_System.Reseansökning
             tbEmail.Text = utkast.eMail;
             tbForNamn.Text = utkast.forNamn;
             tbEfterNamn.Text = utkast.eftNamn;
-            //Bild nånting hur fan man nu gör det
             tbMilErsattning.Text = utkast.milErsattning.ToString();
-            dtpUtResa.Value = DateTime.Parse(utkast.utresa);
-            dtpHemResa.Value = DateTime.Parse(utkast.hemresa);
-            tbSemesterdagar.Text = utkast.semesterDagar;
-            cbLand.SelectedIndex = -1;
-            tbFrukost.Text = utkast.frukost.ToString();
-            tbLunch.Text = utkast.lunch.ToString();
-            tbMiddag.Text = utkast.middag.ToString();
-            TotalOutPoison = utkast.utgifter;
+            // Bild nånting hur fan man nu gör det
+            TotalOutPoison = utkast.Utgifter;
+            AllaResor = utkast.Resor;
         }
 
-        private bool validera()
+        private bool ValideraVidSpara()
         {
             var felmeddelanden = "";
-            var f1 = "Följande fel har uppstått: \n";
+
             ValidationCheck.checkValidering(tbEfterNamn, "tom", "efternamn");
             ValidationCheck.checkValidering(tbEfterNamn, "längre255", "efternamn");
             ValidationCheck.checkValidering(tbEfterNamn, "innehållerInt", "efternamn");
@@ -225,31 +219,23 @@ namespace vIT_System.Reseansökning
             ValidationCheck.checkValidering(tbEmail, "längre255", "email");
             ValidationCheck.checkValidering(tbEmail, "email", "email");
 
-            ValidationCheck.checkValidering(tbMilErsattning, "innehållerBokstav", "milersättning");
-
-            ValidationCheck.checkValidering(tbSemesterdagar, "innehållerBokstav", "semesterdagar");
-
-            ValidationCheck.checkValidering(tbFrukost, "innehållerBokstav", "frukost");
-
-            ValidationCheck.checkValidering(tbLunch, "innehållerBokstav", "lunch");
-
-            ValidationCheck.checkValidering(tbMiddag, "innehållerBokstav", "middag");
-
+            ValidationCheck.checkValidering(tbMilErsattning, "InnehållerBokstav", "milersättning");
+                    
             felmeddelanden = ValidationCheck.felString;
 
             if (felmeddelanden.Length <= 0)
             {
                 return true;
             }
-            
-            MessageBox.Show(f1 + felmeddelanden);
+
+            MessageBox.Show("Följande fel har uppstått: \n" + felmeddelanden);
             ValidationCheck.felString = "";
             return false;
         }
 
         private void btnSkickaAnsokan_Click(object sender, EventArgs e)
         {
-            if (!validera())
+            if (!ValideraVidSpara())
             {
                 return;
             }
@@ -264,11 +250,55 @@ namespace vIT_System.Reseansökning
 
             for (int i = 0; i < länder.GetLength(0); i++)
             {
-                System.Diagnostics.Debug.WriteLine(länder[i, 0] + " + " + länder[i, 1]);
+                //System.Diagnostics.Debug.WriteLine(länder[i, 0] + " + " + länder[i, 1]);
                 cbLand.Items.Add(new ComboboxItem { Text = länder[i, 0], Value = Convert.ToDouble(länder[i, 1]) });
             }
 
             cbLand.SelectedIndex = 0;
+        }
+
+        private void btnLaggTillResa_Click(object sender, EventArgs e)
+        {
+
+            ValidationCheck.checkValidering(tbSemesterdagar, "tom", "semesterdagar");
+            ValidationCheck.checkValidering(tbSemesterdagar, "InnehållerBokstav", "semesterdagar");
+            ValidationCheck.checkValidering(tbSemesterdagar, "längre255", "semesterdagar");
+
+            ValidationCheck.checkValidering(tbFrukost, "InnehållerBokstav", "frukost");
+            ValidationCheck.checkValidering(tbLunch, "InnehållerBokstav", "lunch");
+            ValidationCheck.checkValidering(tbMiddag, "InnehållerBokstav", "middag");
+
+            var felmeddelanden = ValidationCheck.felString;
+
+            if (felmeddelanden.Length > 0)
+            {
+                MessageBox.Show("Följande fel har uppstått: \n" + felmeddelanden);
+                ValidationCheck.felString = "";
+                return;
+            }
+           // double parsadValutakursdouble = 0;
+           // var selectedValue = cbValuta.Items[1].ToString();
+
+            var valtItem = (ComboboxItem)cbLand.SelectedItem;
+            var valtTraktamenteFörLandet = Convert.ToDouble(valtItem.Value);
+            var valtLand = Convert.ToString(valtItem.Text);
+            
+            //Double.TryParse(cbValuta.SelectedValue.ToString(), out parsadValutakursdouble);
+            var nyResa = new Resa
+            {
+                UtResa = dtpUtResa.Value.ToString("yyyy-MM-dd"),
+                HemResa = dtpHemResa.Value.ToString("yyyy-MM-dd"),
+                Land = valtLand,
+                SemesterDagar = tbSemesterdagar.Text,
+                TraktamenteFörLandet = 23                
+            };
+
+            //var middagar = Convert.ToInt32(tbMiddag.Text);
+            //var resa = new Resa {TraktamenteEfterAvdrag = middagar * nyResa.TraktamenteFörLandet};
+
+            AllaResor.Add(nyResa);          
+        
+
         }
     }
 }
