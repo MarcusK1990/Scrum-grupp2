@@ -20,7 +20,7 @@ namespace vIT_System
             // om ni behöver ändra i koden och undrar om något, hör av er
 
             InitializeComponent();
-            sqlHelper = new SqlHelper("Database\\vITs.mdf");
+            sqlHelper = new SqlHelper("Database\\vITs2.mdf");
 
             DataTable dt = sqlHelper.Fetch("select * from anstallda");
 
