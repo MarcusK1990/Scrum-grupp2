@@ -15,13 +15,10 @@ namespace vIT_System.GUI
 {
     public partial class frmPreShooting : Form
     {
-
         public frmPreShooting()
         {
             InitializeComponent();
-
         }
-
         private void frmPreShooting_Load(object sender, EventArgs e)
         {
             //Hämtar alla bossar och fyller upp combobox med alla chefer som finns
@@ -38,7 +35,6 @@ namespace vIT_System.GUI
             //{
             //    cbChooseUppdrag.Items.Add(uppd);
             //}
-
         }
 
         //Posta innehållet i formuläret till databasen
@@ -51,7 +47,6 @@ namespace vIT_System.GUI
             {
                 MessageBox.Show("Fyll i alla fält!");
             }
-
             else
             {
                 var bossID = DataPreShooting.getBoss(cbBoss.SelectedItem.ToString());
@@ -60,12 +55,7 @@ namespace vIT_System.GUI
                 tbSum.Text = "";
             }
 
-
-
             //var uppd = cbChooseUppdrag.SelectedItem.ToString();
-
-            //Hämta bossens id genom att skicka med dennes namn som är valt i comboboxen
-
         }
     }
 }

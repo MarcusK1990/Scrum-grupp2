@@ -5,6 +5,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
+
+//IsAlphabetic och IsNumeric kanske ska tas bort
 namespace vIT_System
 {
     static class Validation
@@ -39,7 +41,7 @@ namespace vIT_System
             return String.IsNullOrWhiteSpace(str);
         }
         /// <summary>
-        /// Testa om en sträng följer formatet [text]@[text].[text]
+        /// Testa om en sträng följer formatet, är strängen tom så körs inte valideringen [text]@[text].[text]
         /// </summary>
         /// <param name="str">Strängen som du vill kontrollera</param>
         /// <returns>Boolean</returns>
@@ -54,7 +56,7 @@ namespace vIT_System
             
         }
         /// <summary>
-        /// Testa om en sträng enbart innehåller bokstäver
+        /// Testa om en sträng enbart innehåller bokstäver, är strängen tom så körs inte valideringen
         /// </summary>
         /// <param name="str">Strängen som du vill kontrollera</param>
         /// <returns>Boolean</returns>
@@ -68,7 +70,7 @@ namespace vIT_System
             return false;
         }
         /// <summary>
-        /// Testa om en sträng enbart innehåller siffror
+        /// Testa om en sträng enbart innehåller siffror, är strängen tom så körs inte valideringen
         /// </summary>
         /// <param name="str">Strängen som du vill kontrollera</param>
         /// <returns>Boolean</returns>
@@ -81,5 +83,24 @@ namespace vIT_System
             }
             return false;
         }
+        //Testa om en sträng innehåller en int
+        public static bool IsIntContainer(string str)
+        {
+            if (str.Any(char.IsDigit))
+            {
+                return true;
+            }
+            return false;
+        }
+        //Testa om en sträng innehåller bokstäver
+        public static bool IsLetterContainer(string str)
+        {
+            if (str.Any(char.IsLetter))
+            {
+                return true;
+            }
+            return false;
+        }
+
     }
 }
