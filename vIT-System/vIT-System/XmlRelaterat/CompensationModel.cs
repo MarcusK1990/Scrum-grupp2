@@ -13,24 +13,21 @@ namespace vIT_System.XmlRelaterat
         public string forNamn { get; set; }
         public string eftNamn { get; set; }
         public int milErsattning { get; set; }
-        public string utresa { get; set; }
-        public string hemresa { get; set; }
-        public string semesterDagar { get; set; }
-        public string land { get; set; }
-        public int frukost { get; set; }
-        public int lunch { get; set; }
-        public int middag { get; set; }
-        public BindingList<Utgift> utgifter { get; set; }
+        public string ÄndraISparadAnsökan { get; set; }
+        public BindingList<Utgift> Utgifter { get; set; }
+        public BindingList<Resa> Resor { get; set; }
 
-        public CompensationModel(BindingList<Utgift> utkastet)
+        public CompensationModel(BindingList<Utgift> utkastet, BindingList<Resa> resor)
         {
-            utgifter = new BindingList<Utgift>();
-            utgifter = utkastet;
-            
+            Utgifter = new BindingList<Utgift>();
+            Resor = new BindingList<Resa>();
+            Utgifter = utkastet;
+            Resor = resor;  
         }
     
         public CompensationModel()
-        { }
+        {
+        }
     }
    
     
