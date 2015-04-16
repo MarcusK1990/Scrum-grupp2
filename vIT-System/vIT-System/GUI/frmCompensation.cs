@@ -120,7 +120,11 @@ namespace vIT_System.GUI
         {
             var äcksämäll = new Xmelliserare(@"C:\dump\xmlCompensationModel.xml");
 
-            validera();
+            if (!validera())
+            {
+                return;
+            }
+            
 
             var utkast = new CompensationModel
             {
@@ -146,8 +150,6 @@ namespace vIT_System.GUI
             Console.WriteLine("asd listan Count: " + asd.utgifter.Count);
 
         }
-
-
 
         private void frmCompensation_Load(object sender, EventArgs e)
         {
@@ -180,46 +182,50 @@ namespace vIT_System.GUI
             totalOutpoison = utkast.utgifter;
         }
 
-        private void validera()
+        private bool validera()
         {
             var felmeddelanden = "";
             var f1 = "Följande fel har uppstått: \n";
             ValidationCheck.checkValidering(tbEfterNamn, "tom", "efternamn");
             ValidationCheck.checkValidering(tbEfterNamn, "längre255", "efternamn");
-            ValidationCheck.checkValidering(tbEfterNamn, "siffor", "efternamn");
+            ValidationCheck.checkValidering(tbEfterNamn, "innehållerInt", "efternamn");
 
             ValidationCheck.checkValidering(tbForNamn, "tom", "förnamn");
-            ValidationCheck.checkValidering(tbForNamn, "längre255", "förnamn");
-            ValidationCheck.checkValidering(tbForNamn, "siffor", "förnamn");
+            ValidationCheck.checkValidering(tbForNamn, "längre255", "förnamn");       
+            ValidationCheck.checkValidering(tbForNamn, "innehållerInt", "förnamn");
 
             ValidationCheck.checkValidering(tbEmail, "tom", "email");
             ValidationCheck.checkValidering(tbEmail, "längre255", "email");
             ValidationCheck.checkValidering(tbEmail, "email", "email");
 
-            //ValidationCheck.checkValidering(tbMilErsattning, "tom", "milersättning");
-            ValidationCheck.checkValidering(tbMilErsattning, "bokstäver", "milersättning");
+            ValidationCheck.checkValidering(tbMilErsattning, "innehållerBokstav", "milersättning");
 
-            ValidationCheck.checkValidering(tbSemesterdagar, "bokstäver", "semesterdagar");
+            ValidationCheck.checkValidering(tbSemesterdagar, "innehållerBokstav", "semesterdagar");
 
-            ValidationCheck.checkValidering(tbFrukost, "bokstäver", "frukost");
+            ValidationCheck.checkValidering(tbFrukost, "innehållerBokstav", "frukost");
 
-            ValidationCheck.checkValidering(tbLunch, "bokstäver", "lunch");
+            ValidationCheck.checkValidering(tbLunch, "innehållerBokstav", "lunch");
 
-            ValidationCheck.checkValidering(tbMiddag, "bokstäver", "middag");
+            ValidationCheck.checkValidering(tbMiddag, "innehållerBokstav", "middag");
 
             felmeddelanden = ValidationCheck.felString;
 
-            if (felmeddelanden.Length > 0)
+            if (felmeddelanden.Length <= 0)
             {
-                MessageBox.Show(f1 + felmeddelanden);
-                ValidationCheck.felString = "";
-                return;
+                return true;
             }
+            
+            MessageBox.Show(f1 + felmeddelanden);
+            ValidationCheck.felString = "";
+            return false;
         }
 
         private void btnSkickaAnsokan_Click(object sender, EventArgs e)
         {
-            validera();
+            if (!validera())
+            {
+                return;
+            }
             //det som ska sparas i db
         }
     }

@@ -37,13 +37,21 @@ namespace vIT_System.Validering
             
             if (Validation.IsNumeric(boxAttKolla.Text) && parameter.Equals("siffor"))
             {
-                felMedelande += "\n• Fältet för " + fältNamn + " innehåller siffror.";
+                felMedelande += "\n• Fältet för " + fältNamn + " består av siffror.";
             }
 
             if (Validation.IsAlphabetic(boxAttKolla.Text) && parameter.Equals("bokstäver"))
             {
+                felMedelande += "\n• Fältet för " + fältNamn + " består av bokstäver.";
+            }  
+            if (Validation.IsIntContainer(boxAttKolla.Text) && parameter.Equals("innehållerInt"))
+            {
+                felMedelande += "\n• Fältet för " + fältNamn + " innehåller siffror.";
+            }
+            if (Validation.IsLetterContainer(boxAttKolla.Text) && parameter.Equals("innehållerBokstav"))
+            {
                 felMedelande += "\n• Fältet för " + fältNamn + " innehåller bokstäver.";
-            }   
+            }
            
 
             felString += felMedelande;
