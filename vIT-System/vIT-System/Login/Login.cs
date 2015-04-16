@@ -26,7 +26,7 @@ namespace vIT_System
         public Login()
         {
             InitializeComponent();
-            sqlHelper = new SqlHelper("Database\\vITs.mdf");
+            sqlHelper = new SqlHelper("Database\\vITs2.mdf");
         }
 
         private DataTable createTestDataTable()
@@ -85,6 +85,7 @@ namespace vIT_System
             string username = "";
             string password = "";
             string id = "";
+            bool isBoss = false;
             
 
             bool foundMatch = false;
@@ -131,6 +132,7 @@ namespace vIT_System
                     id = dr["id"].ToString();
                     username = dr["mail"].ToString();
                     password = dr["losenord"].ToString();
+                    isBoss = Convert.ToBoolean(dr["chef"].ToString());
                     foundMatch = true;
                     break;
                 }
@@ -149,17 +151,8 @@ namespace vIT_System
                 return;
             }
 
-            //checka om det är en chef som loggar in
-            DataTable chefDt = createChefDataTable();
+            if (isBoss) { mode = ApplicationMode.Mode.ADMINISTRATOR; }
 
-            foreach (DataRow dr in chefDt.Rows)
-            {
-                if (dr["id"].Equals(id))
-                {
-                    // sätt igång chef-läge
-                    mode = ApplicationMode.Mode.ADMINISTRATOR;
-                }
-            }
             Logintest form = new Logintest(mode);
             form.Visible = true;
             Visible = false;
