@@ -19,12 +19,12 @@ namespace vIT_System.Reseansökning
         public BindingList<Resa> AllaResor;
         public ApplicationMode.Mode CompMode { get; set; }
 
-        public frmCompensation(ApplicationMode.Mode modee)
+        public frmCompensation(ApplicationMode.Mode inMode)
         {
             InitializeComponent();
             TotalOutPoison = new BindingList<Utgift>();
             AllaResor = new BindingList<Resa>();
-            CompMode = modee;
+            CompMode = inMode;
             TotalOutPoison.Add(new Utgift() { valuta = "test", valutaKurs = 1, andaMal = "test utgift." });
             
             lbUtgifter.DisplayMember = "andaMal";
@@ -42,6 +42,15 @@ namespace vIT_System.Reseansökning
             tbForNamn.Text = namn;
             tbEfterNamn.Text = efternamn;
             CompMode = inMode;
+
+            TotalOutPoison = new BindingList<Utgift>();
+            AllaResor = new BindingList<Resa>();
+            TotalOutPoison.Add(new Utgift() { valuta = "test", valutaKurs = 1, andaMal = "test utgift." });
+
+            lbUtgifter.DisplayMember = "andaMal";
+            lbUtgifter.ValueMember = "valutaKurs";
+
+            lbUtgifter.DataSource = TotalOutPoison;
         }
 
         private void LaddaComboBox()

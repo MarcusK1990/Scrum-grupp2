@@ -124,15 +124,20 @@ namespace vIT_System
                 return;
             }
 
+
+
             foreach (DataRow dr in dt.Rows)
             {
                 System.Diagnostics.Debug.WriteLine(dr["mail"].ToString());
                 if (dr["mail"].ToString().Equals(txtUsername.Text))
                 {
+
                     id = dr["id"].ToString();
                     username = dr["mail"].ToString();
                     password = dr["losenord"].ToString();
                     isBoss = Convert.ToBoolean(dr["chef"].ToString());
+                    namn = dr["fnamn"].ToString();
+                    efterNamn = dr["enamn"].ToString();
                     foundMatch = true;
                     break;
                 }
@@ -156,10 +161,8 @@ namespace vIT_System
             Logintest form = new Logintest(mode);
             form.Visible = true;
             Visible = false;
-
-            namn = username.Substring(0, 2);
-            efterNamn = username.Substring(2, 5);
-            email = username + "@email.com";
+            
+            email = username;
 
             var menyn = new frmMenu(namn, efterNamn, email, mode);
             menyn.Visible = true;
