@@ -17,7 +17,7 @@ namespace vIT_System.Förskott
             var path = Helpers.getSourcePath();
 
             var sqldb = new SqlConnection(path);
-            var query = "select Fnamn from Anstallda where Anstallda.Chef = 'ja'";
+            var query = "select Fnamn from Anstallda where Anstallda.Chef = 'true'";
             
             var sqlC = new SqlCommand(query, sqldb);
             SqlDataReader myReader;
@@ -45,7 +45,7 @@ namespace vIT_System.Förskott
         {
             var path = Helpers.getSourcePath();
             var sqldb = new SqlConnection(path);
-            var query = "select Uppdragnamn from Uppdrag";
+            var query = "select namn from uppdrag";
 
             var sqlC = new SqlCommand(query, sqldb);
             SqlDataReader myReader;
@@ -97,14 +97,45 @@ namespace vIT_System.Förskott
             return idhamtat;
         }
 
-        public static void savePreShooting(int summa, string beskr, int id)
+
+        public static int getUppdrag(string cbUppdrag)
         {
-            //Behöver man inte veta vem det är som har skickat, är det de som är id?
-            //behöver även en kolumn med uppdrag
+            var path = Helpers.getSourcePath();
+
+            var sqldb = new SqlConnection(path);
+
+            var query = "select uppid from uppdrag where namn = '" + cbUppdrag + "'";
+            SqlCommand sqlSelect = new SqlCommand(query, sqldb);
+
+            SqlDataReader myReader;
+            var idhamtat = 0;
+            try
+            {
+                sqldb.Open();
+                myReader = sqlSelect.ExecuteReader();
+                while (myReader.Read())
+                {
+                    idhamtat = myReader.GetInt32(0);
+                }
+
+                myReader.Close();
+            }
+            catch (FormatException)
+            {
+            }
+            return idhamtat;
+        }
+
+        public static void savePreShooting(int summa, string beskr, int chefId, int uppID)
+        {
+            //TODO: Hämta ut id på den som är inloggad
+            //Ska chefen läggas in som id. Bäst kanske
+            //Sista variabeln som är hårdkodad i insertfrågan är eg anställningsid, alltså den som är inloggad
             var path = Helpers.getSourcePath();
             var sqldb = new SqlConnection(path); 
             sqldb.Open(); 
-            var query = "insert into forskott values (" +summa + ", '"+ beskr + "', " + id +")";
+            var query = "insert into forskott values (" + summa + ", '"+ beskr + "', '" + chefId + "', 'Bearbetas'," + uppID + ", 1)";
+
             var sqlComm = new SqlCommand(query, sqldb);
             sqlComm.ExecuteNonQuery();
             

@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using vIT_System.SQL;
 using vIT_System.Förskott;
 using System.Net.Mail;
+
 namespace vIT_System.GUI
 {
     public partial class frmPreShooting : Form
@@ -28,18 +29,17 @@ namespace vIT_System.GUI
                 cbBoss.Items.Add(chef);
             }
 
-            //Fhämtar alla uppdrag som finns i databasen och fyller comboboxen
-            //denna fungerar inte förrän det finns en uppdtagstabell i databasen
-            //var uppdraglista = DataPreShooting.FillCbChooseUppdrag();
-            //foreach (var uppd in uppdraglista)
-            //{
-            //    cbChooseUppdrag.Items.Add(uppd);
-            //}
+            var uppList = DataPreShooting.FillCbChooseUppdrag();
+            foreach (var upp in uppList)
+            {
+                cbChooseUppdrag.Items.Add(upp);
+            }
         }
 
         //Posta innehållet i formuläret till databasen
         private void btnSendPre_Click(object sender, EventArgs e)
         {
+            //Ska skickas när ansökan har sparats!
             SmtpClient client = new SmtpClient();
 
             string from = "sergio.saxofonguden@gmail.com";
@@ -63,8 +63,8 @@ namespace vIT_System.GUI
                 MessageBox.Show(ex.ToString());
             }
 
+            //Hämtar värden i boxarna
             var motiv = tbMotivation.Text;
-            var sum = 0;
 
             if (Validation.IsEmpty(motiv) || Validation.IsEmpty(tbSum.Text))
             {
@@ -72,8 +72,11 @@ namespace vIT_System.GUI
             }
             else
             {
+                var nånting = 0;
+                Int32.TryParse(tbSum.Text, out nånting);
+                var uppdragID = DataPreShooting.getUppdrag(cbChooseUppdrag.SelectedItem.ToString());
                 var bossID = DataPreShooting.getBoss(cbBoss.SelectedItem.ToString());
-                DataPreShooting.savePreShooting(sum, motiv, bossID);
+                DataPreShooting.savePreShooting(nånting, motiv, bossID, uppdragID);
                 tbMotivation.Text = "";
                 tbSum.Text = "";
             }

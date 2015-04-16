@@ -107,7 +107,7 @@
             this.cbChooseUppdrag.FormattingEnabled = true;
             this.cbChooseUppdrag.Location = new System.Drawing.Point(126, 252);
             this.cbChooseUppdrag.Name = "cbChooseUppdrag";
-            this.cbChooseUppdrag.Size = new System.Drawing.Size(121, 21);
+            this.cbChooseUppdrag.Size = new System.Drawing.Size(300, 21);
             this.cbChooseUppdrag.TabIndex = 7;
             // 
             // label4

@@ -13,7 +13,7 @@ namespace vIT_System.Data
         //den trimmar bort file:\\ och \\bin\\Debug från sökvägen.
         public static string getSourcePath()
         {
-            var sourceString = "Data Source=(localdb)\\v11.0;AttachDbFilename=" + Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().GetName().CodeBase) + "\\Database\\vITs.mdf;Integrated Security=True";
+            var sourceString = "Data Source=(localdb)\\v11.0;AttachDbFilename=" + Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().GetName().CodeBase) + "\\Database\\vITs2.mdf;Integrated Security=True";
 
             const string removeString = "\\bin\\Debug";
             int index = sourceString.IndexOf(removeString);
