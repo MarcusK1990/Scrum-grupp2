@@ -45,16 +45,27 @@ namespace vIT_System.GUI
         private void btnSendPre_Click(object sender, EventArgs e)
         {
             var motiv = tbMotivation.Text;
-            var sum = Convert.ToInt32(tbSum.Text);
+            var sum = 0;
+
+            if (Validation.IsEmpty(motiv) || Validation.IsEmpty(tbSum.Text))
+            {
+                MessageBox.Show("Fyll i alla fält!");
+            }
+
+            else
+            {
+                var bossID = DataPreShooting.getBoss(cbBoss.SelectedItem.ToString());
+                DataPreShooting.savePreShooting(sum, motiv, bossID);
+                tbMotivation.Text = "";
+                tbSum.Text = "";
+            }
+
+
+
             //var uppd = cbChooseUppdrag.SelectedItem.ToString();
 
             //Hämta bossens id genom att skicka med dennes namn som är valt i comboboxen
-            var bossID = DataPreShooting.getBoss(cbBoss.SelectedItem.ToString());
 
-            DataPreShooting.savePreShooting(sum, motiv, bossID);
-  
-            tbMotivation.Text = "";
-            tbSum.Text = "";
         }
     }
 }

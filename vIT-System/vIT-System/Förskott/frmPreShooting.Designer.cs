@@ -37,6 +37,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cbChooseUppdrag = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.lblValMot = new System.Windows.Forms.Label();
+            this.lblValSum = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -71,6 +73,7 @@
             this.tbSum.Name = "tbSum";
             this.tbSum.Size = new System.Drawing.Size(100, 20);
             this.tbSum.TabIndex = 3;
+            this.tbSum.Text = "  ";
             // 
             // btnSendPre
             // 
@@ -116,11 +119,31 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Uppdrag:";
             // 
+            // lblValMot
+            // 
+            this.lblValMot.AutoSize = true;
+            this.lblValMot.Location = new System.Drawing.Point(123, 228);
+            this.lblValMot.Name = "lblValMot";
+            this.lblValMot.Size = new System.Drawing.Size(13, 13);
+            this.lblValMot.TabIndex = 9;
+            this.lblValMot.Text = "  ";
+            // 
+            // lblValSum
+            // 
+            this.lblValSum.AutoSize = true;
+            this.lblValSum.Location = new System.Drawing.Point(247, 293);
+            this.lblValSum.Name = "lblValSum";
+            this.lblValSum.Size = new System.Drawing.Size(13, 13);
+            this.lblValSum.TabIndex = 10;
+            this.lblValSum.Text = "  ";
+            // 
             // frmPreShooting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(565, 429);
+            this.Controls.Add(this.lblValSum);
+            this.Controls.Add(this.lblValMot);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cbChooseUppdrag);
             this.Controls.Add(this.label3);
@@ -149,5 +172,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbChooseUppdrag;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblValMot;
+        private System.Windows.Forms.Label lblValSum;
     }
 }
