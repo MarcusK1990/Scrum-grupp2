@@ -69,10 +69,40 @@ namespace vIT_System.Reseansökning
             cbValuta.SelectedIndex = 0;
         }
 
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+
+        //}
+
+
+
         private void button1_Click(object sender, EventArgs e)
         {
-            DialogResult result = openFileDialog1.ShowDialog();
-            //  string file = openFileDialog1.FileName;
+            OpenFileDialog fDialog = new OpenFileDialog();
+
+            String exeLocation = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
+            string exeDir = System.IO.Path.GetDirectoryName(exeLocation);
+
+            if (fDialog.ShowDialog() != DialogResult.OK)
+
+                return;
+
+            System.IO.FileInfo fInfo = new System.IO.FileInfo(fDialog.FileName);
+
+            string strFileName = fInfo.Name;
+
+            string strFilePath = fInfo.DirectoryName;
+
+            string fullpath = strFilePath + @"\" + strFileName;
+
+            //MessageBox.Show(strFilePath);
+
+            System.IO.File.Copy(fullpath, Application.StartupPath + "\\Images\\" + strFileName);
+
+            //// Sökväg som skall sparas i databasen (kvitto)
+            //string NewFullpath = Application.StartupPath + "\\Images\\" + strFileName;
+            //MessageBox.Show(NewFullpath);
+
 
         }
 
