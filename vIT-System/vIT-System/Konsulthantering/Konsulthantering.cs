@@ -114,7 +114,7 @@ namespace vIT_System
                 if (foundError) { MessageBox.Show(felmeddelande); return; }
             }
 
-            sqlHelper.Modify("update anstallda set fnamn='" + tbFörnamn.Text + "', enamn='" + tbEfternamn.Text + "', persnr=" + tbPersonnummer.Text + ", mail='" + tbMailadress.Text + "', losenord='" + tbLösenord.Text + "', chef=" + (cbÄrChef.Checked ? 1 : 0) + " where id=" + tbId.Text + ";");
+            sqlHelper.Modify("update anstallda set fnamn='" + tbFörnamn.Text + "', enamn='" + tbEfternamn.Text + "', persnr='" + tbPersonnummer.Text + "', mail='" + tbMailadress.Text + "', losenord='" + tbLösenord.Text + "', chef='" + (cbÄrChef.Checked ? "true" : "false") + "' where id=" + tbId.Text + ";");
 
             MessageBox.Show("Konsulten har uppdaterats.");
 
