@@ -153,6 +153,7 @@
     <Compile Include="Traktamente.cs">
       <DependentUpon>DataEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Traktamentestabell\Traktamentestabell.cs" />
     <Compile Include="Uppehall.cs">
       <DependentUpon>DataEntity.tt</DependentUpon>
     </Compile>
@@ -250,10 +251,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\vITs.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Database\vITs_log.ldf">
       <DependentUpon>vITs.mdf</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Traktamentestabell\traktamente.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
