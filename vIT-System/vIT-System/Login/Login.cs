@@ -153,10 +153,6 @@ namespace vIT_System
 
             if (isBoss) { mode = ApplicationMode.Mode.ADMINISTRATOR; }
 
-            Logintest form = new Logintest(mode);
-            form.Visible = true;
-            Visible = false;
-
             namn = username.Substring(0, 2);
             efterNamn = username.Substring(2, 5);
             email = username + "@email.com";
