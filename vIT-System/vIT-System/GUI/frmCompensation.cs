@@ -9,26 +9,35 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using vIT_System.XmlRelaterat;
 using vIT_System.Validering;
-using System.Net.Mail;
+using System.Windows;
 
-namespace vIT_System.GUI
+namespace vIT_System.Reseansökning
 {
     public partial class frmCompensation : Form
     {
-        public List<Utgift> totalOutpoison;
+        public BindingList<Utgift> TotalOutPoison;
+        public BindingList<Resa> AllaResor;
         public ApplicationMode.Mode CompMode { get; set; }
 
         public frmCompensation(ApplicationMode.Mode modee)
         {
             InitializeComponent();
-            totalOutpoison = new List<Utgift>();
+            TotalOutPoison = new BindingList<Utgift>();
+            AllaResor = new BindingList<Resa>();
             CompMode = modee;
+            TotalOutPoison.Add(new Utgift() { valuta = "test", valutaKurs = 1, andaMal = "test utgift." });
+            
+            lbUtgifter.DisplayMember = "andaMal";
+            lbUtgifter.ValueMember = "valutaKurs";
+
+            lbUtgifter.DataSource = TotalOutPoison;
+
         }
 
         public frmCompensation(string email, string namn, string efternamn, ApplicationMode.Mode inMode)
         {
             InitializeComponent();
-            totalOutpoison = new List<Utgift>();
+            TotalOutPoison = new BindingList<Utgift>();
             tbEmail.Text = email;
             tbForNamn.Text = namn;
             tbEfterNamn.Text = efternamn;
@@ -61,41 +70,14 @@ namespace vIT_System.GUI
         }
 
         private void button1_Click(object sender, EventArgs e)
-
         {
+            DialogResult result = openFileDialog1.ShowDialog();
+            //  string file = openFileDialog1.FileName;
 
-            OpenFileDialog fDialog = new OpenFileDialog();
-
-            String exeLocation = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
-            string exeDir = System.IO.Path.GetDirectoryName(exeLocation);
-
-            if (fDialog.ShowDialog() != DialogResult.OK)
-
-                return;
-
-            System.IO.FileInfo fInfo = new System.IO.FileInfo(fDialog.FileName);
-
-            string strFileName = fInfo.Name;
-
-            string strFilePath = fInfo.DirectoryName;
-
-            string fullpath = strFilePath + @"\" + strFileName;
-
-            //MessageBox.Show(strFilePath);
-
-            System.IO.File.Copy(fullpath, Application.StartupPath + "\\Images\\" + strFileName);
-
-            // Sökväg som skall sparas i databasen (kvitto)
-            string NewFullpath = Application.StartupPath + "\\Images\\" + strFileName;
-            MessageBox.Show(NewFullpath);
         }
-
-        
 
         private void btnUtgiter_Click(object sender, EventArgs e)
         {
-
-           
             double parsedBelopp = 0;
             double.TryParse(tbBelopp.Text, out parsedBelopp);
 
@@ -117,17 +99,24 @@ namespace vIT_System.GUI
                 ValidationCheck.felString = "";
                 return;
             }
-            double parsadValutakursdouble = 0;
-            Double.TryParse(cbValuta.SelectedValue.ToString(), out parsadValutakursdouble);
+           // double parsadValutakursdouble = 0;
+           // var selectedValue = cbValuta.Items[1].ToString();
+
+            var valtItem = (ComboboxItem)cbValuta.SelectedItem;
+            var valtItemDouble = Convert.ToDouble(valtItem.Value);
+            var valtItemText = Convert.ToString(valtItem.Text);
+            
+            //Double.TryParse(cbValuta.SelectedValue.ToString(), out parsadValutakursdouble);
             var nyUtgift = new Utgift
             {
                 belopp = parsedBelopp,
                 andaMal = tbAndaMal.Text,
-                valuta = cbValuta.SelectedText,
-                valutaKurs = parsadValutakursdouble,
+                valuta = valtItemText,
+                valutaKurs = valtItemDouble,   //parsadValutakursdouble,
                 moms = 2 // % eller ?!?!?!        
             };
-            totalOutpoison.Add(nyUtgift);
+            TotalOutPoison.Add(nyUtgift);
+            
             UppdateraTotalSumma();
         }
 
@@ -137,9 +126,9 @@ namespace vIT_System.GUI
             //var total = totalOutpoison.Aggregate<utgift, double>(0, (current, t) => current + t.belopp);
             //labelTotal.Text = total.ToString();
             double total = 0;
-            for (var i = 0; i < totalOutpoison.Count; i++)
+            for (var i = 0; i < TotalOutPoison.Count; i++)
             {
-                total += totalOutpoison[i].belopp;
+                total += TotalOutPoison[i].belopp;
             }
             labelTotal.Text = total.ToString();
         }
@@ -168,13 +157,13 @@ namespace vIT_System.GUI
                 frukost = Convert.ToInt32(tbFrukost.Text),
                 lunch = Convert.ToInt32(tbLunch.Text),
                 middag = Convert.ToInt32(tbMiddag.Text),
-                utgifter = totalOutpoison
+                utgifter = TotalOutPoison
             };
 
             äcksämäll.SkrivCompensationModel(utkast);
 
-            var asd = new CompensationModel(totalOutpoison);
-            Console.WriteLine("TotalOutpoison Count: " + totalOutpoison.Count);
+            var asd = new CompensationModel(TotalOutPoison);
+            Console.WriteLine("TotalOutpoison Count: " + TotalOutPoison.Count);
             Console.WriteLine("asd listan Count: " + asd.utgifter.Count);
 
         }
@@ -204,11 +193,11 @@ namespace vIT_System.GUI
             dtpUtResa.Value = DateTime.Parse(utkast.utresa);
             dtpHemResa.Value = DateTime.Parse(utkast.hemresa);
             tbSemesterdagar.Text = utkast.semesterDagar;
-            //land = cbLand.SelectedItem.ToString(),
+            cbLand.SelectedIndex = -1;
             tbFrukost.Text = utkast.frukost.ToString();
             tbLunch.Text = utkast.lunch.ToString();
             tbMiddag.Text = utkast.middag.ToString();
-            totalOutpoison = utkast.utgifter;
+            TotalOutPoison = utkast.utgifter;
         }
 
         private bool validera()
@@ -253,30 +242,7 @@ namespace vIT_System.GUI
         {
             if (!validera())
             {
-
                 return;
-            }
-            SmtpClient client = new SmtpClient();
-
-            string from = "sergio.saxofonguden@gmail.com";
-            string to = "sergio.saxofonguden@gmail.com";
-            string subject = "Ny vits ansökan";
-            string meddelande = "Du har en ny ansökan från någon utav dina anställda konsulter";
-
-            MailMessage mail = new MailMessage(from, to, subject, meddelande);
-            client.Host = "smtp.gmail.com";
-            client.Port = 587;
-            client.EnableSsl = true;
-            client.Credentials = new System.Net.NetworkCredential("sergio.saxofonguden@gmail.com", "Sergio1977");
-
-            try
-            {
-                client.Send(mail);
-                MessageBox.Show("Mail skickat!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
             }
             //det som ska sparas i db
         }

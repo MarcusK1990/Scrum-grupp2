@@ -1,4 +1,4 @@
-﻿namespace vIT_System.GUI
+﻿namespace vIT_System.Reseansökning
 {
     partial class frmCompensation
     {
@@ -45,7 +45,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.labelTotal = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.btnUtgiter = new System.Windows.Forms.Button();
             this.cbValuta = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -81,6 +80,7 @@
             this.btnSkickaAnsokan = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.btnLaddaUtkast = new System.Windows.Forms.Button();
+            this.lbUtgifter = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groaupBox3.SuspendLayout();
@@ -179,7 +179,7 @@
             // 
             // btnKvitto
             // 
-            this.btnKvitto.Location = new System.Drawing.Point(54, 108);
+            this.btnKvitto.Location = new System.Drawing.Point(9, 147);
             this.btnKvitto.Name = "btnKvitto";
             this.btnKvitto.Size = new System.Drawing.Size(75, 23);
             this.btnKvitto.TabIndex = 12;
@@ -193,10 +193,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbUtgifter);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.labelTotal);
             this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.btnUtgiter);
             this.groupBox1.Controls.Add(this.cbValuta);
             this.groupBox1.Controls.Add(this.label8);
@@ -239,18 +239,9 @@
             this.label11.TabIndex = 20;
             this.label11.Text = "Totala utgifter:";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(133, 113);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(293, 13);
-            this.label10.TabIndex = 19;
-            this.label10.Text = "Här ska den bifogade filen visas. så det syns att den bifogats";
-            // 
             // btnUtgiter
             // 
-            this.btnUtgiter.Location = new System.Drawing.Point(54, 147);
+            this.btnUtgiter.Location = new System.Drawing.Point(97, 147);
             this.btnUtgiter.Name = "btnUtgiter";
             this.btnUtgiter.Size = new System.Drawing.Size(75, 23);
             this.btnUtgiter.TabIndex = 18;
@@ -261,15 +252,15 @@
             // cbValuta
             // 
             this.cbValuta.FormattingEnabled = true;
-            this.cbValuta.Location = new System.Drawing.Point(216, 36);
+            this.cbValuta.Location = new System.Drawing.Point(74, 102);
             this.cbValuta.Name = "cbValuta";
-            this.cbValuta.Size = new System.Drawing.Size(62, 21);
+            this.cbValuta.Size = new System.Drawing.Size(81, 21);
             this.cbValuta.TabIndex = 17;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(173, 39);
+            this.label8.Location = new System.Drawing.Point(10, 105);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(37, 13);
             this.label8.TabIndex = 16;
@@ -579,6 +570,14 @@
             this.btnLaddaUtkast.UseVisualStyleBackColor = true;
             this.btnLaddaUtkast.Click += new System.EventHandler(this.btnLaddaUtkast_Click);
             // 
+            // lbUtgifter
+            // 
+            this.lbUtgifter.FormattingEnabled = true;
+            this.lbUtgifter.Location = new System.Drawing.Point(196, 29);
+            this.lbUtgifter.Name = "lbUtgifter";
+            this.lbUtgifter.Size = new System.Drawing.Size(216, 95);
+            this.lbUtgifter.TabIndex = 23;
+            // 
             // frmCompensation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -640,7 +639,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnUtgiter;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groaupBox3;
@@ -669,6 +667,7 @@
         private System.Windows.Forms.Button btnSkickaAnsokan;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Button btnLaddaUtkast;
+        private System.Windows.Forms.ListBox lbUtgifter;
    
     }
 }

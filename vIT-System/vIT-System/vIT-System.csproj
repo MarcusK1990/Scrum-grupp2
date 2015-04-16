@@ -142,10 +142,10 @@
     <Compile Include="Ansokning\hamtaAnsokning.Designer.cs">
       <DependentUpon>hamtaAnsokning.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reseansökning\frmCompensation.cs">
+    <Compile Include="GUI\frmCompensation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reseansökning\frmCompensation.Designer.cs">
+    <Compile Include="GUI\frmCompensation.Designer.cs">
       <DependentUpon>frmCompensation.cs</DependentUpon>
     </Compile>
     <Compile Include="SQL\SqlHelper.cs" />
@@ -164,6 +164,7 @@
     <Compile Include="Validering\ValidationCheck.cs" />
     <Compile Include="XmlRelaterat\ComboboxItem.cs" />
     <Compile Include="XmlRelaterat\CompensationModel.cs" />
+    <Compile Include="XmlRelaterat\Resa.cs" />
     <Compile Include="XmlRelaterat\Utgift.cs" />
     <Compile Include="XmlRelaterat\Xmelliserare.cs" />
     <EmbeddedResource Include="Ansokning\hamtaAnsokning.resx">
@@ -194,7 +195,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Reseansökning\frmCompensation.resx">
+    <EmbeddedResource Include="GUI\frmCompensation.resx">
       <DependentUpon>frmCompensation.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="DataEntity.edmx">
@@ -245,7 +246,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Reseansökning\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
