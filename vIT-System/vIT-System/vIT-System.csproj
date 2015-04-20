@@ -98,6 +98,7 @@
       <DependentUpon>DataEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Förskott\DataPreShooting.cs" />
+    <Compile Include="GUI\DataCompensation.cs" />
     <Compile Include="GUI\FmMenu.cs">
       <SubType>Form</SubType>
     </Compile>

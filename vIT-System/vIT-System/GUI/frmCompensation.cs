@@ -185,13 +185,20 @@ namespace vIT_System.GUI {
             }
 
         private void frmCompensation_Load(object sender, EventArgs e) {
+
+            //Skapa en ny ansökan
+            var id = 1;
+            var ansID = DataCompensation.newCompensationfrm(id);
+            lblAnsID.Text = ansID.ToString();
+
+
             if (CompMode == ApplicationMode.Mode.OFFLINE) {
                 tbEmail.Enabled = true;
                 tbForNamn.Enabled = true;
                 tbEfterNamn.Enabled = true;
                 }
             LaddaComboBox();
-            HämtaLänder();
+            //HämtaLänder();
             }
 
         private void btnLaddaUtkast_Click(object sender, EventArgs e) {
