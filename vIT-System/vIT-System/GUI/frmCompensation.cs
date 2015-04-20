@@ -51,14 +51,15 @@ namespace vIT_System.GUI {
         private void HämtaLänder() {
             var länder = Traktamentestabell.Traktamentestabell.HämtaLänderOchBelopp();
 
-            //cbLand.Items.Clear();
+            cbLand.Items.Clear();
 
-            //for (var i = 0 ; i < länder.GetLength(0) ; i++) {
-            //    //System.Diagnostics.Debug.WriteLine(länder[i, 0] + " + " + länder[i, 1]);
-            //    cbLand.Items.Add(new ComboboxItem { Text = länder[i, 0], Value = Convert.ToDouble(länder[i, 1]) });
-            //    }
+            for (var i = 0; i < länder.GetLength(0); i++)
+            {
+                //System.Diagnostics.Debug.WriteLine(länder[i, 0] + " + " + länder[i, 1]);
+                cbLand.Items.Add(new ComboboxItem { Text = länder[i, 0], Value = Convert.ToDouble(länder[i, 1]) });
+            }
 
-            //cbLand.SelectedIndex = 0;
+            cbLand.SelectedIndex = 0;
             }
 
         private bool ValideraVidSpara() {
@@ -198,7 +199,7 @@ namespace vIT_System.GUI {
                 tbEfterNamn.Enabled = true;
                 }
             LaddaComboBox();
-            //HämtaLänder();
+            HämtaLänder();
             }
 
         private void btnLaddaUtkast_Click(object sender, EventArgs e) {
