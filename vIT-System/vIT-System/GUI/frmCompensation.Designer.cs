@@ -86,6 +86,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.lblAnsID = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tbKvitto = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groaupBox3.SuspendLayout();
@@ -184,7 +186,7 @@
             // 
             // btnKvitto
             // 
-            this.btnKvitto.Location = new System.Drawing.Point(9, 147);
+            this.btnKvitto.Location = new System.Drawing.Point(9, 163);
             this.btnKvitto.Name = "btnKvitto";
             this.btnKvitto.Size = new System.Drawing.Size(75, 23);
             this.btnKvitto.TabIndex = 12;
@@ -198,6 +200,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.tbKvitto);
+            this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.lbUtgifter);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.labelTotal);
@@ -254,7 +258,7 @@
             // 
             // btnUtgiter
             // 
-            this.btnUtgiter.Location = new System.Drawing.Point(97, 147);
+            this.btnUtgiter.Location = new System.Drawing.Point(90, 163);
             this.btnUtgiter.Name = "btnUtgiter";
             this.btnUtgiter.Size = new System.Drawing.Size(75, 23);
             this.btnUtgiter.TabIndex = 18;
@@ -628,6 +632,22 @@
             this.lblAnsID.TabIndex = 35;
             this.lblAnsID.Text = " ";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(10, 130);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(34, 13);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "Kvitto";
+            // 
+            // tbKvitto
+            // 
+            this.tbKvitto.Location = new System.Drawing.Point(74, 130);
+            this.tbKvitto.Name = "tbKvitto";
+            this.tbKvitto.Size = new System.Drawing.Size(81, 20);
+            this.tbKvitto.TabIndex = 25;
+            // 
             // FrmCompensation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -727,6 +747,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblAnsID;
+        private System.Windows.Forms.TextBox tbKvitto;
+        private System.Windows.Forms.Label label12;
    
     }
 }

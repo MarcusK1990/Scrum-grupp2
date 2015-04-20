@@ -258,61 +258,51 @@ namespace vIT_System.GUI {
             AllaResor.Add(nyResa);
             }
 
-        private void button1_Click(object sender, EventArgs e) {
+        private void button1_Click(object sender, EventArgs e) 
+
+            { 
+                if (string.IsNullOrEmpty(tbBelopp.Text) || string.IsNullOrEmpty(tbAndaMal.Text) || string.IsNullOrEmpty(cbValuta.Text))
+            {
+                MessageBox.Show("Fyll i alla fälten för utgifter");
+            }
             
-            if(string.IsNullOrEmpty(tbBelopp.Text))
-            {
-               MessageBox.Show("Fyll i belopp");
-            }
-
-            if (string.IsNullOrEmpty(tbAndaMal.Text))
-            {
-                MessageBox.Show("Fyll i Ändamål");
-            }
-
-            if (string.IsNullOrEmpty(cbValuta.Text))
-            {
-                MessageBox.Show("Fyll i belopp");
-            }
-
             else
             {
+                var fDialog = new OpenFileDialog();
 
-            var fDialog = new OpenFileDialog();
+                var exeLocation = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
+                // ReSharper disable once UnusedVariable
+                var exeDir = System.IO.Path.GetDirectoryName(exeLocation);
 
-            var exeLocation = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
-            // ReSharper disable once UnusedVariable
-            var exeDir = System.IO.Path.GetDirectoryName(exeLocation);
+                if (fDialog.ShowDialog() != DialogResult.OK)
 
-            if (fDialog.ShowDialog() != DialogResult.OK)
+                    return;
 
-                return;
+                var fInfo = new System.IO.FileInfo(fDialog.FileName);
 
-            var fInfo = new System.IO.FileInfo(fDialog.FileName);
+                var strFileName = fInfo.Name;
 
-            var strFileName = fInfo.Name;
+                var strFilePath = fInfo.DirectoryName;
 
-            var strFilePath = fInfo.DirectoryName;
+                var fullpath = strFilePath + @"\" + strFileName;
 
-            var fullpath = strFilePath + @"\" + strFileName;
-
-            //MessageBox.Show(strFilePath);
-
-            var exist = System.IO.Directory.Exists(Application.StartupPath + "\\Images\\");
+                var exist = System.IO.Directory.Exists(Application.StartupPath + "\\Images\\");
 
                 if (!exist)
                 {
-                System.IO.Directory.CreateDirectory(Application.StartupPath + "\\Images\\");
+                    System.IO.Directory.CreateDirectory(Application.StartupPath + "\\Images\\");
                 }
 
-            System.IO.File.Copy(fullpath, Application.StartupPath + "\\Images\\" + strFileName);
+                string NewFullpath = Application.StartupPath + "\\Images\\" + strFileName;
 
-            //// Sökväg som skall sparas i databasen (kvitto)
-            //string NewFullpath = Application.StartupPath + "\\Images\\" + strFileName;
-            //MessageBox.Show(NewFullpath);
-            }
+                System.IO.File.Copy(fullpath, NewFullpath);
+               
+                tbKvitto.AppendText(NewFullpath);
+                MessageBox.Show("Kvittot tillagt");
+
 
             }
+                }
 
         private void button1_Click_1(object sender, EventArgs e){
 
