@@ -252,25 +252,14 @@ namespace vIT_System.GUI {
             }
 
         private void button1_Click(object sender, EventArgs e) {
+
+            if (string.IsNullOrEmpty(tbBelopp.Text) || string.IsNullOrEmpty(tbAndaMal.Text) || string.IsNullOrEmpty(cbValuta.Text))
+            {
+                MessageBox.Show("Fyll i alla fälten");
+            }
             
-            if(string.IsNullOrEmpty(tbBelopp.Text))
-            {
-               MessageBox.Show("Fyll i belopp");
-            }
-
-            if (string.IsNullOrEmpty(tbAndaMal.Text))
-            {
-                MessageBox.Show("Fyll i Ändamål");
-            }
-
-            if (string.IsNullOrEmpty(cbValuta.Text))
-            {
-                MessageBox.Show("Fyll i belopp");
-            }
-
             else
             {
-
                 var fDialog = new OpenFileDialog();
 
                 var exeLocation = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
@@ -304,7 +293,6 @@ namespace vIT_System.GUI {
                 //string NewFullpath = Application.StartupPath + "\\Images\\" + strFileName;
                 //MessageBox.Show(NewFullpath);
             }
-
             }
 
         private void button1_Click_1(object sender, EventArgs e){
