@@ -164,7 +164,7 @@ namespace vIT_System.GUI {
             }
 
         private void btnSparaUtkast_Click(object sender, EventArgs e) {
-            var äcksämäll = new Xmelliserare(@"C:\dump\xmlCompensationModel.xml");
+            var äcksämäll = new Xmelliserare(@"C:\dump\Ansökan.xml");
 
             if (!ValideraVidSpara()) {
                 return;
@@ -195,7 +195,7 @@ namespace vIT_System.GUI {
             }
 
         private void btnLaddaUtkast_Click(object sender, EventArgs e) {
-            var äcksämäll = new Xmelliserare(@"C:\dump\xmlCompensationModel.xml");
+            var äcksämäll = new Xmelliserare(@"C:\dump\Ansökan.xml");
             var utkast = äcksämäll.LaddaUtkast();
 
             tbEmail.Text = utkast.eMail;
@@ -236,17 +236,54 @@ namespace vIT_System.GUI {
             var valtTraktamenteFörLandet = Convert.ToDouble(valtItem.Value);
             var valtLand = Convert.ToString(valtItem.Text);
 
-            //Double.TryParse(cbValuta.SelectedValue.ToString(), out parsadValutakursdouble);
             var nyResa = new Resa {
-                UtResa = dtpUtResa.Value.ToString("yyyy-MM-dd"),
-                HemResa = dtpHemResa.Value.ToString("yyyy-MM-dd"),
+                UtResa = dtpUtResa.Value,                         //ToString("yyyy-MM-dd"),
+                HemResa = dtpHemResa.Value,                       //ToString("yyyy-MM-dd"),
                 Land = valtLand,
                 SemesterDagar = tbSemesterdagar.Text,
                 TraktamenteFörLandet = valtTraktamenteFörLandet
             };
 
-            //var middagar = Convert.ToInt32(tbMiddag.Text);
-            //var resa = new Resa {TraktamenteEfterAvdrag = middagar * nyResa.TraktamenteFörLandet};
+            var frukostförresa = 0.0;
+            double middagförresa = 0;
+            double lunchförresa = 0;
+            // lokaltraktamenteFörLandet = nyREsa.TraktamenteFörlandet;
+            if (Validation.IsNumeric(tbFrukost.Text))
+            {
+                var antalFrukost = Convert.ToDouble(tbFrukost.Text);
+                frukostförresa = (nyResa.TraktamenteFörLandet * 0.75) * antalFrukost;
+            }
+
+            if (Validation.IsNumeric(tbMiddag.Text))
+            {
+                var antalMiddag = Convert.ToDouble(tbMiddag.Text);
+                middagförresa = (nyResa.TraktamenteFörLandet * 0.60) * antalMiddag;
+            }
+
+            if (Validation.IsNumeric(tbLunch.Text))
+            {
+                var antalLunch = Convert.ToDouble(tbLunch.Text);
+                lunchförresa = (nyResa.TraktamenteFörLandet * 0.40) * antalLunch;
+            }
+
+            var totaltAvdragFrånTraktamente = frukostförresa + middagförresa + lunchförresa;
+            
+            var antalDagarBortrest = nyResa.UtResa - nyResa.HemResa;
+
+            double dagarBortrestString = 0;
+            if (antalDagarBortrest.TotalDays < 0)
+            {
+                dagarBortrestString = antalDagarBortrest.TotalDays*-1;
+            }
+            var totalaDagarBortrestAvrundatUppåt = Math.Ceiling(dagarBortrestString);
+            var betalningsBerättigadeDagar = totalaDagarBortrestAvrundatUppåt - Convert.ToDouble(tbSemesterdagar.Text);
+            
+            var totalUtbetalning = (betalningsBerättigadeDagar*nyResa.TraktamenteFörLandet) - totaltAvdragFrånTraktamente;
+            nyResa.TraktamenteEfterAvdrag = totalUtbetalning;
+
+
+            tbTotalTraktamentesUtbetalning.Text = totalUtbetalning.ToString(CultureInfo.InvariantCulture);
+            tbTotalTraktamenteDagar.Text = betalningsBerättigadeDagar.ToString(CultureInfo.InvariantCulture);
 
             AllaResor.Add(nyResa);
             }
