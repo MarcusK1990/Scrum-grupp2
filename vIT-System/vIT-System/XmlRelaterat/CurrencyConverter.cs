@@ -4,7 +4,7 @@ using System.Net;
 
 namespace vIT_System.XmlRelaterat {
 
-    public static class TestaValutaOmvandlare {
+    public static class ValutaOmvandlare {
 
         public static decimal HämtaValutaKurs(string från, string till) {
             decimal result;

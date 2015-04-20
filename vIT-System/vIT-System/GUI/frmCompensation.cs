@@ -91,8 +91,8 @@ namespace vIT_System.GUI {
         private void LaddaComboBox(){
 
 
-            var frånstringtilldecimaltilldoubleUsd = TestaValutaOmvandlare.KonverteraTillFrån("SEK", "USD", "1");
-            var frånstringtilldecimaltilldoubleEur = TestaValutaOmvandlare.KonverteraTillFrån("SEK", "EUR", "1");
+            var frånstringtilldecimaltilldoubleUsd = ValutaOmvandlare.KonverteraTillFrån("SEK", "USD", "1");
+            var frånstringtilldecimaltilldoubleEur = ValutaOmvandlare.KonverteraTillFrån("SEK", "EUR", "1");
 
             var sek = new ComboboxItem {
                 Text = "SEK",

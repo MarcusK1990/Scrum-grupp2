@@ -166,7 +166,7 @@
     <Compile Include="XmlRelaterat\ComboboxItem.cs" />
     <Compile Include="XmlRelaterat\CompensationModel.cs" />
     <Compile Include="XmlRelaterat\Resa.cs" />
-    <Compile Include="XmlRelaterat\TestaCurrencyConverter.cs" />
+    <Compile Include="XmlRelaterat\CurrencyConverter.cs" />
     <Compile Include="XmlRelaterat\Utgift.cs" />
     <Compile Include="XmlRelaterat\Xmelliserare.cs" />
     <EmbeddedResource Include="Ansokning\hamtaAnsokning.resx">

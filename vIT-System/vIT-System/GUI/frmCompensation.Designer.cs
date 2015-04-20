@@ -42,6 +42,8 @@
             this.btnKvitto = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tbKvitto = new System.Windows.Forms.TextBox();
             this.lbUtgifter = new System.Windows.Forms.ListBox();
             this.label13 = new System.Windows.Forms.Label();
             this.labelTotal = new System.Windows.Forms.Label();
@@ -67,6 +69,7 @@
             this.tbFrukost = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.groaupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblAnsID = new System.Windows.Forms.Label();
             this.tbSummaUtgifter = new System.Windows.Forms.TextBox();
             this.tbTotalaAvdrag = new System.Windows.Forms.TextBox();
             this.tbTotalMilErsättning = new System.Windows.Forms.TextBox();
@@ -91,9 +94,7 @@
             this.tbÄndraISparatForumlär = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.tbKvitto = new System.Windows.Forms.TextBox();
-            this.lblAnsID = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lblValutaKurs = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groaupBox3.SuspendLayout();
@@ -206,6 +207,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblValutaKurs);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.tbKvitto);
             this.groupBox1.Controls.Add(this.lbUtgifter);
@@ -226,6 +228,22 @@
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Utgifter";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(9, 139);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(34, 13);
+            this.label12.TabIndex = 39;
+            this.label12.Text = "Kvitto";
+            // 
+            // tbKvitto
+            // 
+            this.tbKvitto.Location = new System.Drawing.Point(74, 132);
+            this.tbKvitto.Name = "tbKvitto";
+            this.tbKvitto.Size = new System.Drawing.Size(81, 20);
+            this.tbKvitto.TabIndex = 33;
             // 
             // lbUtgifter
             // 
@@ -450,7 +468,6 @@
             // 
             // groaupBox3
             // 
-            this.groaupBox3.Controls.Add(this.lblAnsID);
             this.groaupBox3.Controls.Add(this.tbSummaUtgifter);
             this.groaupBox3.Controls.Add(this.tbTotalaAvdrag);
             this.groaupBox3.Controls.Add(this.tbTotalMilErsättning);
@@ -471,6 +488,14 @@
             this.groaupBox3.TabIndex = 17;
             this.groaupBox3.TabStop = false;
             this.groaupBox3.Text = "Traktamente";
+            // 
+            // lblAnsID
+            // 
+            this.lblAnsID.AutoSize = true;
+            this.lblAnsID.Location = new System.Drawing.Point(132, 9);
+            this.lblAnsID.Name = "lblAnsID";
+            this.lblAnsID.Size = new System.Drawing.Size(0, 13);
+            this.lblAnsID.TabIndex = 34;
             // 
             // tbSummaUtgifter
             // 
@@ -684,36 +709,21 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // tbKvitto
+            // lblValutaKurs
             // 
-            this.tbKvitto.Location = new System.Drawing.Point(74, 132);
-            this.tbKvitto.Name = "tbKvitto";
-            this.tbKvitto.Size = new System.Drawing.Size(81, 20);
-            this.tbKvitto.TabIndex = 33;
-            // 
-            // lblAnsID
-            // 
-            this.lblAnsID.AutoSize = true;
-            this.lblAnsID.Location = new System.Drawing.Point(17, 231);
-            this.lblAnsID.Name = "lblAnsID";
-            this.lblAnsID.Size = new System.Drawing.Size(36, 13);
-            this.lblAnsID.TabIndex = 34;
-            this.lblAnsID.Text = "AnsID";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(9, 139);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(34, 13);
-            this.label12.TabIndex = 39;
-            this.label12.Text = "Kvitto";
+            this.lblValutaKurs.AutoSize = true;
+            this.lblValutaKurs.Location = new System.Drawing.Point(213, 135);
+            this.lblValutaKurs.Name = "lblValutaKurs";
+            this.lblValutaKurs.Size = new System.Drawing.Size(98, 13);
+            this.lblValutaKurs.TabIndex = 33;
+            this.lblValutaKurs.Text = "Senaste valutakurs";
             // 
             // FrmCompensation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(863, 504);
+            this.Controls.Add(this.lblAnsID);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.tbÄndraISparatForumlär);
@@ -815,6 +825,7 @@
         private System.Windows.Forms.TextBox tbKvitto;
         private System.Windows.Forms.Label lblAnsID;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblValutaKurs;
    
     }
 }
