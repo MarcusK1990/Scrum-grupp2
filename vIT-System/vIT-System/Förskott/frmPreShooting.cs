@@ -14,13 +14,15 @@ namespace vIT_System.GUI
         private void frmPreShooting_Load(object sender, EventArgs e)
         {
             //Hämtar alla bossar och fyller upp combobox med alla chefer som finns
-            var lista = DataPreShooting.FillCbBoss();
+            var query = "select Fnamn from Anstallda where Anstallda.Chef = 'true'";
+            var query2 = "select namn from uppdrag";
+            var lista = DataPreShooting.cbFill(query);
             foreach (var chef in lista)
             {
                 cbBoss.Items.Add(chef);
             }
 
-            var uppList = DataPreShooting.FillCbChooseUppdrag();
+            var uppList = DataPreShooting.cbFill(query2);
             foreach (var upp in uppList)
             {
                 cbChooseUppdrag.Items.Add(upp);
@@ -56,6 +58,10 @@ namespace vIT_System.GUI
 
             //Hämtar värden i boxarna
             var motiv = tbMotivation.Text;
+            var uppdrag = cbChooseUppdrag.SelectedItem.ToString();
+            var boss = cbBoss.SelectedItem.ToString();
+            var query1 = "select id from anstallda where fnamn = '" + boss + "'";
+            var query2 = "select uppid from uppdrag where namn = '" + uppdrag + "'";
 
             if (Validation.IsEmpty(motiv) || Validation.IsEmpty(tbSum.Text))
             {
@@ -65,14 +71,13 @@ namespace vIT_System.GUI
             {
                 var nånting = 0;
                 Int32.TryParse(tbSum.Text, out nånting);
-                var uppdragID = DataPreShooting.getUppdrag(cbChooseUppdrag.SelectedItem.ToString());
-                var bossID = DataPreShooting.getBoss(cbBoss.SelectedItem.ToString());
+                
+                var bossID = DataPreShooting.getId(boss, query1);
+                var uppdragID = DataPreShooting.getId(uppdrag, query2);
                 DataPreShooting.savePreShooting(nånting, motiv, bossID, uppdragID);
                 tbMotivation.Text = "";
                 tbSum.Text = "";
             }
-
-            //var uppd = cbChooseUppdrag.SelectedItem.ToString();
         }
     }
 }
