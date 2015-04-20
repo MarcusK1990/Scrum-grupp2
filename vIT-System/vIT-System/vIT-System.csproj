@@ -98,6 +98,13 @@
       <DependentUpon>DataEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Förskott\DataPreShooting.cs" />
+    <Compile Include="Förskott\MyPreShooting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Förskott\MyPreShooting.Designer.cs">
+      <DependentUpon>MyPreShooting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\DataCompensation.cs" />
     <Compile Include="GUI\FmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +179,9 @@
       <DependentUpon>hamtaAnsokning.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx" />
+    <EmbeddedResource Include="Förskott\MyPreShooting.resx">
+      <DependentUpon>MyPreShooting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FmMenu.resx">
       <DependentUpon>FmMenu.cs</DependentUpon>
     </EmbeddedResource>

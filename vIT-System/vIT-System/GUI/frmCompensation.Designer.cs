@@ -67,6 +67,12 @@
             this.tbFrukost = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.groaupBox3 = new System.Windows.Forms.GroupBox();
+            this.tbSummaUtgifter = new System.Windows.Forms.TextBox();
+            this.tbTotalaAvdrag = new System.Windows.Forms.TextBox();
+            this.tbTotalMilErsättning = new System.Windows.Forms.TextBox();
+            this.tbTotalTraktamentesUtbetalning = new System.Windows.Forms.TextBox();
+            this.tbTotalTraktamenteDagar = new System.Windows.Forms.TextBox();
+            this.tbEventuelltTasBort = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.btnLaggTillAvdrag = new System.Windows.Forms.Button();
@@ -85,12 +91,8 @@
             this.tbÄndraISparatForumlär = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.tbEventuelltTasBort = new System.Windows.Forms.TextBox();
-            this.tbTotalTraktamenteDagar = new System.Windows.Forms.TextBox();
-            this.tbTotalMilErsättning = new System.Windows.Forms.TextBox();
-            this.tbTotalTraktamentesUtbetalning = new System.Windows.Forms.TextBox();
-            this.tbTotalaAvdrag = new System.Windows.Forms.TextBox();
-            this.tbSummaUtgifter = new System.Windows.Forms.TextBox();
+            this.tbKvitto = new System.Windows.Forms.TextBox();
+            this.lblAnsID = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groaupBox3.SuspendLayout();
@@ -466,6 +468,54 @@
             this.groaupBox3.TabStop = false;
             this.groaupBox3.Text = "Traktamente";
             // 
+            // tbSummaUtgifter
+            // 
+            this.tbSummaUtgifter.Enabled = false;
+            this.tbSummaUtgifter.Location = new System.Drawing.Point(215, 137);
+            this.tbSummaUtgifter.Name = "tbSummaUtgifter";
+            this.tbSummaUtgifter.Size = new System.Drawing.Size(86, 20);
+            this.tbSummaUtgifter.TabIndex = 38;
+            // 
+            // tbTotalaAvdrag
+            // 
+            this.tbTotalaAvdrag.Enabled = false;
+            this.tbTotalaAvdrag.Location = new System.Drawing.Point(215, 115);
+            this.tbTotalaAvdrag.Name = "tbTotalaAvdrag";
+            this.tbTotalaAvdrag.Size = new System.Drawing.Size(86, 20);
+            this.tbTotalaAvdrag.TabIndex = 37;
+            // 
+            // tbTotalMilErsättning
+            // 
+            this.tbTotalMilErsättning.Enabled = false;
+            this.tbTotalMilErsättning.Location = new System.Drawing.Point(215, 92);
+            this.tbTotalMilErsättning.Name = "tbTotalMilErsättning";
+            this.tbTotalMilErsättning.Size = new System.Drawing.Size(86, 20);
+            this.tbTotalMilErsättning.TabIndex = 36;
+            // 
+            // tbTotalTraktamentesUtbetalning
+            // 
+            this.tbTotalTraktamentesUtbetalning.Enabled = false;
+            this.tbTotalTraktamentesUtbetalning.Location = new System.Drawing.Point(215, 69);
+            this.tbTotalTraktamentesUtbetalning.Name = "tbTotalTraktamentesUtbetalning";
+            this.tbTotalTraktamentesUtbetalning.Size = new System.Drawing.Size(86, 20);
+            this.tbTotalTraktamentesUtbetalning.TabIndex = 35;
+            // 
+            // tbTotalTraktamenteDagar
+            // 
+            this.tbTotalTraktamenteDagar.Enabled = false;
+            this.tbTotalTraktamenteDagar.Location = new System.Drawing.Point(215, 47);
+            this.tbTotalTraktamenteDagar.Name = "tbTotalTraktamenteDagar";
+            this.tbTotalTraktamenteDagar.Size = new System.Drawing.Size(86, 20);
+            this.tbTotalTraktamenteDagar.TabIndex = 34;
+            // 
+            // tbEventuelltTasBort
+            // 
+            this.tbEventuelltTasBort.Enabled = false;
+            this.tbEventuelltTasBort.Location = new System.Drawing.Point(215, 25);
+            this.tbEventuelltTasBort.Name = "tbEventuelltTasBort";
+            this.tbEventuelltTasBort.Size = new System.Drawing.Size(86, 20);
+            this.tbEventuelltTasBort.TabIndex = 33;
+            // 
             // label26
             // 
             this.label26.AutoSize = true;
@@ -630,59 +680,29 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // tbEventuelltTasBort
+            // tbKvitto
             // 
-            this.tbEventuelltTasBort.Enabled = false;
-            this.tbEventuelltTasBort.Location = new System.Drawing.Point(215, 25);
-            this.tbEventuelltTasBort.Name = "tbEventuelltTasBort";
-            this.tbEventuelltTasBort.Size = new System.Drawing.Size(86, 20);
-            this.tbEventuelltTasBort.TabIndex = 33;
+            this.tbKvitto.Location = new System.Drawing.Point(413, 449);
+            this.tbKvitto.Name = "tbKvitto";
+            this.tbKvitto.Size = new System.Drawing.Size(100, 20);
+            this.tbKvitto.TabIndex = 33;
             // 
-            // tbTotalTraktamenteDagar
+            // lblAnsID
             // 
-            this.tbTotalTraktamenteDagar.Enabled = false;
-            this.tbTotalTraktamenteDagar.Location = new System.Drawing.Point(215, 47);
-            this.tbTotalTraktamenteDagar.Name = "tbTotalTraktamenteDagar";
-            this.tbTotalTraktamenteDagar.Size = new System.Drawing.Size(86, 20);
-            this.tbTotalTraktamenteDagar.TabIndex = 34;
-            // 
-            // tbTotalMilErsättning
-            // 
-            this.tbTotalMilErsättning.Enabled = false;
-            this.tbTotalMilErsättning.Location = new System.Drawing.Point(215, 92);
-            this.tbTotalMilErsättning.Name = "tbTotalMilErsättning";
-            this.tbTotalMilErsättning.Size = new System.Drawing.Size(86, 20);
-            this.tbTotalMilErsättning.TabIndex = 36;
-            // 
-            // tbTotalTraktamentesUtbetalning
-            // 
-            this.tbTotalTraktamentesUtbetalning.Enabled = false;
-            this.tbTotalTraktamentesUtbetalning.Location = new System.Drawing.Point(215, 69);
-            this.tbTotalTraktamentesUtbetalning.Name = "tbTotalTraktamentesUtbetalning";
-            this.tbTotalTraktamentesUtbetalning.Size = new System.Drawing.Size(86, 20);
-            this.tbTotalTraktamentesUtbetalning.TabIndex = 35;
-            // 
-            // tbTotalaAvdrag
-            // 
-            this.tbTotalaAvdrag.Enabled = false;
-            this.tbTotalaAvdrag.Location = new System.Drawing.Point(215, 115);
-            this.tbTotalaAvdrag.Name = "tbTotalaAvdrag";
-            this.tbTotalaAvdrag.Size = new System.Drawing.Size(86, 20);
-            this.tbTotalaAvdrag.TabIndex = 37;
-            // 
-            // tbSummaUtgifter
-            // 
-            this.tbSummaUtgifter.Enabled = false;
-            this.tbSummaUtgifter.Location = new System.Drawing.Point(215, 137);
-            this.tbSummaUtgifter.Name = "tbSummaUtgifter";
-            this.tbSummaUtgifter.Size = new System.Drawing.Size(86, 20);
-            this.tbSummaUtgifter.TabIndex = 38;
+            this.lblAnsID.AutoSize = true;
+            this.lblAnsID.Location = new System.Drawing.Point(372, 441);
+            this.lblAnsID.Name = "lblAnsID";
+            this.lblAnsID.Size = new System.Drawing.Size(41, 13);
+            this.lblAnsID.TabIndex = 34;
+            this.lblAnsID.Text = "label12";
             // 
             // FrmCompensation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(863, 504);
+            this.Controls.Add(this.lblAnsID);
+            this.Controls.Add(this.tbKvitto);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.tbÄndraISparatForumlär);
@@ -781,6 +801,8 @@
         private System.Windows.Forms.TextBox tbTotalTraktamentesUtbetalning;
         private System.Windows.Forms.TextBox tbSummaUtgifter;
         private System.Windows.Forms.TextBox tbTotalaAvdrag;
+        private System.Windows.Forms.TextBox tbKvitto;
+        private System.Windows.Forms.Label lblAnsID;
    
     }
 }
