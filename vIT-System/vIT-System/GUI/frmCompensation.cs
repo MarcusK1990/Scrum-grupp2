@@ -185,13 +185,20 @@ namespace vIT_System.GUI {
             }
 
         private void frmCompensation_Load(object sender, EventArgs e) {
+
+            //Skapa en ny ansökan
+            var id = 1;
+            var ansID = DataCompensation.newCompensationfrm(id);
+            lblAnsID.Text = ansID.ToString();
+
+
             if (CompMode == ApplicationMode.Mode.OFFLINE) {
                 tbEmail.Enabled = true;
                 tbForNamn.Enabled = true;
                 tbEfterNamn.Enabled = true;
                 }
             LaddaComboBox();
-            HämtaLänder();
+            //HämtaLänder();
             }
 
         private void btnLaddaUtkast_Click(object sender, EventArgs e) {
@@ -252,47 +259,59 @@ namespace vIT_System.GUI {
             }
 
         private void button1_Click(object sender, EventArgs e) {
-
-            if (string.IsNullOrEmpty(tbBelopp.Text) || string.IsNullOrEmpty(tbAndaMal.Text) || string.IsNullOrEmpty(cbValuta.Text))
-            {
-                MessageBox.Show("Fyll i alla fälten");
-            }
             
+            if(string.IsNullOrEmpty(tbBelopp.Text))
+            {
+               MessageBox.Show("Fyll i belopp");
+            }
+
+            if (string.IsNullOrEmpty(tbAndaMal.Text))
+            {
+                MessageBox.Show("Fyll i Ändamål");
+            }
+
+            if (string.IsNullOrEmpty(cbValuta.Text))
+            {
+                MessageBox.Show("Fyll i belopp");
+            }
+
             else
             {
-                var fDialog = new OpenFileDialog();
 
-                var exeLocation = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
-                // ReSharper disable once UnusedVariable
-                var exeDir = System.IO.Path.GetDirectoryName(exeLocation);
+            var fDialog = new OpenFileDialog();
 
-                if (fDialog.ShowDialog() != DialogResult.OK)
+            var exeLocation = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
+            // ReSharper disable once UnusedVariable
+            var exeDir = System.IO.Path.GetDirectoryName(exeLocation);
 
-                    return;
+            if (fDialog.ShowDialog() != DialogResult.OK)
 
-                var fInfo = new System.IO.FileInfo(fDialog.FileName);
+                return;
 
-                var strFileName = fInfo.Name;
+            var fInfo = new System.IO.FileInfo(fDialog.FileName);
 
-                var strFilePath = fInfo.DirectoryName;
+            var strFileName = fInfo.Name;
 
-                var fullpath = strFilePath + @"\" + strFileName;
+            var strFilePath = fInfo.DirectoryName;
 
-                //MessageBox.Show(strFilePath);
+            var fullpath = strFilePath + @"\" + strFileName;
 
-                var exist = System.IO.Directory.Exists(Application.StartupPath + "\\Images\\");
+            //MessageBox.Show(strFilePath);
+
+            var exist = System.IO.Directory.Exists(Application.StartupPath + "\\Images\\");
 
                 if (!exist)
                 {
-                    System.IO.Directory.CreateDirectory(Application.StartupPath + "\\Images\\");
+                System.IO.Directory.CreateDirectory(Application.StartupPath + "\\Images\\");
                 }
 
-                System.IO.File.Copy(fullpath, Application.StartupPath + "\\Images\\" + strFileName);
+            System.IO.File.Copy(fullpath, Application.StartupPath + "\\Images\\" + strFileName);
 
-                //// Sökväg som skall sparas i databasen (kvitto)
-                //string NewFullpath = Application.StartupPath + "\\Images\\" + strFileName;
-                //MessageBox.Show(NewFullpath);
+            //// Sökväg som skall sparas i databasen (kvitto)
+            //string NewFullpath = Application.StartupPath + "\\Images\\" + strFileName;
+            //MessageBox.Show(NewFullpath);
             }
+
             }
 
         private void button1_Click_1(object sender, EventArgs e){
