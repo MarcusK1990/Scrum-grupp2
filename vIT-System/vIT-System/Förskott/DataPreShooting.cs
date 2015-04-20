@@ -48,10 +48,10 @@ namespace vIT_System.Förskott
             {
                 sqldb.Open();
                 myReader = sqlSelect.ExecuteReader();
-                while (myReader.Read())
-                {
-                    idhamtat = myReader.GetInt32(0);
-                }
+                myReader.Read();
+
+                idhamtat = myReader.GetInt32(0);
+
 
                 myReader.Close();
             }
@@ -67,13 +67,13 @@ namespace vIT_System.Förskott
             //Ska chefen läggas in som id. Bäst kanske
             //Sista variabeln som är hårdkodad i insertfrågan är eg anställningsid, alltså den som är inloggad
             var path = Helpers.getSourcePath();
-            var sqldb = new SqlConnection(path); 
-            sqldb.Open(); 
-            var query = "insert into forskott values (" + summa + ", '"+ beskr + "', '" + chefId + "', 'Bearbetas'," + uppID + ", 1)";
+            var sqldb = new SqlConnection(path);
+            sqldb.Open();
+            var query = "insert into forskott values (" + summa + ", '" + beskr + "', '" + chefId + "', 'Bearbetas'," + uppID + ", 1)";
 
             var sqlComm = new SqlCommand(query, sqldb);
             sqlComm.ExecuteNonQuery();
-            
+
         }
     }
 }

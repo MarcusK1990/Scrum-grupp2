@@ -22,6 +22,8 @@ namespace vIT_System.GUI
                 cbBoss.Items.Add(chef);
             }
 
+            tbSum.Text = "";
+
             var uppList = DataPreShooting.cbFill(query2);
             foreach (var upp in uppList)
             {
@@ -65,7 +67,7 @@ namespace vIT_System.GUI
 
             if (Validation.IsEmpty(motiv) || Validation.IsEmpty(tbSum.Text))
             {
-                MessageBox.Show(@"Fyll i alla fält!");
+                MessageBox.Show("Fyll i alla fält!");
             }
             else
             {
