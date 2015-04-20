@@ -51,14 +51,14 @@ namespace vIT_System.GUI {
         private void HämtaLänder() {
             var länder = Traktamentestabell.Traktamentestabell.HämtaLänderOchBelopp();
 
-            cbLand.Items.Clear();
+            //cbLand.Items.Clear();
 
-            for (var i = 0 ; i < länder.GetLength(0) ; i++) {
-                //System.Diagnostics.Debug.WriteLine(länder[i, 0] + " + " + länder[i, 1]);
-                cbLand.Items.Add(new ComboboxItem { Text = länder[i, 0], Value = Convert.ToDouble(länder[i, 1]) });
-                }
+            //for (var i = 0 ; i < länder.GetLength(0) ; i++) {
+            //    //System.Diagnostics.Debug.WriteLine(länder[i, 0] + " + " + länder[i, 1]);
+            //    cbLand.Items.Add(new ComboboxItem { Text = länder[i, 0], Value = Convert.ToDouble(länder[i, 1]) });
+            //    }
 
-            cbLand.SelectedIndex = 0;
+            //cbLand.SelectedIndex = 0;
             }
 
         private bool ValideraVidSpara() {
@@ -185,20 +185,13 @@ namespace vIT_System.GUI {
             }
 
         private void frmCompensation_Load(object sender, EventArgs e) {
-
-            //Skapa en ny ansökan
-            var id = 1;
-            var ansID = DataCompensation.newCompensationfrm(id);
-            lblAnsID.Text = ansID.ToString();
-
-
             if (CompMode == ApplicationMode.Mode.OFFLINE) {
                 tbEmail.Enabled = true;
                 tbForNamn.Enabled = true;
                 tbEfterNamn.Enabled = true;
                 }
             LaddaComboBox();
-            //HämtaLänder();
+            HämtaLänder();
             }
 
         private void btnLaddaUtkast_Click(object sender, EventArgs e) {
@@ -259,38 +252,58 @@ namespace vIT_System.GUI {
             }
 
         private void button1_Click(object sender, EventArgs e) {
-            var fDialog = new OpenFileDialog();
+            
+            if(string.IsNullOrEmpty(tbBelopp.Text))
+            {
+               MessageBox.Show("Fyll i belopp");
+            }
 
-            var exeLocation = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
-            // ReSharper disable once UnusedVariable
-            var exeDir = System.IO.Path.GetDirectoryName(exeLocation);
+            if (string.IsNullOrEmpty(tbAndaMal.Text))
+            {
+                MessageBox.Show("Fyll i Ändamål");
+            }
 
-            if (fDialog.ShowDialog() != DialogResult.OK)
+            if (string.IsNullOrEmpty(cbValuta.Text))
+            {
+                MessageBox.Show("Fyll i belopp");
+            }
 
-                return;
+            else
+            {
 
-            var fInfo = new System.IO.FileInfo(fDialog.FileName);
+                var fDialog = new OpenFileDialog();
 
-            var strFileName = fInfo.Name;
+                var exeLocation = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
+                // ReSharper disable once UnusedVariable
+                var exeDir = System.IO.Path.GetDirectoryName(exeLocation);
 
-            var strFilePath = fInfo.DirectoryName;
+                if (fDialog.ShowDialog() != DialogResult.OK)
 
-            var fullpath = strFilePath + @"\" + strFileName;
+                    return;
 
-            //MessageBox.Show(strFilePath);
+                var fInfo = new System.IO.FileInfo(fDialog.FileName);
 
-            var exist = System.IO.Directory.Exists(Application.StartupPath + "\\Images\\");
+                var strFileName = fInfo.Name;
 
-            if (!exist) {
-                System.IO.Directory.CreateDirectory(Application.StartupPath + "\\Images\\");
+                var strFilePath = fInfo.DirectoryName;
+
+                var fullpath = strFilePath + @"\" + strFileName;
+
+                //MessageBox.Show(strFilePath);
+
+                var exist = System.IO.Directory.Exists(Application.StartupPath + "\\Images\\");
+
+                if (!exist)
+                {
+                    System.IO.Directory.CreateDirectory(Application.StartupPath + "\\Images\\");
                 }
 
-            System.IO.File.Copy(fullpath, Application.StartupPath + "\\Images\\" + strFileName);
+                System.IO.File.Copy(fullpath, Application.StartupPath + "\\Images\\" + strFileName);
 
-            //// Sökväg som skall sparas i databasen (kvitto)
-            //string NewFullpath = Application.StartupPath + "\\Images\\" + strFileName;
-            //MessageBox.Show(NewFullpath);
-
+                //// Sökväg som skall sparas i databasen (kvitto)
+                //string NewFullpath = Application.StartupPath + "\\Images\\" + strFileName;
+                //MessageBox.Show(NewFullpath);
+            }
 
             }
 
