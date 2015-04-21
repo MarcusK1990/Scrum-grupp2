@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbShowAns = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbTotComp = new System.Windows.Forms.Label();
@@ -54,13 +54,14 @@
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // cbShowAns
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(35, 36);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(199, 21);
-            this.comboBox1.TabIndex = 0;
+            this.cbShowAns.FormattingEnabled = true;
+            this.cbShowAns.Location = new System.Drawing.Point(35, 36);
+            this.cbShowAns.Name = "cbShowAns";
+            this.cbShowAns.Size = new System.Drawing.Size(199, 21);
+            this.cbShowAns.TabIndex = 0;
+            this.cbShowAns.SelectedIndexChanged += new System.EventHandler(this.cbShowAns_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -286,9 +287,10 @@
             this.ClientSize = new System.Drawing.Size(827, 512);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbShowAns);
             this.Name = "FrmMyApplications";
             this.Text = "Mina ansökningar";
+            this.Load += new System.EventHandler(this.FrmMyApplications_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -298,7 +300,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbShowAns;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lbTotComp;
