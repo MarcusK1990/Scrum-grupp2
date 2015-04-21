@@ -34,43 +34,22 @@ namespace vIT_System.GUI
         //Posta innehållet i formuläret till databasen
         private void btnSendPre_Click(object sender, EventArgs e)
         {
-            //Ska skickas när ansökan har sparats!
-            SmtpClient client = new SmtpClient();
-
-            string from = "sergio.saxofonguden@gmail.com";
-            string to = "painblom@gmail.com"; 
-            string subject = "Ny vits ansökan";
-            string meddelande = "Du har en ny ansökan från någon utav dina anställda konsulter";
-
-            MailMessage mail = new MailMessage(from, to, subject, meddelande);
-            client.Host = "smtp.gmail.com";
-            client.Port = 587;
-            client.EnableSsl = true;
-            client.Credentials = new System.Net.NetworkCredential("sergio.saxofonguden@gmail.com", "Sergio1977");
-
-            try
-            {
-                client.Send(mail);
-                MessageBox.Show(@"Mail skickat!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-
-            //Hämtar värden i boxarna
-            var motiv = tbMotivation.Text;
-            var uppdrag = cbChooseUppdrag.SelectedItem.ToString();
-            var boss = cbBoss.SelectedItem.ToString();
-            var query1 = "select id from anstallda where fnamn = '" + boss + "'";
-            var query2 = "select uppid from uppdrag where namn = '" + uppdrag + "'";
-
-            if (Validation.IsEmpty(motiv) || Validation.IsEmpty(tbSum.Text))
+                          //Hämtar värden i boxarna
+              if (
+                Validation.IsEmpty(tbMotivation.ToString()) ||
+                Validation.IsEmpty(tbSum.Text) ||
+                Validation.IsEmpty(cbBoss.SelectedItem.ToString())||
+                Validation.IsEmpty(cbChooseUppdrag.SelectedItem.ToString()))
             {
                 MessageBox.Show("Fyll i alla fält!");
             }
             else
             {
+                var motiv = tbMotivation.Text;
+                var uppdrag = cbChooseUppdrag.SelectedItem.ToString();
+                var boss = cbBoss.SelectedItem.ToString();
+                var query1 = "select id from anstallda where fnamn = '" + boss + "'";
+                var query2 = "select uppid from uppdrag where namn = '" + uppdrag + "'";
                 var nånting = 0;
                 Int32.TryParse(tbSum.Text, out nånting);
                 
@@ -79,6 +58,30 @@ namespace vIT_System.GUI
                 DataPreShooting.savePreShooting(nånting, motiv, bossID, uppdragID);
                 tbMotivation.Text = "";
                 tbSum.Text = "";
+
+                //Ska skickas när ansökan har sparats!
+                SmtpClient client = new SmtpClient();
+
+                string from = "sergio.saxofonguden@gmail.com";
+                string to = "painblom@gmail.com";
+                string subject = "Ny vits ansökan";
+                string meddelande = "Du har en ny ansökan från någon utav dina anställda konsulter";
+
+                MailMessage mail = new MailMessage(from, to, subject, meddelande);
+                client.Host = "smtp.gmail.com";
+                client.Port = 587;
+                client.EnableSsl = true;
+                client.Credentials = new System.Net.NetworkCredential("sergio.saxofonguden@gmail.com", "Sergio1977");
+
+                try
+                {
+                    client.Send(mail);
+                    MessageBox.Show(@"Mail skickat!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
         }
     }
