@@ -72,5 +72,10 @@ namespace vIT_System.GUI
             var form = new Konsulthantering();
             form.Show();
         }
+
+        private void FrmMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

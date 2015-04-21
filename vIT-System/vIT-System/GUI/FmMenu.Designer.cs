@@ -33,9 +33,9 @@
             this.mItemPreShoot = new System.Windows.Forms.ToolStripMenuItem();
             this.mItemTravel = new System.Windows.Forms.ToolStripMenuItem();
             this.mItemMyAppli = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblStatus = new System.Windows.Forms.Label();
             this.chefToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hanteraKonsulterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,15 +81,6 @@
             this.mItemMyAppli.Text = "Mina ansökningar";
             this.mItemMyAppli.Click += new System.EventHandler(this.mItemMyAppli_Click);
             // 
-            // lblStatus
-            // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(101, 92);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(0, 39);
-            this.lblStatus.TabIndex = 1;
-            // 
             // chefToolStripMenuItem
             // 
             this.chefToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -106,7 +97,16 @@
             this.hanteraKonsulterToolStripMenuItem.Text = "Hantera konsulter";
             this.hanteraKonsulterToolStripMenuItem.Click += new System.EventHandler(this.hanteraKonsulterToolStripMenuItem_Click);
             // 
-            // frmMenu
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Location = new System.Drawing.Point(101, 92);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(0, 39);
+            this.lblStatus.TabIndex = 1;
+            // 
+            // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -116,6 +116,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmMenu";
             this.Text = "frmMenu";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMenu_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
