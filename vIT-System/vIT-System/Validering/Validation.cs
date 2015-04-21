@@ -48,7 +48,7 @@ namespace vIT_System
             {
                 return true;
             }
-            Regex regex = new Regex("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z0-9]+");
+            var regex = new Regex("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z0-9]+");
             return regex.IsMatch(str);
             
         }
@@ -61,7 +61,7 @@ namespace vIT_System
         {
             if (!String.IsNullOrWhiteSpace(str))
             {
-                Regex regex = new Regex("[0-9]");
+                var regex = new Regex("[0-9]");
                 return !regex.IsMatch(str);
             }
             return false;
@@ -75,7 +75,7 @@ namespace vIT_System
         {
             if (!String.IsNullOrWhiteSpace(str))
             {
-                Regex regex = new Regex("[A-Za-z]");
+                var regex = new Regex("[A-Za-z]");
                 return !regex.IsMatch(str);
             }
             return false;

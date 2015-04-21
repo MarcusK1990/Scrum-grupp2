@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using vIT_System.SQL;
 
@@ -38,8 +32,15 @@ namespace vIT_System.GUI
         {
             var vald = cbShowAns.SelectedItem.ToString().Substring(0, 1);
             var id = Convert.ToInt32(vald);
-            var dt = sqlHelper.Fetch("select * from Ansokan, Resa where Ansokan.ansid = resa.ansid and ansokan.ansid = " + id);
-            
+            var dt = sqlHelper.Fetch("select *from Resa where resa.ansid = " + id);
+            if (dt.Rows.Count > 0)
+            {
+                lbCountry.Text = dt.Rows[0]["land"].ToString();
+            }
+            else
+            {
+                lbCountry.Text = "landet finns inte";
+            }
             MessageBox.Show("yay!");
         }
     }

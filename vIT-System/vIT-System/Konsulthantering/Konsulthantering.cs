@@ -20,7 +20,7 @@ namespace vIT_System
 
             foreach (DataRow dr in dt.Rows)
             {
-                ListViewItem lvi = new ListViewItem(dr["id"].ToString());
+                var lvi = new ListViewItem(dr["id"].ToString());
                 lvi.SubItems.Add(dr["fnamn"].ToString());
                 lvi.SubItems.Add(dr["enamn"].ToString());
 
@@ -33,13 +33,13 @@ namespace vIT_System
             sqlHelper.Modify("insert into anstallda (losenord, fnamn, enamn, persnr, mail) values ('abc123', 'Ny', 'Anställd', 0, 'mail@example.com');");
             MessageBox.Show(@"En ny anställd har lagts till!");
 
-            DataTable dt = sqlHelper.Fetch("select * from anstallda");
+            var dt = sqlHelper.Fetch("select * from anstallda");
 
             listvKonsulter.Items.Clear();
 
             foreach (DataRow dr in dt.Rows)
             {
-                ListViewItem lvi = new ListViewItem(dr["id"].ToString());
+                var lvi = new ListViewItem(dr["id"].ToString());
                 lvi.SubItems.Add(dr["fnamn"].ToString());
                 lvi.SubItems.Add(dr["enamn"].ToString());
 
@@ -67,7 +67,7 @@ namespace vIT_System
         {
             if (listvKonsulter.SelectedItems.Count == 0) { return; }
 
-            DataTable dt = sqlHelper.Fetch("select * from anstallda where id = " + listvKonsulter.SelectedItems[0].Text + ";");
+            var dt = sqlHelper.Fetch("select * from anstallda where id = " + listvKonsulter.SelectedItems[0].Text + ";");
 
             tbId.Text = dt.Rows[0]["id"].ToString();
             tbFörnamn.Text = dt.Rows[0]["fnamn"].ToString();
@@ -83,8 +83,8 @@ namespace vIT_System
 
             // valideringsblock
             {
-                bool foundError = false;
-                string felmeddelande = "Följande fel har upstått:\n";
+                var foundError = false;
+                var felmeddelande = "Följande fel har upstått:\n";
 
                 if (Validation.IsEmpty(tbFörnamn.Text)) { felmeddelande += "\n• Fältet för förnamn måste vara ifyllt"; foundError = true; }
                 if (Validation.IsLongerThan(tbFörnamn.Text, 256)) { felmeddelande += "\n• Förnamn måste vara kortare än 256 tecken"; foundError = true; }
@@ -112,13 +112,13 @@ namespace vIT_System
 
             MessageBox.Show(@"Konsulten har uppdaterats.");
 
-            DataTable dt = sqlHelper.Fetch("select * from anstallda");
+            var dt = sqlHelper.Fetch("select * from anstallda");
 
             listvKonsulter.Items.Clear();
 
             foreach (DataRow dr in dt.Rows)
             {
-                ListViewItem lvi = new ListViewItem(dr["id"].ToString());
+                var lvi = new ListViewItem(dr["id"].ToString());
                 lvi.SubItems.Add(dr["fnamn"].ToString());
                 lvi.SubItems.Add(dr["enamn"].ToString());
 

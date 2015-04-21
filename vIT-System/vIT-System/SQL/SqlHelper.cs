@@ -15,7 +15,7 @@ namespace vIT_System.SQL
         {
             dbPath = System.IO.Path.GetFullPath(path);
 
-            string conStr =
+            var conStr =
                 "Data Source=(LocalDB)\\v11.0;" +
                 "AttachDbFilename=" + dbPath + ";" +
                 "Integrated Security=True;" +
@@ -44,7 +44,7 @@ namespace vIT_System.SQL
         /// <returns>DataTable</returns>
         public DataTable Fetch(string query)
         {
-            DataTable dt = new DataTable();
+            var dt = new DataTable();
 
             try
             {

@@ -21,7 +21,7 @@ namespace vIT_System.Förskott
                 myReader = sqlC.ExecuteReader();
                 while (myReader.Read())
                 {
-                    string namn = myReader.GetString(0);
+                    var namn = myReader.GetString(0);
                     lista.Add(namn);
                 }
                 sqldb.Close();
@@ -40,10 +40,11 @@ namespace vIT_System.Förskott
 
             var sqldb = new SqlConnection(path);
 
-            SqlCommand sqlSelect = new SqlCommand(query, sqldb);
+            var sqlSelect = new SqlCommand(query, sqldb);
 
             SqlDataReader myReader;
             var idhamtat = 0;
+
             try
             {
                 sqldb.Open();
@@ -52,11 +53,12 @@ namespace vIT_System.Förskott
 
                 idhamtat = myReader.GetInt32(0);
 
-
                 myReader.Close();
             }
-            catch (FormatException)
+            catch (Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine(ex);
+               
             }
             return idhamtat;
         }
