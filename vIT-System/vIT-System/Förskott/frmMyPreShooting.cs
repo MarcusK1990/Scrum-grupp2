@@ -47,7 +47,6 @@ namespace vIT_System.Förskott
                 tbSumma.Text = Q.Rows[0]["Summa"].ToString();
                 tbChef.Text = Q.Rows[0]["Chef"].ToString();
                 tbStatus.Text = Q.Rows[0]["Status"].ToString();
-             
             }
                 else
                 {
