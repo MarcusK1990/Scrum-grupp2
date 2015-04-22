@@ -15,7 +15,7 @@
 
         public string Konverterad { get; set; }
 
-        public string VisaIListBox{
+        public string VisaValutaIListBox{
             get { return Valuta + " " + Belopp + " för ändamål:" + AndaMal + " (SEK " + Konverterad + ")"; }
         }
 

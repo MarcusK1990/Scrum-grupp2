@@ -1,68 +1,98 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using vIT_System.Data;
+using vIT_System.SQL;
 using vIT_System.Validering;
 using vIT_System.XmlRelaterat;
 
-namespace vIT_System.GUI {
-    public partial class FrmCompensation : Form {
-        public BindingList<Utgift> TotalOutPoison;
+namespace vIT_System.GUI
+{
+    public partial class FrmCompensation : Form
+    {
         public BindingList<Resa> AllaResor;
+        public int ValdResa { get; set; }
         public ApplicationMode.Mode CompMode { get; set; }
 
-        public FrmCompensation(ApplicationMode.Mode inMode) {
+        public FrmCompensation(ApplicationMode.Mode inMode)
+        {
             InitializeComponent();
-            TotalOutPoison = new BindingList<Utgift>();
             AllaResor = new BindingList<Resa>();
+
             CompMode = inMode;
 
             lbUtgifter.DisplayMember = "VisaIListBox";
             lbUtgifter.ValueMember = "ValutaKurs";
-            lbUtgifter.DataSource = TotalOutPoison;
 
-            lbResa.DisplayMember = "VisaIListBox"; // "Resa till: " + Land + " Uppdrag: " + Uppdrag;
+            lbResa.DisplayMember = "VisaIListBox"; 
             lbResa.ValueMember = "TraktamenteFörLandet";
             lbResa.DataSource = AllaResor;
 
-            }
+        }
 
-        public FrmCompensation(string email, string namn, string efternamn, ApplicationMode.Mode inMode) {
+        public FrmCompensation(string email, string namn, string efternamn, ApplicationMode.Mode inMode)
+        {
             InitializeComponent();
-            TotalOutPoison = new BindingList<Utgift>();
             tbEmail.Text = email;
             tbForNamn.Text = namn;
             tbEfterNamn.Text = efternamn;
             CompMode = inMode;
 
-            TotalOutPoison = new BindingList<Utgift>();
             AllaResor = new BindingList<Resa>();
 
             lbUtgifter.DisplayMember = "VisaIListBox";
             lbUtgifter.ValueMember = "ValutaKurs";
-            lbUtgifter.DataSource = TotalOutPoison;
 
             lbResa.DisplayMember = "VisaIListBox";
             lbResa.ValueMember = "TraktamenteFörLandet";
             lbResa.DataSource = AllaResor;
-            }
+        }
 
-        private void HämtaLänder() {
+        private void frmCompensation_Load(object sender, EventArgs e)
+        {
+            //Skapa en ny ansökan
+            var ansId = DataCompensation.newCompensationfrm(1);
+            lblAnsID.Text = ansId.ToString(CultureInfo.InvariantCulture);
+            HämtaLänder();
+
+            if (CompMode == ApplicationMode.Mode.OFFLINE)
+            {
+                tbEmail.Enabled = true;
+                tbForNamn.Enabled = true;
+                tbEfterNamn.Enabled = true;
+
+                cbUppdrag.Items.Add(new ComboboxItem { Text = "Test", Value = 1 });
+                //LaddaValutaOffline(); en ide!
+                LaddaValuta();
+            }
+            else
+            {
+                LaddaUppdrag();
+                LaddaValuta();
+            }
+        }
+
+        private void HämtaLänder()
+        {
             var länder = Traktamentestabell.Traktamentestabell.HämtaLänderOchBelopp();
 
             cbLand.Items.Clear();
 
             for (var i = 0; i < länder.GetLength(0); i++)
             {
-                //System.Diagnostics.Debug.WriteLine(länder[i, 0] + " + " + länder[i, 1]);
+                System.Diagnostics.Debug.WriteLine(länder[i, 0] + " + " + länder[i, 1]);
+
                 cbLand.Items.Add(new ComboboxItem { Text = länder[i, 0], Value = Convert.ToDouble(länder[i, 1]) });
             }
 
             cbLand.SelectedIndex = 0;
-            }
+        }
 
-        private bool ValideraVidSpara() {
+        private bool ValideraVidSparaUtkast()
+        {
             ValidationCheck.checkValidering(tbEfterNamn, "tom", "efternamn");
             ValidationCheck.checkValidering(tbEfterNamn, "längre255", "efternamn");
             ValidationCheck.checkValidering(tbEfterNamn, "innehållerInt", "efternamn");
@@ -76,33 +106,37 @@ namespace vIT_System.GUI {
             ValidationCheck.checkValidering(tbEmail, "email", "email");
 
             ValidationCheck.checkValidering(tbMilErsattning, "InnehållerBokstav", "milersättning");
+            ValidationCheck.checkValidering(tbMilErsattning, "tom", "milersättning");
 
             var felmeddelanden = ValidationCheck.felString;
 
-            if (felmeddelanden.Length <= 0) {
+            if (felmeddelanden.Length <= 0)
+            {
                 return true;
-                }
+            }
 
             MessageBox.Show(string.Format(@"Följande fel har uppstått: {0}", felmeddelanden));
             ValidationCheck.felString = "";
             return false;
-            }
+        }
 
-        private void LaddaComboBox(){
-
-
+        private void LaddaValuta()
+        {
             var frånstringtilldecimaltilldoubleUsd = ValutaOmvandlare.KonverteraTillFrån("SEK", "USD", "1");
             var frånstringtilldecimaltilldoubleEur = ValutaOmvandlare.KonverteraTillFrån("SEK", "EUR", "1");
 
-            var sek = new ComboboxItem {
+            var sek = new ComboboxItem
+            {
                 Text = "SEK",
                 Value = 1
             };
-            var dollarinos = new ComboboxItem {
+            var dollarinos = new ComboboxItem
+            {
                 Text = "USD",
                 Value = frånstringtilldecimaltilldoubleUsd
             };
-            var evro = new ComboboxItem {
+            var evro = new ComboboxItem
+            {
                 Text = "EUR",
                 Value = frånstringtilldecimaltilldoubleEur
             };
@@ -112,19 +146,30 @@ namespace vIT_System.GUI {
             cbValuta.Items.Add(evro);
 
             cbValuta.SelectedIndex = 0;
+        }
+
+        private void LaddaUppdrag()
+        {
+            
+            MessageBox.Show(@"Nu ska vi ha hämtat uppdrag från databasen, men David vågar inte skriva SQL");
+            // var allaUppdrag = Uppdrag.All(x => x.Namn); ???
+            
+        }
+
+        public void UppdateraTotalSumma()
+        {
+
+            double total = 0;
+            foreach (var utgifter in AllaResor)
+            {
+                total = utgifter.UtgifterFörResa.Sum(x => x.Belopp);
             }
-
-
-       
-        public void UppdateraTotalSumma() {
-            //for (var i = 0 ; i < TotalOutPoison.Count ; i++) {
-            //    total += TotalOutPoison[i].belopp;
-            //    }
-            var total = TotalOutPoison.Sum(t => t.Belopp);
 
             labelTotal.Text = total.ToString(CultureInfo.InvariantCulture);
-            }
-        private void btnUtgiter_Click(object sender, EventArgs e) {
+        }
+
+        private void btnUtgiter_Click(object sender, EventArgs e)
+        {
             double parsedBelopp;
             double.TryParse(tbBelopp.Text, out parsedBelopp);
 
@@ -138,71 +183,54 @@ namespace vIT_System.GUI {
 
             var felmeddelanden = ValidationCheck.felString;
 
-            if (felmeddelanden.Length > 0) {
+            if (felmeddelanden.Length > 0)
+            {
                 MessageBox.Show(string.Format(@"Följande fel har uppstått: {0}", felmeddelanden));
                 ValidationCheck.felString = "";
                 return;
-                }
-            // double parsadValutakursdouble = 0;
-            // var selectedValue = cbValuta.Items[1].ToString();
-
-            var valtItem = (ComboboxItem)cbValuta.SelectedItem;
-            var valtItemDouble = Convert.ToDouble(valtItem.Value);
-            var valtItemText = Convert.ToString(valtItem.Text);
-
-            //Double.TryParse(cbValuta.SelectedValue.ToString(), out parsadValutakursdouble);
-            var nyUtgift = new Utgift {
-                Belopp = parsedBelopp,
-                AndaMal = tbAndaMal.Text,
-                Valuta = valtItemText,
-                ValutaKurs = valtItemDouble,   //parsadValutakursdouble,
-                Moms = 2 // % eller ?!?!?!        
-            };
-
-            TotalOutPoison.Add(nyUtgift);
-
-            UppdateraTotalSumma();
             }
 
-        private void btnSparaUtkast_Click(object sender, EventArgs e) {
+            var valtItem = (ComboboxItem)cbValuta.SelectedItem;
+            var valtItemValutaKurs = Convert.ToDouble(valtItem.Value);
+            var valtItemValutaNamn = Convert.ToString(valtItem.Text);
+
+            var nyUtgift = new Utgift
+            {
+                Belopp = parsedBelopp,
+                AndaMal = tbAndaMal.Text,
+                Valuta = valtItemValutaNamn,
+                ValutaKurs = valtItemValutaKurs,   
+                Moms = 2 // vi vet fortfarande inte varför vi har moms här. Det är en relik från en svunnen tid.     
+            };
+
+            AllaResor[ValdResa].UtgifterFörResa.Add(nyUtgift);
+
+            UppdateraTotalSumma();
+        }
+
+        private void btnSparaUtkast_Click(object sender, EventArgs e)
+        {
             var äcksämäll = new Xmelliserare(@"C:\dump\Ansökan.xml");
 
-            if (!ValideraVidSpara()) {
+            if (!ValideraVidSparaUtkast())
+            {
                 return;
-                }
+            }
 
-            var utkast = new CompensationModel {
+            var utkast = new CompensationModel
+            {
                 eMail = tbEmail.Text,
                 forNamn = tbForNamn.Text,
                 eftNamn = tbEfterNamn.Text,
-                //Bild nånting hur fan man nu gör det
+                Kvitto = tbKvitto.Text,
                 milErsattning = Convert.ToInt32(tbMilErsattning.Text),
-                ÄndraISparadAnsökan = tbÄndraISparatForumlär.Text,
-                Utgifter = TotalOutPoison,
                 Resor = AllaResor
             };
-
             äcksämäll.SkrivCompensationModel(utkast);
-            }
+        }
 
-        private void frmCompensation_Load(object sender, EventArgs e) {
-
-            //Skapa en ny ansökan
-            var id = 1;
-            var ansID = DataCompensation.newCompensationfrm(id);
-            lblAnsID.Text = ansID.ToString();
-
-
-            if (CompMode == ApplicationMode.Mode.OFFLINE) {
-                tbEmail.Enabled = true;
-                tbForNamn.Enabled = true;
-                tbEfterNamn.Enabled = true;
-                }
-            LaddaComboBox();
-            HämtaLänder();
-            }
-
-        private void btnLaddaUtkast_Click(object sender, EventArgs e) {
+        private void btnLaddaUtkast_Click(object sender, EventArgs e)
+        {
             var äcksämäll = new Xmelliserare(@"C:\dump\Ansökan.xml");
             var utkast = äcksämäll.LaddaUtkast();
 
@@ -210,19 +238,19 @@ namespace vIT_System.GUI {
             tbForNamn.Text = utkast.forNamn;
             tbEfterNamn.Text = utkast.eftNamn;
             tbMilErsattning.Text = utkast.milErsattning.ToString(CultureInfo.InvariantCulture);
-            // Bild nånting hur fan man nu gör det
-            TotalOutPoison = utkast.Utgifter;
             AllaResor = utkast.Resor;
-            }
+        }
 
 
 
-        private void btnSkickaAnsokan_Click(object sender, EventArgs e) {
-            if (!ValideraVidSpara()) { }
+        private void btnSkickaAnsokan_Click(object sender, EventArgs e)
+        {
+            if (!ValideraVidSparaUtkast()) { }
             //det som ska sparas i db
-            }
+        }
 
-        private void btnLaggTillResa_Click(object sender, EventArgs e) {
+        private void btnLaggTillResa_Click(object sender, EventArgs e)
+        {
 
             ValidationCheck.checkValidering(tbSemesterdagar, "tom", "semesterdagar");
             ValidationCheck.checkValidering(tbSemesterdagar, "InnehållerBokstav", "semesterdagar");
@@ -234,22 +262,28 @@ namespace vIT_System.GUI {
 
             var felmeddelanden = ValidationCheck.felString;
 
-            if (felmeddelanden.Length > 0) {
+            if (felmeddelanden.Length > 0)
+            {
                 MessageBox.Show(string.Format(@"Följande fel har uppstått: {0}", felmeddelanden));
                 ValidationCheck.felString = "";
                 return;
-                }
+            }
 
             var valtItem = (ComboboxItem)cbLand.SelectedItem;
             var valtTraktamenteFörLandet = Convert.ToDouble(valtItem.Value);
             var valtLand = Convert.ToString(valtItem.Text);
 
-            var nyResa = new Resa {
+            var nyResa = new Resa
+            {
                 UtResa = dtpUtResa.Value,                         //ToString("yyyy-MM-dd"),
                 HemResa = dtpHemResa.Value,                       //ToString("yyyy-MM-dd"),
                 Land = valtLand,
                 SemesterDagar = tbSemesterdagar.Text,
-                TraktamenteFörLandet = valtTraktamenteFörLandet
+                TraktamenteFörLandet = valtTraktamenteFörLandet,
+                AntalMiddag = Convert.ToInt32(tbMiddag.Text),
+                AntalFrukost = Convert.ToInt32(tbFrukost.Text),
+                AntalLunch = Convert.ToInt32(tbLunch.Text),
+                UtgifterFörResa = new List<Utgift>()
             };
 
             var frukostförresa = 0.0;
@@ -275,35 +309,41 @@ namespace vIT_System.GUI {
             }
 
             var totaltAvdragFrånTraktamente = frukostförresa + middagförresa + lunchförresa;
-            
+
             var antalDagarBortrest = nyResa.UtResa - nyResa.HemResa;
 
             double dagarBortrestString = 0;
             if (antalDagarBortrest.TotalDays < 0)
             {
-                dagarBortrestString = antalDagarBortrest.TotalDays*-1;
+                dagarBortrestString = antalDagarBortrest.TotalDays * -1;
             }
             var totalaDagarBortrestAvrundatUppåt = Math.Ceiling(dagarBortrestString);
             var betalningsBerättigadeDagar = totalaDagarBortrestAvrundatUppåt - Convert.ToDouble(tbSemesterdagar.Text);
-            
-            var totalUtbetalning = (betalningsBerättigadeDagar*nyResa.TraktamenteFörLandet) - totaltAvdragFrånTraktamente;
+
+            var totalUtbetalning = (betalningsBerättigadeDagar * nyResa.TraktamenteFörLandet) - totaltAvdragFrånTraktamente;
             nyResa.TraktamenteEfterAvdrag = totalUtbetalning;
 
 
             tbTotalTraktamentesUtbetalning.Text = totalUtbetalning.ToString(CultureInfo.InvariantCulture);
             tbTotalTraktamenteDagar.Text = betalningsBerättigadeDagar.ToString(CultureInfo.InvariantCulture);
 
+            tbMiddag.Text = "";
+            tbLunch.Text = "";
+            tbFrukost.Text = "";
+            tbSemesterdagar.Text = "";
+            dtpHemResa.ResetText();
+            dtpUtResa.ResetText();
+
             AllaResor.Add(nyResa);
-            }
+        }
 
-        private void button1_Click(object sender, EventArgs e) 
-
-            { 
-                if (string.IsNullOrEmpty(tbBelopp.Text) || string.IsNullOrEmpty(tbAndaMal.Text) || string.IsNullOrEmpty(cbValuta.Text))
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbBelopp.Text) || string.IsNullOrEmpty(tbAndaMal.Text) || string.IsNullOrEmpty(cbValuta.Text))
             {
-                MessageBox.Show("Fyll i alla fälten för utgifter");
+                MessageBox.Show(@"Fyll i alla fälten för utgifter");
             }
-            
+
             else
             {
                 var fDialog = new OpenFileDialog();
@@ -331,18 +371,19 @@ namespace vIT_System.GUI {
                     System.IO.Directory.CreateDirectory(Application.StartupPath + "\\Images\\");
                 }
 
-                string NewFullpath = Application.StartupPath + "\\Images\\" + strFileName;
+                var newFullpath = Application.StartupPath + "\\Images\\" + strFileName;
 
-                System.IO.File.Copy(fullpath, NewFullpath);
-               
-                tbKvitto.AppendText(NewFullpath);
-                MessageBox.Show("Kvittot tillagt");
+                System.IO.File.Copy(fullpath, newFullpath);
+
+                tbKvitto.AppendText(newFullpath);
+                MessageBox.Show(@"Kvittot tillagt");
 
 
             }
-                }
+        }
 
-        private void button1_Click_1(object sender, EventArgs e){
+        private void button1_Click_1(object sender, EventArgs e)
+        {
 
             var valtItem = (ComboboxItem)cbValuta.SelectedItem;
             var valutakurs = Convert.ToDouble(valtItem.Value);
@@ -350,18 +391,49 @@ namespace vIT_System.GUI {
 
             var belopp = Convert.ToDouble(tbBelopp.Text);
 
-            var resultat = valutakurs*belopp;
+            var resultat = valutakurs * belopp;
 
-            var asd = new Utgift {
-                Belopp = belopp, 
-                AndaMal = "Testar", 
-                Valuta = valuta, 
-                ValutaKurs = valutakurs, 
+            var asd = new Utgift
+            {
+                Belopp = belopp,
+                AndaMal = "Testar",
+                Valuta = valuta,
+                ValutaKurs = valutakurs,
                 Konverterad = resultat.ToString(CultureInfo.InvariantCulture)
             };
-            TotalOutPoison.Add(asd);
+            //TotalOutPoison.Add(asd);
             MessageBox.Show(resultat.ToString(CultureInfo.InvariantCulture));
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var hämtadResa = (Resa)lbResa.SelectedItem;
+
+            dtpHemResa.Value = hämtadResa.HemResa;
+            dtpUtResa.Value = hämtadResa.UtResa;
+            cbLand.SelectedItem = hämtadResa.Land;
+            tbFrukost.Text = hämtadResa.AntalFrukost.ToString();
+            tbMiddag.Text = hämtadResa.AntalMiddag.ToString();
+            tbLunch.Text = hämtadResa.AntalLunch.ToString();
+            lbUtgifter.DataSource = hämtadResa.UtgifterFörResa;
+
         }
-    }
+
+        private void lbResa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            lbUtgifter.Items.Clear();
+            ValdResa = lbResa.SelectedIndex;
+
+            for (var i = 0; i < AllaResor[ValdResa].UtgifterFörResa.Count; i++)
+            {
+                var utgift = AllaResor[ValdResa].UtgifterFörResa[i];
+                lbUtgifter.Items.Add(utgift);
+            }
+        }
+
+
+
+    } // klassen
+} // namespace
