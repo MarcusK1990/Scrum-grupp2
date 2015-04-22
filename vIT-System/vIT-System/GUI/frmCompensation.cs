@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Windows.Forms;
 using vIT_System.Validering;
 using vIT_System.XmlRelaterat;
@@ -166,6 +167,14 @@ namespace vIT_System.GUI {
 
         private void btnSparaUtkast_Click(object sender, EventArgs e) {
             var äcksämäll = new Xmelliserare(@"C:\dump\Ansökan.xml");
+            var dumpFolder = @"C:\dump";
+
+            bool exists = System.IO.Directory.Exists(dumpFolder);
+
+            if (!exists)
+            {
+                System.IO.Directory.CreateDirectory(dumpFolder);
+            }
 
             if (!ValideraVidSpara()) {
                 return;
