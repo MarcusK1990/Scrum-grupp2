@@ -14,7 +14,7 @@ Belgien:624
 Belize:391
 Benin:410
 Bolivia:223
-Bosnien-Hercegovina:283 
+Bosnien-Hercegovina:283
 Botswana:244
 Brasilien:435
 Brunei Darussalam:299
