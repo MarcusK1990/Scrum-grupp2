@@ -75,6 +75,7 @@ namespace vIT_System.Förskott
 
             var sqlComm = new SqlCommand(query, sqldb);
             sqlComm.ExecuteNonQuery();
+            sqldb.Close();
 
         }
     }
