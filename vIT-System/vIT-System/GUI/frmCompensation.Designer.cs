@@ -42,6 +42,7 @@
             this.btnKvitto = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblValutaKurs = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.tbKvitto = new System.Windows.Forms.TextBox();
             this.lbUtgifter = new System.Windows.Forms.ListBox();
@@ -69,7 +70,6 @@
             this.tbFrukost = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.groaupBox3 = new System.Windows.Forms.GroupBox();
-            this.lblAnsID = new System.Windows.Forms.Label();
             this.tbSummaUtgifter = new System.Windows.Forms.TextBox();
             this.tbTotalaAvdrag = new System.Windows.Forms.TextBox();
             this.tbTotalMilErsättning = new System.Windows.Forms.TextBox();
@@ -84,6 +84,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.lblAnsID = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tbMilErsattning = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -94,7 +95,6 @@
             this.tbÄndraISparatForumlär = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.lblValutaKurs = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groaupBox3.SuspendLayout();
@@ -228,6 +228,15 @@
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Utgifter";
+            // 
+            // lblValutaKurs
+            // 
+            this.lblValutaKurs.AutoSize = true;
+            this.lblValutaKurs.Location = new System.Drawing.Point(213, 135);
+            this.lblValutaKurs.Name = "lblValutaKurs";
+            this.lblValutaKurs.Size = new System.Drawing.Size(98, 13);
+            this.lblValutaKurs.TabIndex = 33;
+            this.lblValutaKurs.Text = "Senaste valutakurs";
             // 
             // label12
             // 
@@ -489,14 +498,6 @@
             this.groaupBox3.TabStop = false;
             this.groaupBox3.Text = "Traktamente";
             // 
-            // lblAnsID
-            // 
-            this.lblAnsID.AutoSize = true;
-            this.lblAnsID.Location = new System.Drawing.Point(132, 9);
-            this.lblAnsID.Name = "lblAnsID";
-            this.lblAnsID.Size = new System.Drawing.Size(0, 13);
-            this.lblAnsID.TabIndex = 34;
-            // 
             // tbSummaUtgifter
             // 
             this.tbSummaUtgifter.Enabled = false;
@@ -617,6 +618,14 @@
             this.label15.TabIndex = 0;
             this.label15.Text = "Sparas ifall nått mer ska in";
             // 
+            // lblAnsID
+            // 
+            this.lblAnsID.AutoSize = true;
+            this.lblAnsID.Location = new System.Drawing.Point(132, 9);
+            this.lblAnsID.Name = "lblAnsID";
+            this.lblAnsID.Size = new System.Drawing.Size(0, 13);
+            this.lblAnsID.TabIndex = 34;
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.tbMilErsattning);
@@ -708,15 +717,6 @@
             this.button1.Text = "Räkna ut Belopp * Land";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // lblValutaKurs
-            // 
-            this.lblValutaKurs.AutoSize = true;
-            this.lblValutaKurs.Location = new System.Drawing.Point(213, 135);
-            this.lblValutaKurs.Name = "lblValutaKurs";
-            this.lblValutaKurs.Size = new System.Drawing.Size(98, 13);
-            this.lblValutaKurs.TabIndex = 33;
-            this.lblValutaKurs.Text = "Senaste valutakurs";
             // 
             // FrmCompensation
             // 
