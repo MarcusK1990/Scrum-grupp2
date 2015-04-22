@@ -268,19 +268,19 @@ namespace vIT_System.GUI {
             if (Validation.IsNumeric(tbFrukost.Text))
             {
                 var antalFrukost = Convert.ToDouble(tbFrukost.Text);
-                frukostförresa = (nyResa.TraktamenteFörLandet * 0.75) * antalFrukost;
+                frukostförresa = (nyResa.TraktamenteFörLandet * 0.15) * antalFrukost;
             }
 
             if (Validation.IsNumeric(tbMiddag.Text))
             {
                 var antalMiddag = Convert.ToDouble(tbMiddag.Text);
-                middagförresa = (nyResa.TraktamenteFörLandet * 0.60) * antalMiddag;
+                middagförresa = (nyResa.TraktamenteFörLandet * 0.35) * antalMiddag;
             }
 
             if (Validation.IsNumeric(tbLunch.Text))
             {
                 var antalLunch = Convert.ToDouble(tbLunch.Text);
-                lunchförresa = (nyResa.TraktamenteFörLandet * 0.40) * antalLunch;
+                lunchförresa = (nyResa.TraktamenteFörLandet * 0.35) * antalLunch;
             }
 
             var totaltAvdragFrånTraktamente = frukostförresa + middagförresa + lunchförresa;

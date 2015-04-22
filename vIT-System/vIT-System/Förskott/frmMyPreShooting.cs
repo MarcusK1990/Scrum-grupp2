@@ -36,14 +36,13 @@ namespace vIT_System.Förskott
         {
             var Fid = cbShowFid.SelectedItem.ToString().Substring(0, 1);
             var id = Convert.ToInt32(Fid);
-            var Q = sqlHelper.Fetch("select * from Forskott where Forskott.Fid = " + id);
-            var Q1 = sqlHelper.Fetch("select UppId from Forskott where Forskott.Fid = " + id);
-            var Q2 = sqlHelper.Fetch("select * from uppdrag where uppdrag.UppId = "+ Q1);
+            var Q = sqlHelper.Fetch("select * from uppdrag join forskott on Uppdrag.UppId = Forskott.UppId where forskott.FId = " + id);
+ 
             if (Q.Rows.Count > 0)
 
             {
                 tbMotivation.Text = Q.Rows[0]["Kommentar"].ToString();
-                tbUppdrag.Text = Q2.Rows[0]["Uppdrag"].ToString();
+                tbUppdrag.Text = Q.Rows[0]["namn"].ToString();
                 tbSumma.Text = Q.Rows[0]["Summa"].ToString();
                 tbChef.Text = Q.Rows[0]["Chef"].ToString();
                 tbStatus.Text = Q.Rows[0]["Status"].ToString();
