@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-
 using vIT_System.SQL;
 
 namespace vIT_System.Rapport

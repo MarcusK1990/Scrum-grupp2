@@ -20,7 +20,7 @@ namespace vIT_System.Traktamentestabell
             while ((line = file.ReadLine()) != null)
             {
                 string[] split = line.Split(new char[] { ':' });
-                DataRow dr = dataTable.NewRow();
+                var dr = dataTable.NewRow();
                 dr["land"] = split[0];
                 dr["belopp"] = split[1];
                 dataTable.Rows.Add(dr);

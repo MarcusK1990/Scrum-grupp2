@@ -11,18 +11,18 @@ namespace vIT_System.Data
             var sourceString = "Data Source=(localdb)\\v11.0;AttachDbFilename=" + Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().GetName().CodeBase) + "\\Database\\vITs2.mdf;Integrated Security=True";
 
             const string removeString = "\\bin\\Debug";
-            int index = sourceString.IndexOf(removeString);
-            int length = removeString.Length;
-            string startOfString = sourceString.Substring(0, index);
-            string endOfString = sourceString.Substring(index + length);
-            string cleanPath = startOfString + endOfString;
+            var index = sourceString.IndexOf(removeString);
+            var length = removeString.Length;
+            var startOfString = sourceString.Substring(0, index);
+            var endOfString = sourceString.Substring(index + length);
+            var cleanPath = startOfString + endOfString;
 
             const string removeString2 = "file:\\";
-            int index2 = cleanPath.IndexOf(removeString2);
-            int length2 = removeString2.Length;
-            string startOfString2 = cleanPath.Substring(0, index2);
-            string endOfString2 = cleanPath.Substring(index2 + length2);
-            string cleanPath2 = startOfString2 + endOfString2;
+            var index2 = cleanPath.IndexOf(removeString2);
+            var length2 = removeString2.Length;
+            var startOfString2 = cleanPath.Substring(0, index2);
+            var endOfString2 = cleanPath.Substring(index2 + length2);
+            var cleanPath2 = startOfString2 + endOfString2;
 
             return cleanPath2;
         }
