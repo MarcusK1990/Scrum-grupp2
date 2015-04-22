@@ -2,6 +2,9 @@
 using System.Windows.Forms;
 using vIT_System.Förskott;
 using System.Net.Mail;
+using vIT_System.Data;
+using System.Data.SqlClient;
+using System.Collections.Generic;
 
 namespace vIT_System.GUI
 {
@@ -58,35 +61,71 @@ namespace vIT_System.GUI
                 var uppdragID = DataPreShooting.getId(uppdrag, QuppId);
 
                 DataPreShooting.savePreShooting(summa, motiv, bossID, uppdragID);
+                sendMail();
 
                 tbMotivation.Text = "";
                 tbSum.Text = "";
                 cbBoss.SelectedIndex = -1;
                 cbChooseUppdrag.SelectedIndex = -1;
-
-                //Ska skickas när ansökan har sparats!
-                SmtpClient client = new SmtpClient();
-                var from = "sergio.saxofonguden@gmail.com";
-                var to = "painblom@gmail.com";
-                var subject = "Ny vits ansökan";
-                var meddelande = "Du har en ny ansökan från någon utav dina anställda konsulter";
-
-                var mail = new MailMessage(from, to, subject, meddelande);
-                client.Host = "smtp.gmail.com";
-                client.Port = 587;
-                client.EnableSsl = true;
-                client.Credentials = new System.Net.NetworkCredential("sergio.saxofonguden@gmail.com", "Sergio1977");
-
-                try
-                {
-                    client.Send(mail);
-                    MessageBox.Show(@"Mail skickat!");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
+                
             }
         }
+
+        //En egen metod för att skicka mailet, för att det inte skulle bli så grötigt i click-metoden
+        private void sendMail()
+        {
+
+            var selected = this.cbBoss.GetItemText(this.cbBoss.SelectedItem);
+            var path = Helpers.getSourcePath();
+
+            var sqldb = new SqlConnection(path);
+            var query = "select mail from anstallda where fnamn = '" + selected + "'";
+
+            var sqlC = new SqlCommand(query, sqldb);
+            SqlDataReader myReader;
+            var lista = new List<string>();
+            var to = "";
+
+            try
+            {
+                sqldb.Open();
+                myReader = sqlC.ExecuteReader();
+                myReader.Read();
+
+                to = myReader.GetString(0);
+
+                sqldb.Close();
+                myReader.Close();
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            SmtpClient client = new SmtpClient();
+
+            var from = "sergio.saxofonguden@gmail.com";
+            var subject = "Ny vits ansökan";
+            var meddelande = "Du har en ny ansökan från någon utav dina anställda konsulter";
+
+            var mail = new MailMessage(from, to, subject, meddelande);
+            client.Host = "smtp.gmail.com";
+            client.Port = 587;
+            client.EnableSsl = true;
+            client.Credentials = new System.Net.NetworkCredential("sergio.saxofonguden@gmail.com", "Sergio1977");
+
+            try
+            {
+                client.Send(mail);
+                MessageBox.Show("Din förskottsansökan har skickats till "+ to);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+        }
+
+
     }
 }
+
