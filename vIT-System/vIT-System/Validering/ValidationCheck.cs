@@ -1,4 +1,6 @@
-﻿namespace vIT_System.Validering
+﻿using vIT_System.XmlRelaterat;
+
+namespace vIT_System.Validering
 {
     public static class ValidationCheck
     {
