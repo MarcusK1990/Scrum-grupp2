@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
@@ -151,9 +152,27 @@ namespace vIT_System.GUI
         private void LaddaUppdrag()
         {
             
-            MessageBox.Show(@"Nu ska vi ha hämtat uppdrag från databasen, men David vågar inte skriva SQL");
+            //MessageBox.Show(@"Nu ska vi ha hämtat uppdrag från databasen, men David vågar inte skriva SQL");
             // var allaUppdrag = Uppdrag.All(x => x.Namn); ???
-            
+            const string query = "select namn from uppdrag";
+            var path = Helpers.getSourcePath();
+            var sqldb = new SqlConnection(path);
+            var sqlC = new SqlCommand(query, sqldb);
+            try
+            {
+                sqldb.Open();
+                var myReader = sqlC.ExecuteReader();
+                while (myReader.Read())
+                {
+                    var namn = myReader.GetString(0);
+                    cbUppdrag.Items.Add(namn);
+                }
+                sqldb.Close();
+                myReader.Close();
+            }
+            catch (Exception ex){
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         public void UppdateraTotalSumma()
