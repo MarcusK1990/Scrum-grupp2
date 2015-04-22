@@ -211,6 +211,14 @@ namespace vIT_System.GUI
         private void btnSparaUtkast_Click(object sender, EventArgs e)
         {
             var äcksämäll = new Xmelliserare(@"C:\dump\Ansökan.xml");
+            var dumpPath = @"C:\dump";
+
+            bool exists = System.IO.Directory.Exists(dumpPath);
+
+            if (!exists)
+            {
+                System.IO.Directory.CreateDirectory(dumpPath);
+            }
 
             if (!ValideraVidSparaUtkast())
             {
@@ -308,33 +316,44 @@ namespace vIT_System.GUI
                 lunchförresa = (nyResa.TraktamenteFörLandet * 0.40) * antalLunch;
             }
 
-            var totaltAvdragFrånTraktamente = frukostförresa + middagförresa + lunchförresa;
-
-            var antalDagarBortrest = nyResa.UtResa - nyResa.HemResa;
-
-            double dagarBortrestString = 0;
-            if (antalDagarBortrest.TotalDays < 0)
+            if (nyResa.UtResa < nyResa.HemResa)
             {
-                dagarBortrestString = antalDagarBortrest.TotalDays * -1;
+                var totaltAvdragFrånTraktamente = frukostförresa + middagförresa + lunchförresa;
+
+                var antalDagarBortrest = nyResa.UtResa - nyResa.HemResa;
+
+                double dagarBortrestString = 0;
+                if (antalDagarBortrest.TotalDays < 0)
+                {
+                    dagarBortrestString = antalDagarBortrest.TotalDays*-1;
+                }
+                var totalaDagarBortrestAvrundatUppåt = Math.Ceiling(dagarBortrestString);
+                var betalningsBerättigadeDagar = totalaDagarBortrestAvrundatUppåt -
+                                                 Convert.ToDouble(tbSemesterdagar.Text);
+
+                var totalUtbetalning = (betalningsBerättigadeDagar*nyResa.TraktamenteFörLandet) -
+                                       totaltAvdragFrånTraktamente;
+                nyResa.TraktamenteEfterAvdrag = totalUtbetalning;
+
+
+                tbTotalTraktamentesUtbetalning.Text = totalUtbetalning.ToString(CultureInfo.InvariantCulture);
+                tbTotalTraktamenteDagar.Text = betalningsBerättigadeDagar.ToString(CultureInfo.InvariantCulture);
+
+                tbMiddag.Text = "";
+                tbLunch.Text = "";
+                tbFrukost.Text = "";
+                tbSemesterdagar.Text = "";
+                dtpHemResa.ResetText();
+                dtpUtResa.ResetText();
+
+                AllaResor.Add(nyResa);
             }
-            var totalaDagarBortrestAvrundatUppåt = Math.Ceiling(dagarBortrestString);
-            var betalningsBerättigadeDagar = totalaDagarBortrestAvrundatUppåt - Convert.ToDouble(tbSemesterdagar.Text);
+            else
+            {
+                MessageBox.Show("Hemresedatum måste vara efter Utresedatum!");
+            }
 
-            var totalUtbetalning = (betalningsBerättigadeDagar * nyResa.TraktamenteFörLandet) - totaltAvdragFrånTraktamente;
-            nyResa.TraktamenteEfterAvdrag = totalUtbetalning;
 
-
-            tbTotalTraktamentesUtbetalning.Text = totalUtbetalning.ToString(CultureInfo.InvariantCulture);
-            tbTotalTraktamenteDagar.Text = betalningsBerättigadeDagar.ToString(CultureInfo.InvariantCulture);
-
-            tbMiddag.Text = "";
-            tbLunch.Text = "";
-            tbFrukost.Text = "";
-            tbSemesterdagar.Text = "";
-            dtpHemResa.ResetText();
-            dtpUtResa.ResetText();
-
-            AllaResor.Add(nyResa);
         }
 
         private void button1_Click(object sender, EventArgs e)
