@@ -98,6 +98,12 @@
       <DependentUpon>DataEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Förskott\DataPreShooting.cs" />
+    <Compile Include="Förskott\frmMyPreShooting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Förskott\frmMyPreShooting.Designer.cs">
+      <DependentUpon>frmMyPreShooting.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\DataCompensation.cs" />
     <Compile Include="GUI\FmMenu.cs">
       <SubType>Form</SubType>
@@ -137,12 +143,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Ansokning\hamtaAnsokning.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Ansokning\hamtaAnsokning.Designer.cs">
-      <DependentUpon>hamtaAnsokning.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\FrmCompensation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,10 +169,10 @@
     <Compile Include="XmlRelaterat\CurrencyConverter.cs" />
     <Compile Include="XmlRelaterat\Utgift.cs" />
     <Compile Include="XmlRelaterat\Xmelliserare.cs" />
-    <EmbeddedResource Include="Ansokning\hamtaAnsokning.resx">
-      <DependentUpon>hamtaAnsokning.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx" />
+    <EmbeddedResource Include="Förskott\frmMyPreShooting.resx">
+      <DependentUpon>frmMyPreShooting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FmMenu.resx">
       <DependentUpon>FmMenu.cs</DependentUpon>
     </EmbeddedResource>
