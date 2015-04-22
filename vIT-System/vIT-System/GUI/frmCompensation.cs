@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
@@ -151,9 +152,27 @@ namespace vIT_System.GUI
         private void LaddaUppdrag()
         {
             
-            MessageBox.Show(@"Nu ska vi ha hämtat uppdrag från databasen, men David vågar inte skriva SQL");
+            //MessageBox.Show(@"Nu ska vi ha hämtat uppdrag från databasen, men David vågar inte skriva SQL");
             // var allaUppdrag = Uppdrag.All(x => x.Namn); ???
-            
+            const string query = "select namn from uppdrag";
+            var path = Helpers.getSourcePath();
+            var sqldb = new SqlConnection(path);
+            var sqlC = new SqlCommand(query, sqldb);
+            try
+            {
+                sqldb.Open();
+                var myReader = sqlC.ExecuteReader();
+                while (myReader.Read())
+                {
+                    var namn = myReader.GetString(0);
+                    cbUppdrag.Items.Add(namn);
+                }
+                sqldb.Close();
+                myReader.Close();
+            }
+            catch (Exception ex){
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         public void UppdateraTotalSumma()
@@ -318,36 +337,36 @@ namespace vIT_System.GUI
 
             if (nyResa.UtResa < nyResa.HemResa)
             {
-                var totaltAvdragFrånTraktamente = frukostförresa + middagförresa + lunchförresa;
+            var totaltAvdragFrånTraktamente = frukostförresa + middagförresa + lunchförresa;
 
-                var antalDagarBortrest = nyResa.UtResa - nyResa.HemResa;
+            var antalDagarBortrest = nyResa.UtResa - nyResa.HemResa;
 
-                double dagarBortrestString = 0;
-                if (antalDagarBortrest.TotalDays < 0)
-                {
+            double dagarBortrestString = 0;
+            if (antalDagarBortrest.TotalDays < 0)
+            {
                     dagarBortrestString = antalDagarBortrest.TotalDays*-1;
-                }
-                var totalaDagarBortrestAvrundatUppåt = Math.Ceiling(dagarBortrestString);
+            }
+            var totalaDagarBortrestAvrundatUppåt = Math.Ceiling(dagarBortrestString);
                 var betalningsBerättigadeDagar = totalaDagarBortrestAvrundatUppåt -
                                                  Convert.ToDouble(tbSemesterdagar.Text);
 
                 var totalUtbetalning = (betalningsBerättigadeDagar*nyResa.TraktamenteFörLandet) -
                                        totaltAvdragFrånTraktamente;
-                nyResa.TraktamenteEfterAvdrag = totalUtbetalning;
+            nyResa.TraktamenteEfterAvdrag = totalUtbetalning;
 
 
-                tbTotalTraktamentesUtbetalning.Text = totalUtbetalning.ToString(CultureInfo.InvariantCulture);
-                tbTotalTraktamenteDagar.Text = betalningsBerättigadeDagar.ToString(CultureInfo.InvariantCulture);
+            tbTotalTraktamentesUtbetalning.Text = totalUtbetalning.ToString(CultureInfo.InvariantCulture);
+            tbTotalTraktamenteDagar.Text = betalningsBerättigadeDagar.ToString(CultureInfo.InvariantCulture);
 
-                tbMiddag.Text = "";
-                tbLunch.Text = "";
-                tbFrukost.Text = "";
-                tbSemesterdagar.Text = "";
-                dtpHemResa.ResetText();
-                dtpUtResa.ResetText();
+            tbMiddag.Text = "";
+            tbLunch.Text = "";
+            tbFrukost.Text = "";
+            tbSemesterdagar.Text = "";
+            dtpHemResa.ResetText();
+            dtpUtResa.ResetText();
 
-                AllaResor.Add(nyResa);
-            }
+            AllaResor.Add(nyResa);
+        }
             else
             {
                 MessageBox.Show("Hemresedatum måste vara efter Utresedatum!");
