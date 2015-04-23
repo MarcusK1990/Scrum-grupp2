@@ -320,6 +320,29 @@ namespace vIT_System.GUI
             //det som ska sparas i db
         }
 
+        private bool ValideraVidLaggTillResa()
+        {
+            ValidationCheck.checkValidering(tbSemesterdagar, "InnehållerBokstav", "semesterdagar");
+            ValidationCheck.checkValidering(tbSemesterdagar, "längre255", "semesterdagar");
+
+            ValidationCheck.checkValidering(tbFrukost, "InnehållerBokstav", "frukost");
+            ValidationCheck.checkValidering(tbLunch, "InnehållerBokstav", "lunch");
+            ValidationCheck.checkValidering(tbMiddag, "InnehållerBokstav", "middag");
+            ValidationCheck.CheckDates(dtpUtResa.Value, dtpHemResa.Value);
+
+
+
+            var felmeddelanden = ValidationCheck.felString;
+
+            if (felmeddelanden.Length > 0)
+            {
+                MessageBox.Show(string.Format(@"Följande fel har uppstått: {0}", felmeddelanden));
+                ValidationCheck.felString = "";
+                return false;
+            }
+            return true;
+        }
+
         private void btnLaggTillResa_Click(object sender, EventArgs e)
         {
 
@@ -380,8 +403,6 @@ namespace vIT_System.GUI
                 lunchförresa = (nyResa.TraktamenteFörLandet * 0.35) * antalLunch;
             }
 
-            if (nyResa.UtResa < nyResa.HemResa)
-            {
                 var totaltAvdragFrånTraktamente = frukostförresa + middagförresa + lunchförresa;
 
                 var antalDagarBortrest = nyResa.UtResa - nyResa.HemResa;
@@ -411,11 +432,6 @@ namespace vIT_System.GUI
                 dtpUtResa.ResetText();
 
                 AllaResor.Add(nyResa);
-            }
-            else
-            {
-                MessageBox.Show(@"Hemresedatum måste vara efter Utresedatum!");
-            }
 
 
         }
