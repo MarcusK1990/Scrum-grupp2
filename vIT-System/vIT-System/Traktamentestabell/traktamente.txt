@@ -13,7 +13,7 @@ Barbados:615
 Belgien:624
 Belize:391
 Benin:410
-Bolivia:223C:\Users\Patric&Anna\Source\Repos\Scrum-grupp2\vIT-System\vIT-System\Traktamentestabell\traktamente.txt
+Bolivia:223
 Bosnien-Hercegovina:283
 Botswana:244
 Brasilien:435
@@ -139,6 +139,7 @@ Spanien:502
 Sri Lanka:280
 Storbritannien och Nordirland:680
 Sudan:370
+Sverige:220
 Swaziland:220
 Sydafrika:270
 Sydkorea:576

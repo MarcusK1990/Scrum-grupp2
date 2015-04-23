@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 
-
-
 namespace vIT_System
 {
     static class Program

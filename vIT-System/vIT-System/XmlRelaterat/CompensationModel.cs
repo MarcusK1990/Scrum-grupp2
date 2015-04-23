@@ -8,9 +8,9 @@ namespace vIT_System.XmlRelaterat
         public string forNamn { get; set; }
         public string eftNamn { get; set; }
         public int milErsattning { get; set; }
-        public string ÄndraISparadAnsökan { get; set; }
         public BindingList<Utgift> Utgifter { get; set; }
         public BindingList<Resa> Resor { get; set; }
+        public string Kvitto { get; set; }
 
         public CompensationModel(BindingList<Utgift> utkastet, BindingList<Resa> resor)
         {
