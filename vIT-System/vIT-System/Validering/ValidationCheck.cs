@@ -49,5 +49,12 @@
 
             felString += felMedelande;
     }
+        public static void CheckDates(System.DateTime ut, System.DateTime hem)
+        {
+            if (Validation.IsLaterDate(ut, hem))
+            {
+                felString += "\n• Hemresedatum måste vara efter utresedatum.";
+            }
+        }
     }
 }

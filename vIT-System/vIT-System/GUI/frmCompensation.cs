@@ -143,25 +143,25 @@ namespace vIT_System.GUI
             double frånstringtilldecimaltilldoubleEur = 0;
 
             if (CompMode == ApplicationMode.Mode.STANDARD){
-                if (Ping())
-                {
-                    frånstringtilldecimaltilldoubleUsd = ValutaOmvandlare.KonverteraTillFrån("SEK", "USD", "1");
-                    frånstringtilldecimaltilldoubleEur = ValutaOmvandlare.KonverteraTillFrån("SEK", "EUR", "1");
+            if (Ping())
+            {
+                frånstringtilldecimaltilldoubleUsd = ValutaOmvandlare.KonverteraTillFrån("SEK", "USD", "1");
+                frånstringtilldecimaltilldoubleEur = ValutaOmvandlare.KonverteraTillFrån("SEK", "EUR", "1");
 
-                    var dollarinos = new ComboboxItem
-                    {
-                        Text = "USD",
-                        Value = frånstringtilldecimaltilldoubleUsd
-                    };
+            var dollarinos = new ComboboxItem
+            {
+                Text = "USD",
+                Value = frånstringtilldecimaltilldoubleUsd
+            };
 
-                    var evro = new ComboboxItem
-                    {
-                        Text = "EUR",
-                        Value = frånstringtilldecimaltilldoubleEur
-                    };
+            var evro = new ComboboxItem
+            {
+                Text = "EUR",
+                Value = frånstringtilldecimaltilldoubleEur
+            };
 
-                    cbValuta.Items.Add(dollarinos);
-                    cbValuta.Items.Add(evro);
+            cbValuta.Items.Add(dollarinos);
+            cbValuta.Items.Add(evro);
                 }
                 else
                 {
@@ -325,20 +325,24 @@ namespace vIT_System.GUI
 
         private void btnSkickaAnsokan_Click(object sender, EventArgs e)
         {
-            if (!ValideraVidSparaUtkast()) { }
+            if (!ValideraVidSparaUtkast())
+            {
+                
+            }
             //det som ska sparas i db
         }
 
-        private void btnLaggTillResa_Click(object sender, EventArgs e)
+        private bool ValideraVidLaggTillResa()
         {
-
-            ValidationCheck.checkValidering(tbSemesterdagar, "tom", "semesterdagar");
             ValidationCheck.checkValidering(tbSemesterdagar, "InnehållerBokstav", "semesterdagar");
             ValidationCheck.checkValidering(tbSemesterdagar, "längre255", "semesterdagar");
 
             ValidationCheck.checkValidering(tbFrukost, "InnehållerBokstav", "frukost");
             ValidationCheck.checkValidering(tbLunch, "InnehållerBokstav", "lunch");
             ValidationCheck.checkValidering(tbMiddag, "InnehållerBokstav", "middag");
+            ValidationCheck.CheckDates(dtpUtResa.Value, dtpHemResa.Value);
+
+
 
             var felmeddelanden = ValidationCheck.felString;
 
@@ -346,7 +350,36 @@ namespace vIT_System.GUI
             {
                 MessageBox.Show(string.Format(@"Följande fel har uppstått: {0}", felmeddelanden));
                 ValidationCheck.felString = "";
+                return false;
+            }
+            return true;
+        }
+
+        private void btnLaggTillResa_Click(object sender, EventArgs e)
+        {
+            if (!ValideraVidLaggTillResa())
+            {
                 return;
+            }
+
+            if (Validation.IsEmpty(tbSemesterdagar.Text))
+            {
+                tbSemesterdagar.Text = "0";
+            }
+
+            if (Validation.IsEmpty(tbFrukost.Text))
+            {
+                tbFrukost.Text = "0";
+            }
+
+            if (Validation.IsEmpty(tbMiddag.Text))
+            {
+                tbMiddag.Text = "0";
+            }
+
+            if (Validation.IsEmpty(tbLunch.Text))
+            {
+                tbLunch.Text = "0";
             }
 
             var valtItem = (ComboboxItem)cbLand.SelectedItem;
@@ -389,8 +422,6 @@ namespace vIT_System.GUI
                 lunchförresa = (nyResa.TraktamenteFörLandet * 0.35) * antalLunch;
             }
 
-            if (nyResa.UtResa < nyResa.HemResa)
-            {
                 var totaltAvdragFrånTraktamente = frukostförresa + middagförresa + lunchförresa;
 
                 var antalDagarBortrest = nyResa.UtResa - nyResa.HemResa;
@@ -420,11 +451,6 @@ namespace vIT_System.GUI
                 dtpUtResa.ResetText();
 
                 AllaResor.Add(nyResa);
-            }
-            else
-            {
-                MessageBox.Show(@"Hemresedatum måste vara efter Utresedatum!");
-            }
 
 
         }

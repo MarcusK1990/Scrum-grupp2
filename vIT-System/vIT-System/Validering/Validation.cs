@@ -98,6 +98,14 @@ namespace vIT_System
             }
             return false;
         }
+        public static bool IsLaterDate(DateTime ut, DateTime hem)
+        {
+            if (ut < hem)
+            {
+                return false;
+            }
+            return true;
+        }
 
     }
 }
