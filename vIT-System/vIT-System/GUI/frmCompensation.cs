@@ -65,7 +65,7 @@ namespace vIT_System.GUI
                 tbEmail.Enabled = true;
                 tbForNamn.Enabled = true;
                 tbEfterNamn.Enabled = true;
-
+                lblValutaKurs.Text = "Valutakurs kunde inte uppdateras.";
                 cbUppdrag.Items.Add(new ComboboxItem { Text = "Test", Value = 1 });
                 //LaddaValutaOffline(); en ide!
                 LaddaValuta();
@@ -142,32 +142,42 @@ namespace vIT_System.GUI
             double frånstringtilldecimaltilldoubleUsd = 0;
             double frånstringtilldecimaltilldoubleEur = 0;
 
-            if (Ping())
-            {
-                frånstringtilldecimaltilldoubleUsd = ValutaOmvandlare.KonverteraTillFrån("SEK", "USD", "1");
-                frånstringtilldecimaltilldoubleEur = ValutaOmvandlare.KonverteraTillFrån("SEK", "EUR", "1");
-            }
+            if (CompMode == ApplicationMode.Mode.STANDARD){
+                if (Ping())
+                {
+                    frånstringtilldecimaltilldoubleUsd = ValutaOmvandlare.KonverteraTillFrån("SEK", "USD", "1");
+                    frånstringtilldecimaltilldoubleEur = ValutaOmvandlare.KonverteraTillFrån("SEK", "EUR", "1");
 
+                    var dollarinos = new ComboboxItem
+                    {
+                        Text = "USD",
+                        Value = frånstringtilldecimaltilldoubleUsd
+                    };
+
+                    var evro = new ComboboxItem
+                    {
+                        Text = "EUR",
+                        Value = frånstringtilldecimaltilldoubleEur
+                    };
+
+                    cbValuta.Items.Add(dollarinos);
+                    cbValuta.Items.Add(evro);
+                }
+                else
+                {
+                    MessageBox.Show(@"Kunde inte hämta senaste valutakurserna");
+                }
+            }
 
             var sek = new ComboboxItem
             {
                 Text = "SEK",
                 Value = 1
             };
-            var dollarinos = new ComboboxItem
-            {
-                Text = "USD",
-                Value = frånstringtilldecimaltilldoubleUsd
-            };
-            var evro = new ComboboxItem
-            {
-                Text = "EUR",
-                Value = frånstringtilldecimaltilldoubleEur
-            };
+           
 
             cbValuta.Items.Add(sek);
-            cbValuta.Items.Add(dollarinos);
-            cbValuta.Items.Add(evro);
+            
 
             cbValuta.SelectedIndex = 0;
         }
@@ -307,6 +317,8 @@ namespace vIT_System.GUI
             tbEfterNamn.Text = utkast.eftNamn;
             tbMilErsattning.Text = utkast.milErsattning.ToString(CultureInfo.InvariantCulture);
             AllaResor = utkast.Resor;
+            lbResa.DataSource = AllaResor;
+
         }
 
 
@@ -511,6 +523,11 @@ namespace vIT_System.GUI
                 }
                 UppdateraTotalSumma();
             }
+        }
+
+        private void btnLaggTillAvdrag_Click(object sender, EventArgs e)
+        {
+
         }
 
 

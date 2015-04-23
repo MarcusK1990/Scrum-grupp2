@@ -58,7 +58,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.tbSemesterdagar = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label28 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.cbUppdrag = new System.Windows.Forms.ComboBox();
             this.lbResa = new System.Windows.Forms.ListBox();
             this.btnLaggTillResa = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
@@ -71,7 +73,6 @@
             this.tbFrukost = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.groaupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.tbSummaUtgifter = new System.Windows.Forms.TextBox();
             this.tbTotalaAvdrag = new System.Windows.Forms.TextBox();
             this.tbTotalMilErsättning = new System.Windows.Forms.TextBox();
@@ -86,6 +87,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.lblAnsID = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tbMilErsattning = new System.Windows.Forms.TextBox();
@@ -94,8 +96,6 @@
             this.btnSkickaAnsokan = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.btnLaddaUtkast = new System.Windows.Forms.Button();
-            this.cbUppdrag = new System.Windows.Forms.ComboBox();
-            this.label28 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groaupBox3.SuspendLayout();
@@ -387,6 +387,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Resa";
             // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(247, 12);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(51, 13);
+            this.label28.TabIndex = 35;
+            this.label28.Text = "Uppdrag:";
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(148, 158);
@@ -396,6 +405,15 @@
             this.button2.Text = "Ändra resa";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // cbUppdrag
+            // 
+            this.cbUppdrag.FormattingEnabled = true;
+            this.cbUppdrag.Location = new System.Drawing.Point(304, 9);
+            this.cbUppdrag.MaxDropDownItems = 50;
+            this.cbUppdrag.Name = "cbUppdrag";
+            this.cbUppdrag.Size = new System.Drawing.Size(121, 21);
+            this.cbUppdrag.TabIndex = 26;
             // 
             // lbResa
             // 
@@ -514,16 +532,6 @@
             this.groaupBox3.TabStop = false;
             this.groaupBox3.Text = "Traktamente";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(657, 322);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(137, 23);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Räkna ut Belopp * Land";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
             // tbSummaUtgifter
             // 
             this.tbSummaUtgifter.Enabled = false;
@@ -598,6 +606,7 @@
             this.btnLaggTillAvdrag.TabIndex = 26;
             this.btnLaggTillAvdrag.Text = "Uppdatera sammanställning";
             this.btnLaggTillAvdrag.UseVisualStyleBackColor = true;
+            this.btnLaggTillAvdrag.Click += new System.EventHandler(this.btnLaggTillAvdrag_Click);
             // 
             // label21
             // 
@@ -643,6 +652,16 @@
             this.label15.Size = new System.Drawing.Size(130, 13);
             this.label15.TabIndex = 0;
             this.label15.Text = "Sparas ifall nått mer ska in";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(657, 322);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(137, 23);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "Räkna ut Belopp * Land";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // lblAnsID
             // 
@@ -717,24 +736,6 @@
             this.btnLaddaUtkast.Text = "Ladda utkast";
             this.btnLaddaUtkast.UseVisualStyleBackColor = true;
             this.btnLaddaUtkast.Click += new System.EventHandler(this.btnLaddaUtkast_Click);
-            // 
-            // cbUppdrag
-            // 
-            this.cbUppdrag.FormattingEnabled = true;
-            this.cbUppdrag.Location = new System.Drawing.Point(304, 9);
-            this.cbUppdrag.MaxDropDownItems = 50;
-            this.cbUppdrag.Name = "cbUppdrag";
-            this.cbUppdrag.Size = new System.Drawing.Size(121, 21);
-            this.cbUppdrag.TabIndex = 26;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(247, 12);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(51, 13);
-            this.label28.TabIndex = 35;
-            this.label28.Text = "Uppdrag:";
             // 
             // FrmCompensation
             // 
