@@ -36,6 +36,7 @@
             this.chefToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hanteraKonsulterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.reseOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +56,8 @@
             this.väljToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mItemPreShoot,
             this.mItemTravel,
-            this.mItemMyAppli});
+            this.mItemMyAppli,
+            this.reseOrderToolStripMenuItem});
             this.väljToolStripMenuItem.Name = "väljToolStripMenuItem";
             this.väljToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.väljToolStripMenuItem.Text = "Välj";
@@ -106,6 +108,13 @@
             this.lblStatus.Size = new System.Drawing.Size(0, 39);
             this.lblStatus.TabIndex = 1;
             // 
+            // reseOrderToolStripMenuItem
+            // 
+            this.reseOrderToolStripMenuItem.Name = "reseOrderToolStripMenuItem";
+            this.reseOrderToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.reseOrderToolStripMenuItem.Text = "Rese order";
+            this.reseOrderToolStripMenuItem.Click += new System.EventHandler(this.reseOrderToolStripMenuItem_Click);
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -134,5 +143,6 @@
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.ToolStripMenuItem chefToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hanteraKonsulterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reseOrderToolStripMenuItem;
     }
 }

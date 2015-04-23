@@ -117,6 +117,12 @@
     <Compile Include="Förskott\frmPreShooting.Designer.cs">
       <DependentUpon>frmPreShooting.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FrmTravelorderr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmTravelorderr.Designer.cs">
+      <DependentUpon>FrmTravelorderr.cs</DependentUpon>
+    </Compile>
     <Compile Include="Konsulthantering\Konsulthantering.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Förskott\frmPreShooting.resx">
       <DependentUpon>frmPreShooting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmTravelorderr.resx">
+      <DependentUpon>FrmTravelorderr.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Konsulthantering\Konsulthantering.resx">
       <DependentUpon>Konsulthantering.cs</DependentUpon>
