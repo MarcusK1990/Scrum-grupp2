@@ -46,6 +46,7 @@ namespace vIT_System.GUI
             var form = new frmPreShooting();
             form.Show();
         }
+      
 
         private void mItemTravel_Click(object sender, EventArgs e)
         {
@@ -76,6 +77,22 @@ namespace vIT_System.GUI
         private void FrmMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void reseOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmTravelorderr form;
+            if (MenyMode == ApplicationMode.Mode.STANDARD)
+            {
+                form = new FrmTravelorderr(MenyEmail, MenyForNamn, MenyEfterNamn, MenyMode);
+                form.Show();
+            }
+            if (MenyMode != ApplicationMode.Mode.OFFLINE)
+            {
+                return;
+            }
+            form = new FrmTravelorderr(MenyMode);
+            form.Show();
         }
     }
 }
