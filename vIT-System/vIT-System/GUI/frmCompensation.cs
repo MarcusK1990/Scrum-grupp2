@@ -300,6 +300,27 @@ namespace vIT_System.GUI
             var valtTraktamenteFörLandet = Convert.ToDouble(valtItem.Value);
             var valtLand = Convert.ToString(valtItem.Text);
 
+            if (dtpUtResa.Value >= dtpHemResa.Value)
+            {
+                MessageBox.Show("Hemresedatum måste vara efter Utresedatum!");
+                return;
+            }
+
+            if (Validation.IsEmpty(tbFrukost.Text))
+            {
+                tbFrukost.Text = "0";
+            }
+
+            if (Validation.IsEmpty(tbMiddag.Text))
+            {
+                tbMiddag.Text = "0";
+            }
+
+            if (Validation.IsEmpty(tbLunch.Text))
+            {
+                tbLunch.Text = "0";
+            }
+
             var nyResa = new Resa
             {
                 UtResa = dtpUtResa.Value,                         //ToString("yyyy-MM-dd"),
@@ -317,6 +338,8 @@ namespace vIT_System.GUI
             double middagförresa = 0;
             double lunchförresa = 0;
             // lokaltraktamenteFörLandet = nyREsa.TraktamenteFörlandet;
+
+
             if (Validation.IsNumeric(tbFrukost.Text))
             {
                 var antalFrukost = Convert.ToDouble(tbFrukost.Text);
@@ -335,8 +358,6 @@ namespace vIT_System.GUI
                 lunchförresa = (nyResa.TraktamenteFörLandet * 0.35) * antalLunch;
             }
 
-            if (nyResa.UtResa < nyResa.HemResa)
-            {
             var totaltAvdragFrånTraktamente = frukostförresa + middagförresa + lunchförresa;
 
             var antalDagarBortrest = nyResa.UtResa - nyResa.HemResa;
@@ -366,11 +387,6 @@ namespace vIT_System.GUI
             dtpUtResa.ResetText();
 
             AllaResor.Add(nyResa);
-        }
-            else
-            {
-                MessageBox.Show("Hemresedatum måste vara efter Utresedatum!");
-            }
 
 
         }
