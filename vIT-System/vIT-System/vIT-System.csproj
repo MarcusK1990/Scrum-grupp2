@@ -129,6 +129,12 @@
     <Compile Include="Konsulthantering\Konsulthantering.Designer.cs">
       <DependentUpon>Konsulthantering.cs</DependentUpon>
     </Compile>
+    <Compile Include="Konsulthantering\Uppdragshantering.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Konsulthantering\Uppdragshantering.Designer.cs">
+      <DependentUpon>Uppdragshantering.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Konsulthantering\Konsulthantering.resx">
       <DependentUpon>Konsulthantering.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Konsulthantering\Uppdragshantering.resx">
+      <DependentUpon>Uppdragshantering.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
