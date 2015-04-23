@@ -279,7 +279,6 @@ namespace vIT_System.GUI
         private void btnLaggTillResa_Click(object sender, EventArgs e)
         {
 
-            ValidationCheck.checkValidering(tbSemesterdagar, "tom", "semesterdagar");
             ValidationCheck.checkValidering(tbSemesterdagar, "InnehållerBokstav", "semesterdagar");
             ValidationCheck.checkValidering(tbSemesterdagar, "längre255", "semesterdagar");
 
@@ -304,6 +303,17 @@ namespace vIT_System.GUI
             {
                 MessageBox.Show("Hemresedatum måste vara efter Utresedatum!");
                 return;
+            }
+
+            if (cbUppdrag.SelectedItem == null)
+            {
+                MessageBox.Show("Du måste välja ett uppdrag!");
+                return;
+            }
+
+            if (Validation.IsEmpty(tbSemesterdagar.Text))
+            {
+                tbSemesterdagar.Text = "0";
             }
 
             if (Validation.IsEmpty(tbFrukost.Text))
