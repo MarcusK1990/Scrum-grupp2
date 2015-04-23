@@ -13,7 +13,7 @@
 
         public int Moms { get; set; }
 
-        public string Konverterad { get; set; }
+        public double Konverterad { get; set; }
 
         public string VisaValutaIListBox{
             get { return Valuta + " " + Belopp + " för ändamål:" + AndaMal + " (SEK " + Konverterad + ")"; }
