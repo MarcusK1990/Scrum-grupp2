@@ -1,0 +1,85 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using vIT_System.SQL;
+using vIT_System.XmlRelaterat;
+
+namespace vIT_System.GUI
+{
+    public partial class frmFinancialStatement : Form
+    {
+        private SqlHelper sqlHelper;
+
+        public frmFinancialStatement()
+        {
+            InitializeComponent();
+            sqlHelper = new SqlHelper("Database\\vITs2.mdf");
+        }
+
+        private void frmFinancialStatement_Load(object sender, EventArgs e)
+        {
+            cbYear.Items.Add(new ComboboxItem { Text = "2013", Value = 2013 });
+            cbYear.Items.Add(new ComboboxItem { Text = "2014", Value = 2014 });
+            cbYear.Items.Add(new ComboboxItem { Text = "2015", Value = 2015 });
+
+            cbPeriod.Items.Add(new ComboboxItem { Text = "jan-mars", Value = 1 });
+            cbPeriod.Items.Add(new ComboboxItem { Text = "apr-jun", Value = 2 });
+            cbPeriod.Items.Add(new ComboboxItem { Text = "jul-sep", Value = 3 });
+            cbPeriod.Items.Add(new ComboboxItem { Text = "okt-dec", Value = 4 });
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var start = cbYear.SelectedItem.ToString();
+            var month1 = (ComboboxItem)cbPeriod.SelectedItem;
+            var startMonth = Convert.ToInt32(month1.Value);
+
+            switch (startMonth)
+            {
+                case 1:
+                    start += "-01-01";
+                    break;
+                case 2:
+                    start += "-04-01";
+                    break;
+                case 3:
+                    start += "-07-01";
+                    break;
+                case 4:
+                    start += "-10-01";
+                    break;
+            }
+
+            var slut = cbYear.SelectedItem.ToString();
+            var month2 = (ComboboxItem)cbPeriod.SelectedItem;
+            var endMonth = Convert.ToInt32(month2.Value);
+
+            switch (endMonth)
+            {
+                case 1:
+                    slut += "-03-31";
+                    break;
+                case 2:
+                    slut += "-06-30";
+                    break;
+                case 3:
+                    slut += "-09-30";
+                    break;
+                case 4:
+                    slut += "-12-31";
+                    break;
+            }
+            
+            //Hämta reseansökningarna mellan dessa datum
+
+
+            MessageBox.Show(start + " till " + slut);
+        }
+    }
+}

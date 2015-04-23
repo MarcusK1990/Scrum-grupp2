@@ -111,6 +111,12 @@
     <Compile Include="GUI\FmMenu.Designer.cs">
       <DependentUpon>FmMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frmFinancialStatement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmFinancialStatement.Designer.cs">
+      <DependentUpon>frmFinancialStatement.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FrmMyApplications.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FmMenu.resx">
       <DependentUpon>FmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmFinancialStatement.resx">
+      <DependentUpon>frmFinancialStatement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmMyApplications.resx">
       <DependentUpon>FrmMyApplications.cs</DependentUpon>
