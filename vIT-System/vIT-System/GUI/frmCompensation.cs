@@ -272,7 +272,10 @@ namespace vIT_System.GUI
 
         private void btnSkickaAnsokan_Click(object sender, EventArgs e)
         {
-            if (!ValideraVidSparaUtkast()) { }
+            if (!ValideraVidSparaUtkast())
+            {
+                
+            }
             //det som ska sparas i db
         }
 
