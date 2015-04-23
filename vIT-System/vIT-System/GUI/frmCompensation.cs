@@ -345,22 +345,29 @@ namespace vIT_System.GUI
 
         private void btnLaggTillResa_Click(object sender, EventArgs e)
         {
-
-            ValidationCheck.checkValidering(tbSemesterdagar, "tom", "semesterdagar");
-            ValidationCheck.checkValidering(tbSemesterdagar, "InnehållerBokstav", "semesterdagar");
-            ValidationCheck.checkValidering(tbSemesterdagar, "längre255", "semesterdagar");
-
-            ValidationCheck.checkValidering(tbFrukost, "InnehållerBokstav", "frukost");
-            ValidationCheck.checkValidering(tbLunch, "InnehållerBokstav", "lunch");
-            ValidationCheck.checkValidering(tbMiddag, "InnehållerBokstav", "middag");
-
-            var felmeddelanden = ValidationCheck.felString;
-
-            if (felmeddelanden.Length > 0)
+            if (!ValideraVidLaggTillResa())
             {
-                MessageBox.Show(string.Format(@"Följande fel har uppstått: {0}", felmeddelanden));
-                ValidationCheck.felString = "";
                 return;
+            }
+
+            if (Validation.IsEmpty(tbSemesterdagar.Text))
+            {
+                tbSemesterdagar.Text = "0";
+            }
+
+            if (Validation.IsEmpty(tbFrukost.Text))
+            {
+                tbFrukost.Text = "0";
+            }
+
+            if (Validation.IsEmpty(tbMiddag.Text))
+            {
+                tbMiddag.Text = "0";
+            }
+
+            if (Validation.IsEmpty(tbLunch.Text))
+            {
+                tbLunch.Text = "0";
             }
 
             var valtItem = (ComboboxItem)cbLand.SelectedItem;
