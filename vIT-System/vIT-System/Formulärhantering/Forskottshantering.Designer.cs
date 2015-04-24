@@ -46,7 +46,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 19);
+            this.label1.Location = new System.Drawing.Point(119, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(117, 13);
             this.label1.TabIndex = 3;
@@ -84,6 +84,7 @@
             this.tbMotivering.Location = new System.Drawing.Point(121, 107);
             this.tbMotivering.Multiline = true;
             this.tbMotivering.Name = "tbMotivering";
+            this.tbMotivering.ReadOnly = true;
             this.tbMotivering.Size = new System.Drawing.Size(203, 70);
             this.tbMotivering.TabIndex = 23;
             // 
@@ -91,6 +92,7 @@
             // 
             this.tbUppdrag.Location = new System.Drawing.Point(121, 191);
             this.tbUppdrag.Name = "tbUppdrag";
+            this.tbUppdrag.ReadOnly = true;
             this.tbUppdrag.Size = new System.Drawing.Size(203, 20);
             this.tbUppdrag.TabIndex = 24;
             // 
@@ -98,13 +100,14 @@
             // 
             this.tbSumma.Location = new System.Drawing.Point(121, 217);
             this.tbSumma.Name = "tbSumma";
+            this.tbSumma.ReadOnly = true;
             this.tbSumma.Size = new System.Drawing.Size(203, 20);
             this.tbSumma.TabIndex = 25;
             // 
             // cbVisaSokande
             // 
             this.cbVisaSokande.FormattingEnabled = true;
-            this.cbVisaSokande.Location = new System.Drawing.Point(15, 44);
+            this.cbVisaSokande.Location = new System.Drawing.Point(122, 38);
             this.cbVisaSokande.Name = "cbVisaSokande";
             this.cbVisaSokande.Size = new System.Drawing.Size(202, 21);
             this.cbVisaSokande.TabIndex = 26;
@@ -112,7 +115,7 @@
             // 
             // btnGodkann
             // 
-            this.btnGodkann.Location = new System.Drawing.Point(108, 262);
+            this.btnGodkann.Location = new System.Drawing.Point(121, 262);
             this.btnGodkann.Name = "btnGodkann";
             this.btnGodkann.Size = new System.Drawing.Size(75, 23);
             this.btnGodkann.TabIndex = 27;
@@ -122,7 +125,7 @@
             // 
             // btnAvsla
             // 
-            this.btnAvsla.Location = new System.Drawing.Point(233, 261);
+            this.btnAvsla.Location = new System.Drawing.Point(249, 262);
             this.btnAvsla.Name = "btnAvsla";
             this.btnAvsla.Size = new System.Drawing.Size(75, 23);
             this.btnAvsla.TabIndex = 28;
@@ -149,8 +152,9 @@
             // 
             // tbSokande
             // 
-            this.tbSokande.Location = new System.Drawing.Point(125, 80);
+            this.tbSokande.Location = new System.Drawing.Point(121, 77);
             this.tbSokande.Name = "tbSokande";
+            this.tbSokande.ReadOnly = true;
             this.tbSokande.Size = new System.Drawing.Size(199, 20);
             this.tbSokande.TabIndex = 32;
             // 
@@ -158,7 +162,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 320);
+            this.ClientSize = new System.Drawing.Size(424, 320);
             this.Controls.Add(this.tbSokande);
             this.Controls.Add(this.Sokande);
             this.Controls.Add(this.label5);
@@ -173,7 +177,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Forskottshantering";
-            this.Text = "Forskottshantering";
+            this.Text = "Nya förskottsansökningar";
             this.Load += new System.EventHandler(this.Forskottshantering_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

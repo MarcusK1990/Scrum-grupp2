@@ -105,7 +105,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(324, 6);
+            this.label1.Location = new System.Drawing.Point(332, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 0;
@@ -114,7 +114,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(580, 9);
+            this.label2.Location = new System.Drawing.Point(559, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 1;
@@ -141,7 +141,7 @@
             // tbForNamn
             // 
             this.tbForNamn.Enabled = false;
-            this.tbForNamn.Location = new System.Drawing.Point(401, 3);
+            this.tbForNamn.Location = new System.Drawing.Point(389, 6);
             this.tbForNamn.Name = "tbForNamn";
             this.tbForNamn.Size = new System.Drawing.Size(155, 20);
             this.tbForNamn.TabIndex = 4;
@@ -149,7 +149,7 @@
             // tbEfterNamn
             // 
             this.tbEfterNamn.Enabled = false;
-            this.tbEfterNamn.Location = new System.Drawing.Point(657, 6);
+            this.tbEfterNamn.Location = new System.Drawing.Point(639, 6);
             this.tbEfterNamn.Name = "tbEfterNamn";
             this.tbEfterNamn.Size = new System.Drawing.Size(155, 20);
             this.tbEfterNamn.TabIndex = 5;
@@ -171,7 +171,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(114, 6);
+            this.label5.Location = new System.Drawing.Point(114, 9);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(36, 13);
             this.label5.TabIndex = 8;
@@ -180,7 +180,7 @@
             // tbEmail
             // 
             this.tbEmail.Enabled = false;
-            this.tbEmail.Location = new System.Drawing.Point(156, 3);
+            this.tbEmail.Location = new System.Drawing.Point(156, 6);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(155, 20);
             this.tbEmail.TabIndex = 9;
@@ -398,9 +398,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(148, 158);
+            this.button2.Location = new System.Drawing.Point(137, 159);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 27);
+            this.button2.Size = new System.Drawing.Size(75, 24);
             this.button2.TabIndex = 26;
             this.button2.Text = "Ändra resa";
             this.button2.UseVisualStyleBackColor = true;
@@ -426,7 +426,7 @@
             // 
             // btnLaggTillResa
             // 
-            this.btnLaggTillResa.Location = new System.Drawing.Point(67, 162);
+            this.btnLaggTillResa.Location = new System.Drawing.Point(48, 160);
             this.btnLaggTillResa.Name = "btnLaggTillResa";
             this.btnLaggTillResa.Size = new System.Drawing.Size(75, 23);
             this.btnLaggTillResa.TabIndex = 23;
@@ -675,7 +675,7 @@
             // 
             this.groupBox3.Controls.Add(this.tbMilErsattning);
             this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Location = new System.Drawing.Point(501, 377);
+            this.groupBox3.Location = new System.Drawing.Point(501, 359);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(172, 56);
             this.groupBox3.TabIndex = 18;
@@ -700,7 +700,7 @@
             // 
             // btnSparaUtkast
             // 
-            this.btnSparaUtkast.Location = new System.Drawing.Point(611, 455);
+            this.btnSparaUtkast.Location = new System.Drawing.Point(501, 443);
             this.btnSparaUtkast.Name = "btnSparaUtkast";
             this.btnSparaUtkast.Size = new System.Drawing.Size(75, 23);
             this.btnSparaUtkast.TabIndex = 28;
@@ -710,7 +710,7 @@
             // 
             // btnSkickaAnsokan
             // 
-            this.btnSkickaAnsokan.Location = new System.Drawing.Point(721, 443);
+            this.btnSkickaAnsokan.Location = new System.Drawing.Point(716, 431);
             this.btnSkickaAnsokan.Name = "btnSkickaAnsokan";
             this.btnSkickaAnsokan.Size = new System.Drawing.Size(109, 47);
             this.btnSkickaAnsokan.TabIndex = 29;
@@ -729,11 +729,11 @@
             // 
             // btnLaddaUtkast
             // 
-            this.btnLaddaUtkast.Location = new System.Drawing.Point(510, 455);
+            this.btnLaddaUtkast.Location = new System.Drawing.Point(591, 443);
             this.btnLaddaUtkast.Name = "btnLaddaUtkast";
-            this.btnLaddaUtkast.Size = new System.Drawing.Size(75, 23);
+            this.btnLaddaUtkast.Size = new System.Drawing.Size(97, 23);
             this.btnLaddaUtkast.TabIndex = 31;
-            this.btnLaddaUtkast.Text = "Ladda utkast";
+            this.btnLaddaUtkast.Text = "Hämta sparad";
             this.btnLaddaUtkast.UseVisualStyleBackColor = true;
             this.btnLaddaUtkast.Click += new System.EventHandler(this.btnLaddaUtkast_Click);
             // 
@@ -759,7 +759,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FrmCompensation";
-            this.Text = "reseersättning";
+            this.Text = "Ansökan om reseersättning";
             this.Load += new System.EventHandler(this.frmCompensation_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

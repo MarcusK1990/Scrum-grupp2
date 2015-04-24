@@ -38,14 +38,14 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(105, 77);
+            this.txtUsername.Location = new System.Drawing.Point(89, 39);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(121, 20);
             this.txtUsername.TabIndex = 0;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(105, 130);
+            this.txtPassword.Location = new System.Drawing.Point(89, 93);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(121, 20);
@@ -53,7 +53,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(134, 236);
+            this.btnLogin.Location = new System.Drawing.Point(47, 135);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 2;
@@ -64,7 +64,7 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(12, 84);
+            this.lblUsername.Location = new System.Drawing.Point(86, 23);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(82, 13);
             this.lblUsername.TabIndex = 3;
@@ -73,7 +73,7 @@
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(40, 137);
+            this.lblPassword.Location = new System.Drawing.Point(86, 77);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(54, 13);
             this.lblPassword.TabIndex = 4;
@@ -81,7 +81,7 @@
             // 
             // btnLoggaInOffline
             // 
-            this.btnLoggaInOffline.Location = new System.Drawing.Point(112, 282);
+            this.btnLoggaInOffline.Location = new System.Drawing.Point(161, 135);
             this.btnLoggaInOffline.Name = "btnLoggaInOffline";
             this.btnLoggaInOffline.Size = new System.Drawing.Size(107, 23);
             this.btnLoggaInOffline.TabIndex = 5;
@@ -93,7 +93,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(330, 338);
+            this.ClientSize = new System.Drawing.Size(301, 203);
             this.Controls.Add(this.btnLoggaInOffline);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
@@ -101,7 +101,7 @@
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Name = "Login";
-            this.Text = "Login";
+            this.Text = "Logga in";
             this.ResumeLayout(false);
             this.PerformLayout();
 

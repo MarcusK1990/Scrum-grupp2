@@ -39,19 +39,19 @@
             // cbShowFid
             // 
             this.cbShowFid.FormattingEnabled = true;
-            this.cbShowFid.Location = new System.Drawing.Point(12, 59);
+            this.cbShowFid.Location = new System.Drawing.Point(79, 65);
             this.cbShowFid.Name = "cbShowFid";
-            this.cbShowFid.Size = new System.Drawing.Size(199, 21);
+            this.cbShowFid.Size = new System.Drawing.Size(156, 21);
             this.cbShowFid.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 30);
+            this.label1.Location = new System.Drawing.Point(12, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 13);
+            this.label1.Size = new System.Drawing.Size(90, 13);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Befintliga uppdrag ";
+            this.label1.Text = "Aktuella uppdrag ";
             // 
             // label2
             // 
@@ -73,7 +73,7 @@
             // 
             // tbUppdrag
             // 
-            this.tbUppdrag.Location = new System.Drawing.Point(70, 133);
+            this.tbUppdrag.Location = new System.Drawing.Point(79, 130);
             this.tbUppdrag.Multiline = true;
             this.tbUppdrag.Name = "tbUppdrag";
             this.tbUppdrag.Size = new System.Drawing.Size(156, 22);
@@ -81,7 +81,7 @@
             // 
             // btnRedigera
             // 
-            this.btnRedigera.Location = new System.Drawing.Point(151, 161);
+            this.btnRedigera.Location = new System.Drawing.Point(160, 170);
             this.btnRedigera.Name = "btnRedigera";
             this.btnRedigera.Size = new System.Drawing.Size(75, 23);
             this.btnRedigera.TabIndex = 20;
@@ -93,7 +93,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(276, 224);
             this.Controls.Add(this.btnRedigera);
             this.Controls.Add(this.tbUppdrag);
             this.Controls.Add(this.label3);
