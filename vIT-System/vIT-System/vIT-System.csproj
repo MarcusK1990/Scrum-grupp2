@@ -94,6 +94,18 @@
     <Compile Include="Fardmedel.cs">
       <DependentUpon>DataEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Formulärhantering\Ansökningshantering.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulärhantering\Ansökningshantering.Designer.cs">
+      <DependentUpon>Ansökningshantering.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulärhantering\Forskottshantering.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulärhantering\Forskottshantering.Designer.cs">
+      <DependentUpon>Forskottshantering.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forskott.cs">
       <DependentUpon>DataEntity.tt</DependentUpon>
     </Compile>
@@ -188,6 +200,12 @@
     <Compile Include="XmlRelaterat\Utgift.cs" />
     <Compile Include="XmlRelaterat\Xmelliserare.cs" />
     <EmbeddedResource Include="Form1.resx" />
+    <EmbeddedResource Include="Formulärhantering\Ansökningshantering.resx">
+      <DependentUpon>Ansökningshantering.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulärhantering\Forskottshantering.resx">
+      <DependentUpon>Forskottshantering.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Förskott\frmMyPreShooting.resx">
       <DependentUpon>frmMyPreShooting.cs</DependentUpon>
     </EmbeddedResource>
