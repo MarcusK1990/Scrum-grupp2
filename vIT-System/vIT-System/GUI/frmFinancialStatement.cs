@@ -32,10 +32,14 @@ namespace vIT_System.GUI
             cbPeriod.Items.Add(new ComboboxItem { Text = "apr-jun", Value = 2 });
             cbPeriod.Items.Add(new ComboboxItem { Text = "jul-sep", Value = 3 });
             cbPeriod.Items.Add(new ComboboxItem { Text = "okt-dec", Value = 4 });
+            cbPeriod.Items.Add(new ComboboxItem { Text = "jan-jun", Value = 5 });
+            cbPeriod.Items.Add(new ComboboxItem { Text = "jul-dec", Value = 6 });
+            cbPeriod.Items.Add(new ComboboxItem { Text = "jan-dec", Value = 7 });
+
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
+        {            //validering om inget har blivit valt
             var start = cbYear.SelectedItem.ToString();
             var month1 = (ComboboxItem)cbPeriod.SelectedItem;
             var startMonth = Convert.ToInt32(month1.Value);
@@ -53,6 +57,15 @@ namespace vIT_System.GUI
                     break;
                 case 4:
                     start += "-10-01";
+                    break;
+                case 5:
+                    start += "-01-01";
+                    break;
+                case 6:
+                    start += "-07-01";
+                    break;
+                case 7:
+                    start += "-01-01";
                     break;
             }
 
@@ -74,30 +87,40 @@ namespace vIT_System.GUI
                 case 4:
                     slut += "-12-31";
                     break;
+                case 5:
+                    slut += "-06-30";
+                    break;
+                case 6:
+                    slut += "-12-31";
+                    break;
+                case 7:
+                    slut += "-12-31";
+                    break;
             }
-            
+
             //Hämta reseansökningarna mellan dessa datum
-            var query = "select * from ansokan";
+            var query = "select * from Ansokan join Resa on resa.AnsId = Ansokan.AnsId where Avresa between '" + start + "' and '" + slut + "' ";
             var dt = sqlHelper.Fetch(query);
-            
+            var antalResor = 0;
+            var sumErs = 0;
 
-
-            //var dt = sqlHelper.Fetch("select *from Resa where resa.ansid = " + id);
-            //if (dt.Rows.Count > 0)
-            //{
-            //    lbCountry.Text = dt.Rows[0]["land"].ToString();
-            //}
-            //else
-            //{
-            //    lbCountry.Text = "landet finns inte";
-            //}
-
-
-            foreach (DataRow dr in dt.Rows)
+            if (dt.Rows.Count < 0)
             {
-                var saker = dr["namn"].ToString();
+                MessageBox.Show("Inga ersättningar utbetalda under denna period");
             }
-            MessageBox.Show(start + " till " + slut);
+            else
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    sumErs += Convert.ToInt32(dr["ersättning"]);
+                    antalResor++;
+                }
+
+                tbPeriod1.Text = start;
+                tbPeriod2.Text = slut;
+                tbAntalResor.Text = antalResor.ToString();
+                tbSumErs.Text = sumErs.ToString();
+            }
         }
     }
 }
