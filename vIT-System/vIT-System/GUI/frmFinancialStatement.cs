@@ -77,8 +77,26 @@ namespace vIT_System.GUI
             }
             
             //Hämta reseansökningarna mellan dessa datum
+            var query = "select * from ansokan";
+            var dt = sqlHelper.Fetch(query);
+            
 
 
+            //var dt = sqlHelper.Fetch("select *from Resa where resa.ansid = " + id);
+            //if (dt.Rows.Count > 0)
+            //{
+            //    lbCountry.Text = dt.Rows[0]["land"].ToString();
+            //}
+            //else
+            //{
+            //    lbCountry.Text = "landet finns inte";
+            //}
+
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                var saker = dr["namn"].ToString();
+            }
             MessageBox.Show(start + " till " + slut);
         }
     }
