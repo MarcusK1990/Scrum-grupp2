@@ -52,21 +52,21 @@
             this.tbTravelNamn.Location = new System.Drawing.Point(80, 29);
             this.tbTravelNamn.Name = "tbTravelNamn";
             this.tbTravelNamn.Size = new System.Drawing.Size(100, 20);
-            this.tbTravelNamn.TabIndex = 0;
+            this.tbTravelNamn.TabIndex = 1;
             // 
             // tbTravelEnamn
             // 
             this.tbTravelEnamn.Location = new System.Drawing.Point(80, 63);
             this.tbTravelEnamn.Name = "tbTravelEnamn";
             this.tbTravelEnamn.Size = new System.Drawing.Size(100, 20);
-            this.tbTravelEnamn.TabIndex = 1;
+            this.tbTravelEnamn.TabIndex = 2;
             // 
             // tbTravelEmal
             // 
             this.tbTravelEmal.Location = new System.Drawing.Point(80, 95);
             this.tbTravelEmal.Name = "tbTravelEmal";
             this.tbTravelEmal.Size = new System.Drawing.Size(100, 20);
-            this.tbTravelEmal.TabIndex = 2;
+            this.tbTravelEmal.TabIndex = 3;
             // 
             // label1
             // 
@@ -100,7 +100,7 @@
             this.btnSkickaReseOrder.Location = new System.Drawing.Point(450, 206);
             this.btnSkickaReseOrder.Name = "btnSkickaReseOrder";
             this.btnSkickaReseOrder.Size = new System.Drawing.Size(75, 23);
-            this.btnSkickaReseOrder.TabIndex = 6;
+            this.btnSkickaReseOrder.TabIndex = 10;
             this.btnSkickaReseOrder.Text = "Skicka order";
             this.btnSkickaReseOrder.UseVisualStyleBackColor = true;
             // 
@@ -110,7 +110,7 @@
             this.cmbTravelUppdrag.Location = new System.Drawing.Point(80, 136);
             this.cmbTravelUppdrag.Name = "cmbTravelUppdrag";
             this.cmbTravelUppdrag.Size = new System.Drawing.Size(121, 21);
-            this.cmbTravelUppdrag.TabIndex = 7;
+            this.cmbTravelUppdrag.TabIndex = 4;
             // 
             // label5
             // 
@@ -127,7 +127,7 @@
             this.cmbLand.Location = new System.Drawing.Point(26, 26);
             this.cmbLand.Name = "cmbLand";
             this.cmbLand.Size = new System.Drawing.Size(121, 21);
-            this.cmbLand.TabIndex = 9;
+            this.cmbLand.TabIndex = 6;
             // 
             // LbxLand
             // 
@@ -135,14 +135,14 @@
             this.LbxLand.Location = new System.Drawing.Point(27, 53);
             this.LbxLand.Name = "LbxLand";
             this.LbxLand.Size = new System.Drawing.Size(120, 95);
-            this.LbxLand.TabIndex = 10;
+            this.LbxLand.TabIndex = 8;
             // 
             // btnLaggTillLand
             // 
             this.btnLaggTillLand.Location = new System.Drawing.Point(161, 24);
             this.btnLaggTillLand.Name = "btnLaggTillLand";
             this.btnLaggTillLand.Size = new System.Drawing.Size(75, 23);
-            this.btnLaggTillLand.TabIndex = 11;
+            this.btnLaggTillLand.TabIndex = 7;
             this.btnLaggTillLand.Text = "Lägg till land";
             this.btnLaggTillLand.UseVisualStyleBackColor = true;
             this.btnLaggTillLand.Click += new System.EventHandler(this.btnLaggTillLand_Click);
@@ -152,7 +152,7 @@
             this.btnTaBortLand.Location = new System.Drawing.Point(161, 53);
             this.btnTaBortLand.Name = "btnTaBortLand";
             this.btnTaBortLand.Size = new System.Drawing.Size(75, 23);
-            this.btnTaBortLand.TabIndex = 12;
+            this.btnTaBortLand.TabIndex = 9;
             this.btnTaBortLand.Text = "Ta bort valt land";
             this.btnTaBortLand.UseVisualStyleBackColor = true;
             this.btnTaBortLand.Click += new System.EventHandler(this.btnTaBortLand_Click);
@@ -172,7 +172,7 @@
             this.groupBox1.Location = new System.Drawing.Point(39, 34);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(562, 235);
-            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // groupBox2
@@ -184,7 +184,7 @@
             this.groupBox2.Location = new System.Drawing.Point(263, 19);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(262, 166);
-            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             // 
             // FrmTravelorderr

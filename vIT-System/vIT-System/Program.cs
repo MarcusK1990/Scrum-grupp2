@@ -13,7 +13,9 @@ namespace vIT_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GUI.frmFinancialStatement());
+            //Application.Run(new GUI.frmFinancialStatement());
+            Application.Run(new Login.Login());
+            
         }
     }
 }

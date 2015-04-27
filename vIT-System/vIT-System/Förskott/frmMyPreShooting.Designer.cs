@@ -57,7 +57,7 @@
             this.cbShowFid.Location = new System.Drawing.Point(100, 35);
             this.cbShowFid.Name = "cbShowFid";
             this.cbShowFid.Size = new System.Drawing.Size(199, 21);
-            this.cbShowFid.TabIndex = 3;
+            this.cbShowFid.TabIndex = 0;
             this.cbShowFid.SelectedIndexChanged += new System.EventHandler(this.cbShowFid_SelectedIndexChanged);
             // 
             // label2

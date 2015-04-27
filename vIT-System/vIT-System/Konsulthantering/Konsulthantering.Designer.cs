@@ -86,7 +86,7 @@
             this.tbFörnamn.Location = new System.Drawing.Point(372, 38);
             this.tbFörnamn.Name = "tbFörnamn";
             this.tbFörnamn.Size = new System.Drawing.Size(161, 20);
-            this.tbFörnamn.TabIndex = 1;
+            this.tbFörnamn.TabIndex = 3;
             // 
             // lblFörnamn
             // 
@@ -102,21 +102,21 @@
             this.tbEfternamn.Location = new System.Drawing.Point(372, 64);
             this.tbEfternamn.Name = "tbEfternamn";
             this.tbEfternamn.Size = new System.Drawing.Size(161, 20);
-            this.tbEfternamn.TabIndex = 1;
+            this.tbEfternamn.TabIndex = 4;
             // 
             // tbPersonnummer
             // 
             this.tbPersonnummer.Location = new System.Drawing.Point(372, 90);
             this.tbPersonnummer.Name = "tbPersonnummer";
             this.tbPersonnummer.Size = new System.Drawing.Size(161, 20);
-            this.tbPersonnummer.TabIndex = 1;
+            this.tbPersonnummer.TabIndex = 5;
             // 
             // tbMailadress
             // 
             this.tbMailadress.Location = new System.Drawing.Point(372, 116);
             this.tbMailadress.Name = "tbMailadress";
             this.tbMailadress.Size = new System.Drawing.Size(161, 20);
-            this.tbMailadress.TabIndex = 1;
+            this.tbMailadress.TabIndex = 6;
             // 
             // lblEfternamn
             // 
@@ -167,7 +167,7 @@
             this.tbLösenord.Location = new System.Drawing.Point(372, 142);
             this.tbLösenord.Name = "tbLösenord";
             this.tbLösenord.Size = new System.Drawing.Size(161, 20);
-            this.tbLösenord.TabIndex = 1;
+            this.tbLösenord.TabIndex = 7;
             this.tbLösenord.UseSystemPasswordChar = true;
             // 
             // lblLösenord
@@ -185,7 +185,7 @@
             this.cbÄrChef.Location = new System.Drawing.Point(372, 168);
             this.cbÄrChef.Name = "cbÄrChef";
             this.cbÄrChef.Size = new System.Drawing.Size(48, 17);
-            this.cbÄrChef.TabIndex = 3;
+            this.cbÄrChef.TabIndex = 8;
             this.cbÄrChef.Text = "Chef";
             this.cbÄrChef.UseVisualStyleBackColor = true;
             // 
@@ -194,7 +194,7 @@
             this.btnRedigera.Location = new System.Drawing.Point(111, 362);
             this.btnRedigera.Name = "btnRedigera";
             this.btnRedigera.Size = new System.Drawing.Size(75, 23);
-            this.btnRedigera.TabIndex = 4;
+            this.btnRedigera.TabIndex = 1;
             this.btnRedigera.Text = "Redigera";
             this.btnRedigera.UseVisualStyleBackColor = true;
             this.btnRedigera.Click += new System.EventHandler(this.btnRedigera_Click);
@@ -204,7 +204,7 @@
             this.btnRadera.Location = new System.Drawing.Point(215, 362);
             this.btnRadera.Name = "btnRadera";
             this.btnRadera.Size = new System.Drawing.Size(75, 23);
-            this.btnRadera.TabIndex = 5;
+            this.btnRadera.TabIndex = 2;
             this.btnRadera.Text = "Radera";
             this.btnRadera.UseVisualStyleBackColor = true;
             this.btnRadera.Click += new System.EventHandler(this.btnRadera_Click);
@@ -214,7 +214,7 @@
             this.btnNyAnställd.Location = new System.Drawing.Point(12, 362);
             this.btnNyAnställd.Name = "btnNyAnställd";
             this.btnNyAnställd.Size = new System.Drawing.Size(75, 23);
-            this.btnNyAnställd.TabIndex = 5;
+            this.btnNyAnställd.TabIndex = 0;
             this.btnNyAnställd.Text = "Ny anställd";
             this.btnNyAnställd.UseVisualStyleBackColor = true;
             this.btnNyAnställd.Click += new System.EventHandler(this.btnNyAnställd_Click);
@@ -224,7 +224,7 @@
             this.btnSpara.Location = new System.Drawing.Point(433, 362);
             this.btnSpara.Name = "btnSpara";
             this.btnSpara.Size = new System.Drawing.Size(100, 23);
-            this.btnSpara.TabIndex = 5;
+            this.btnSpara.TabIndex = 9;
             this.btnSpara.Text = "Spara ändringar";
             this.btnSpara.UseVisualStyleBackColor = true;
             this.btnSpara.Click += new System.EventHandler(this.btnSpara_Click);
