@@ -536,11 +536,11 @@
             // 
             // tbTotalaUtgifter
             // 
-            this.tbSummaUtgifter.Enabled = false;
-            this.tbSummaUtgifter.Location = new System.Drawing.Point(215, 137);
-            this.tbSummaUtgifter.Name = "tbSummaUtgifter";
-            this.tbSummaUtgifter.Size = new System.Drawing.Size(86, 20);
-            this.tbSummaUtgifter.TabIndex = 29;
+            this.tbTotalaUtgifter.Enabled = false;
+            this.tbTotalaUtgifter.Location = new System.Drawing.Point(215, 137);
+            this.tbTotalaUtgifter.Name = "tbSummaUtgifter";
+            this.tbTotalaUtgifter.Size = new System.Drawing.Size(86, 20);
+            this.tbTotalaUtgifter.TabIndex = 29;
             // 
             // tbTotalaAvdrag
             // 
@@ -602,13 +602,13 @@
             // 
             // btnUppdateraSammanstallning
             // 
-            this.btnLaggTillAvdrag.Location = new System.Drawing.Point(9, 240);
-            this.btnLaggTillAvdrag.Name = "btnLaggTillAvdrag";
-            this.btnLaggTillAvdrag.Size = new System.Drawing.Size(151, 23);
-            this.btnLaggTillAvdrag.TabIndex = 30;
-            this.btnLaggTillAvdrag.Text = "Uppdatera sammanställning";
-            this.btnLaggTillAvdrag.UseVisualStyleBackColor = true;
-            this.btnLaggTillAvdrag.Click += new System.EventHandler(this.btnLaggTillAvdrag_Click);
+            this.btnUppdateraSammanstallning.Location = new System.Drawing.Point(9, 240);
+            this.btnUppdateraSammanstallning.Name = "btnUppdateraSammanstallning";
+            this.btnUppdateraSammanstallning.Size = new System.Drawing.Size(151, 23);
+            this.btnUppdateraSammanstallning.TabIndex = 30;
+            this.btnUppdateraSammanstallning.Text = "Uppdatera sammanställning";
+            this.btnUppdateraSammanstallning.UseVisualStyleBackColor = true;
+            this.btnUppdateraSammanstallning.Click += new System.EventHandler(this.btnUppdateraSammanstallning_Click);
             // 
             // label21
             // 
