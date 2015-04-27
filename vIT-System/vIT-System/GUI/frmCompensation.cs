@@ -363,10 +363,6 @@ namespace vIT_System.GUI
 
         private void btnLaggTillResa_Click(object sender, EventArgs e)
         {
-            if (!ValideraVidLaggTillResa())
-            {
-                return;
-            }
 
             if (Validation.IsEmpty(tbSemesterdagar.Text))
             {
@@ -386,6 +382,10 @@ namespace vIT_System.GUI
             if (Validation.IsEmpty(tbLunch.Text))
             {
                 tbLunch.Text = "0";
+            }
+            if (!ValideraVidLaggTillResa())
+            {
+                return;
             }
 
             var valtItem = (ComboboxItem)cbLand.SelectedItem;

@@ -117,7 +117,7 @@ namespace vIT_System
             {
                 return true;
             }
-            if (number > 0)
+            if (number >= 0)
             {
                 return false;
             }
