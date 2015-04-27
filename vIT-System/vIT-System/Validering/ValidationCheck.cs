@@ -45,6 +45,10 @@
             {
                 felMedelande += "\n• Fältet för " + fältNamn + " innehåller bokstäver.";
             }
+            if (Validation.IsNegativeNumber(boxAttKolla.Text) && parameter.Equals("NegativaTal"))
+            {
+                felMedelande += "\n• Fältet för " + fältNamn + " innehåller negativa tal.";
+            }
            
 
             felString += felMedelande;

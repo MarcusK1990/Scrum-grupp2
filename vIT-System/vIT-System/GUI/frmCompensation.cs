@@ -110,6 +110,7 @@ namespace vIT_System.GUI
 
             ValidationCheck.checkValidering(tbMilErsattning, "InnehållerBokstav", "milersättning");
             ValidationCheck.checkValidering(tbMilErsattning, "tom", "milersättning");
+            ValidationCheck.checkValidering(tbMilErsattning, "NegativaTal", "milersättning");
 
             var felmeddelanden = ValidationCheck.felString;
 
@@ -232,6 +233,7 @@ namespace vIT_System.GUI
             ValidationCheck.checkValidering(tbBelopp, "tom", "belopp");
             ValidationCheck.checkValidering(tbBelopp, "bokstäver", "belopp");
             ValidationCheck.checkValidering(tbBelopp, "längre255", "belopp");
+            ValidationCheck.checkValidering(tbBelopp, "NegativaTal", "belopp");
 
             ValidationCheck.checkValidering(tbAndaMal, "tom", "ändamål");
             ValidationCheck.checkValidering(tbAndaMal, "längre255", "ändamål");
@@ -336,10 +338,14 @@ namespace vIT_System.GUI
         {
             ValidationCheck.checkValidering(tbSemesterdagar, "InnehållerBokstav", "semesterdagar");
             ValidationCheck.checkValidering(tbSemesterdagar, "längre255", "semesterdagar");
+            ValidationCheck.checkValidering(tbSemesterdagar, "NegativaTal", "semesterdagar");
 
             ValidationCheck.checkValidering(tbFrukost, "InnehållerBokstav", "frukost");
+            ValidationCheck.checkValidering(tbFrukost, "NegativaTal", "frukost");
             ValidationCheck.checkValidering(tbLunch, "InnehållerBokstav", "lunch");
+            ValidationCheck.checkValidering(tbLunch, "NegativaTal", "lunch");
             ValidationCheck.checkValidering(tbMiddag, "InnehållerBokstav", "middag");
+            ValidationCheck.checkValidering(tbMiddag, "NegativaTal", "middag");
             ValidationCheck.CheckDates(dtpUtResa.Value, dtpHemResa.Value);
 
 
