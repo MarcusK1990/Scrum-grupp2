@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Drawing;
+using vIT_System.Formulärhantering;
+
 
 namespace vIT_System.GUI
 {
@@ -9,14 +12,17 @@ namespace vIT_System.GUI
         private string MenyEfterNamn { get; set; }
         private string MenyEmail { get; set; }
         private ApplicationMode.Mode MenyMode { get; set; }
+        private Form form;
+        private Point place;
 
 
         public FrmMenu(ApplicationMode.Mode mode)
         {
             InitializeComponent();
+            place = new Point(0, 0);
             if (mode == ApplicationMode.Mode.OFFLINE)
             {
-                lblStatus.Text = @"Offline";
+                //lblStatus.Text = @"Offline";
                 MenyMode = ApplicationMode.Mode.OFFLINE;
             }
         }
@@ -24,15 +30,16 @@ namespace vIT_System.GUI
         public FrmMenu(string namn, string efternamn, string email, ApplicationMode.Mode mode)
         {
             InitializeComponent();
+            place = new Point(0, 0);
             
             if (mode == ApplicationMode.Mode.ADMINISTRATOR)
             {
-                lblStatus.Text = @"Admin";
+                //lblStatus.Text = @"Admin";
                 chefToolStripMenuItem.Visible = true;
             }
             if (mode == ApplicationMode.Mode.STANDARD)
             {
-                lblStatus.Text = @"Konsult";
+                //lblStatus.Text = @"Konsult";
             }
             MenyForNamn = namn;
             MenyEfterNamn = efternamn;
@@ -43,34 +50,52 @@ namespace vIT_System.GUI
 
         private void skapaFörskottsansökanToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = new frmPreShooting();
+            deleteForm();
+            form = new frmPreShooting();
+            form.Location = place;
+            form.MdiParent = this;
             form.Show();
         }
       
 
         private void mItemTravel_Click(object sender, EventArgs e)
         {
+        
             FrmCompensation form;
             if (MenyMode == ApplicationMode.Mode.STANDARD){
+                deleteForm();
                 form = new FrmCompensation(MenyEmail, MenyForNamn, MenyEfterNamn, MenyMode);
+                form.Location = place;
+                form.MdiParent = this;
                 form.Show();
             }
             if (MenyMode != ApplicationMode.Mode.OFFLINE){
+                MessageBox.Show("Som chef kan du inte skapa en reseansökan.");
                 return;
             }
+            deleteForm();
             form = new FrmCompensation(MenyMode);
+            form.Location = place;
+            form.MdiParent = this;
             form.Show();
         }
 
         private void mItemMyAppli_Click(object sender, EventArgs e)
         {
-            var form = new FrmMyApplications();
+            deleteForm();
+            form = new FrmMyApplications();
+            form.Location = place;
+            form.MdiParent = this;
             form.Show();
         }
 
         private void hanteraKonsulterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = new Konsulthantering();
+            deleteForm();
+          
+            form = new Konsulthantering();
+            form.Location = place;
+            form.MdiParent = this;
             form.Show();
         }
 
@@ -85,19 +110,53 @@ namespace vIT_System.GUI
             if (MenyMode == ApplicationMode.Mode.STANDARD)
             {
                 form = new FrmTravelorderr(MenyEmail, MenyForNamn, MenyEfterNamn, MenyMode);
+                form.Location = place;
+                form.MdiParent = this;
                 form.Show();
             }
             if (MenyMode != ApplicationMode.Mode.OFFLINE)
             {
+                MessageBox.Show("Som chef kan du inte skapa en reseorder.");
                 return;
             }
             form = new FrmTravelorderr(MenyMode);
+            form.Location = place;
+            form.MdiParent = this;
             form.Show();
         }
 
         private void sammanställKvartalsrapporterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = new frmFinancialStatement();
+            deleteForm();
+            form = new frmFinancialStatement();
+            form.Location = place;
+            form.MdiParent = this;
+            form.Show();
+        }
+        private void deleteForm()
+        {
+            Form activeChild = this.ActiveMdiChild;
+            if (activeChild != null)
+            {
+                activeChild.Dispose();
+            }
+        }
+
+        private void hanteraReseersättningsansökanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            deleteForm();
+            form = new Ansökningshantering();
+            form.Location = place;
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void hanteraFörskottsansökanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            deleteForm();
+            form = new Forskottshantering();
+            form.Location = place;
+            form.MdiParent = this;
             form.Show();
         }
     }

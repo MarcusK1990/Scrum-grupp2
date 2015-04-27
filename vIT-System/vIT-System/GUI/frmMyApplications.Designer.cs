@@ -284,11 +284,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(827, 512);
+            this.ClientSize = new System.Drawing.Size(860, 490);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbShowAns);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmMyApplications";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Mina ansökningar";
             this.Load += new System.EventHandler(this.FrmMyApplications_Load);
             this.groupBox1.ResumeLayout(false);

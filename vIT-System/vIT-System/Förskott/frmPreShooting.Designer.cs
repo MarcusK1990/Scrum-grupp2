@@ -131,7 +131,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(485, 331);
+            this.ClientSize = new System.Drawing.Size(860, 490);
             this.Controls.Add(this.lblValSum);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cbChooseUppdrag);
@@ -142,7 +142,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbMotivation);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPreShooting";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Förskottsansökan";
             this.Load += new System.EventHandler(this.frmPreShooting_Load);
             this.ResumeLayout(false);

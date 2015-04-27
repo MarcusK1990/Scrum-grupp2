@@ -162,7 +162,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(424, 320);
+            this.ClientSize = new System.Drawing.Size(860, 490);
             this.Controls.Add(this.tbSokande);
             this.Controls.Add(this.Sokande);
             this.Controls.Add(this.label5);
@@ -176,7 +176,9 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Forskottshantering";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Nya förskottsansökningar";
             this.Load += new System.EventHandler(this.Forskottshantering_Load);
             this.ResumeLayout(false);

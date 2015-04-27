@@ -189,9 +189,11 @@
             // 
             // FrmTravelorderr
             // 
-            this.ClientSize = new System.Drawing.Size(630, 301);
+            this.ClientSize = new System.Drawing.Size(860, 490);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmTravelorderr";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Reseorder";
             this.Load += new System.EventHandler(this.FrmTravelorder_Load);
             this.groupBox1.ResumeLayout(false);

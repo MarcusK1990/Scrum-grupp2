@@ -61,7 +61,7 @@
             this.listvKonsulter.Location = new System.Drawing.Point(12, 12);
             this.listvKonsulter.MultiSelect = false;
             this.listvKonsulter.Name = "listvKonsulter";
-            this.listvKonsulter.Size = new System.Drawing.Size(268, 331);
+            this.listvKonsulter.Size = new System.Drawing.Size(278, 421);
             this.listvKonsulter.TabIndex = 0;
             this.listvKonsulter.UseCompatibleStateImageBehavior = false;
             this.listvKonsulter.View = System.Windows.Forms.View.Details;
@@ -83,7 +83,7 @@
             // 
             // tbFörnamn
             // 
-            this.tbFörnamn.Location = new System.Drawing.Point(372, 38);
+            this.tbFörnamn.Location = new System.Drawing.Point(687, 38);
             this.tbFörnamn.Name = "tbFörnamn";
             this.tbFörnamn.Size = new System.Drawing.Size(161, 20);
             this.tbFörnamn.TabIndex = 3;
@@ -91,7 +91,7 @@
             // lblFörnamn
             // 
             this.lblFörnamn.AutoSize = true;
-            this.lblFörnamn.Location = new System.Drawing.Point(315, 41);
+            this.lblFörnamn.Location = new System.Drawing.Point(630, 41);
             this.lblFörnamn.Name = "lblFörnamn";
             this.lblFörnamn.Size = new System.Drawing.Size(51, 13);
             this.lblFörnamn.TabIndex = 2;
@@ -99,21 +99,21 @@
             // 
             // tbEfternamn
             // 
-            this.tbEfternamn.Location = new System.Drawing.Point(372, 64);
+            this.tbEfternamn.Location = new System.Drawing.Point(687, 64);
             this.tbEfternamn.Name = "tbEfternamn";
             this.tbEfternamn.Size = new System.Drawing.Size(161, 20);
             this.tbEfternamn.TabIndex = 4;
             // 
             // tbPersonnummer
             // 
-            this.tbPersonnummer.Location = new System.Drawing.Point(372, 90);
+            this.tbPersonnummer.Location = new System.Drawing.Point(687, 90);
             this.tbPersonnummer.Name = "tbPersonnummer";
             this.tbPersonnummer.Size = new System.Drawing.Size(161, 20);
             this.tbPersonnummer.TabIndex = 5;
             // 
             // tbMailadress
             // 
-            this.tbMailadress.Location = new System.Drawing.Point(372, 116);
+            this.tbMailadress.Location = new System.Drawing.Point(687, 116);
             this.tbMailadress.Name = "tbMailadress";
             this.tbMailadress.Size = new System.Drawing.Size(161, 20);
             this.tbMailadress.TabIndex = 6;
@@ -121,7 +121,7 @@
             // lblEfternamn
             // 
             this.lblEfternamn.AutoSize = true;
-            this.lblEfternamn.Location = new System.Drawing.Point(308, 67);
+            this.lblEfternamn.Location = new System.Drawing.Point(623, 67);
             this.lblEfternamn.Name = "lblEfternamn";
             this.lblEfternamn.Size = new System.Drawing.Size(58, 13);
             this.lblEfternamn.TabIndex = 2;
@@ -130,7 +130,7 @@
             // lblPersonnummer
             // 
             this.lblPersonnummer.AutoSize = true;
-            this.lblPersonnummer.Location = new System.Drawing.Point(286, 93);
+            this.lblPersonnummer.Location = new System.Drawing.Point(601, 93);
             this.lblPersonnummer.Name = "lblPersonnummer";
             this.lblPersonnummer.Size = new System.Drawing.Size(80, 13);
             this.lblPersonnummer.TabIndex = 2;
@@ -139,7 +139,7 @@
             // lblMailadress
             // 
             this.lblMailadress.AutoSize = true;
-            this.lblMailadress.Location = new System.Drawing.Point(306, 119);
+            this.lblMailadress.Location = new System.Drawing.Point(621, 119);
             this.lblMailadress.Name = "lblMailadress";
             this.lblMailadress.Size = new System.Drawing.Size(60, 13);
             this.lblMailadress.TabIndex = 2;
@@ -147,7 +147,7 @@
             // 
             // tbId
             // 
-            this.tbId.Location = new System.Drawing.Point(372, 12);
+            this.tbId.Location = new System.Drawing.Point(687, 12);
             this.tbId.Name = "tbId";
             this.tbId.ReadOnly = true;
             this.tbId.Size = new System.Drawing.Size(161, 20);
@@ -156,7 +156,7 @@
             // lblId
             // 
             this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(345, 15);
+            this.lblId.Location = new System.Drawing.Point(660, 15);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(21, 13);
             this.lblId.TabIndex = 2;
@@ -164,7 +164,7 @@
             // 
             // tbLösenord
             // 
-            this.tbLösenord.Location = new System.Drawing.Point(372, 142);
+            this.tbLösenord.Location = new System.Drawing.Point(687, 142);
             this.tbLösenord.Name = "tbLösenord";
             this.tbLösenord.Size = new System.Drawing.Size(161, 20);
             this.tbLösenord.TabIndex = 7;
@@ -173,7 +173,7 @@
             // lblLösenord
             // 
             this.lblLösenord.AutoSize = true;
-            this.lblLösenord.Location = new System.Drawing.Point(312, 145);
+            this.lblLösenord.Location = new System.Drawing.Point(627, 145);
             this.lblLösenord.Name = "lblLösenord";
             this.lblLösenord.Size = new System.Drawing.Size(54, 13);
             this.lblLösenord.TabIndex = 2;
@@ -182,7 +182,7 @@
             // cbÄrChef
             // 
             this.cbÄrChef.AutoSize = true;
-            this.cbÄrChef.Location = new System.Drawing.Point(372, 168);
+            this.cbÄrChef.Location = new System.Drawing.Point(687, 168);
             this.cbÄrChef.Name = "cbÄrChef";
             this.cbÄrChef.Size = new System.Drawing.Size(48, 17);
             this.cbÄrChef.TabIndex = 8;
@@ -191,7 +191,7 @@
             // 
             // btnRedigera
             // 
-            this.btnRedigera.Location = new System.Drawing.Point(111, 362);
+            this.btnRedigera.Location = new System.Drawing.Point(111, 455);
             this.btnRedigera.Name = "btnRedigera";
             this.btnRedigera.Size = new System.Drawing.Size(75, 23);
             this.btnRedigera.TabIndex = 1;
@@ -201,7 +201,7 @@
             // 
             // btnRadera
             // 
-            this.btnRadera.Location = new System.Drawing.Point(215, 362);
+            this.btnRadera.Location = new System.Drawing.Point(215, 455);
             this.btnRadera.Name = "btnRadera";
             this.btnRadera.Size = new System.Drawing.Size(75, 23);
             this.btnRadera.TabIndex = 2;
@@ -211,7 +211,7 @@
             // 
             // btnNyAnställd
             // 
-            this.btnNyAnställd.Location = new System.Drawing.Point(12, 362);
+            this.btnNyAnställd.Location = new System.Drawing.Point(12, 455);
             this.btnNyAnställd.Name = "btnNyAnställd";
             this.btnNyAnställd.Size = new System.Drawing.Size(75, 23);
             this.btnNyAnställd.TabIndex = 0;
@@ -221,7 +221,7 @@
             // 
             // btnSpara
             // 
-            this.btnSpara.Location = new System.Drawing.Point(433, 362);
+            this.btnSpara.Location = new System.Drawing.Point(748, 455);
             this.btnSpara.Name = "btnSpara";
             this.btnSpara.Size = new System.Drawing.Size(100, 23);
             this.btnSpara.TabIndex = 9;
@@ -233,7 +233,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(575, 427);
+            this.ClientSize = new System.Drawing.Size(860, 490);
             this.Controls.Add(this.btnNyAnställd);
             this.Controls.Add(this.btnSpara);
             this.Controls.Add(this.btnRadera);
@@ -252,7 +252,9 @@
             this.Controls.Add(this.tbId);
             this.Controls.Add(this.tbFörnamn);
             this.Controls.Add(this.listvKonsulter);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Konsulthantering";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Konsulthantering";
             this.ResumeLayout(false);
             this.PerformLayout();
