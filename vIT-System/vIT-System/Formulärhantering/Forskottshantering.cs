@@ -22,7 +22,7 @@ namespace vIT_System.Formulärhantering
         }
         //Inte det smidigaste att göra textboxar, borde kanske ändras. 
 
-        // kvar: även where Chef = 'den chef som är inloggad' så inte alla förskottsansökningar till alla chefer kommer upp. 
+        // kvar: where Chef = 'den chef som är inloggad' så inte alla förskottsansökningar till alla chefer kommer upp. 
         private void Forskottshantering_Load(object sender, EventArgs e)
         {
             var Dl = sqlHelper.Fetch("select Fid from Forskott where Status = 'Bearbetas' ");
@@ -52,6 +52,7 @@ namespace vIT_System.Formulärhantering
             }
         }
 
+        // kvar: uppdatera
         private void btnGodkann_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(cbVisaSokande.Text))
@@ -68,7 +69,7 @@ namespace vIT_System.Formulärhantering
             }
         }
 
-        // formuläret ska tömmas och uppdateras också. 
+        // kvar: uppdatera
 
         private void btnAvsla_Click(object sender, EventArgs e)
         {
@@ -81,7 +82,7 @@ namespace vIT_System.Formulärhantering
             {
                 var Sokande = cbVisaSokande.SelectedItem.ToString().Substring(0, 1);
                 var id = Convert.ToInt32(Sokande);
-                sqlHelper.Modify("Update Forskott set Status ='Ej godkänd' where Forskott.Fid = " + id);
+                sqlHelper.Modify("Update Forskott set Status ='Ej Godkänd' where Forskott.Fid = " + id);
                 MessageBox.Show("Snålt");
             }
 

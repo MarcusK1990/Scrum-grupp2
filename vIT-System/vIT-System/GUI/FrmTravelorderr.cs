@@ -101,8 +101,6 @@ namespace vIT_System.GUI
 
         private void btnLaggTillLand_Click(object sender, EventArgs e)
         {
-        
-
             //var valtItem = (ComboBox)cmbLand.SelectedItem;
             //var valtLand = Convert.ToString(valItem.Text);
             LbxLand.Items.Add(cmbLand.Text);
@@ -111,6 +109,11 @@ namespace vIT_System.GUI
         private void btnTaBortLand_Click(object sender, EventArgs e)
         {
             LbxLand.Items.Clear();
+        }
+
+        private void btnSkickaReseOrder_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Din Reseorder är skickad");
         }
     }
 }
