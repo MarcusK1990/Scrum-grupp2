@@ -99,6 +99,7 @@
             this.btnSkickaReseOrder.TabIndex = 6;
             this.btnSkickaReseOrder.Text = "Skicka order";
             this.btnSkickaReseOrder.UseVisualStyleBackColor = true;
+            this.btnSkickaReseOrder.Click += new System.EventHandler(this.btnSkickaReseOrder_Click);
             // 
             // cmbTravelUppdrag
             // 
