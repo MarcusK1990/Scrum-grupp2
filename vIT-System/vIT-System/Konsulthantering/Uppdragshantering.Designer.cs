@@ -42,7 +42,7 @@
             this.cbShowFid.Location = new System.Drawing.Point(79, 65);
             this.cbShowFid.Name = "cbShowFid";
             this.cbShowFid.Size = new System.Drawing.Size(156, 21);
-            this.cbShowFid.TabIndex = 4;
+            this.cbShowFid.TabIndex = 0;
             // 
             // label1
             // 
@@ -77,14 +77,14 @@
             this.tbUppdrag.Multiline = true;
             this.tbUppdrag.Name = "tbUppdrag";
             this.tbUppdrag.Size = new System.Drawing.Size(156, 22);
-            this.tbUppdrag.TabIndex = 19;
+            this.tbUppdrag.TabIndex = 0;
             // 
             // btnRedigera
             // 
             this.btnRedigera.Location = new System.Drawing.Point(160, 170);
             this.btnRedigera.Name = "btnRedigera";
             this.btnRedigera.Size = new System.Drawing.Size(75, 23);
-            this.btnRedigera.TabIndex = 20;
+            this.btnRedigera.TabIndex = 0;
             this.btnRedigera.Text = "Lägg till";
             this.btnRedigera.UseVisualStyleBackColor = true;
             this.btnRedigera.Click += new System.EventHandler(this.btnRedigera_Click);
