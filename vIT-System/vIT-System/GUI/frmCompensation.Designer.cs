@@ -73,15 +73,15 @@
             this.tbFrukost = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.groaupBox3 = new System.Windows.Forms.GroupBox();
-            this.tbSummaUtgifter = new System.Windows.Forms.TextBox();
+            this.tbTotalaUtgifter = new System.Windows.Forms.TextBox();
             this.tbTotalaAvdrag = new System.Windows.Forms.TextBox();
             this.tbTotalMilErsättning = new System.Windows.Forms.TextBox();
             this.tbTotalTraktamentesUtbetalning = new System.Windows.Forms.TextBox();
             this.tbTotalTraktamenteDagar = new System.Windows.Forms.TextBox();
-            this.tbEventuelltTasBort = new System.Windows.Forms.TextBox();
+            this.tbDagarBortRest = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.btnLaggTillAvdrag = new System.Windows.Forms.Button();
+            this.btnUppdateraSammanstallning = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -96,6 +96,7 @@
             this.btnSkickaAnsokan = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.btnLaddaUtkast = new System.Windows.Forms.Button();
+            this.btnMilErsättningPlus = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groaupBox3.SuspendLayout();
@@ -398,6 +399,7 @@
             // 
             // button2
             // 
+            this.button2.Enabled = false;
             this.button2.Location = new System.Drawing.Point(137, 159);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 24);
@@ -511,15 +513,15 @@
             // 
             // groaupBox3
             // 
-            this.groaupBox3.Controls.Add(this.tbSummaUtgifter);
+            this.groaupBox3.Controls.Add(this.tbTotalaUtgifter);
             this.groaupBox3.Controls.Add(this.tbTotalaAvdrag);
             this.groaupBox3.Controls.Add(this.tbTotalMilErsättning);
             this.groaupBox3.Controls.Add(this.tbTotalTraktamentesUtbetalning);
             this.groaupBox3.Controls.Add(this.tbTotalTraktamenteDagar);
-            this.groaupBox3.Controls.Add(this.tbEventuelltTasBort);
+            this.groaupBox3.Controls.Add(this.tbDagarBortRest);
             this.groaupBox3.Controls.Add(this.label26);
             this.groaupBox3.Controls.Add(this.label18);
-            this.groaupBox3.Controls.Add(this.btnLaggTillAvdrag);
+            this.groaupBox3.Controls.Add(this.btnUppdateraSammanstallning);
             this.groaupBox3.Controls.Add(this.label21);
             this.groaupBox3.Controls.Add(this.label20);
             this.groaupBox3.Controls.Add(this.label19);
@@ -532,13 +534,13 @@
             this.groaupBox3.TabStop = false;
             this.groaupBox3.Text = "Traktamente";
             // 
-            // tbSummaUtgifter
+            // tbTotalaUtgifter
             // 
-            this.tbSummaUtgifter.Enabled = false;
-            this.tbSummaUtgifter.Location = new System.Drawing.Point(215, 137);
-            this.tbSummaUtgifter.Name = "tbSummaUtgifter";
-            this.tbSummaUtgifter.Size = new System.Drawing.Size(86, 20);
-            this.tbSummaUtgifter.TabIndex = 38;
+            this.tbTotalaUtgifter.Enabled = false;
+            this.tbTotalaUtgifter.Location = new System.Drawing.Point(215, 137);
+            this.tbTotalaUtgifter.Name = "tbTotalaUtgifter";
+            this.tbTotalaUtgifter.Size = new System.Drawing.Size(86, 20);
+            this.tbTotalaUtgifter.TabIndex = 38;
             // 
             // tbTotalaAvdrag
             // 
@@ -572,13 +574,13 @@
             this.tbTotalTraktamenteDagar.Size = new System.Drawing.Size(86, 20);
             this.tbTotalTraktamenteDagar.TabIndex = 34;
             // 
-            // tbEventuelltTasBort
+            // tbDagarBortRest
             // 
-            this.tbEventuelltTasBort.Enabled = false;
-            this.tbEventuelltTasBort.Location = new System.Drawing.Point(215, 25);
-            this.tbEventuelltTasBort.Name = "tbEventuelltTasBort";
-            this.tbEventuelltTasBort.Size = new System.Drawing.Size(86, 20);
-            this.tbEventuelltTasBort.TabIndex = 33;
+            this.tbDagarBortRest.Enabled = false;
+            this.tbDagarBortRest.Location = new System.Drawing.Point(215, 25);
+            this.tbDagarBortRest.Name = "tbDagarBortRest";
+            this.tbDagarBortRest.Size = new System.Drawing.Size(86, 20);
+            this.tbDagarBortRest.TabIndex = 33;
             // 
             // label26
             // 
@@ -592,21 +594,21 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(6, 118);
+            this.label18.Location = new System.Drawing.Point(8, 118);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(76, 13);
             this.label18.TabIndex = 27;
             this.label18.Text = "Totala avdrag:";
             // 
-            // btnLaggTillAvdrag
+            // btnUppdateraSammanstallning
             // 
-            this.btnLaggTillAvdrag.Location = new System.Drawing.Point(9, 240);
-            this.btnLaggTillAvdrag.Name = "btnLaggTillAvdrag";
-            this.btnLaggTillAvdrag.Size = new System.Drawing.Size(151, 23);
-            this.btnLaggTillAvdrag.TabIndex = 26;
-            this.btnLaggTillAvdrag.Text = "Uppdatera sammanställning";
-            this.btnLaggTillAvdrag.UseVisualStyleBackColor = true;
-            this.btnLaggTillAvdrag.Click += new System.EventHandler(this.btnLaggTillAvdrag_Click);
+            this.btnUppdateraSammanstallning.Location = new System.Drawing.Point(9, 240);
+            this.btnUppdateraSammanstallning.Name = "btnUppdateraSammanstallning";
+            this.btnUppdateraSammanstallning.Size = new System.Drawing.Size(151, 23);
+            this.btnUppdateraSammanstallning.TabIndex = 26;
+            this.btnUppdateraSammanstallning.Text = "Uppdatera sammanställning";
+            this.btnUppdateraSammanstallning.UseVisualStyleBackColor = true;
+            this.btnUppdateraSammanstallning.Click += new System.EventHandler(this.btnUppdateraSammanstallning_Click);
             // 
             // label21
             // 
@@ -649,9 +651,9 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(6, 28);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(130, 13);
+            this.label15.Size = new System.Drawing.Size(77, 13);
             this.label15.TabIndex = 0;
-            this.label15.Text = "Sparas ifall nått mer ska in";
+            this.label15.Text = "Dagar bortrest:";
             // 
             // button1
             // 
@@ -737,11 +739,22 @@
             this.btnLaddaUtkast.UseVisualStyleBackColor = true;
             this.btnLaddaUtkast.Click += new System.EventHandler(this.btnLaddaUtkast_Click);
             // 
+            // btnMilErsättningPlus
+            // 
+            this.btnMilErsättningPlus.Location = new System.Drawing.Point(636, 384);
+            this.btnMilErsättningPlus.Name = "btnMilErsättningPlus";
+            this.btnMilErsättningPlus.Size = new System.Drawing.Size(31, 23);
+            this.btnMilErsättningPlus.TabIndex = 39;
+            this.btnMilErsättningPlus.Text = "+";
+            this.btnMilErsättningPlus.UseVisualStyleBackColor = true;
+            this.btnMilErsättningPlus.Click += new System.EventHandler(this.btnMilErsättningPlus_Click);
+            // 
             // FrmCompensation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(863, 504);
+            this.Controls.Add(this.btnMilErsättningPlus);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblAnsID);
@@ -815,7 +828,7 @@
         private System.Windows.Forms.TextBox tbMilErsattning;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button btnLaggTillAvdrag;
+        private System.Windows.Forms.Button btnUppdateraSammanstallning;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label23;
@@ -832,10 +845,10 @@
         private System.Windows.Forms.ListBox lbResa;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox tbTotalTraktamenteDagar;
-        private System.Windows.Forms.TextBox tbEventuelltTasBort;
+        private System.Windows.Forms.TextBox tbDagarBortRest;
         private System.Windows.Forms.TextBox tbTotalMilErsättning;
         private System.Windows.Forms.TextBox tbTotalTraktamentesUtbetalning;
-        private System.Windows.Forms.TextBox tbSummaUtgifter;
+        private System.Windows.Forms.TextBox tbTotalaUtgifter;
         private System.Windows.Forms.TextBox tbTotalaAvdrag;
         private System.Windows.Forms.TextBox tbKvitto;
         private System.Windows.Forms.Label lblAnsID;
@@ -844,6 +857,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox cbUppdrag;
         private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Button btnMilErsättningPlus;
    
     }
 }

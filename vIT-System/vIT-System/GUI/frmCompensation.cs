@@ -16,6 +16,7 @@ namespace vIT_System.GUI
     {
         public BindingList<Resa> AllaResor;
         public int ValdResa { get; set; }
+        public double Mil { get; set; }
         public ApplicationMode.Mode CompMode { get; set; }
 
         public FrmCompensation(ApplicationMode.Mode inMode)
@@ -65,7 +66,7 @@ namespace vIT_System.GUI
                 tbEmail.Enabled = true;
                 tbForNamn.Enabled = true;
                 tbEfterNamn.Enabled = true;
-                lblValutaKurs.Text = "Valutakurs kunde inte uppdateras.";
+                lblValutaKurs.Text = @"Valutakurs kunde inte uppdateras.";
                 cbUppdrag.Items.Add(new ComboboxItem { Text = "Test", Value = 1 });
                 //LaddaValutaOffline(); en ide!
                 LaddaValuta();
@@ -138,15 +139,11 @@ namespace vIT_System.GUI
 
         private void LaddaValuta()
         {
-
-            double frånstringtilldecimaltilldoubleUsd = 0;
-            double frånstringtilldecimaltilldoubleEur = 0;
-
             if (CompMode == ApplicationMode.Mode.STANDARD){
             if (Ping())
             {
-                frånstringtilldecimaltilldoubleUsd = ValutaOmvandlare.KonverteraTillFrån("SEK", "USD", "1");
-                frånstringtilldecimaltilldoubleEur = ValutaOmvandlare.KonverteraTillFrån("SEK", "EUR", "1");
+                var frånstringtilldecimaltilldoubleUsd = ValutaOmvandlare.KonverteraTillFrån("SEK", "USD", "1");
+                var frånstringtilldecimaltilldoubleEur = ValutaOmvandlare.KonverteraTillFrån("SEK", "EUR", "1");
 
             var dollarinos = new ComboboxItem
             {
@@ -209,15 +206,12 @@ namespace vIT_System.GUI
             }
         }
 
-        public void UppdateraTotalSumma()
-        {
-
-            double total = 0;
+        public void UppdateraTotalSumma(){
             //foreach (var utgifter in AllaResor)
             //{
             //    total = utgifter.UtgifterFörResa.Sum(x => x.Belopp);
             //}
-            total = AllaResor[ValdResa].UtgifterFörResa.Sum(x => x.Konverterad);
+            var total = AllaResor[ValdResa].UtgifterFörResa.Sum(x => x.Konverterad);
 
 
             labelTotal.Text = total.ToString(CultureInfo.InvariantCulture);
@@ -364,27 +358,29 @@ namespace vIT_System.GUI
 
             if (Validation.IsEmpty(tbSemesterdagar.Text))
             {
-                tbSemesterdagar.Text = "0";
+                tbSemesterdagar.Text = @"0";
             }
 
             if (Validation.IsEmpty(tbFrukost.Text))
             {
-                tbFrukost.Text = "0";
+                tbFrukost.Text = @"0";
             }
 
             if (Validation.IsEmpty(tbMiddag.Text))
             {
-                tbMiddag.Text = "0";
+                tbMiddag.Text = @"0";
             }
 
             if (Validation.IsEmpty(tbLunch.Text))
             {
-                tbLunch.Text = "0";
+                tbLunch.Text = @"0";
             }
 
             var valtItem = (ComboboxItem)cbLand.SelectedItem;
             var valtTraktamenteFörLandet = Convert.ToDouble(valtItem.Value);
             var valtLand = Convert.ToString(valtItem.Text);
+            var valtUppdag = (ComboboxItem) cbUppdrag.SelectedItem;
+            var uppdrag = valtUppdag.Text;
 
             var nyResa = new Resa
             {
@@ -393,10 +389,10 @@ namespace vIT_System.GUI
                 Land = valtLand,
                 SemesterDagar = tbSemesterdagar.Text,
                 TraktamenteFörLandet = valtTraktamenteFörLandet,
-                AntalMiddag = 0,//Convert.ToInt32(tbMiddag.Text),
-                AntalFrukost = 0, //Convert.ToInt32(tbFrukost.Text),
-                AntalLunch = 0,//Convert.ToInt32(tbLunch.Text),
-                Uppdrag = "Hej",
+                AntalMiddag = Convert.ToInt32(tbMiddag.Text),
+                AntalFrukost = Convert.ToInt32(tbFrukost.Text),
+                AntalLunch = Convert.ToInt32(tbLunch.Text),
+                Uppdrag = uppdrag,
                 UtgifterFörResa = new List<Utgift>()
             };
 
@@ -551,12 +547,77 @@ namespace vIT_System.GUI
             }
         }
 
-        private void btnLaggTillAvdrag_Click(object sender, EventArgs e)
-        {
+        private void btnUppdateraSammanstallning_Click(object sender, EventArgs e){
 
+            double totalaUtgifter = 0;
+            var totalaSemesterDagar = 0;
+            var dagarbortaRäknaMed = 0.0;
+            double totaltAvdragFrånTraktamente = 0;
+            var traktamenteFörLandet = 0.0;
+
+
+            for (var i = 0; i < AllaResor.Count; i++){
+
+                totalaUtgifter += AllaResor[i].UtgifterFörResa.Sum(x => x.Belopp);
+                totalaSemesterDagar += Convert.ToInt32(AllaResor[i].SemesterDagar);
+                var hemresa = AllaResor[i].HemResa;
+                var utresa = AllaResor[i].UtResa;
+                traktamenteFörLandet = AllaResor[i].TraktamenteFörLandet;
+
+                var dagarborta = hemresa - utresa;
+                if (dagarborta.TotalDays < 0)
+                {
+                    dagarbortaRäknaMed += dagarborta.TotalDays*-1;
+                }
+                if (dagarborta.TotalDays > 0){
+                    dagarbortaRäknaMed += dagarborta.TotalDays;
+                }
+
+                var antalFrukost = AllaResor[i].AntalFrukost;
+                var antalMiddag = AllaResor[i].AntalMiddag;
+                var antalLunch = AllaResor[i].AntalLunch;
+
+                var lunchförresa = (AllaResor[i].TraktamenteFörLandet * 0.35) * antalLunch;
+                var middagförresa = (AllaResor[i].TraktamenteFörLandet * 0.35) * antalMiddag;
+                var frukostförresa = (AllaResor[i].TraktamenteFörLandet * 0.15) * antalFrukost;
+
+                totaltAvdragFrånTraktamente += frukostförresa + middagförresa + lunchförresa;
+            }
+            
+            var totalaDagarBortrestAvrundatUppåt = Math.Ceiling(dagarbortaRäknaMed);
+            var traktamentesdagar = totalaDagarBortrestAvrundatUppåt - totalaSemesterDagar;
+
+            var traktamenteEfterAvdrag = (traktamentesdagar * traktamenteFörLandet) -
+                                 totaltAvdragFrånTraktamente;
+
+            tbTotalaUtgifter.Text = totalaUtgifter.ToString(CultureInfo.InvariantCulture);
+            tbTotalTraktamenteDagar.Text = traktamentesdagar.ToString(CultureInfo.InvariantCulture);
+            tbTotalMilErsättning.Text = Mil * 13.37 + @" Literpris: 13.37";
+            tbTotalaAvdrag.Text = totaltAvdragFrånTraktamente.ToString(CultureInfo.InvariantCulture);
+            tbTotalTraktamentesUtbetalning.Text = traktamenteEfterAvdrag.ToString(CultureInfo.InvariantCulture);
+            tbDagarBortRest.Text = totalaDagarBortrestAvrundatUppåt.ToString(CultureInfo.InvariantCulture);
         }
 
+        private bool ErsattningValidera(){
+            ValidationCheck.checkValidering(tbMilErsattning, "InnehållerBokstav", "milersättning");
+            var felmeddelanden = ValidationCheck.felString;
 
+            if (felmeddelanden.Length <= 0)
+            {
+                return true;
+            }
 
+            MessageBox.Show(string.Format(@"Följande fel har uppstått: {0}", felmeddelanden));
+            ValidationCheck.felString = "";
+            return false;
+        }
+
+        private void btnMilErsättningPlus_Click(object sender, EventArgs e){
+
+            if (!ErsattningValidera()){
+               return;
+            }
+            Mil = Convert.ToDouble(tbMilErsattning.Text);
+        }
     } // klassen
 } // namespace
