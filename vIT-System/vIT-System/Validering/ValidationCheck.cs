@@ -45,9 +45,20 @@
             {
                 felMedelande += "\n• Fältet för " + fältNamn + " innehåller bokstäver.";
             }
+            if (Validation.IsNegativeNumber(boxAttKolla.Text) && parameter.Equals("NegativaTal"))
+            {
+                felMedelande += "\n• Fältet för " + fältNamn + " innehåller negativa tal.";
+            }
            
 
             felString += felMedelande;
     }
+        public static void CheckDates(System.DateTime ut, System.DateTime hem)
+        {
+            if (Validation.IsLaterDate(ut, hem))
+            {
+                felString += "\n• Hemresedatum måste vara efter utresedatum.";
+            }
+        }
     }
 }

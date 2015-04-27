@@ -4,9 +4,9 @@ using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Windows.Forms;
 using vIT_System.Data;
-using vIT_System.SQL;
 using vIT_System.Validering;
 using vIT_System.XmlRelaterat;
 
@@ -25,10 +25,10 @@ namespace vIT_System.GUI
 
             CompMode = inMode;
 
-            lbUtgifter.DisplayMember = "VisaIListBox";
+            lbUtgifter.DisplayMember = "VisaValutaIListBox";
             lbUtgifter.ValueMember = "ValutaKurs";
 
-            lbResa.DisplayMember = "VisaIListBox"; 
+            lbResa.DisplayMember = "VisaResaIListBox";
             lbResa.ValueMember = "TraktamenteFörLandet";
             lbResa.DataSource = AllaResor;
 
@@ -44,10 +44,10 @@ namespace vIT_System.GUI
 
             AllaResor = new BindingList<Resa>();
 
-            lbUtgifter.DisplayMember = "VisaIListBox";
+            lbUtgifter.DisplayMember = "VisaValutaIListBox";
             lbUtgifter.ValueMember = "ValutaKurs";
 
-            lbResa.DisplayMember = "VisaIListBox";
+            lbResa.DisplayMember = "VisaResaIListBox";
             lbResa.ValueMember = "TraktamenteFörLandet";
             lbResa.DataSource = AllaResor;
         }
@@ -59,12 +59,13 @@ namespace vIT_System.GUI
             lblAnsID.Text = ansId.ToString(CultureInfo.InvariantCulture);
             HämtaLänder();
 
+
             if (CompMode == ApplicationMode.Mode.OFFLINE)
             {
                 tbEmail.Enabled = true;
                 tbForNamn.Enabled = true;
                 tbEfterNamn.Enabled = true;
-
+                lblValutaKurs.Text = "Valutakurs kunde inte uppdateras.";
                 cbUppdrag.Items.Add(new ComboboxItem { Text = "Test", Value = 1 });
                 //LaddaValutaOffline(); en ide!
                 LaddaValuta();
@@ -73,6 +74,7 @@ namespace vIT_System.GUI
             {
                 LaddaUppdrag();
                 LaddaValuta();
+                lblValutaKurs.Text = @"Senaste valutakurs: " + DateTime.Now;
             }
         }
 
@@ -108,6 +110,7 @@ namespace vIT_System.GUI
 
             ValidationCheck.checkValidering(tbMilErsattning, "InnehållerBokstav", "milersättning");
             ValidationCheck.checkValidering(tbMilErsattning, "tom", "milersättning");
+            ValidationCheck.checkValidering(tbMilErsattning, "NegativaTal", "milersättning");
 
             var felmeddelanden = ValidationCheck.felString;
 
@@ -121,37 +124,68 @@ namespace vIT_System.GUI
             return false;
         }
 
+        private static bool Ping(){
+            var ping = new Ping();
+
+            try{
+                var result = ping.Send("www.finance.yahoo.com");
+                return result != null && result.Status == IPStatus.Success;
+            }
+            catch (Exception ex){
+                MessageBox.Show(ex.ToString());
+                return false;
+            }
+        }
+
         private void LaddaValuta()
         {
-            var frånstringtilldecimaltilldoubleUsd = ValutaOmvandlare.KonverteraTillFrån("SEK", "USD", "1");
-            var frånstringtilldecimaltilldoubleEur = ValutaOmvandlare.KonverteraTillFrån("SEK", "EUR", "1");
 
-            var sek = new ComboboxItem
+            double frånstringtilldecimaltilldoubleUsd = 0;
+            double frånstringtilldecimaltilldoubleEur = 0;
+
+            if (CompMode == ApplicationMode.Mode.STANDARD){
+            if (Ping())
             {
-                Text = "SEK",
-                Value = 1
-            };
+                frånstringtilldecimaltilldoubleUsd = ValutaOmvandlare.KonverteraTillFrån("SEK", "USD", "1");
+                frånstringtilldecimaltilldoubleEur = ValutaOmvandlare.KonverteraTillFrån("SEK", "EUR", "1");
+
             var dollarinos = new ComboboxItem
             {
                 Text = "USD",
                 Value = frånstringtilldecimaltilldoubleUsd
             };
+
             var evro = new ComboboxItem
             {
                 Text = "EUR",
                 Value = frånstringtilldecimaltilldoubleEur
             };
 
-            cbValuta.Items.Add(sek);
             cbValuta.Items.Add(dollarinos);
             cbValuta.Items.Add(evro);
+                }
+                else
+                {
+                    MessageBox.Show(@"Kunde inte hämta senaste valutakurserna");
+                }
+            }
+
+            var sek = new ComboboxItem
+            {
+                Text = "SEK",
+                Value = 1
+            };
+           
+
+            cbValuta.Items.Add(sek);
+            
 
             cbValuta.SelectedIndex = 0;
         }
 
         private void LaddaUppdrag()
         {
-            
+
             //MessageBox.Show(@"Nu ska vi ha hämtat uppdrag från databasen, men David vågar inte skriva SQL");
             // var allaUppdrag = Uppdrag.All(x => x.Namn); ???
             const string query = "select namn from uppdrag";
@@ -170,7 +204,8 @@ namespace vIT_System.GUI
                 sqldb.Close();
                 myReader.Close();
             }
-            catch (Exception ex){
+            catch (Exception ex)
+            {
                 MessageBox.Show(ex.ToString());
             }
         }
@@ -179,10 +214,12 @@ namespace vIT_System.GUI
         {
 
             double total = 0;
-            foreach (var utgifter in AllaResor)
-            {
-                total = utgifter.UtgifterFörResa.Sum(x => x.Belopp);
-            }
+            //foreach (var utgifter in AllaResor)
+            //{
+            //    total = utgifter.UtgifterFörResa.Sum(x => x.Belopp);
+            //}
+            total = AllaResor[ValdResa].UtgifterFörResa.Sum(x => x.Konverterad);
+
 
             labelTotal.Text = total.ToString(CultureInfo.InvariantCulture);
         }
@@ -192,9 +229,11 @@ namespace vIT_System.GUI
             double parsedBelopp;
             double.TryParse(tbBelopp.Text, out parsedBelopp);
 
+
             ValidationCheck.checkValidering(tbBelopp, "tom", "belopp");
             ValidationCheck.checkValidering(tbBelopp, "bokstäver", "belopp");
             ValidationCheck.checkValidering(tbBelopp, "längre255", "belopp");
+            ValidationCheck.checkValidering(tbBelopp, "NegativaTal", "belopp");
 
             ValidationCheck.checkValidering(tbAndaMal, "tom", "ändamål");
             ValidationCheck.checkValidering(tbAndaMal, "längre255", "ändamål");
@@ -213,13 +252,27 @@ namespace vIT_System.GUI
             var valtItemValutaKurs = Convert.ToDouble(valtItem.Value);
             var valtItemValutaNamn = Convert.ToString(valtItem.Text);
 
+            double konverterad = 0;
+            if (valtItemValutaNamn == "SEK"){
+                konverterad = parsedBelopp;
+            }
+            else if (valtItemValutaNamn == "USD"){
+                konverterad = parsedBelopp * valtItemValutaKurs;
+            }
+            else if (valtItemValutaNamn == "EUR")
+            {
+                konverterad = parsedBelopp * valtItemValutaKurs;
+            }
+
             var nyUtgift = new Utgift
             {
                 Belopp = parsedBelopp,
                 AndaMal = tbAndaMal.Text,
                 Valuta = valtItemValutaNamn,
-                ValutaKurs = valtItemValutaKurs,   
-                Moms = 2 // vi vet fortfarande inte varför vi har moms här. Det är en relik från en svunnen tid.     
+                ValutaKurs = valtItemValutaKurs,
+                Moms = 2,  // vi vet fortfarande inte varför vi har moms här. Det är en relik från en svunnen tid. 
+                Konverterad = konverterad 
+                
             };
 
             AllaResor[ValdResa].UtgifterFörResa.Add(nyUtgift);
@@ -230,7 +283,7 @@ namespace vIT_System.GUI
         private void btnSparaUtkast_Click(object sender, EventArgs e)
         {
             var äcksämäll = new Xmelliserare(@"C:\dump\Ansökan.xml");
-            var dumpPath = @"C:\dump";
+            const string dumpPath = @"C:\dump";
 
             bool exists = System.IO.Directory.Exists(dumpPath);
 
@@ -266,25 +319,36 @@ namespace vIT_System.GUI
             tbEfterNamn.Text = utkast.eftNamn;
             tbMilErsattning.Text = utkast.milErsattning.ToString(CultureInfo.InvariantCulture);
             AllaResor = utkast.Resor;
+            lbResa.DataSource = AllaResor;
+
         }
 
 
 
         private void btnSkickaAnsokan_Click(object sender, EventArgs e)
         {
-            if (!ValideraVidSparaUtkast()) { }
+            if (!ValideraVidSparaUtkast())
+            {
+                
+            }
             //det som ska sparas i db
         }
 
-        private void btnLaggTillResa_Click(object sender, EventArgs e)
+        private bool ValideraVidLaggTillResa()
         {
-
             ValidationCheck.checkValidering(tbSemesterdagar, "InnehållerBokstav", "semesterdagar");
             ValidationCheck.checkValidering(tbSemesterdagar, "längre255", "semesterdagar");
+            ValidationCheck.checkValidering(tbSemesterdagar, "NegativaTal", "semesterdagar");
 
             ValidationCheck.checkValidering(tbFrukost, "InnehållerBokstav", "frukost");
+            ValidationCheck.checkValidering(tbFrukost, "NegativaTal", "frukost");
             ValidationCheck.checkValidering(tbLunch, "InnehållerBokstav", "lunch");
+            ValidationCheck.checkValidering(tbLunch, "NegativaTal", "lunch");
             ValidationCheck.checkValidering(tbMiddag, "InnehållerBokstav", "middag");
+            ValidationCheck.checkValidering(tbMiddag, "NegativaTal", "middag");
+            ValidationCheck.CheckDates(dtpUtResa.Value, dtpHemResa.Value);
+
+
 
             var felmeddelanden = ValidationCheck.felString;
 
@@ -292,24 +356,13 @@ namespace vIT_System.GUI
             {
                 MessageBox.Show(string.Format(@"Följande fel har uppstått: {0}", felmeddelanden));
                 ValidationCheck.felString = "";
-                return;
+                return false;
             }
+            return true;
+        }
 
-            var valtItem = (ComboboxItem)cbLand.SelectedItem;
-            var valtTraktamenteFörLandet = Convert.ToDouble(valtItem.Value);
-            var valtLand = Convert.ToString(valtItem.Text);
-
-            if (dtpUtResa.Value >= dtpHemResa.Value)
-            {
-                MessageBox.Show("Hemresedatum måste vara efter Utresedatum!");
-                return;
-            }
-
-            if (cbUppdrag.SelectedItem == null)
-            {
-                MessageBox.Show("Du måste välja ett uppdrag!");
-                return;
-            }
+        private void btnLaggTillResa_Click(object sender, EventArgs e)
+        {
 
             if (Validation.IsEmpty(tbSemesterdagar.Text))
             {
@@ -330,17 +383,26 @@ namespace vIT_System.GUI
             {
                 tbLunch.Text = "0";
             }
+            if (!ValideraVidLaggTillResa())
+            {
+                return;
+            }
+
+            var valtItem = (ComboboxItem)cbLand.SelectedItem;
+            var valtTraktamenteFörLandet = Convert.ToDouble(valtItem.Value);
+            var valtLand = Convert.ToString(valtItem.Text);
 
             var nyResa = new Resa
             {
-                UtResa = dtpUtResa.Value,                         //ToString("yyyy-MM-dd"),
-                HemResa = dtpHemResa.Value,                       //ToString("yyyy-MM-dd"),
+                UtResa = dtpUtResa.Value,
+                HemResa = dtpHemResa.Value,
                 Land = valtLand,
                 SemesterDagar = tbSemesterdagar.Text,
                 TraktamenteFörLandet = valtTraktamenteFörLandet,
-                AntalMiddag = Convert.ToInt32(tbMiddag.Text),
-                AntalFrukost = Convert.ToInt32(tbFrukost.Text),
-                AntalLunch = Convert.ToInt32(tbLunch.Text),
+                AntalMiddag = 0,//Convert.ToInt32(tbMiddag.Text),
+                AntalFrukost = 0, //Convert.ToInt32(tbFrukost.Text),
+                AntalLunch = 0,//Convert.ToInt32(tbLunch.Text),
+                Uppdrag = "Hej",
                 UtgifterFörResa = new List<Utgift>()
             };
 
@@ -348,8 +410,6 @@ namespace vIT_System.GUI
             double middagförresa = 0;
             double lunchförresa = 0;
             // lokaltraktamenteFörLandet = nyREsa.TraktamenteFörlandet;
-
-
             if (Validation.IsNumeric(tbFrukost.Text))
             {
                 var antalFrukost = Convert.ToDouble(tbFrukost.Text);
@@ -368,35 +428,35 @@ namespace vIT_System.GUI
                 lunchförresa = (nyResa.TraktamenteFörLandet * 0.35) * antalLunch;
             }
 
-            var totaltAvdragFrånTraktamente = frukostförresa + middagförresa + lunchförresa;
+                var totaltAvdragFrånTraktamente = frukostförresa + middagförresa + lunchförresa;
 
-            var antalDagarBortrest = nyResa.UtResa - nyResa.HemResa;
+                var antalDagarBortrest = nyResa.UtResa - nyResa.HemResa;
 
-            double dagarBortrestString = 0;
-            if (antalDagarBortrest.TotalDays < 0)
-            {
-                    dagarBortrestString = antalDagarBortrest.TotalDays*-1;
-            }
-            var totalaDagarBortrestAvrundatUppåt = Math.Ceiling(dagarBortrestString);
+                double dagarBortrestString = 0;
+                if (antalDagarBortrest.TotalDays < 0)
+                {
+                    dagarBortrestString = antalDagarBortrest.TotalDays * -1;
+                }
+                var totalaDagarBortrestAvrundatUppåt = Math.Ceiling(dagarBortrestString);
                 var betalningsBerättigadeDagar = totalaDagarBortrestAvrundatUppåt -
                                                  Convert.ToDouble(tbSemesterdagar.Text);
 
-                var totalUtbetalning = (betalningsBerättigadeDagar*nyResa.TraktamenteFörLandet) -
+                var totalUtbetalning = (betalningsBerättigadeDagar * nyResa.TraktamenteFörLandet) -
                                        totaltAvdragFrånTraktamente;
-            nyResa.TraktamenteEfterAvdrag = totalUtbetalning;
+                nyResa.TraktamenteEfterAvdrag = totalUtbetalning;
 
 
-            tbTotalTraktamentesUtbetalning.Text = totalUtbetalning.ToString(CultureInfo.InvariantCulture);
-            tbTotalTraktamenteDagar.Text = betalningsBerättigadeDagar.ToString(CultureInfo.InvariantCulture);
+                tbTotalTraktamentesUtbetalning.Text = totalUtbetalning.ToString(CultureInfo.InvariantCulture);
+                tbTotalTraktamenteDagar.Text = betalningsBerättigadeDagar.ToString(CultureInfo.InvariantCulture);
 
-            tbMiddag.Text = "";
-            tbLunch.Text = "";
-            tbFrukost.Text = "";
-            tbSemesterdagar.Text = "";
-            dtpHemResa.ResetText();
-            dtpUtResa.ResetText();
+                tbMiddag.Text = "";
+                tbLunch.Text = "";
+                tbFrukost.Text = "";
+                tbSemesterdagar.Text = "";
+                dtpHemResa.ResetText();
+                dtpUtResa.ResetText();
 
-            AllaResor.Add(nyResa);
+                AllaResor.Add(nyResa);
 
 
         }
@@ -451,20 +511,11 @@ namespace vIT_System.GUI
 
             var valtItem = (ComboboxItem)cbValuta.SelectedItem;
             var valutakurs = Convert.ToDouble(valtItem.Value);
-            var valuta = valtItem.Text;
 
             var belopp = Convert.ToDouble(tbBelopp.Text);
 
             var resultat = valutakurs * belopp;
-
-            var asd = new Utgift
-            {
-                Belopp = belopp,
-                AndaMal = "Testar",
-                Valuta = valuta,
-                ValutaKurs = valutakurs,
-                Konverterad = resultat.ToString(CultureInfo.InvariantCulture)
-            };
+            
             //TotalOutPoison.Add(asd);
             MessageBox.Show(resultat.ToString(CultureInfo.InvariantCulture));
 
@@ -477,9 +528,9 @@ namespace vIT_System.GUI
             dtpHemResa.Value = hämtadResa.HemResa;
             dtpUtResa.Value = hämtadResa.UtResa;
             cbLand.SelectedItem = hämtadResa.Land;
-            tbFrukost.Text = hämtadResa.AntalFrukost.ToString();
-            tbMiddag.Text = hämtadResa.AntalMiddag.ToString();
-            tbLunch.Text = hämtadResa.AntalLunch.ToString();
+            tbFrukost.Text = hämtadResa.AntalFrukost.ToString(CultureInfo.InvariantCulture);
+            tbMiddag.Text = hämtadResa.AntalMiddag.ToString(CultureInfo.InvariantCulture);
+            tbLunch.Text = hämtadResa.AntalLunch.ToString(CultureInfo.InvariantCulture);
             lbUtgifter.DataSource = hämtadResa.UtgifterFörResa;
 
         }
@@ -489,12 +540,26 @@ namespace vIT_System.GUI
 
             lbUtgifter.Items.Clear();
             ValdResa = lbResa.SelectedIndex;
+            labelTotal.Text = @"0";
 
-            for (var i = 0; i < AllaResor[ValdResa].UtgifterFörResa.Count; i++)
+            if (AllaResor[ValdResa].UtgifterFörResa.Count == 0 || AllaResor[ValdResa].UtgifterFörResa == null)
             {
-                var utgift = AllaResor[ValdResa].UtgifterFörResa[i];
-                lbUtgifter.Items.Add(utgift);
             }
+            else
+            {
+
+                for (var i = 0; i < AllaResor[ValdResa].UtgifterFörResa.Count; i++)
+                {
+                    var utgift = AllaResor[ValdResa].UtgifterFörResa[i];
+                    lbUtgifter.Items.Add(utgift);
+                }
+                UppdateraTotalSumma();
+            }
+        }
+
+        private void btnLaggTillAvdrag_Click(object sender, EventArgs e)
+        {
+
         }
 
 

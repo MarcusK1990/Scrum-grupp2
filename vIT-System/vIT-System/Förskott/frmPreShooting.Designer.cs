@@ -37,31 +37,30 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cbChooseUppdrag = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.lblValMot = new System.Windows.Forms.Label();
             this.lblValSum = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 65);
+            this.label1.Location = new System.Drawing.Point(52, 115);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.Size = new System.Drawing.Size(59, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Motivering";
+            this.label1.Text = "Motivering:";
             // 
             // tbMotivation
             // 
-            this.tbMotivation.Location = new System.Drawing.Point(126, 65);
+            this.tbMotivation.Location = new System.Drawing.Point(126, 115);
             this.tbMotivation.Multiline = true;
             this.tbMotivation.Name = "tbMotivation";
             this.tbMotivation.Size = new System.Drawing.Size(300, 160);
-            this.tbMotivation.TabIndex = 1;
+            this.tbMotivation.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 290);
+            this.label2.Location = new System.Drawing.Point(66, 293);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 13);
             this.label2.TabIndex = 2;
@@ -77,56 +76,47 @@
             // 
             // btnSendPre
             // 
-            this.btnSendPre.Location = new System.Drawing.Point(126, 360);
+            this.btnSendPre.Location = new System.Drawing.Point(286, 288);
             this.btnSendPre.Name = "btnSendPre";
-            this.btnSendPre.Size = new System.Drawing.Size(75, 23);
+            this.btnSendPre.Size = new System.Drawing.Size(108, 23);
             this.btnSendPre.TabIndex = 4;
-            this.btnSendPre.Text = "Skicka";
+            this.btnSendPre.Text = "Skicka ansökan";
             this.btnSendPre.UseVisualStyleBackColor = true;
             this.btnSendPre.Click += new System.EventHandler(this.btnSendPre_Click);
             // 
             // cbBoss
             // 
             this.cbBoss.FormattingEnabled = true;
-            this.cbBoss.Location = new System.Drawing.Point(126, 324);
+            this.cbBoss.Location = new System.Drawing.Point(126, 39);
             this.cbBoss.Name = "cbBoss";
             this.cbBoss.Size = new System.Drawing.Size(121, 21);
-            this.cbBoss.TabIndex = 5;
+            this.cbBoss.TabIndex = 0;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(48, 331);
+            this.label3.Location = new System.Drawing.Point(74, 42);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 13);
+            this.label3.Size = new System.Drawing.Size(32, 13);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Chef";
+            this.label3.Text = "Chef:";
             // 
             // cbChooseUppdrag
             // 
             this.cbChooseUppdrag.FormattingEnabled = true;
-            this.cbChooseUppdrag.Location = new System.Drawing.Point(126, 252);
+            this.cbChooseUppdrag.Location = new System.Drawing.Point(126, 75);
             this.cbChooseUppdrag.Name = "cbChooseUppdrag";
-            this.cbChooseUppdrag.Size = new System.Drawing.Size(300, 21);
-            this.cbChooseUppdrag.TabIndex = 7;
+            this.cbChooseUppdrag.Size = new System.Drawing.Size(233, 21);
+            this.cbChooseUppdrag.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(48, 255);
+            this.label4.Location = new System.Drawing.Point(52, 78);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 13);
             this.label4.TabIndex = 8;
             this.label4.Text = "Uppdrag:";
-            // 
-            // lblValMot
-            // 
-            this.lblValMot.AutoSize = true;
-            this.lblValMot.Location = new System.Drawing.Point(123, 228);
-            this.lblValMot.Name = "lblValMot";
-            this.lblValMot.Size = new System.Drawing.Size(13, 13);
-            this.lblValMot.TabIndex = 9;
-            this.lblValMot.Text = "  ";
             // 
             // lblValSum
             // 
@@ -141,9 +131,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(526, 429);
+            this.ClientSize = new System.Drawing.Size(485, 331);
             this.Controls.Add(this.lblValSum);
-            this.Controls.Add(this.lblValMot);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cbChooseUppdrag);
             this.Controls.Add(this.label3);
@@ -172,7 +161,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbChooseUppdrag;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lblValMot;
         private System.Windows.Forms.Label lblValSum;
     }
 }

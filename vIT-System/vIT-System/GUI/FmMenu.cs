@@ -94,5 +94,11 @@ namespace vIT_System.GUI
             form = new FrmTravelorderr(MenyMode);
             form.Show();
         }
+
+        private void sammanställKvartalsrapporterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new frmFinancialStatement();
+            form.Show();
+        }
     }
 }

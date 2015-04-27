@@ -45,19 +45,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 28);
+            this.label1.Location = new System.Drawing.Point(97, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.Size = new System.Drawing.Size(122, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Hämta förskott ";
+            this.label1.Text = "Hämta förskottsansökan";
             // 
             // cbShowFid
             // 
             this.cbShowFid.FormattingEnabled = true;
-            this.cbShowFid.Location = new System.Drawing.Point(27, 44);
+            this.cbShowFid.Location = new System.Drawing.Point(100, 35);
             this.cbShowFid.Name = "cbShowFid";
             this.cbShowFid.Size = new System.Drawing.Size(199, 21);
-            this.cbShowFid.TabIndex = 3;
+            this.cbShowFid.TabIndex = 0;
             this.cbShowFid.SelectedIndexChanged += new System.EventHandler(this.cbShowFid_SelectedIndexChanged);
             // 
             // label2
@@ -98,10 +98,11 @@
             // 
             // tbMotivation
             // 
-            this.tbMotivation.Location = new System.Drawing.Point(100, 84);
+            this.tbMotivation.Location = new System.Drawing.Point(100, 71);
             this.tbMotivation.Multiline = true;
             this.tbMotivation.Name = "tbMotivation";
-            this.tbMotivation.Size = new System.Drawing.Size(300, 44);
+            this.tbMotivation.ReadOnly = true;
+            this.tbMotivation.Size = new System.Drawing.Size(300, 57);
             this.tbMotivation.TabIndex = 14;
             // 
             // label9
@@ -118,7 +119,8 @@
             this.tbUppdrag.Location = new System.Drawing.Point(100, 134);
             this.tbUppdrag.Multiline = true;
             this.tbUppdrag.Name = "tbUppdrag";
-            this.tbUppdrag.Size = new System.Drawing.Size(126, 16);
+            this.tbUppdrag.ReadOnly = true;
+            this.tbUppdrag.Size = new System.Drawing.Size(126, 20);
             this.tbUppdrag.TabIndex = 18;
             // 
             // tbSumma
@@ -126,7 +128,8 @@
             this.tbSumma.Location = new System.Drawing.Point(100, 165);
             this.tbSumma.Multiline = true;
             this.tbSumma.Name = "tbSumma";
-            this.tbSumma.Size = new System.Drawing.Size(126, 16);
+            this.tbSumma.ReadOnly = true;
+            this.tbSumma.Size = new System.Drawing.Size(126, 20);
             this.tbSumma.TabIndex = 19;
             // 
             // tbChef
@@ -134,7 +137,8 @@
             this.tbChef.Location = new System.Drawing.Point(100, 192);
             this.tbChef.Multiline = true;
             this.tbChef.Name = "tbChef";
-            this.tbChef.Size = new System.Drawing.Size(126, 16);
+            this.tbChef.ReadOnly = true;
+            this.tbChef.Size = new System.Drawing.Size(126, 20);
             this.tbChef.TabIndex = 20;
             // 
             // tbStatus
@@ -142,14 +146,15 @@
             this.tbStatus.Location = new System.Drawing.Point(100, 220);
             this.tbStatus.Multiline = true;
             this.tbStatus.Name = "tbStatus";
-            this.tbStatus.Size = new System.Drawing.Size(126, 16);
+            this.tbStatus.ReadOnly = true;
+            this.tbStatus.Size = new System.Drawing.Size(126, 20);
             this.tbStatus.TabIndex = 21;
             // 
             // frmMyPreShooting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(479, 336);
+            this.ClientSize = new System.Drawing.Size(463, 278);
             this.Controls.Add(this.tbStatus);
             this.Controls.Add(this.tbChef);
             this.Controls.Add(this.tbSumma);
@@ -163,7 +168,7 @@
             this.Controls.Add(this.cbShowFid);
             this.Controls.Add(this.label1);
             this.Name = "frmMyPreShooting";
-            this.Text = "frmMyPreShooting";
+            this.Text = "Se status på förskottsansökan";
             this.Load += new System.EventHandler(this.frmMyPreShooting_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

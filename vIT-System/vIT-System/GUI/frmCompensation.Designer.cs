@@ -58,7 +58,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.tbSemesterdagar = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label28 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.cbUppdrag = new System.Windows.Forms.ComboBox();
             this.lbResa = new System.Windows.Forms.ListBox();
             this.btnLaggTillResa = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
@@ -71,7 +73,6 @@
             this.tbFrukost = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.groaupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.tbSummaUtgifter = new System.Windows.Forms.TextBox();
             this.tbTotalaAvdrag = new System.Windows.Forms.TextBox();
             this.tbTotalMilErsättning = new System.Windows.Forms.TextBox();
@@ -86,6 +87,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.lblAnsID = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tbMilErsattning = new System.Windows.Forms.TextBox();
@@ -94,8 +96,6 @@
             this.btnSkickaAnsokan = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.btnLaddaUtkast = new System.Windows.Forms.Button();
-            this.cbUppdrag = new System.Windows.Forms.ComboBox();
-            this.label28 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groaupBox3.SuspendLayout();
@@ -105,7 +105,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(324, 6);
+            this.label1.Location = new System.Drawing.Point(332, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 0;
@@ -114,7 +114,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(580, 9);
+            this.label2.Location = new System.Drawing.Point(559, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 1;
@@ -141,37 +141,37 @@
             // tbForNamn
             // 
             this.tbForNamn.Enabled = false;
-            this.tbForNamn.Location = new System.Drawing.Point(401, 3);
+            this.tbForNamn.Location = new System.Drawing.Point(389, 6);
             this.tbForNamn.Name = "tbForNamn";
             this.tbForNamn.Size = new System.Drawing.Size(155, 20);
-            this.tbForNamn.TabIndex = 4;
+            this.tbForNamn.TabIndex = 1;
             // 
             // tbEfterNamn
             // 
             this.tbEfterNamn.Enabled = false;
-            this.tbEfterNamn.Location = new System.Drawing.Point(657, 6);
+            this.tbEfterNamn.Location = new System.Drawing.Point(639, 6);
             this.tbEfterNamn.Name = "tbEfterNamn";
             this.tbEfterNamn.Size = new System.Drawing.Size(155, 20);
-            this.tbEfterNamn.TabIndex = 5;
+            this.tbEfterNamn.TabIndex = 2;
             // 
             // dtpUtResa
             // 
             this.dtpUtResa.Location = new System.Drawing.Point(67, 33);
             this.dtpUtResa.Name = "dtpUtResa";
             this.dtpUtResa.Size = new System.Drawing.Size(145, 20);
-            this.dtpUtResa.TabIndex = 6;
+            this.dtpUtResa.TabIndex = 4;
             // 
             // dtpHemResa
             // 
             this.dtpHemResa.Location = new System.Drawing.Point(67, 64);
             this.dtpHemResa.Name = "dtpHemResa";
             this.dtpHemResa.Size = new System.Drawing.Size(145, 20);
-            this.dtpHemResa.TabIndex = 7;
+            this.dtpHemResa.TabIndex = 5;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(114, 6);
+            this.label5.Location = new System.Drawing.Point(114, 9);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(36, 13);
             this.label5.TabIndex = 8;
@@ -180,24 +180,24 @@
             // tbEmail
             // 
             this.tbEmail.Enabled = false;
-            this.tbEmail.Location = new System.Drawing.Point(156, 3);
+            this.tbEmail.Location = new System.Drawing.Point(156, 6);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(155, 20);
-            this.tbEmail.TabIndex = 9;
+            this.tbEmail.TabIndex = 0;
             // 
             // tbBelopp
             // 
             this.tbBelopp.Location = new System.Drawing.Point(74, 36);
             this.tbBelopp.Name = "tbBelopp";
             this.tbBelopp.Size = new System.Drawing.Size(81, 20);
-            this.tbBelopp.TabIndex = 11;
+            this.tbBelopp.TabIndex = 16;
             // 
             // btnKvitto
             // 
             this.btnKvitto.Location = new System.Drawing.Point(6, 169);
             this.btnKvitto.Name = "btnKvitto";
             this.btnKvitto.Size = new System.Drawing.Size(75, 23);
-            this.btnKvitto.TabIndex = 12;
+            this.btnKvitto.TabIndex = 20;
             this.btnKvitto.Text = "Bifoga kvitto";
             this.btnKvitto.UseVisualStyleBackColor = true;
             this.btnKvitto.Click += new System.EventHandler(this.button1_Click);
@@ -226,7 +226,7 @@
             this.groupBox1.Location = new System.Drawing.Point(23, 227);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(449, 227);
-            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Utgifter";
             // 
@@ -253,7 +253,7 @@
             this.tbKvitto.Location = new System.Drawing.Point(74, 132);
             this.tbKvitto.Name = "tbKvitto";
             this.tbKvitto.Size = new System.Drawing.Size(81, 20);
-            this.tbKvitto.TabIndex = 33;
+            this.tbKvitto.TabIndex = 19;
             // 
             // lbUtgifter
             // 
@@ -261,7 +261,7 @@
             this.lbUtgifter.Location = new System.Drawing.Point(222, 23);
             this.lbUtgifter.Name = "lbUtgifter";
             this.lbUtgifter.Size = new System.Drawing.Size(216, 95);
-            this.lbUtgifter.TabIndex = 23;
+            this.lbUtgifter.TabIndex = 22;
             // 
             // label13
             // 
@@ -295,7 +295,7 @@
             this.btnUtgiter.Location = new System.Drawing.Point(94, 169);
             this.btnUtgiter.Name = "btnUtgiter";
             this.btnUtgiter.Size = new System.Drawing.Size(75, 23);
-            this.btnUtgiter.TabIndex = 18;
+            this.btnUtgiter.TabIndex = 21;
             this.btnUtgiter.Text = "Lägg till";
             this.btnUtgiter.UseVisualStyleBackColor = true;
             this.btnUtgiter.Click += new System.EventHandler(this.btnUtgiter_Click);
@@ -306,7 +306,7 @@
             this.cbValuta.Location = new System.Drawing.Point(74, 102);
             this.cbValuta.Name = "cbValuta";
             this.cbValuta.Size = new System.Drawing.Size(81, 21);
-            this.cbValuta.TabIndex = 17;
+            this.cbValuta.TabIndex = 18;
             // 
             // label8
             // 
@@ -340,7 +340,7 @@
             this.tbAndaMal.Location = new System.Drawing.Point(74, 67);
             this.tbAndaMal.Name = "tbAndaMal";
             this.tbAndaMal.Size = new System.Drawing.Size(81, 20);
-            this.tbAndaMal.TabIndex = 13;
+            this.tbAndaMal.TabIndex = 17;
             // 
             // label9
             // 
@@ -356,7 +356,7 @@
             this.tbSemesterdagar.Location = new System.Drawing.Point(322, 38);
             this.tbSemesterdagar.Name = "tbSemesterdagar";
             this.tbSemesterdagar.Size = new System.Drawing.Size(60, 20);
-            this.tbSemesterdagar.TabIndex = 15;
+            this.tbSemesterdagar.TabIndex = 7;
             // 
             // groupBox2
             // 
@@ -383,19 +383,37 @@
             this.groupBox2.Location = new System.Drawing.Point(13, 35);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(465, 434);
-            this.groupBox2.TabIndex = 16;
+            this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Resa";
             // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(247, 12);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(51, 13);
+            this.label28.TabIndex = 35;
+            this.label28.Text = "Uppdrag:";
+            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(148, 158);
+            this.button2.Location = new System.Drawing.Point(137, 159);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 27);
-            this.button2.TabIndex = 26;
+            this.button2.Size = new System.Drawing.Size(75, 24);
+            this.button2.TabIndex = 13;
             this.button2.Text = "Ändra resa";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // cbUppdrag
+            // 
+            this.cbUppdrag.FormattingEnabled = true;
+            this.cbUppdrag.Location = new System.Drawing.Point(304, 9);
+            this.cbUppdrag.MaxDropDownItems = 50;
+            this.cbUppdrag.Name = "cbUppdrag";
+            this.cbUppdrag.Size = new System.Drawing.Size(121, 21);
+            this.cbUppdrag.TabIndex = 6;
             // 
             // lbResa
             // 
@@ -403,15 +421,15 @@
             this.lbResa.Location = new System.Drawing.Point(232, 90);
             this.lbResa.Name = "lbResa";
             this.lbResa.Size = new System.Drawing.Size(216, 95);
-            this.lbResa.TabIndex = 24;
+            this.lbResa.TabIndex = 14;
             this.lbResa.SelectedIndexChanged += new System.EventHandler(this.lbResa_SelectedIndexChanged);
             // 
             // btnLaggTillResa
             // 
-            this.btnLaggTillResa.Location = new System.Drawing.Point(67, 162);
+            this.btnLaggTillResa.Location = new System.Drawing.Point(48, 160);
             this.btnLaggTillResa.Name = "btnLaggTillResa";
             this.btnLaggTillResa.Size = new System.Drawing.Size(75, 23);
-            this.btnLaggTillResa.TabIndex = 23;
+            this.btnLaggTillResa.TabIndex = 12;
             this.btnLaggTillResa.Text = "Lägg till";
             this.btnLaggTillResa.UseVisualStyleBackColor = true;
             this.btnLaggTillResa.Click += new System.EventHandler(this.btnLaggTillResa_Click);
@@ -432,7 +450,7 @@
             this.cbLand.MaxDropDownItems = 50;
             this.cbLand.Name = "cbLand";
             this.cbLand.Size = new System.Drawing.Size(121, 21);
-            this.cbLand.TabIndex = 24;
+            this.cbLand.TabIndex = 8;
             // 
             // label25
             // 
@@ -466,21 +484,21 @@
             this.tbMiddag.Location = new System.Drawing.Point(159, 129);
             this.tbMiddag.Name = "tbMiddag";
             this.tbMiddag.Size = new System.Drawing.Size(32, 20);
-            this.tbMiddag.TabIndex = 12;
+            this.tbMiddag.TabIndex = 11;
             // 
             // tbLunch
             // 
             this.tbLunch.Location = new System.Drawing.Point(113, 129);
             this.tbLunch.Name = "tbLunch";
             this.tbLunch.Size = new System.Drawing.Size(30, 20);
-            this.tbLunch.TabIndex = 13;
+            this.tbLunch.TabIndex = 10;
             // 
             // tbFrukost
             // 
             this.tbFrukost.Location = new System.Drawing.Point(67, 129);
             this.tbFrukost.Name = "tbFrukost";
             this.tbFrukost.Size = new System.Drawing.Size(34, 20);
-            this.tbFrukost.TabIndex = 14;
+            this.tbFrukost.TabIndex = 9;
             // 
             // label16
             // 
@@ -510,19 +528,9 @@
             this.groaupBox3.Location = new System.Drawing.Point(492, 38);
             this.groaupBox3.Name = "groaupBox3";
             this.groaupBox3.Size = new System.Drawing.Size(314, 269);
-            this.groaupBox3.TabIndex = 17;
+            this.groaupBox3.TabIndex = 23;
             this.groaupBox3.TabStop = false;
             this.groaupBox3.Text = "Traktamente";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(657, 322);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(137, 23);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Räkna ut Belopp * Land";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // tbSummaUtgifter
             // 
@@ -530,7 +538,7 @@
             this.tbSummaUtgifter.Location = new System.Drawing.Point(215, 137);
             this.tbSummaUtgifter.Name = "tbSummaUtgifter";
             this.tbSummaUtgifter.Size = new System.Drawing.Size(86, 20);
-            this.tbSummaUtgifter.TabIndex = 38;
+            this.tbSummaUtgifter.TabIndex = 29;
             // 
             // tbTotalaAvdrag
             // 
@@ -538,7 +546,7 @@
             this.tbTotalaAvdrag.Location = new System.Drawing.Point(215, 115);
             this.tbTotalaAvdrag.Name = "tbTotalaAvdrag";
             this.tbTotalaAvdrag.Size = new System.Drawing.Size(86, 20);
-            this.tbTotalaAvdrag.TabIndex = 37;
+            this.tbTotalaAvdrag.TabIndex = 28;
             // 
             // tbTotalMilErsättning
             // 
@@ -546,7 +554,7 @@
             this.tbTotalMilErsättning.Location = new System.Drawing.Point(215, 92);
             this.tbTotalMilErsättning.Name = "tbTotalMilErsättning";
             this.tbTotalMilErsättning.Size = new System.Drawing.Size(86, 20);
-            this.tbTotalMilErsättning.TabIndex = 36;
+            this.tbTotalMilErsättning.TabIndex = 27;
             // 
             // tbTotalTraktamentesUtbetalning
             // 
@@ -554,7 +562,7 @@
             this.tbTotalTraktamentesUtbetalning.Location = new System.Drawing.Point(215, 69);
             this.tbTotalTraktamentesUtbetalning.Name = "tbTotalTraktamentesUtbetalning";
             this.tbTotalTraktamentesUtbetalning.Size = new System.Drawing.Size(86, 20);
-            this.tbTotalTraktamentesUtbetalning.TabIndex = 35;
+            this.tbTotalTraktamentesUtbetalning.TabIndex = 26;
             // 
             // tbTotalTraktamenteDagar
             // 
@@ -562,7 +570,7 @@
             this.tbTotalTraktamenteDagar.Location = new System.Drawing.Point(215, 47);
             this.tbTotalTraktamenteDagar.Name = "tbTotalTraktamenteDagar";
             this.tbTotalTraktamenteDagar.Size = new System.Drawing.Size(86, 20);
-            this.tbTotalTraktamenteDagar.TabIndex = 34;
+            this.tbTotalTraktamenteDagar.TabIndex = 25;
             // 
             // tbEventuelltTasBort
             // 
@@ -570,7 +578,7 @@
             this.tbEventuelltTasBort.Location = new System.Drawing.Point(215, 25);
             this.tbEventuelltTasBort.Name = "tbEventuelltTasBort";
             this.tbEventuelltTasBort.Size = new System.Drawing.Size(86, 20);
-            this.tbEventuelltTasBort.TabIndex = 33;
+            this.tbEventuelltTasBort.TabIndex = 24;
             // 
             // label26
             // 
@@ -595,9 +603,10 @@
             this.btnLaggTillAvdrag.Location = new System.Drawing.Point(9, 240);
             this.btnLaggTillAvdrag.Name = "btnLaggTillAvdrag";
             this.btnLaggTillAvdrag.Size = new System.Drawing.Size(151, 23);
-            this.btnLaggTillAvdrag.TabIndex = 26;
+            this.btnLaggTillAvdrag.TabIndex = 30;
             this.btnLaggTillAvdrag.Text = "Uppdatera sammanställning";
             this.btnLaggTillAvdrag.UseVisualStyleBackColor = true;
+            this.btnLaggTillAvdrag.Click += new System.EventHandler(this.btnLaggTillAvdrag_Click);
             // 
             // label21
             // 
@@ -644,6 +653,16 @@
             this.label15.TabIndex = 0;
             this.label15.Text = "Sparas ifall nått mer ska in";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(657, 322);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(137, 23);
+            this.button1.TabIndex = 40;
+            this.button1.Text = "Räkna ut Belopp * Land";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // lblAnsID
             // 
             this.lblAnsID.AutoSize = true;
@@ -656,10 +675,10 @@
             // 
             this.groupBox3.Controls.Add(this.tbMilErsattning);
             this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Location = new System.Drawing.Point(501, 377);
+            this.groupBox3.Location = new System.Drawing.Point(501, 359);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(172, 56);
-            this.groupBox3.TabIndex = 18;
+            this.groupBox3.TabIndex = 31;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Milersättning";
             // 
@@ -668,7 +687,7 @@
             this.tbMilErsattning.Location = new System.Drawing.Point(61, 27);
             this.tbMilErsattning.Name = "tbMilErsattning";
             this.tbMilErsattning.Size = new System.Drawing.Size(68, 20);
-            this.tbMilErsattning.TabIndex = 23;
+            this.tbMilErsattning.TabIndex = 32;
             // 
             // label14
             // 
@@ -681,20 +700,20 @@
             // 
             // btnSparaUtkast
             // 
-            this.btnSparaUtkast.Location = new System.Drawing.Point(611, 455);
+            this.btnSparaUtkast.Location = new System.Drawing.Point(501, 443);
             this.btnSparaUtkast.Name = "btnSparaUtkast";
             this.btnSparaUtkast.Size = new System.Drawing.Size(75, 23);
-            this.btnSparaUtkast.TabIndex = 28;
+            this.btnSparaUtkast.TabIndex = 33;
             this.btnSparaUtkast.Text = "Spara utkast";
             this.btnSparaUtkast.UseVisualStyleBackColor = true;
             this.btnSparaUtkast.Click += new System.EventHandler(this.btnSparaUtkast_Click);
             // 
             // btnSkickaAnsokan
             // 
-            this.btnSkickaAnsokan.Location = new System.Drawing.Point(721, 443);
+            this.btnSkickaAnsokan.Location = new System.Drawing.Point(716, 431);
             this.btnSkickaAnsokan.Name = "btnSkickaAnsokan";
             this.btnSkickaAnsokan.Size = new System.Drawing.Size(109, 47);
-            this.btnSkickaAnsokan.TabIndex = 29;
+            this.btnSkickaAnsokan.TabIndex = 35;
             this.btnSkickaAnsokan.Text = "Skicka ansökan";
             this.btnSkickaAnsokan.UseVisualStyleBackColor = true;
             this.btnSkickaAnsokan.Click += new System.EventHandler(this.btnSkickaAnsokan_Click);
@@ -710,31 +729,13 @@
             // 
             // btnLaddaUtkast
             // 
-            this.btnLaddaUtkast.Location = new System.Drawing.Point(510, 455);
+            this.btnLaddaUtkast.Location = new System.Drawing.Point(591, 443);
             this.btnLaddaUtkast.Name = "btnLaddaUtkast";
-            this.btnLaddaUtkast.Size = new System.Drawing.Size(75, 23);
-            this.btnLaddaUtkast.TabIndex = 31;
-            this.btnLaddaUtkast.Text = "Ladda utkast";
+            this.btnLaddaUtkast.Size = new System.Drawing.Size(97, 23);
+            this.btnLaddaUtkast.TabIndex = 34;
+            this.btnLaddaUtkast.Text = "Hämta sparad";
             this.btnLaddaUtkast.UseVisualStyleBackColor = true;
             this.btnLaddaUtkast.Click += new System.EventHandler(this.btnLaddaUtkast_Click);
-            // 
-            // cbUppdrag
-            // 
-            this.cbUppdrag.FormattingEnabled = true;
-            this.cbUppdrag.Location = new System.Drawing.Point(304, 9);
-            this.cbUppdrag.MaxDropDownItems = 50;
-            this.cbUppdrag.Name = "cbUppdrag";
-            this.cbUppdrag.Size = new System.Drawing.Size(121, 21);
-            this.cbUppdrag.TabIndex = 26;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(247, 12);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(51, 13);
-            this.label28.TabIndex = 35;
-            this.label28.Text = "Uppdrag:";
             // 
             // FrmCompensation
             // 
@@ -758,7 +759,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FrmCompensation";
-            this.Text = "reseersättning";
+            this.Text = "Ansökan om reseersättning";
             this.Load += new System.EventHandler(this.frmCompensation_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

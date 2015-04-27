@@ -41,33 +41,37 @@
             this.LbxLand = new System.Windows.Forms.ListBox();
             this.btnLaggTillLand = new System.Windows.Forms.Button();
             this.btnTaBortLand = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbTravelNamn
             // 
-            this.tbTravelNamn.Location = new System.Drawing.Point(90, 25);
+            this.tbTravelNamn.Location = new System.Drawing.Point(80, 29);
             this.tbTravelNamn.Name = "tbTravelNamn";
             this.tbTravelNamn.Size = new System.Drawing.Size(100, 20);
-            this.tbTravelNamn.TabIndex = 0;
+            this.tbTravelNamn.TabIndex = 1;
             // 
             // tbTravelEnamn
             // 
-            this.tbTravelEnamn.Location = new System.Drawing.Point(90, 64);
+            this.tbTravelEnamn.Location = new System.Drawing.Point(80, 63);
             this.tbTravelEnamn.Name = "tbTravelEnamn";
             this.tbTravelEnamn.Size = new System.Drawing.Size(100, 20);
-            this.tbTravelEnamn.TabIndex = 1;
+            this.tbTravelEnamn.TabIndex = 2;
             // 
             // tbTravelEmal
             // 
-            this.tbTravelEmal.Location = new System.Drawing.Point(90, 101);
+            this.tbTravelEmal.Location = new System.Drawing.Point(80, 95);
             this.tbTravelEmal.Name = "tbTravelEmal";
             this.tbTravelEmal.Size = new System.Drawing.Size(100, 20);
-            this.tbTravelEmal.TabIndex = 2;
+            this.tbTravelEmal.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 67);
+            this.label1.Location = new System.Drawing.Point(16, 63);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 3;
@@ -76,7 +80,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 28);
+            this.label3.Location = new System.Drawing.Point(16, 29);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 13);
             this.label3.TabIndex = 3;
@@ -85,7 +89,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 108);
+            this.label4.Location = new System.Drawing.Point(16, 95);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 4;
@@ -93,10 +97,10 @@
             // 
             // btnSkickaReseOrder
             // 
-            this.btnSkickaReseOrder.Location = new System.Drawing.Point(235, 198);
+            this.btnSkickaReseOrder.Location = new System.Drawing.Point(450, 206);
             this.btnSkickaReseOrder.Name = "btnSkickaReseOrder";
             this.btnSkickaReseOrder.Size = new System.Drawing.Size(75, 23);
-            this.btnSkickaReseOrder.TabIndex = 6;
+            this.btnSkickaReseOrder.TabIndex = 10;
             this.btnSkickaReseOrder.Text = "Skicka order";
             this.btnSkickaReseOrder.UseVisualStyleBackColor = true;
             this.btnSkickaReseOrder.Click += new System.EventHandler(this.btnSkickaReseOrder_Click);
@@ -104,15 +108,15 @@
             // cmbTravelUppdrag
             // 
             this.cmbTravelUppdrag.FormattingEnabled = true;
-            this.cmbTravelUppdrag.Location = new System.Drawing.Point(90, 195);
+            this.cmbTravelUppdrag.Location = new System.Drawing.Point(80, 136);
             this.cmbTravelUppdrag.Name = "cmbTravelUppdrag";
             this.cmbTravelUppdrag.Size = new System.Drawing.Size(121, 21);
-            this.cmbTravelUppdrag.TabIndex = 7;
+            this.cmbTravelUppdrag.TabIndex = 4;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 203);
+            this.label5.Location = new System.Drawing.Point(16, 136);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(51, 13);
             this.label5.TabIndex = 8;
@@ -121,60 +125,80 @@
             // cmbLand
             // 
             this.cmbLand.FormattingEnabled = true;
-            this.cmbLand.Location = new System.Drawing.Point(216, 24);
+            this.cmbLand.Location = new System.Drawing.Point(26, 26);
             this.cmbLand.Name = "cmbLand";
             this.cmbLand.Size = new System.Drawing.Size(121, 21);
-            this.cmbLand.TabIndex = 9;
+            this.cmbLand.TabIndex = 6;
             // 
             // LbxLand
             // 
             this.LbxLand.FormattingEnabled = true;
-            this.LbxLand.Location = new System.Drawing.Point(216, 64);
+            this.LbxLand.Location = new System.Drawing.Point(27, 53);
             this.LbxLand.Name = "LbxLand";
             this.LbxLand.Size = new System.Drawing.Size(120, 95);
-            this.LbxLand.TabIndex = 10;
+            this.LbxLand.TabIndex = 8;
             // 
             // btnLaggTillLand
             // 
-            this.btnLaggTillLand.Location = new System.Drawing.Point(358, 24);
+            this.btnLaggTillLand.Location = new System.Drawing.Point(161, 24);
             this.btnLaggTillLand.Name = "btnLaggTillLand";
             this.btnLaggTillLand.Size = new System.Drawing.Size(75, 23);
-            this.btnLaggTillLand.TabIndex = 11;
+            this.btnLaggTillLand.TabIndex = 7;
             this.btnLaggTillLand.Text = "Lägg till land";
             this.btnLaggTillLand.UseVisualStyleBackColor = true;
             this.btnLaggTillLand.Click += new System.EventHandler(this.btnLaggTillLand_Click);
             // 
             // btnTaBortLand
             // 
-            this.btnTaBortLand.Location = new System.Drawing.Point(358, 67);
+            this.btnTaBortLand.Location = new System.Drawing.Point(161, 53);
             this.btnTaBortLand.Name = "btnTaBortLand";
             this.btnTaBortLand.Size = new System.Drawing.Size(75, 23);
-            this.btnTaBortLand.TabIndex = 12;
+            this.btnTaBortLand.TabIndex = 9;
             this.btnTaBortLand.Text = "Ta bort valt land";
             this.btnTaBortLand.UseVisualStyleBackColor = true;
             this.btnTaBortLand.Click += new System.EventHandler(this.btnTaBortLand_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.btnSkickaReseOrder);
+            this.groupBox1.Controls.Add(this.tbTravelNamn);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.tbTravelEnamn);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.cmbTravelUppdrag);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.tbTravelEmal);
+            this.groupBox1.Location = new System.Drawing.Point(39, 34);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(562, 235);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.cmbLand);
+            this.groupBox2.Controls.Add(this.LbxLand);
+            this.groupBox2.Controls.Add(this.btnLaggTillLand);
+            this.groupBox2.Controls.Add(this.btnTaBortLand);
+            this.groupBox2.Location = new System.Drawing.Point(263, 19);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(262, 166);
+            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabStop = false;
+            // 
             // FrmTravelorderr
             // 
-            this.ClientSize = new System.Drawing.Size(470, 261);
-            this.Controls.Add(this.btnTaBortLand);
-            this.Controls.Add(this.btnLaggTillLand);
-            this.Controls.Add(this.LbxLand);
-            this.Controls.Add(this.cmbLand);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.cmbTravelUppdrag);
-            this.Controls.Add(this.btnSkickaReseOrder);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.tbTravelEmal);
-            this.Controls.Add(this.tbTravelEnamn);
-            this.Controls.Add(this.tbTravelNamn);
+            this.ClientSize = new System.Drawing.Size(630, 301);
+            this.Controls.Add(this.groupBox1);
             this.Name = "FrmTravelorderr";
-            this.Text = "Rese Order";
+            this.Text = "Reseorder";
             this.Load += new System.EventHandler(this.FrmTravelorder_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -197,5 +221,7 @@
         private System.Windows.Forms.ListBox LbxLand;
         private System.Windows.Forms.Button btnLaggTillLand;
         private System.Windows.Forms.Button btnTaBortLand;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

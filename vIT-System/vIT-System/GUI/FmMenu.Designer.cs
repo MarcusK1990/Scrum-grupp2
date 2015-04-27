@@ -33,10 +33,11 @@
             this.mItemPreShoot = new System.Windows.Forms.ToolStripMenuItem();
             this.mItemTravel = new System.Windows.Forms.ToolStripMenuItem();
             this.mItemMyAppli = new System.Windows.Forms.ToolStripMenuItem();
+            this.reseOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chefToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hanteraKonsulterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sammanställKvartalsrapporterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblStatus = new System.Windows.Forms.Label();
-            this.reseOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,10 +84,18 @@
             this.mItemMyAppli.Text = "Mina ansökningar";
             this.mItemMyAppli.Click += new System.EventHandler(this.mItemMyAppli_Click);
             // 
+            // reseOrderToolStripMenuItem
+            // 
+            this.reseOrderToolStripMenuItem.Name = "reseOrderToolStripMenuItem";
+            this.reseOrderToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.reseOrderToolStripMenuItem.Text = "Reseorder";
+            this.reseOrderToolStripMenuItem.Click += new System.EventHandler(this.reseOrderToolStripMenuItem_Click);
+            // 
             // chefToolStripMenuItem
             // 
             this.chefToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hanteraKonsulterToolStripMenuItem});
+            this.hanteraKonsulterToolStripMenuItem,
+            this.sammanställKvartalsrapporterToolStripMenuItem});
             this.chefToolStripMenuItem.Name = "chefToolStripMenuItem";
             this.chefToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.chefToolStripMenuItem.Text = "Chef";
@@ -95,9 +104,16 @@
             // hanteraKonsulterToolStripMenuItem
             // 
             this.hanteraKonsulterToolStripMenuItem.Name = "hanteraKonsulterToolStripMenuItem";
-            this.hanteraKonsulterToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.hanteraKonsulterToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
             this.hanteraKonsulterToolStripMenuItem.Text = "Hantera konsulter";
             this.hanteraKonsulterToolStripMenuItem.Click += new System.EventHandler(this.hanteraKonsulterToolStripMenuItem_Click);
+            // 
+            // sammanställKvartalsrapporterToolStripMenuItem
+            // 
+            this.sammanställKvartalsrapporterToolStripMenuItem.Name = "sammanställKvartalsrapporterToolStripMenuItem";
+            this.sammanställKvartalsrapporterToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.sammanställKvartalsrapporterToolStripMenuItem.Text = "Sammanställ kvartalsrapporter";
+            this.sammanställKvartalsrapporterToolStripMenuItem.Click += new System.EventHandler(this.sammanställKvartalsrapporterToolStripMenuItem_Click);
             // 
             // lblStatus
             // 
@@ -108,13 +124,6 @@
             this.lblStatus.Size = new System.Drawing.Size(0, 39);
             this.lblStatus.TabIndex = 1;
             // 
-            // reseOrderToolStripMenuItem
-            // 
-            this.reseOrderToolStripMenuItem.Name = "reseOrderToolStripMenuItem";
-            this.reseOrderToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.reseOrderToolStripMenuItem.Text = "Rese order";
-            this.reseOrderToolStripMenuItem.Click += new System.EventHandler(this.reseOrderToolStripMenuItem_Click);
-            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -124,7 +133,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmMenu";
-            this.Text = "frmMenu";
+            this.Text = "Meny";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMenu_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -144,5 +153,6 @@
         private System.Windows.Forms.ToolStripMenuItem chefToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hanteraKonsulterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reseOrderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sammanställKvartalsrapporterToolStripMenuItem;
     }
 }
