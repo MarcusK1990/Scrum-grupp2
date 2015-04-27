@@ -110,7 +110,7 @@
             this.cbVisaSokande.Location = new System.Drawing.Point(122, 38);
             this.cbVisaSokande.Name = "cbVisaSokande";
             this.cbVisaSokande.Size = new System.Drawing.Size(202, 21);
-            this.cbVisaSokande.TabIndex = 26;
+            this.cbVisaSokande.TabIndex = 0;
             this.cbVisaSokande.SelectedIndexChanged += new System.EventHandler(this.cbVisaSokande_SelectedIndexChanged);
             // 
             // btnGodkann
@@ -118,7 +118,7 @@
             this.btnGodkann.Location = new System.Drawing.Point(121, 262);
             this.btnGodkann.Name = "btnGodkann";
             this.btnGodkann.Size = new System.Drawing.Size(75, 23);
-            this.btnGodkann.TabIndex = 27;
+            this.btnGodkann.TabIndex = 1;
             this.btnGodkann.Text = "Godkänn";
             this.btnGodkann.UseVisualStyleBackColor = true;
             this.btnGodkann.Click += new System.EventHandler(this.btnGodkann_Click);
@@ -128,7 +128,7 @@
             this.btnAvsla.Location = new System.Drawing.Point(249, 262);
             this.btnAvsla.Name = "btnAvsla";
             this.btnAvsla.Size = new System.Drawing.Size(75, 23);
-            this.btnAvsla.TabIndex = 28;
+            this.btnAvsla.TabIndex = 2;
             this.btnAvsla.Text = "Avslå";
             this.btnAvsla.UseVisualStyleBackColor = true;
             this.btnAvsla.Click += new System.EventHandler(this.btnAvsla_Click);

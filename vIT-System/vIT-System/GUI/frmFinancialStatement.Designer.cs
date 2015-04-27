@@ -95,7 +95,7 @@
             this.button1.Location = new System.Drawing.Point(76, 117);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
+            this.button1.TabIndex = 2;
             this.button1.Text = "Visa";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -150,7 +150,8 @@
             this.tbSumErs.Name = "tbSumErs";
             this.tbSumErs.ReadOnly = true;
             this.tbSumErs.Size = new System.Drawing.Size(100, 20);
-            this.tbSumErs.TabIndex = 12;
+            this.tbSumErs.TabIndex = 6;
+            this.tbSumErs.TabStop = false;
             // 
             // tbAntalResor
             // 
@@ -158,7 +159,8 @@
             this.tbAntalResor.Name = "tbAntalResor";
             this.tbAntalResor.ReadOnly = true;
             this.tbAntalResor.Size = new System.Drawing.Size(100, 20);
-            this.tbAntalResor.TabIndex = 11;
+            this.tbAntalResor.TabIndex = 5;
+            this.tbAntalResor.TabStop = false;
             // 
             // tbPeriod2
             // 
@@ -166,7 +168,8 @@
             this.tbPeriod2.Name = "tbPeriod2";
             this.tbPeriod2.ReadOnly = true;
             this.tbPeriod2.Size = new System.Drawing.Size(65, 20);
-            this.tbPeriod2.TabIndex = 10;
+            this.tbPeriod2.TabIndex = 4;
+            this.tbPeriod2.TabStop = false;
             // 
             // tbPeriod1
             // 
@@ -174,7 +177,8 @@
             this.tbPeriod1.Name = "tbPeriod1";
             this.tbPeriod1.ReadOnly = true;
             this.tbPeriod1.Size = new System.Drawing.Size(63, 20);
-            this.tbPeriod1.TabIndex = 9;
+            this.tbPeriod1.TabIndex = 3;
+            this.tbPeriod1.TabStop = false;
             // 
             // groupBox2
             // 
