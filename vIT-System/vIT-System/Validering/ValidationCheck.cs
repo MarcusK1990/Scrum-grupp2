@@ -60,5 +60,14 @@
                 felString += "\n• Hemresedatum måste vara efter utresedatum.";
             }
         }
+
+        public static void CheckCombox(System.Windows.Forms.ComboBox cb, string fältNamn)
+        {
+            //string valt = cb.SelectedItem.ToString();
+            if (cb.SelectedItem == null)
+            {
+                felString += "\n• Inget objekt i comboboxen för " + fältNamn + " är valt.";
+            }
+        }
     }
 }

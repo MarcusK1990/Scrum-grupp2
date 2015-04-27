@@ -5,6 +5,7 @@ using System.Net.Mail;
 using vIT_System.Data;
 using System.Data.SqlClient;
 using System.Collections.Generic;
+using vIT_System.Validering;
 
 namespace vIT_System.GUI
 {
@@ -35,20 +36,38 @@ namespace vIT_System.GUI
                 cbChooseUppdrag.Items.Add(upp);
             }
         }
+        private bool Validering()
+        {
+            ValidationCheck.checkValidering(tbSum, "InnehållerBokstav", "summa");
+            ValidationCheck.checkValidering(tbSum, "tom", "summa");
+            ValidationCheck.checkValidering(tbSum, "NegativaTal", "summa");
+
+            ValidationCheck.checkValidering(tbMotivation, "tom", "motivering");
+            ValidationCheck.checkValidering(tbMotivation, "längre255", "motivering");
+
+            ValidationCheck.CheckCombox(cbBoss, "chef");
+            ValidationCheck.CheckCombox(cbChooseUppdrag, "uppdrag");
+
+            var felmeddelanden = ValidationCheck.felString;
+
+            if (felmeddelanden.Length <= 0)
+            {
+                return true;
+            }
+
+            MessageBox.Show(string.Format(@"Följande fel har uppstått: {0}", felmeddelanden));
+            ValidationCheck.felString = "";
+            return false;
+        }
 
         //Posta innehållet i formuläret till databasen
         private void btnSendPre_Click(object sender, EventArgs e)
         {
             //Hämtar värden i boxarna
-            if (Validation.IsEmpty(tbMotivation.ToString()) ||
-              Validation.IsEmpty(tbSum.Text) ||
-              Validation.IsEmpty(cbBoss.SelectedItem.ToString()) ||
-              Validation.IsEmpty(cbChooseUppdrag.SelectedItem.ToString()))
+            if (!Validering())
             {
-                MessageBox.Show("Fyll i alla fält!");
+                return;
             }
-            else
-            {
                 var motiv = tbMotivation.Text;
                 var uppdrag = cbChooseUppdrag.SelectedItem.ToString();
                 var boss = cbBoss.SelectedItem.ToString();
@@ -68,7 +87,6 @@ namespace vIT_System.GUI
                 cbBoss.SelectedIndex = -1;
                 cbChooseUppdrag.SelectedIndex = -1;
                 
-            }
         }
 
         //En egen metod för att skicka mailet, för att det inte skulle bli så grötigt i click-metoden
