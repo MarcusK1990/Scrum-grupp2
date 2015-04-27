@@ -103,6 +103,7 @@
             this.cbVisaRid.Name = "cbVisaRid";
             this.cbVisaRid.Size = new System.Drawing.Size(216, 21);
             this.cbVisaRid.TabIndex = 4;
+            this.cbVisaRid.SelectedIndexChanged += new System.EventHandler(this.cbVisaRid_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -130,6 +131,7 @@
             this.btnGodkann.TabIndex = 28;
             this.btnGodkann.Text = "Godkänn";
             this.btnGodkann.UseVisualStyleBackColor = true;
+            this.btnGodkann.Click += new System.EventHandler(this.btnGodkann_Click);
             // 
             // label6
             // 
@@ -320,6 +322,7 @@
             this.button1.TabIndex = 53;
             this.button1.Text = "Avslå";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Ansökningshantering
             // 
