@@ -162,10 +162,10 @@
             // 
             // tbPeriod2
             // 
-            this.tbPeriod2.Location = new System.Drawing.Point(194, 24);
+            this.tbPeriod2.Location = new System.Drawing.Point(194, 23);
             this.tbPeriod2.Name = "tbPeriod2";
             this.tbPeriod2.ReadOnly = true;
-            this.tbPeriod2.Size = new System.Drawing.Size(57, 20);
+            this.tbPeriod2.Size = new System.Drawing.Size(65, 20);
             this.tbPeriod2.TabIndex = 10;
             // 
             // tbPeriod1

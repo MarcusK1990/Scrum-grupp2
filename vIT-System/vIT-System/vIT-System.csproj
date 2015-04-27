@@ -200,9 +200,6 @@
     <Compile Include="XmlRelaterat\Utgift.cs" />
     <Compile Include="XmlRelaterat\Xmelliserare.cs" />
     <EmbeddedResource Include="Form1.resx" />
-    <EmbeddedResource Include="Formulärhantering\Ansökningshantering.resx">
-      <DependentUpon>Ansökningshantering.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Formulärhantering\Forskottshantering.resx">
       <DependentUpon>Forskottshantering.cs</DependentUpon>
     </EmbeddedResource>
