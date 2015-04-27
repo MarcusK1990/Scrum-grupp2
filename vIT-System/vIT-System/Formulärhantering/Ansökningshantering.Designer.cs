@@ -103,6 +103,7 @@
             this.cbVisaRid.Name = "cbVisaRid";
             this.cbVisaRid.Size = new System.Drawing.Size(216, 21);
             this.cbVisaRid.TabIndex = 4;
+            this.cbVisaRid.SelectedIndexChanged += new System.EventHandler(this.cbVisaRid_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -130,6 +131,7 @@
             this.btnGodkann.TabIndex = 28;
             this.btnGodkann.Text = "Godkänn";
             this.btnGodkann.UseVisualStyleBackColor = true;
+            this.btnGodkann.Click += new System.EventHandler(this.btnGodkann_Click);
             // 
             // label6
             // 
@@ -320,12 +322,13 @@
             this.button1.TabIndex = 53;
             this.button1.Text = "Avslå";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Ansökningshantering
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(978, 605);
+            this.ClientSize = new System.Drawing.Size(860, 490);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.listView1);
@@ -356,7 +359,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbVisaAnsid);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Ansökningshantering";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Ansökningshantering";
             this.Load += new System.EventHandler(this.Ansökningshantering_Load);
             this.ResumeLayout(false);

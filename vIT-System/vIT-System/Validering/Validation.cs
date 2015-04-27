@@ -106,6 +106,30 @@ namespace vIT_System
             }
             return true;
         }
+        public static bool IsNegativeNumber(string str)
+        {
+            int number;
+            if (!String.IsNullOrWhiteSpace(str))
+            {
+                try
+                {
+                    number = Convert.ToInt32(str);
+                }
+                catch (FormatException e)
+                {
+                    return true;
+                }
+                if (number > -1)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
     }
 }

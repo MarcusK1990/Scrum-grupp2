@@ -37,7 +37,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cbChooseUppdrag = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.lblValMot = new System.Windows.Forms.Label();
             this.lblValSum = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -56,7 +55,7 @@
             this.tbMotivation.Multiline = true;
             this.tbMotivation.Name = "tbMotivation";
             this.tbMotivation.Size = new System.Drawing.Size(300, 160);
-            this.tbMotivation.TabIndex = 1;
+            this.tbMotivation.TabIndex = 2;
             // 
             // label2
             // 
@@ -91,7 +90,7 @@
             this.cbBoss.Location = new System.Drawing.Point(126, 39);
             this.cbBoss.Name = "cbBoss";
             this.cbBoss.Size = new System.Drawing.Size(121, 21);
-            this.cbBoss.TabIndex = 5;
+            this.cbBoss.TabIndex = 0;
             // 
             // label3
             // 
@@ -108,7 +107,7 @@
             this.cbChooseUppdrag.Location = new System.Drawing.Point(126, 75);
             this.cbChooseUppdrag.Name = "cbChooseUppdrag";
             this.cbChooseUppdrag.Size = new System.Drawing.Size(233, 21);
-            this.cbChooseUppdrag.TabIndex = 7;
+            this.cbChooseUppdrag.TabIndex = 1;
             // 
             // label4
             // 
@@ -118,15 +117,6 @@
             this.label4.Size = new System.Drawing.Size(51, 13);
             this.label4.TabIndex = 8;
             this.label4.Text = "Uppdrag:";
-            // 
-            // lblValMot
-            // 
-            this.lblValMot.AutoSize = true;
-            this.lblValMot.Location = new System.Drawing.Point(123, 228);
-            this.lblValMot.Name = "lblValMot";
-            this.lblValMot.Size = new System.Drawing.Size(13, 13);
-            this.lblValMot.TabIndex = 9;
-            this.lblValMot.Text = "  ";
             // 
             // lblValSum
             // 
@@ -141,9 +131,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(485, 331);
+            this.ClientSize = new System.Drawing.Size(860, 490);
             this.Controls.Add(this.lblValSum);
-            this.Controls.Add(this.lblValMot);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cbChooseUppdrag);
             this.Controls.Add(this.label3);
@@ -153,7 +142,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbMotivation);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPreShooting";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Förskottsansökan";
             this.Load += new System.EventHandler(this.frmPreShooting_Load);
             this.ResumeLayout(false);
@@ -172,7 +163,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbChooseUppdrag;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lblValMot;
         private System.Windows.Forms.Label lblValSum;
     }
 }

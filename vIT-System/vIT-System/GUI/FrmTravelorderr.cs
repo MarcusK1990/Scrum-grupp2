@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using vIT_System.Data;
 using vIT_System.XmlRelaterat;
+using vIT_System.Validering;
 
 namespace vIT_System.GUI
 {
@@ -101,8 +102,6 @@ namespace vIT_System.GUI
 
         private void btnLaggTillLand_Click(object sender, EventArgs e)
         {
-        
-
             //var valtItem = (ComboBox)cmbLand.SelectedItem;
             //var valtLand = Convert.ToString(valItem.Text);
             LbxLand.Items.Add(cmbLand.Text);
@@ -111,6 +110,40 @@ namespace vIT_System.GUI
         private void btnTaBortLand_Click(object sender, EventArgs e)
         {
             LbxLand.Items.Clear();
+        }
+
+        private void btnSkickaReseOrder_Click(object sender, EventArgs e)
+        {
+            if (!Validera())
+            {
+                return;
+            }
+            MessageBox.Show("Din Reseorder är skickad");
+        }
+        private bool Validera()
+        {
+            ValidationCheck.checkValidering(tbTravelNamn, "tom", "förnamn");
+            ValidationCheck.checkValidering(tbTravelNamn, "innehållerInt", "förnamn");
+            ValidationCheck.checkValidering(tbTravelNamn, "längre255", "förnamn");
+
+            ValidationCheck.checkValidering(tbTravelEnamn, "tom", "efternamn");
+            ValidationCheck.checkValidering(tbTravelEnamn, "innehållerInt", "efternamn");
+            ValidationCheck.checkValidering(tbTravelEnamn, "längre255", "efternamn");
+
+            ValidationCheck.checkValidering(tbTravelEmal, "tom", "email");
+            ValidationCheck.checkValidering(tbTravelEmal, "email", "email");
+
+            ValidationCheck.CheckCombox(cmbTravelUppdrag, "uppdrag");
+
+            var felmeddelanden = ValidationCheck.felString;
+
+            if (felmeddelanden.Length > 0)
+            {
+                MessageBox.Show(string.Format(@"Följande fel har uppstått: {0}", felmeddelanden));
+                ValidationCheck.felString = "";
+                return false;
+            }
+            return true;
         }
     }
 }

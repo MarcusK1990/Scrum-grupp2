@@ -145,7 +145,7 @@
             this.tbForNamn.Location = new System.Drawing.Point(389, 6);
             this.tbForNamn.Name = "tbForNamn";
             this.tbForNamn.Size = new System.Drawing.Size(155, 20);
-            this.tbForNamn.TabIndex = 4;
+            this.tbForNamn.TabIndex = 1;
             // 
             // tbEfterNamn
             // 
@@ -153,21 +153,21 @@
             this.tbEfterNamn.Location = new System.Drawing.Point(639, 6);
             this.tbEfterNamn.Name = "tbEfterNamn";
             this.tbEfterNamn.Size = new System.Drawing.Size(155, 20);
-            this.tbEfterNamn.TabIndex = 5;
+            this.tbEfterNamn.TabIndex = 2;
             // 
             // dtpUtResa
             // 
             this.dtpUtResa.Location = new System.Drawing.Point(67, 33);
             this.dtpUtResa.Name = "dtpUtResa";
             this.dtpUtResa.Size = new System.Drawing.Size(145, 20);
-            this.dtpUtResa.TabIndex = 6;
+            this.dtpUtResa.TabIndex = 4;
             // 
             // dtpHemResa
             // 
             this.dtpHemResa.Location = new System.Drawing.Point(67, 64);
             this.dtpHemResa.Name = "dtpHemResa";
             this.dtpHemResa.Size = new System.Drawing.Size(145, 20);
-            this.dtpHemResa.TabIndex = 7;
+            this.dtpHemResa.TabIndex = 5;
             // 
             // label5
             // 
@@ -184,21 +184,21 @@
             this.tbEmail.Location = new System.Drawing.Point(156, 6);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(155, 20);
-            this.tbEmail.TabIndex = 9;
+            this.tbEmail.TabIndex = 0;
             // 
             // tbBelopp
             // 
             this.tbBelopp.Location = new System.Drawing.Point(74, 36);
             this.tbBelopp.Name = "tbBelopp";
             this.tbBelopp.Size = new System.Drawing.Size(81, 20);
-            this.tbBelopp.TabIndex = 11;
+            this.tbBelopp.TabIndex = 16;
             // 
             // btnKvitto
             // 
             this.btnKvitto.Location = new System.Drawing.Point(6, 169);
             this.btnKvitto.Name = "btnKvitto";
             this.btnKvitto.Size = new System.Drawing.Size(75, 23);
-            this.btnKvitto.TabIndex = 12;
+            this.btnKvitto.TabIndex = 20;
             this.btnKvitto.Text = "Bifoga kvitto";
             this.btnKvitto.UseVisualStyleBackColor = true;
             this.btnKvitto.Click += new System.EventHandler(this.button1_Click);
@@ -227,7 +227,7 @@
             this.groupBox1.Location = new System.Drawing.Point(23, 227);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(449, 227);
-            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Utgifter";
             // 
@@ -254,7 +254,7 @@
             this.tbKvitto.Location = new System.Drawing.Point(74, 132);
             this.tbKvitto.Name = "tbKvitto";
             this.tbKvitto.Size = new System.Drawing.Size(81, 20);
-            this.tbKvitto.TabIndex = 33;
+            this.tbKvitto.TabIndex = 19;
             // 
             // lbUtgifter
             // 
@@ -262,7 +262,7 @@
             this.lbUtgifter.Location = new System.Drawing.Point(222, 23);
             this.lbUtgifter.Name = "lbUtgifter";
             this.lbUtgifter.Size = new System.Drawing.Size(216, 95);
-            this.lbUtgifter.TabIndex = 23;
+            this.lbUtgifter.TabIndex = 22;
             // 
             // label13
             // 
@@ -296,7 +296,7 @@
             this.btnUtgiter.Location = new System.Drawing.Point(94, 169);
             this.btnUtgiter.Name = "btnUtgiter";
             this.btnUtgiter.Size = new System.Drawing.Size(75, 23);
-            this.btnUtgiter.TabIndex = 18;
+            this.btnUtgiter.TabIndex = 21;
             this.btnUtgiter.Text = "Lägg till";
             this.btnUtgiter.UseVisualStyleBackColor = true;
             this.btnUtgiter.Click += new System.EventHandler(this.btnUtgiter_Click);
@@ -307,7 +307,7 @@
             this.cbValuta.Location = new System.Drawing.Point(74, 102);
             this.cbValuta.Name = "cbValuta";
             this.cbValuta.Size = new System.Drawing.Size(81, 21);
-            this.cbValuta.TabIndex = 17;
+            this.cbValuta.TabIndex = 18;
             // 
             // label8
             // 
@@ -341,7 +341,7 @@
             this.tbAndaMal.Location = new System.Drawing.Point(74, 67);
             this.tbAndaMal.Name = "tbAndaMal";
             this.tbAndaMal.Size = new System.Drawing.Size(81, 20);
-            this.tbAndaMal.TabIndex = 13;
+            this.tbAndaMal.TabIndex = 17;
             // 
             // label9
             // 
@@ -357,7 +357,7 @@
             this.tbSemesterdagar.Location = new System.Drawing.Point(322, 38);
             this.tbSemesterdagar.Name = "tbSemesterdagar";
             this.tbSemesterdagar.Size = new System.Drawing.Size(60, 20);
-            this.tbSemesterdagar.TabIndex = 15;
+            this.tbSemesterdagar.TabIndex = 7;
             // 
             // groupBox2
             // 
@@ -384,7 +384,7 @@
             this.groupBox2.Location = new System.Drawing.Point(13, 35);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(465, 434);
-            this.groupBox2.TabIndex = 16;
+            this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Resa";
             // 
@@ -403,7 +403,7 @@
             this.button2.Location = new System.Drawing.Point(137, 159);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 24);
-            this.button2.TabIndex = 26;
+            this.button2.TabIndex = 13;
             this.button2.Text = "Ändra resa";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -415,7 +415,7 @@
             this.cbUppdrag.MaxDropDownItems = 50;
             this.cbUppdrag.Name = "cbUppdrag";
             this.cbUppdrag.Size = new System.Drawing.Size(121, 21);
-            this.cbUppdrag.TabIndex = 26;
+            this.cbUppdrag.TabIndex = 6;
             // 
             // lbResa
             // 
@@ -423,7 +423,7 @@
             this.lbResa.Location = new System.Drawing.Point(232, 90);
             this.lbResa.Name = "lbResa";
             this.lbResa.Size = new System.Drawing.Size(216, 95);
-            this.lbResa.TabIndex = 24;
+            this.lbResa.TabIndex = 14;
             this.lbResa.SelectedIndexChanged += new System.EventHandler(this.lbResa_SelectedIndexChanged);
             // 
             // btnLaggTillResa
@@ -431,7 +431,7 @@
             this.btnLaggTillResa.Location = new System.Drawing.Point(48, 160);
             this.btnLaggTillResa.Name = "btnLaggTillResa";
             this.btnLaggTillResa.Size = new System.Drawing.Size(75, 23);
-            this.btnLaggTillResa.TabIndex = 23;
+            this.btnLaggTillResa.TabIndex = 12;
             this.btnLaggTillResa.Text = "Lägg till";
             this.btnLaggTillResa.UseVisualStyleBackColor = true;
             this.btnLaggTillResa.Click += new System.EventHandler(this.btnLaggTillResa_Click);
@@ -452,7 +452,7 @@
             this.cbLand.MaxDropDownItems = 50;
             this.cbLand.Name = "cbLand";
             this.cbLand.Size = new System.Drawing.Size(121, 21);
-            this.cbLand.TabIndex = 24;
+            this.cbLand.TabIndex = 8;
             // 
             // label25
             // 
@@ -486,21 +486,21 @@
             this.tbMiddag.Location = new System.Drawing.Point(159, 129);
             this.tbMiddag.Name = "tbMiddag";
             this.tbMiddag.Size = new System.Drawing.Size(32, 20);
-            this.tbMiddag.TabIndex = 12;
+            this.tbMiddag.TabIndex = 11;
             // 
             // tbLunch
             // 
             this.tbLunch.Location = new System.Drawing.Point(113, 129);
             this.tbLunch.Name = "tbLunch";
             this.tbLunch.Size = new System.Drawing.Size(30, 20);
-            this.tbLunch.TabIndex = 13;
+            this.tbLunch.TabIndex = 10;
             // 
             // tbFrukost
             // 
             this.tbFrukost.Location = new System.Drawing.Point(67, 129);
             this.tbFrukost.Name = "tbFrukost";
             this.tbFrukost.Size = new System.Drawing.Size(34, 20);
-            this.tbFrukost.TabIndex = 14;
+            this.tbFrukost.TabIndex = 9;
             // 
             // label16
             // 
@@ -530,17 +530,17 @@
             this.groaupBox3.Location = new System.Drawing.Point(492, 38);
             this.groaupBox3.Name = "groaupBox3";
             this.groaupBox3.Size = new System.Drawing.Size(314, 269);
-            this.groaupBox3.TabIndex = 17;
+            this.groaupBox3.TabIndex = 23;
             this.groaupBox3.TabStop = false;
             this.groaupBox3.Text = "Traktamente";
             // 
             // tbTotalaUtgifter
             // 
-            this.tbTotalaUtgifter.Enabled = false;
-            this.tbTotalaUtgifter.Location = new System.Drawing.Point(215, 137);
-            this.tbTotalaUtgifter.Name = "tbTotalaUtgifter";
-            this.tbTotalaUtgifter.Size = new System.Drawing.Size(86, 20);
-            this.tbTotalaUtgifter.TabIndex = 38;
+            this.tbSummaUtgifter.Enabled = false;
+            this.tbSummaUtgifter.Location = new System.Drawing.Point(215, 137);
+            this.tbSummaUtgifter.Name = "tbSummaUtgifter";
+            this.tbSummaUtgifter.Size = new System.Drawing.Size(86, 20);
+            this.tbSummaUtgifter.TabIndex = 29;
             // 
             // tbTotalaAvdrag
             // 
@@ -548,7 +548,7 @@
             this.tbTotalaAvdrag.Location = new System.Drawing.Point(215, 115);
             this.tbTotalaAvdrag.Name = "tbTotalaAvdrag";
             this.tbTotalaAvdrag.Size = new System.Drawing.Size(86, 20);
-            this.tbTotalaAvdrag.TabIndex = 37;
+            this.tbTotalaAvdrag.TabIndex = 28;
             // 
             // tbTotalMilErsättning
             // 
@@ -556,7 +556,7 @@
             this.tbTotalMilErsättning.Location = new System.Drawing.Point(215, 92);
             this.tbTotalMilErsättning.Name = "tbTotalMilErsättning";
             this.tbTotalMilErsättning.Size = new System.Drawing.Size(86, 20);
-            this.tbTotalMilErsättning.TabIndex = 36;
+            this.tbTotalMilErsättning.TabIndex = 27;
             // 
             // tbTotalTraktamentesUtbetalning
             // 
@@ -564,7 +564,7 @@
             this.tbTotalTraktamentesUtbetalning.Location = new System.Drawing.Point(215, 69);
             this.tbTotalTraktamentesUtbetalning.Name = "tbTotalTraktamentesUtbetalning";
             this.tbTotalTraktamentesUtbetalning.Size = new System.Drawing.Size(86, 20);
-            this.tbTotalTraktamentesUtbetalning.TabIndex = 35;
+            this.tbTotalTraktamentesUtbetalning.TabIndex = 26;
             // 
             // tbTotalTraktamenteDagar
             // 
@@ -572,7 +572,7 @@
             this.tbTotalTraktamenteDagar.Location = new System.Drawing.Point(215, 47);
             this.tbTotalTraktamenteDagar.Name = "tbTotalTraktamenteDagar";
             this.tbTotalTraktamenteDagar.Size = new System.Drawing.Size(86, 20);
-            this.tbTotalTraktamenteDagar.TabIndex = 34;
+            this.tbTotalTraktamenteDagar.TabIndex = 25;
             // 
             // tbDagarBortRest
             // 
@@ -602,13 +602,13 @@
             // 
             // btnUppdateraSammanstallning
             // 
-            this.btnUppdateraSammanstallning.Location = new System.Drawing.Point(9, 240);
-            this.btnUppdateraSammanstallning.Name = "btnUppdateraSammanstallning";
-            this.btnUppdateraSammanstallning.Size = new System.Drawing.Size(151, 23);
-            this.btnUppdateraSammanstallning.TabIndex = 26;
-            this.btnUppdateraSammanstallning.Text = "Uppdatera sammanställning";
-            this.btnUppdateraSammanstallning.UseVisualStyleBackColor = true;
-            this.btnUppdateraSammanstallning.Click += new System.EventHandler(this.btnUppdateraSammanstallning_Click);
+            this.btnLaggTillAvdrag.Location = new System.Drawing.Point(9, 240);
+            this.btnLaggTillAvdrag.Name = "btnLaggTillAvdrag";
+            this.btnLaggTillAvdrag.Size = new System.Drawing.Size(151, 23);
+            this.btnLaggTillAvdrag.TabIndex = 30;
+            this.btnLaggTillAvdrag.Text = "Uppdatera sammanställning";
+            this.btnLaggTillAvdrag.UseVisualStyleBackColor = true;
+            this.btnLaggTillAvdrag.Click += new System.EventHandler(this.btnLaggTillAvdrag_Click);
             // 
             // label21
             // 
@@ -660,7 +660,7 @@
             this.button1.Location = new System.Drawing.Point(657, 322);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(137, 23);
-            this.button1.TabIndex = 24;
+            this.button1.TabIndex = 40;
             this.button1.Text = "Räkna ut Belopp * Land";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
@@ -680,7 +680,7 @@
             this.groupBox3.Location = new System.Drawing.Point(501, 359);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(172, 56);
-            this.groupBox3.TabIndex = 18;
+            this.groupBox3.TabIndex = 31;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Milersättning";
             // 
@@ -689,7 +689,7 @@
             this.tbMilErsattning.Location = new System.Drawing.Point(61, 27);
             this.tbMilErsattning.Name = "tbMilErsattning";
             this.tbMilErsattning.Size = new System.Drawing.Size(68, 20);
-            this.tbMilErsattning.TabIndex = 23;
+            this.tbMilErsattning.TabIndex = 32;
             // 
             // label14
             // 
@@ -705,7 +705,7 @@
             this.btnSparaUtkast.Location = new System.Drawing.Point(501, 443);
             this.btnSparaUtkast.Name = "btnSparaUtkast";
             this.btnSparaUtkast.Size = new System.Drawing.Size(75, 23);
-            this.btnSparaUtkast.TabIndex = 28;
+            this.btnSparaUtkast.TabIndex = 33;
             this.btnSparaUtkast.Text = "Spara utkast";
             this.btnSparaUtkast.UseVisualStyleBackColor = true;
             this.btnSparaUtkast.Click += new System.EventHandler(this.btnSparaUtkast_Click);
@@ -715,7 +715,7 @@
             this.btnSkickaAnsokan.Location = new System.Drawing.Point(716, 431);
             this.btnSkickaAnsokan.Name = "btnSkickaAnsokan";
             this.btnSkickaAnsokan.Size = new System.Drawing.Size(109, 47);
-            this.btnSkickaAnsokan.TabIndex = 29;
+            this.btnSkickaAnsokan.TabIndex = 35;
             this.btnSkickaAnsokan.Text = "Skicka ansökan";
             this.btnSkickaAnsokan.UseVisualStyleBackColor = true;
             this.btnSkickaAnsokan.Click += new System.EventHandler(this.btnSkickaAnsokan_Click);
@@ -734,7 +734,7 @@
             this.btnLaddaUtkast.Location = new System.Drawing.Point(591, 443);
             this.btnLaddaUtkast.Name = "btnLaddaUtkast";
             this.btnLaddaUtkast.Size = new System.Drawing.Size(97, 23);
-            this.btnLaddaUtkast.TabIndex = 31;
+            this.btnLaddaUtkast.TabIndex = 34;
             this.btnLaddaUtkast.Text = "Hämta sparad";
             this.btnLaddaUtkast.UseVisualStyleBackColor = true;
             this.btnLaddaUtkast.Click += new System.EventHandler(this.btnLaddaUtkast_Click);
@@ -753,8 +753,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(863, 504);
-            this.Controls.Add(this.btnMilErsättningPlus);
+            this.ClientSize = new System.Drawing.Size(860, 490);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblAnsID);
@@ -771,7 +770,9 @@
             this.Controls.Add(this.tbForNamn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmCompensation";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Ansökan om reseersättning";
             this.Load += new System.EventHandler(this.frmCompensation_Load);
             this.groupBox1.ResumeLayout(false);

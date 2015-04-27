@@ -110,7 +110,7 @@
             this.cbVisaSokande.Location = new System.Drawing.Point(122, 38);
             this.cbVisaSokande.Name = "cbVisaSokande";
             this.cbVisaSokande.Size = new System.Drawing.Size(202, 21);
-            this.cbVisaSokande.TabIndex = 26;
+            this.cbVisaSokande.TabIndex = 0;
             this.cbVisaSokande.SelectedIndexChanged += new System.EventHandler(this.cbVisaSokande_SelectedIndexChanged);
             // 
             // btnGodkann
@@ -118,7 +118,7 @@
             this.btnGodkann.Location = new System.Drawing.Point(121, 262);
             this.btnGodkann.Name = "btnGodkann";
             this.btnGodkann.Size = new System.Drawing.Size(75, 23);
-            this.btnGodkann.TabIndex = 27;
+            this.btnGodkann.TabIndex = 1;
             this.btnGodkann.Text = "Godkänn";
             this.btnGodkann.UseVisualStyleBackColor = true;
             this.btnGodkann.Click += new System.EventHandler(this.btnGodkann_Click);
@@ -128,7 +128,7 @@
             this.btnAvsla.Location = new System.Drawing.Point(249, 262);
             this.btnAvsla.Name = "btnAvsla";
             this.btnAvsla.Size = new System.Drawing.Size(75, 23);
-            this.btnAvsla.TabIndex = 28;
+            this.btnAvsla.TabIndex = 2;
             this.btnAvsla.Text = "Avslå";
             this.btnAvsla.UseVisualStyleBackColor = true;
             this.btnAvsla.Click += new System.EventHandler(this.btnAvsla_Click);
@@ -162,7 +162,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(424, 320);
+            this.ClientSize = new System.Drawing.Size(860, 490);
             this.Controls.Add(this.tbSokande);
             this.Controls.Add(this.Sokande);
             this.Controls.Add(this.label5);
@@ -176,7 +176,9 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Forskottshantering";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Nya förskottsansökningar";
             this.Load += new System.EventHandler(this.Forskottshantering_Load);
             this.ResumeLayout(false);

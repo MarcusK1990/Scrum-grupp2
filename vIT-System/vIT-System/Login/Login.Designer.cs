@@ -84,7 +84,7 @@
             this.btnLoggaInOffline.Location = new System.Drawing.Point(161, 135);
             this.btnLoggaInOffline.Name = "btnLoggaInOffline";
             this.btnLoggaInOffline.Size = new System.Drawing.Size(107, 23);
-            this.btnLoggaInOffline.TabIndex = 5;
+            this.btnLoggaInOffline.TabIndex = 4;
             this.btnLoggaInOffline.Text = "Logga in offline";
             this.btnLoggaInOffline.UseVisualStyleBackColor = true;
             this.btnLoggaInOffline.Click += new System.EventHandler(this.button1_Click);
@@ -101,6 +101,7 @@
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Logga in";
             this.ResumeLayout(false);
             this.PerformLayout();
