@@ -347,6 +347,7 @@ namespace vIT_System.GUI
             ValidationCheck.checkValidering(tbMiddag, "InnehållerBokstav", "middag");
             ValidationCheck.checkValidering(tbMiddag, "NegativaTal", "middag");
             ValidationCheck.CheckDates(dtpUtResa.Value, dtpHemResa.Value);
+            ValidationCheck.CheckCombox(cbUppdrag, "uppdrag"); 
 
 
 
