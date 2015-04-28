@@ -14,18 +14,27 @@ namespace vIT_System.Formulärhantering
     public partial class Ansökningshantering : Form
     {
         private SqlHelper sqlHelper;
+        private string id;
 
-        public Ansökningshantering()
+        public Ansökningshantering(string Aid)
         {
             InitializeComponent();
+            id = Aid;
             sqlHelper = new SqlHelper("Database\\vITs2.mdf");
         }
 
         // kvar:  det ska bara komma upp anökningar från den som är inloggad
         private void Ansökningshantering_Load(object sender, EventArgs e)
         {
-            var Dl = sqlHelper.Fetch("select AnsId from Ansokan");
-            
+            Fyllbox();
+        }
+
+        public void Fyllbox()
+        {
+
+            var chef = sqlHelper.Fetch("select Fnamn from anstallda where Id = " + id);
+            var Dl = sqlHelper.Fetch("select AnsId from Ansokan where status = 'Bearbetas' and chef = " + chef);
+
             foreach (DataRow dr in Dl.Rows)
             {
                 var Sokande = dr["AnsId"].ToString();
@@ -139,7 +148,7 @@ namespace vIT_System.Formulärhantering
             }
         
 
-        // kvar : Sidan ska uppdateras efter den är godkänd.
+        
         private void btnGodkann_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(cbVisaAnsid.Text))
@@ -153,10 +162,11 @@ namespace vIT_System.Formulärhantering
                 var id = Convert.ToInt32(Sokande);
                 sqlHelper.Modify("Update Ansokan set Status ='Godkänd' where Forskott.Fid = " + id);
                 MessageBox.Show("Ansökningen är nu godkänd");
+                Fyllbox();
             }
         }
 
-        //Kvar: Sidan ska uppdateras efter. 
+        
         private void button1_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(cbVisaAnsid.Text))
@@ -170,6 +180,7 @@ namespace vIT_System.Formulärhantering
                 var id = Convert.ToInt32(Sokande);
                 sqlHelper.Modify("Update Ansokan set Status ='Ej Godkänd' where Forskott.Fid = " + id);
                 MessageBox.Show("Ansökningen är nu nekad");
+                Fyllbox();
             }
         }
 

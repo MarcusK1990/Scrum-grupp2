@@ -11,6 +11,7 @@ namespace vIT_System.GUI
         private string MenyForNamn { get; set; }
         private string MenyEfterNamn { get; set; }
         private string MenyEmail { get; set; }
+        private string MenyId { get; set; }
         private ApplicationMode.Mode MenyMode { get; set; }
         private Form form;
         private Point place;
@@ -27,7 +28,7 @@ namespace vIT_System.GUI
             }
         }
 
-        public FrmMenu(string namn, string efternamn, string email, ApplicationMode.Mode mode)
+        public FrmMenu(string namn, string efternamn, string email, ApplicationMode.Mode mode, string Id)
         {
             InitializeComponent();
             place = new Point(0, 0);
@@ -45,6 +46,7 @@ namespace vIT_System.GUI
             MenyEfterNamn = efternamn;
             MenyEmail = email;
             MenyMode = mode;
+            MenyId = Id;
 
         }
 
@@ -152,7 +154,7 @@ namespace vIT_System.GUI
         private void hanteraReseersättningsansökanToolStripMenuItem_Click(object sender, EventArgs e)
         {
             deleteForm();
-            form = new Ansökningshantering();
+            form = new Ansökningshantering(MenyId);
             form.Location = place;
             form.MdiParent = this;
             form.Show();
