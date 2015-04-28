@@ -11,9 +11,6 @@ using vIT_System.SQL;
 
 namespace vIT_System.Formulärhantering
 {
-
-    // kvar:  det ska bara komma upp anökningar från den som är inloggad 
-
     public partial class Ansökningshantering : Form
     {
         private SqlHelper sqlHelper;
@@ -24,6 +21,7 @@ namespace vIT_System.Formulärhantering
             sqlHelper = new SqlHelper("Database\\vITs2.mdf");
         }
 
+        // kvar:  det ska bara komma upp anökningar från den som är inloggad
         private void Ansökningshantering_Load(object sender, EventArgs e)
         {
             var Dl = sqlHelper.Fetch("select AnsId from Ansokan");
@@ -91,6 +89,7 @@ namespace vIT_System.Formulärhantering
                 tbHemresa.Text = Q.Rows[0]["Hemresa"].ToString();                
                 tbTrak.Text = Q.Rows[0]["Traktamente"].ToString();
                 tbLand.Text = Q.Rows[0]["Land"].ToString();
+                tbTotalsumma.Text = Q.Rows[0]["Totalsumma"].ToString();
             }
 
             if (Q1.Rows.Count > 0)
@@ -170,7 +169,7 @@ namespace vIT_System.Formulärhantering
                 var Sokande = cbVisaAnsid.SelectedItem.ToString().Substring(0, 1);
                 var id = Convert.ToInt32(Sokande);
                 sqlHelper.Modify("Update Ansokan set Status ='Ej Godkänd' where Forskott.Fid = " + id);
-                MessageBox.Show("Ansökningen är nu godkänd");
+                MessageBox.Show("Ansökningen är nu nekad");
             }
         }
 
