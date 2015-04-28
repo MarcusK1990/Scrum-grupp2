@@ -71,7 +71,7 @@ namespace vIT_System.GUI
                 form.MdiParent = this;
                 form.Show();
             }
-            if (MenyMode == ApplicationMode.Mode.ADMINISTRATOR)
+            else if (MenyMode == ApplicationMode.Mode.ADMINISTRATOR)
             {
                 MessageBox.Show("Som chef kan du inte skapa en reseansökan.");
                 return;
@@ -120,7 +120,7 @@ namespace vIT_System.GUI
                 form.MdiParent = this;
                 form.Show();
             }
-            if (MenyMode == ApplicationMode.Mode.ADMINISTRATOR)
+            else if (MenyMode == ApplicationMode.Mode.ADMINISTRATOR)
             {
                 MessageBox.Show("Som chef kan du inte skapa en reseorder.");
                 return;
