@@ -75,6 +75,7 @@ namespace vIT_System.Login
             var dt = sqlHelper.Fetch("SELECT * FROM ANSTALLDA");
 
             // Hitta matchande användarnamn i DataTable
+            var id = "";
             var username = "";
             var password = "";
             var id = "";
@@ -124,6 +125,7 @@ namespace vIT_System.Login
                 System.Diagnostics.Debug.WriteLine(dr["mail"].ToString());
                 if (dr["mail"].ToString().Equals(txtUsername.Text))
                 {
+                    id = dr["Id"].ToString();
                     username = dr["mail"].ToString();
                     password = dr["losenord"].ToString();
                     isBoss = Convert.ToBoolean(dr["chef"].ToString());

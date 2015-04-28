@@ -122,6 +122,7 @@ namespace vIT_System.GUI
 
             ValidationCheck.checkValidering(tbMilErsattning, "InnehållerBokstav", "milersättning");
             ValidationCheck.checkValidering(tbMilErsattning, "tom", "milersättning");
+            ValidationCheck.checkValidering(tbMilErsattning, "NegativaTal", "milersättning");
 
             var felmeddelanden = ValidationCheck.felString;
 
@@ -350,6 +351,9 @@ namespace vIT_System.GUI
 
             ValidationCheck.CheckDates(dtpUtResa.Value, dtpHemResa.Value);
 
+            double avrundaDagar = Math.Ceiling((dtpHemResa.Value - dtpUtResa.Value).TotalDays);
+            double semesterDagar = Convert.ToDouble(tbSemesterdagar.Text);
+            ValidationCheck.CheckSemesterDagar(avrundaDagar, semesterDagar);
 
 
             var felmeddelanden = ValidationCheck.felString;
@@ -389,7 +393,6 @@ namespace vIT_System.GUI
             {
                 tbLunch.Text = @"0";
             }
-
             //Om databasen börjar funka validera med denna
             //if (ValdResa > -1 && ValdResa < AllaResor.Count)
             //{
@@ -622,6 +625,7 @@ namespace vIT_System.GUI
 
         private bool ErsattningValidera(){
             ValidationCheck.checkValidering(tbMilErsattning, "InnehållerBokstav", "milersättning");
+            ValidationCheck.checkValidering(tbMilErsattning, "NegativaTal", "milersättning");
             var felmeddelanden = ValidationCheck.felString;
 
             if (felmeddelanden.Length <= 0)

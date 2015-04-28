@@ -28,7 +28,7 @@ namespace vIT_System.GUI
             }
         }
 
-        public FrmMenu(string namn, string efternamn, string email, ApplicationMode.Mode mode, string Id)
+        public FrmMenu(string namn, string efternamn, string email, ApplicationMode.Mode mode, string id)
         {
             InitializeComponent();
             place = new Point(0, 0);
@@ -46,7 +46,7 @@ namespace vIT_System.GUI
             MenyEfterNamn = efternamn;
             MenyEmail = email;
             MenyMode = mode;
-            MenyId = Id;
+            MenyId = id;
 
         }
 
@@ -78,18 +78,18 @@ namespace vIT_System.GUI
             }
             else
             {
-                deleteForm();
-                form = new FrmCompensation(MenyMode);
-                form.Location = place;
-                form.MdiParent = this;
-                form.Show();
-            }
+            deleteForm();
+            form = new FrmCompensation(MenyMode);
+            form.Location = place;
+            form.MdiParent = this;
+            form.Show();
+        }
         }
 
         private void mItemMyAppli_Click(object sender, EventArgs e)
         {
             deleteForm();
-            form = new FrmMyApplications();
+            form = new FrmMyApplications(MenyForNamn, MenyEfterNamn, MenyEmail, MenyMode, MenyId);
             form.Location = place;
             form.MdiParent = this;
             form.Show();
@@ -127,11 +127,11 @@ namespace vIT_System.GUI
             }
             else
             {
-                form = new FrmTravelorderr(MenyMode);
-                form.Location = place;
-                form.MdiParent = this;
-                form.Show();
-            }
+            form = new FrmTravelorderr(MenyMode);
+            form.Location = place;
+            form.MdiParent = this;
+            form.Show();
+        }
         }
 
         private void sammanställKvartalsrapporterToolStripMenuItem_Click(object sender, EventArgs e)
