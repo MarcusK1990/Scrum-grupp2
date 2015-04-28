@@ -334,6 +334,9 @@ namespace vIT_System.GUI
             ValidationCheck.checkValidering(tbFrukost, "InnehållerBokstav", "frukost");
             ValidationCheck.checkValidering(tbLunch, "InnehållerBokstav", "lunch");
             ValidationCheck.checkValidering(tbMiddag, "InnehållerBokstav", "middag");
+
+            ValidationCheck.CheckCombox(cbUppdrag, "uppdrag");
+
             ValidationCheck.CheckDates(dtpUtResa.Value, dtpHemResa.Value);
 
 
