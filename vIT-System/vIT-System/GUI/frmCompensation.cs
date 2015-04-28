@@ -550,7 +550,7 @@ namespace vIT_System.GUI
                 AntalMiddag = Convert.ToInt32(tbMiddag.Text),
                 AntalFrukost = Convert.ToInt32(tbFrukost.Text),
                 AntalLunch = Convert.ToInt32(tbLunch.Text),
-                Uppdrag = valtUppdrag,
+                Uppdrag = uppdrag,
                 UtgifterFörResa = new List<Utgift>()
             };
 
