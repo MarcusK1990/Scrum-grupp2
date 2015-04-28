@@ -389,7 +389,12 @@ namespace vIT_System.GUI
             {
                 tbLunch.Text = @"0";
             }
-
+            double avrundaDagar = Math.Ceiling((dtpHemResa.Value - dtpUtResa.Value).TotalDays);
+            if (avrundaDagar < Convert.ToDouble(tbSemesterdagar.Text))
+            {
+                MessageBox.Show("Semesterdagar måste vara mindre än totalt bortresta dagar");
+                return;
+            }
             //Om databasen börjar funka validera med denna
             //if (ValdResa > -1 && ValdResa < AllaResor.Count)
             //{
