@@ -122,6 +122,7 @@ namespace vIT_System.GUI
 
             ValidationCheck.checkValidering(tbMilErsattning, "InnehållerBokstav", "milersättning");
             ValidationCheck.checkValidering(tbMilErsattning, "tom", "milersättning");
+            ValidationCheck.checkValidering(tbMilErsattning, "NegativaTal", "milersättning");
 
             var felmeddelanden = ValidationCheck.felString;
 
@@ -624,6 +625,7 @@ namespace vIT_System.GUI
 
         private bool ErsattningValidera(){
             ValidationCheck.checkValidering(tbMilErsattning, "InnehållerBokstav", "milersättning");
+            ValidationCheck.checkValidering(tbMilErsattning, "NegativaTal", "milersättning");
             var felmeddelanden = ValidationCheck.felString;
 
             if (felmeddelanden.Length <= 0)
