@@ -2,12 +2,16 @@
 {
     public class Utgift
     {
+        public string  Typ { get; set; }
+
+        public string Valuta { get; set; }
 
         public double ValutaKurs { get; set; }
 
-        public double Belopp { get; set; }
 
-        public string Valuta { get; set; }
+        public string Kvitto { get; set; }
+
+        public double Belopp { get; set; }
 
         public string AndaMal { get; set; }
 

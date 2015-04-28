@@ -89,6 +89,7 @@ namespace vIT_System.SQL
             catch (Exception e)
             {
                 System.Diagnostics.Debug.WriteLine("An error occurred:\n" + e.Message);
+                con.Close();
             }
         }
     }
