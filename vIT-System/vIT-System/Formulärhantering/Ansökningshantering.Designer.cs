@@ -42,22 +42,25 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.lwUppdrag = new System.Windows.Forms.ListView();
-            this.lwUtgifter = new System.Windows.Forms.ListView();
             this.Uppdrag = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.lwSem = new System.Windows.Forms.ListView();
             this.label17 = new System.Windows.Forms.Label();
-            this.lwSokande = new System.Windows.Forms.ListView();
-            this.lwId = new System.Windows.Forms.ListView();
-            this.lwErsattning = new System.Windows.Forms.ListView();
-            this.lwForskott = new System.Windows.Forms.ListView();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.label16 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.tbSokande = new System.Windows.Forms.TextBox();
+            this.tbId = new System.Windows.Forms.TextBox();
+            this.tbErsattning = new System.Windows.Forms.TextBox();
+            this.tbForskott = new System.Windows.Forms.TextBox();
+            this.tbMat = new System.Windows.Forms.TextBox();
+            this.tbUppdrag = new System.Windows.Forms.TextBox();
+            this.tbSem = new System.Windows.Forms.TextBox();
+            this.tbAvresa = new System.Windows.Forms.TextBox();
+            this.tbHemresa = new System.Windows.Forms.TextBox();
+            this.tbLand = new System.Windows.Forms.TextBox();
+            this.tbTrak = new System.Windows.Forms.TextBox();
+            this.lwUtgifter = new System.Windows.Forms.ListView();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tbTotalsumma = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -172,7 +175,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(487, 69);
+            this.label10.Location = new System.Drawing.Point(507, 69);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(34, 13);
             this.label10.TabIndex = 34;
@@ -181,54 +184,20 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(487, 82);
+            this.label11.Location = new System.Drawing.Point(507, 86);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(70, 13);
             this.label11.TabIndex = 35;
             this.label11.Text = "Traktamente:";
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(338, 547);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(67, 13);
-            this.label12.TabIndex = 36;
-            this.label12.Text = "Totalsumma:";
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(338, 152);
+            this.label13.Location = new System.Drawing.Point(351, 151);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(28, 13);
             this.label13.TabIndex = 37;
             this.label13.Text = "Mat:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(338, 309);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(45, 13);
-            this.label14.TabIndex = 39;
-            this.label14.Text = "Summa:";
-            // 
-            // lwUppdrag
-            // 
-            this.lwUppdrag.Location = new System.Drawing.Point(493, 167);
-            this.lwUppdrag.Name = "lwUppdrag";
-            this.lwUppdrag.Size = new System.Drawing.Size(121, 138);
-            this.lwUppdrag.TabIndex = 40;
-            this.lwUppdrag.UseCompatibleStateImageBehavior = false;
-            // 
-            // lwUtgifter
-            // 
-            this.lwUtgifter.Location = new System.Drawing.Point(341, 348);
-            this.lwUtgifter.Name = "lwUtgifter";
-            this.lwUtgifter.Size = new System.Drawing.Size(511, 112);
-            this.lwUtgifter.TabIndex = 41;
-            this.lwUtgifter.UseCompatibleStateImageBehavior = false;
             // 
             // Uppdrag
             // 
@@ -242,19 +211,11 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(339, 332);
+            this.label15.Location = new System.Drawing.Point(351, 332);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(44, 13);
+            this.label15.Size = new System.Drawing.Size(41, 13);
             this.label15.TabIndex = 43;
-            this.label15.Text = "Utgifter:";
-            // 
-            // lwSem
-            // 
-            this.lwSem.Location = new System.Drawing.Point(620, 167);
-            this.lwSem.Name = "lwSem";
-            this.lwSem.Size = new System.Drawing.Size(121, 138);
-            this.lwSem.TabIndex = 45;
-            this.lwSem.UseCompatibleStateImageBehavior = false;
+            this.label15.Text = "Utgifter";
             // 
             // label17
             // 
@@ -264,55 +225,6 @@
             this.label17.Size = new System.Drawing.Size(81, 13);
             this.label17.TabIndex = 46;
             this.label17.Text = "Semesterdagar:";
-            // 
-            // lwSokande
-            // 
-            this.lwSokande.Location = new System.Drawing.Point(72, 77);
-            this.lwSokande.Name = "lwSokande";
-            this.lwSokande.Size = new System.Drawing.Size(198, 18);
-            this.lwSokande.TabIndex = 47;
-            this.lwSokande.UseCompatibleStateImageBehavior = false;
-            // 
-            // lwId
-            // 
-            this.lwId.Location = new System.Drawing.Point(72, 101);
-            this.lwId.Name = "lwId";
-            this.lwId.Size = new System.Drawing.Size(198, 18);
-            this.lwId.TabIndex = 48;
-            this.lwId.UseCompatibleStateImageBehavior = false;
-            // 
-            // lwErsattning
-            // 
-            this.lwErsattning.Location = new System.Drawing.Point(72, 127);
-            this.lwErsattning.Name = "lwErsattning";
-            this.lwErsattning.Size = new System.Drawing.Size(198, 18);
-            this.lwErsattning.TabIndex = 49;
-            this.lwErsattning.UseCompatibleStateImageBehavior = false;
-            // 
-            // lwForskott
-            // 
-            this.lwForskott.Location = new System.Drawing.Point(72, 152);
-            this.lwForskott.Name = "lwForskott";
-            this.lwForskott.Size = new System.Drawing.Size(198, 18);
-            this.lwForskott.TabIndex = 50;
-            this.lwForskott.UseCompatibleStateImageBehavior = false;
-            // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(342, 169);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(145, 137);
-            this.listView1.TabIndex = 51;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(735, 463);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(45, 13);
-            this.label16.TabIndex = 52;
-            this.label16.Text = "Summa:";
             // 
             // button1
             // 
@@ -324,27 +236,134 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // tbSokande
+            // 
+            this.tbSokande.Location = new System.Drawing.Point(90, 79);
+            this.tbSokande.Name = "tbSokande";
+            this.tbSokande.Size = new System.Drawing.Size(142, 20);
+            this.tbSokande.TabIndex = 54;
+            // 
+            // tbId
+            // 
+            this.tbId.Location = new System.Drawing.Point(90, 104);
+            this.tbId.Name = "tbId";
+            this.tbId.Size = new System.Drawing.Size(142, 20);
+            this.tbId.TabIndex = 55;
+            // 
+            // tbErsattning
+            // 
+            this.tbErsattning.Location = new System.Drawing.Point(90, 127);
+            this.tbErsattning.Name = "tbErsattning";
+            this.tbErsattning.Size = new System.Drawing.Size(142, 20);
+            this.tbErsattning.TabIndex = 56;
+            // 
+            // tbForskott
+            // 
+            this.tbForskott.Location = new System.Drawing.Point(90, 152);
+            this.tbForskott.Name = "tbForskott";
+            this.tbForskott.Size = new System.Drawing.Size(142, 20);
+            this.tbForskott.TabIndex = 57;
+            // 
+            // tbMat
+            // 
+            this.tbMat.Location = new System.Drawing.Point(354, 167);
+            this.tbMat.Multiline = true;
+            this.tbMat.Name = "tbMat";
+            this.tbMat.Size = new System.Drawing.Size(120, 128);
+            this.tbMat.TabIndex = 58;
+            // 
+            // tbUppdrag
+            // 
+            this.tbUppdrag.Location = new System.Drawing.Point(493, 168);
+            this.tbUppdrag.Multiline = true;
+            this.tbUppdrag.Name = "tbUppdrag";
+            this.tbUppdrag.Size = new System.Drawing.Size(120, 128);
+            this.tbUppdrag.TabIndex = 59;
+            // 
+            // tbSem
+            // 
+            this.tbSem.Location = new System.Drawing.Point(620, 167);
+            this.tbSem.Multiline = true;
+            this.tbSem.Name = "tbSem";
+            this.tbSem.Size = new System.Drawing.Size(120, 128);
+            this.tbSem.TabIndex = 60;
+            // 
+            // tbAvresa
+            // 
+            this.tbAvresa.Location = new System.Drawing.Point(396, 66);
+            this.tbAvresa.Name = "tbAvresa";
+            this.tbAvresa.Size = new System.Drawing.Size(102, 20);
+            this.tbAvresa.TabIndex = 61;
+            // 
+            // tbHemresa
+            // 
+            this.tbHemresa.Location = new System.Drawing.Point(396, 85);
+            this.tbHemresa.Name = "tbHemresa";
+            this.tbHemresa.Size = new System.Drawing.Size(102, 20);
+            this.tbHemresa.TabIndex = 62;
+            // 
+            // tbLand
+            // 
+            this.tbLand.Location = new System.Drawing.Point(583, 62);
+            this.tbLand.Name = "tbLand";
+            this.tbLand.Size = new System.Drawing.Size(115, 20);
+            this.tbLand.TabIndex = 63;
+            // 
+            // tbTrak
+            // 
+            this.tbTrak.Location = new System.Drawing.Point(583, 82);
+            this.tbTrak.Name = "tbTrak";
+            this.tbTrak.Size = new System.Drawing.Size(115, 20);
+            this.tbTrak.TabIndex = 64;
+            // 
+            // lwUtgifter
+            // 
+            this.lwUtgifter.Location = new System.Drawing.Point(353, 348);
+            this.lwUtgifter.Name = "lwUtgifter";
+            this.lwUtgifter.Size = new System.Drawing.Size(478, 306);
+            this.lwUtgifter.TabIndex = 65;
+            this.lwUtgifter.UseCompatibleStateImageBehavior = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(470, 704);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(67, 13);
+            this.label12.TabIndex = 66;
+            this.label12.Text = "Totalsumma:";
+            // 
+            // tbTotalsumma
+            // 
+            this.tbTotalsumma.Location = new System.Drawing.Point(543, 701);
+            this.tbTotalsumma.Name = "tbTotalsumma";
+            this.tbTotalsumma.Size = new System.Drawing.Size(155, 20);
+            this.tbTotalsumma.TabIndex = 67;
+            // 
             // Ansökningshantering
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(860, 490);
+            this.ClientSize = new System.Drawing.Size(860, 774);
+            this.Controls.Add(this.tbTotalsumma);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.lwUtgifter);
+            this.Controls.Add(this.tbTrak);
+            this.Controls.Add(this.tbLand);
+            this.Controls.Add(this.tbHemresa);
+            this.Controls.Add(this.tbAvresa);
+            this.Controls.Add(this.tbSem);
+            this.Controls.Add(this.tbUppdrag);
+            this.Controls.Add(this.tbMat);
+            this.Controls.Add(this.tbForskott);
+            this.Controls.Add(this.tbErsattning);
+            this.Controls.Add(this.tbId);
+            this.Controls.Add(this.tbSokande);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.listView1);
-            this.Controls.Add(this.lwForskott);
-            this.Controls.Add(this.lwErsattning);
-            this.Controls.Add(this.lwId);
-            this.Controls.Add(this.lwSokande);
             this.Controls.Add(this.label17);
-            this.Controls.Add(this.lwSem);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.Uppdrag);
-            this.Controls.Add(this.lwUtgifter);
-            this.Controls.Add(this.lwUppdrag);
-            this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -385,21 +404,24 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ListView lwUppdrag;
-        private System.Windows.Forms.ListView lwUtgifter;
         private System.Windows.Forms.Label Uppdrag;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ListView lwSem;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.ListView lwSokande;
-        private System.Windows.Forms.ListView lwId;
-        private System.Windows.Forms.ListView lwErsattning;
-        private System.Windows.Forms.ListView lwForskott;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox tbSokande;
+        private System.Windows.Forms.TextBox tbId;
+        private System.Windows.Forms.TextBox tbErsattning;
+        private System.Windows.Forms.TextBox tbForskott;
+        private System.Windows.Forms.TextBox tbMat;
+        private System.Windows.Forms.TextBox tbUppdrag;
+        private System.Windows.Forms.TextBox tbSem;
+        private System.Windows.Forms.TextBox tbAvresa;
+        private System.Windows.Forms.TextBox tbHemresa;
+        private System.Windows.Forms.TextBox tbLand;
+        private System.Windows.Forms.TextBox tbTrak;
+        private System.Windows.Forms.ListView lwUtgifter;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox tbTotalsumma;
     }
 }

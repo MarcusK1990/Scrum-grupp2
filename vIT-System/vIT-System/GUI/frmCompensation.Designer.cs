@@ -293,6 +293,7 @@
             // 
             // btnUtgiter
             // 
+            this.btnUtgiter.Enabled = false;
             this.btnUtgiter.Location = new System.Drawing.Point(94, 169);
             this.btnUtgiter.Name = "btnUtgiter";
             this.btnUtgiter.Size = new System.Drawing.Size(75, 23);
@@ -538,7 +539,7 @@
             // 
             this.tbTotalaUtgifter.Enabled = false;
             this.tbTotalaUtgifter.Location = new System.Drawing.Point(215, 137);
-            this.tbTotalaUtgifter.Name = "tbSummaUtgifter";
+            this.tbTotalaUtgifter.Name = "tbTotalaUtgifter";
             this.tbTotalaUtgifter.Size = new System.Drawing.Size(86, 20);
             this.tbTotalaUtgifter.TabIndex = 29;
             // 

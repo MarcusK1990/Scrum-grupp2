@@ -78,6 +78,7 @@ namespace vIT_System.Login
             var id = "";
             var username = "";
             var password = "";
+            var id = "";
             var isBoss = false;
             
 
@@ -128,6 +129,7 @@ namespace vIT_System.Login
                     username = dr["mail"].ToString();
                     password = dr["losenord"].ToString();
                     isBoss = Convert.ToBoolean(dr["chef"].ToString());
+                    id = dr["Id"].ToString();
                     Namn = dr["fnamn"].ToString();
                     EfterNamn = dr["enamn"].ToString();
                     foundMatch = true;

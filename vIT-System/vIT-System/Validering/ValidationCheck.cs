@@ -69,5 +69,12 @@
                 felString += "\n• Inget objekt i comboboxen för " + fältNamn + " är valt.";
             }
         }
+        public static void CheckSemesterDagar(double resa, double semesterdag)
+        {
+            if (resa < semesterdag)
+            {
+                felString += "\n• Semesterdagar måste vara mindre än totalt bortresta dagar.";
+            }
+        }
     }
 }

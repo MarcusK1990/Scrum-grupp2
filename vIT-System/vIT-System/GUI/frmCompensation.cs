@@ -18,6 +18,9 @@ namespace vIT_System.GUI
         public int ValdResa { get; set; }
         public double Mil { get; set; }
         public ApplicationMode.Mode CompMode { get; set; }
+        private string namn { get; set; }
+        private string efterNamn { get; set; }
+        string eMail { get; set; }
 
         public FrmCompensation(ApplicationMode.Mode inMode)
         {
@@ -38,9 +41,9 @@ namespace vIT_System.GUI
         public FrmCompensation(string email, string namn, string efternamn, ApplicationMode.Mode inMode)
         {
             InitializeComponent();
-            tbEmail.Text = email;
-            tbForNamn.Text = namn;
-            tbEfterNamn.Text = efternamn;
+            eMail = email;
+            this.namn = namn;
+            efterNamn = efternamn;
             CompMode = inMode;
 
             AllaResor = new BindingList<Resa>();
@@ -76,7 +79,15 @@ namespace vIT_System.GUI
                 LaddaUppdrag();
                 LaddaValuta();
                 lblValutaKurs.Text = @"Senaste valutakurs: " + DateTime.Now;
+
+                autoFill();
             }
+        }
+        private void autoFill()
+        {
+            tbEmail.Text = eMail;
+            tbForNamn.Text = namn;
+            tbEfterNamn.Text = efterNamn;
         }
 
         private void HämtaLänder()
@@ -87,7 +98,7 @@ namespace vIT_System.GUI
 
             for (var i = 0; i < länder.GetLength(0); i++)
             {
-                System.Diagnostics.Debug.WriteLine(länder[i, 0] + " + " + länder[i, 1]);
+                //System.Diagnostics.Debug.WriteLine(länder[i, 0] + " + " + länder[i, 1]);
 
                 cbLand.Items.Add(new ComboboxItem { Text = länder[i, 0], Value = Convert.ToDouble(länder[i, 1]) });
             }
@@ -111,6 +122,7 @@ namespace vIT_System.GUI
 
             ValidationCheck.checkValidering(tbMilErsattning, "InnehållerBokstav", "milersättning");
             ValidationCheck.checkValidering(tbMilErsattning, "tom", "milersättning");
+            ValidationCheck.checkValidering(tbMilErsattning, "NegativaTal", "milersättning");
 
             var felmeddelanden = ValidationCheck.felString;
 
@@ -267,8 +279,8 @@ namespace vIT_System.GUI
                 
             };
 
-            AllaResor[ValdResa].UtgifterFörResa.Add(nyUtgift);
 
+            AllaResor[ValdResa].UtgifterFörResa.Add(nyUtgift);
             UppdateraTotalSumma();
         }
 
@@ -334,8 +346,14 @@ namespace vIT_System.GUI
             ValidationCheck.checkValidering(tbFrukost, "InnehållerBokstav", "frukost");
             ValidationCheck.checkValidering(tbLunch, "InnehållerBokstav", "lunch");
             ValidationCheck.checkValidering(tbMiddag, "InnehållerBokstav", "middag");
+
+            ValidationCheck.CheckCombox(cbUppdrag, "uppdrag");
+
             ValidationCheck.CheckDates(dtpUtResa.Value, dtpHemResa.Value);
 
+            double avrundaDagar = Math.Ceiling((dtpHemResa.Value - dtpUtResa.Value).TotalDays);
+            double semesterDagar = Convert.ToDouble(tbSemesterdagar.Text);
+            ValidationCheck.CheckSemesterDagar(avrundaDagar, semesterDagar);
 
 
             var felmeddelanden = ValidationCheck.felString;
@@ -375,12 +393,19 @@ namespace vIT_System.GUI
             {
                 tbLunch.Text = @"0";
             }
+            //Om databasen börjar funka validera med denna
+            //if (ValdResa > -1 && ValdResa < AllaResor.Count)
+            //{
+
+            //}
+          
+            btnUtgiter.Enabled = true;
+            
 
             var valtItem = (ComboboxItem)cbLand.SelectedItem;
             var valtTraktamenteFörLandet = Convert.ToDouble(valtItem.Value);
             var valtLand = Convert.ToString(valtItem.Text);
-            var valtUppdag = (ComboboxItem) cbUppdrag.SelectedItem;
-            var uppdrag = valtUppdag.Text;
+            var valtUppdrag = cbUppdrag.SelectedItem.ToString();
 
             var nyResa = new Resa
             {
@@ -392,7 +417,7 @@ namespace vIT_System.GUI
                 AntalMiddag = Convert.ToInt32(tbMiddag.Text),
                 AntalFrukost = Convert.ToInt32(tbFrukost.Text),
                 AntalLunch = Convert.ToInt32(tbLunch.Text),
-                Uppdrag = uppdrag,
+                Uppdrag = valtUppdrag,
                 UtgifterFörResa = new List<Utgift>()
             };
 
@@ -600,6 +625,7 @@ namespace vIT_System.GUI
 
         private bool ErsattningValidera(){
             ValidationCheck.checkValidering(tbMilErsattning, "InnehållerBokstav", "milersättning");
+            ValidationCheck.checkValidering(tbMilErsattning, "NegativaTal", "milersättning");
             var felmeddelanden = ValidationCheck.felString;
 
             if (felmeddelanden.Length <= 0)
