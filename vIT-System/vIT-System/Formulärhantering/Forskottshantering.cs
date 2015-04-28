@@ -14,28 +14,46 @@ namespace vIT_System.Formulärhantering
     public partial class Forskottshantering : Form
     {
         private SqlHelper sqlHelper;
+        private string id;
 
-        public Forskottshantering()
+        public Forskottshantering(string Aid)
         {
             InitializeComponent();
+            id = Aid;
             sqlHelper = new SqlHelper("Database\\vITs2.mdf");
+           
         }
-        //Inte det smidigaste att göra textboxar, borde kanske ändras. 
-
-        // kvar: where Chef = 'den chef som är inloggad' så inte alla förskottsansökningar till alla chefer kommer upp. 
+        
         private void Forskottshantering_Load(object sender, EventArgs e)
         {
-            var Dl = sqlHelper.Fetch("select Fid from Forskott where Status = 'Bearbetas' ");
-            foreach (DataRow dr in Dl.Rows)
+            Fyllbox();
+        }
+
+        private void Fyllbox()
+        {
+            cbVisaSokande.Items.Clear();
+            var chef = sqlHelper.Fetch("select Fnamn from Anstallda where id = " + id);
+            if (chef.Rows.Count > 0)
             {
-                var Sokande = dr["Fid"].ToString();
-                cbVisaSokande.Items.Add(Sokande);
+                var cheff = chef.Rows[0]["fnamn"];
+                var Dl = sqlHelper.Fetch("select Fid from Forskott where Status = 'Bearbetas' and chef = " + "'" + cheff + "'");
+                foreach (DataRow dr in Dl.Rows)
+                {
+                    var Sokande = dr["Fid"].ToString();
+                    cbVisaSokande.Items.Add(Sokande);
+                }
             }
+            else
+            {
+                MessageBox.Show("Du har inga nya ansökningar");
+                return;
+            }
+           
         }
 
         private void cbVisaSokande_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var Sokande = cbVisaSokande.SelectedItem.ToString().Substring(0, 1);
+            var Sokande = cbVisaSokande.SelectedItem.ToString();
             var id = Convert.ToInt32(Sokande);
             var Q = sqlHelper.Fetch("select forskott.Kommentar, forskott.Summa, Anstallda.Fnamn, Anstallda.Enamn, Uppdrag.Namn  from Forskott Join Uppdrag on Uppdrag.UppId = Forskott.UppId Join Anstallda on Anstallda.Id = Forskott.Id where forskott.FId = " + id);
 
@@ -52,7 +70,7 @@ namespace vIT_System.Formulärhantering
             }
         }
 
-        // kvar: uppdatera
+       
         private void btnGodkann_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(cbVisaSokande.Text))
@@ -62,14 +80,20 @@ namespace vIT_System.Formulärhantering
 
             else
             {
-                var Sokande = cbVisaSokande.SelectedItem.ToString().Substring(0, 1);
+                var Sokande = cbVisaSokande.SelectedItem.ToString();
                 var id = Convert.ToInt32(Sokande);
                 sqlHelper.Modify("Update Forskott set Status ='Godkänd' where Forskott.Fid = " + id);
                 MessageBox.Show("Förskottsansökningen är nu godkänd");
+                tbMotivering.Clear();
+                tbSokande.Clear();
+                tbSumma.Clear();
+                tbUppdrag.Clear();
+                cbVisaSokande.Text = "";
+                Fyllbox();
             }
         }
 
-        // kvar: uppdatera
+       
 
         private void btnAvsla_Click(object sender, EventArgs e)
         {
@@ -80,10 +104,16 @@ namespace vIT_System.Formulärhantering
 
             else
             {
-                var Sokande = cbVisaSokande.SelectedItem.ToString().Substring(0, 1);
+                var Sokande = cbVisaSokande.SelectedItem.ToString().Substring(0, 2);
                 var id = Convert.ToInt32(Sokande);
                 sqlHelper.Modify("Update Forskott set Status ='Ej Godkänd' where Forskott.Fid = " + id);
                 MessageBox.Show("Snålt");
+                tbMotivering.Clear();
+                tbSokande.Clear();
+                tbSumma.Clear();
+                tbUppdrag.Clear();
+                cbVisaSokande.Text = "";
+                Fyllbox();
             }
 
         }

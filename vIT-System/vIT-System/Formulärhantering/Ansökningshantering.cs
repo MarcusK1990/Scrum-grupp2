@@ -15,7 +15,7 @@ namespace vIT_System.Formulärhantering
     {
         private SqlHelper sqlHelper;
         private string id;
-
+        
         public Ansökningshantering(string Aid)
         {
             InitializeComponent();
@@ -31,20 +31,45 @@ namespace vIT_System.Formulärhantering
 
         public void Fyllbox()
         {
+            tbAvresa.Clear();
+            tbErsattning.Clear();
+            tbForskott.Clear();
+            tbHemresa.Clear();
+            tbId.Clear();
+            tbLand.Clear();
+            tbMat.Clear();
+            tbSem.Clear();
+            tbSokande.Clear();
+            tbTotalsumma.Clear();
+            tbTrak.Clear();
+            tbUppdrag.Clear();
+            cbVisaRid.Text = "";
+            cbVisaAnsid.Text = "";
 
-            var chef = sqlHelper.Fetch("select Fnamn from anstallda where Id = " + id);
-            var Dl = sqlHelper.Fetch("select AnsId from Ansokan where status = 'Bearbetas' and chef = " + chef);
-
-            foreach (DataRow dr in Dl.Rows)
+            cbVisaAnsid.Items.Clear();
+            var chef = sqlHelper.Fetch("select Fnamn from Anstallda where id = " + id);
+            if (chef.Rows.Count > 0)
             {
-                var Sokande = dr["AnsId"].ToString();
-                cbVisaAnsid.Items.Add(Sokande);
-            }      
+                var cheff = chef.Rows[0]["fnamn"];
+                var Dl = sqlHelper.Fetch("select AnsId from Ansokan where status = 'bearbetas' and chef = " + "'" + cheff + "'");
+
+                foreach (DataRow dr in Dl.Rows)
+                {
+                    var Sokande = dr["AnsId"].ToString();
+                    cbVisaAnsid.Items.Add(Sokande);
+                }  
+            }
+            else
+            {
+                MessageBox.Show("Du har inga nya ansökningar");
+                return;
+            }
+                
         }
 
         private void cbVisaAnsid_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var Sokande = cbVisaAnsid.SelectedItem.ToString().Substring(0, 2);
+            var Sokande = cbVisaAnsid.SelectedItem.ToString();
             var id = Convert.ToInt32(Sokande);
 
             var Dl = sqlHelper.Fetch("Select RId from Resa where AnsId  = " + id);
@@ -83,7 +108,7 @@ namespace vIT_System.Formulärhantering
         
         private void cbVisaRid_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var Resa = cbVisaRid.SelectedItem.ToString().Substring(0, 2);
+            var Resa = cbVisaRid.SelectedItem.ToString();
             var Rid = Convert.ToInt32(Resa);
             var Q = sqlHelper.Fetch("select * from resa where Resa.Rid= " + Rid);
             var Q1 = sqlHelper.Fetch("select Uppdrag.Namn from ResaUppdrag join Uppdrag on Uppdrag.UppId = ResaUppdrag.UppId where ResaUppdrag.RId = " + Rid);
@@ -158,10 +183,11 @@ namespace vIT_System.Formulärhantering
 
             else
             {
-                var Sokande = cbVisaAnsid.SelectedItem.ToString().Substring(0, 1);
+                var Sokande = cbVisaAnsid.SelectedItem.ToString().Substring(0, 2);
                 var id = Convert.ToInt32(Sokande);
-                sqlHelper.Modify("Update Ansokan set Status ='Godkänd' where Forskott.Fid = " + id);
+                sqlHelper.Modify("Update Ansokan set Status ='Godkänd' where Ansokan.AnsId = " + id);
                 MessageBox.Show("Ansökningen är nu godkänd");
+                
                 Fyllbox();
             }
         }
@@ -178,7 +204,7 @@ namespace vIT_System.Formulärhantering
             {
                 var Sokande = cbVisaAnsid.SelectedItem.ToString().Substring(0, 1);
                 var id = Convert.ToInt32(Sokande);
-                sqlHelper.Modify("Update Ansokan set Status ='Ej Godkänd' where Forskott.Fid = " + id);
+                sqlHelper.Modify("Update Ansokan set Status ='Ej Godkänd' where Ansokan.AnsId = " + id);
                 MessageBox.Show("Ansökningen är nu nekad");
                 Fyllbox();
             }

@@ -163,7 +163,7 @@ namespace vIT_System.GUI
         private void hanteraFörskottsansökanToolStripMenuItem_Click(object sender, EventArgs e)
         {
             deleteForm();
-            form = new Forskottshantering();
+            form = new Forskottshantering(MenyId);
             form.Location = place;
             form.MdiParent = this;
             form.Show();
