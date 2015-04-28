@@ -59,6 +59,8 @@
             this.tbLand = new System.Windows.Forms.TextBox();
             this.tbTrak = new System.Windows.Forms.TextBox();
             this.lwUtgifter = new System.Windows.Forms.ListView();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tbTotalsumma = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -322,11 +324,29 @@
             this.lwUtgifter.TabIndex = 65;
             this.lwUtgifter.UseCompatibleStateImageBehavior = false;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(470, 704);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(67, 13);
+            this.label12.TabIndex = 66;
+            this.label12.Text = "Totalsumma:";
+            // 
+            // tbTotalsumma
+            // 
+            this.tbTotalsumma.Location = new System.Drawing.Point(543, 701);
+            this.tbTotalsumma.Name = "tbTotalsumma";
+            this.tbTotalsumma.Size = new System.Drawing.Size(155, 20);
+            this.tbTotalsumma.TabIndex = 67;
+            // 
             // Ansökningshantering
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(860, 774);
+            this.Controls.Add(this.tbTotalsumma);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.lwUtgifter);
             this.Controls.Add(this.tbTrak);
             this.Controls.Add(this.tbLand);
@@ -401,5 +421,7 @@
         private System.Windows.Forms.TextBox tbLand;
         private System.Windows.Forms.TextBox tbTrak;
         private System.Windows.Forms.ListView lwUtgifter;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox tbTotalsumma;
     }
 }
