@@ -293,6 +293,7 @@
             // 
             // btnUtgiter
             // 
+            this.btnUtgiter.Enabled = false;
             this.btnUtgiter.Location = new System.Drawing.Point(94, 169);
             this.btnUtgiter.Name = "btnUtgiter";
             this.btnUtgiter.Size = new System.Drawing.Size(75, 23);

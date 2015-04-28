@@ -278,8 +278,8 @@ namespace vIT_System.GUI
                 
             };
 
-            AllaResor[ValdResa].UtgifterFörResa.Add(nyUtgift);
 
+            AllaResor[ValdResa].UtgifterFörResa.Add(nyUtgift);
             UppdateraTotalSumma();
         }
 
@@ -390,11 +390,19 @@ namespace vIT_System.GUI
                 tbLunch.Text = @"0";
             }
 
+            //Om databasen börjar funka validera med denna
+            //if (ValdResa > -1 && ValdResa < AllaResor.Count)
+            //{
+
+            //}
+          
+            btnUtgiter.Enabled = true;
+            
+
             var valtItem = (ComboboxItem)cbLand.SelectedItem;
             var valtTraktamenteFörLandet = Convert.ToDouble(valtItem.Value);
             var valtLand = Convert.ToString(valtItem.Text);
-            var valtUppdag = (ComboboxItem) cbUppdrag.SelectedItem;
-            var uppdrag = valtUppdag.Text;
+            var valtUppdrag = cbUppdrag.SelectedItem.ToString();
 
             var nyResa = new Resa
             {
@@ -406,7 +414,7 @@ namespace vIT_System.GUI
                 AntalMiddag = Convert.ToInt32(tbMiddag.Text),
                 AntalFrukost = Convert.ToInt32(tbFrukost.Text),
                 AntalLunch = Convert.ToInt32(tbLunch.Text),
-                Uppdrag = uppdrag,
+                Uppdrag = valtUppdrag,
                 UtgifterFörResa = new List<Utgift>()
             };
 
