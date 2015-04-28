@@ -11,6 +11,7 @@ namespace vIT_System.Login
         public string Email { get; set; }
         public string Namn { get; set; }
         public string EfterNamn { get; set; }
+        public string id { get; set; }
         ApplicationMode.Mode Mode { get; set; }
 
         private SqlHelper sqlHelper;
@@ -74,8 +75,10 @@ namespace vIT_System.Login
             var dt = sqlHelper.Fetch("SELECT * FROM ANSTALLDA");
 
             // Hitta matchande användarnamn i DataTable
+            var id = "";
             var username = "";
             var password = "";
+            var id = "";
             var isBoss = false;
             
 
@@ -122,9 +125,11 @@ namespace vIT_System.Login
                 System.Diagnostics.Debug.WriteLine(dr["mail"].ToString());
                 if (dr["mail"].ToString().Equals(txtUsername.Text))
                 {
+                    id = dr["Id"].ToString();
                     username = dr["mail"].ToString();
                     password = dr["losenord"].ToString();
                     isBoss = Convert.ToBoolean(dr["chef"].ToString());
+                    id = dr["Id"].ToString();
                     Namn = dr["fnamn"].ToString();
                     EfterNamn = dr["enamn"].ToString();
                     foundMatch = true;
@@ -149,7 +154,7 @@ namespace vIT_System.Login
             
             Email = username;
 
-            var menyn = new FrmMenu(Namn, EfterNamn, Email, Mode); 
+            var menyn = new FrmMenu(Namn, EfterNamn, Email, Mode, id); 
             menyn.Visible = true;
             Visible = false;
 

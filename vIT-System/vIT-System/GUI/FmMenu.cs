@@ -11,6 +11,7 @@ namespace vIT_System.GUI
         private string MenyForNamn { get; set; }
         private string MenyEfterNamn { get; set; }
         private string MenyEmail { get; set; }
+        private string MenyId { get; set; }
         private ApplicationMode.Mode MenyMode { get; set; }
         private Form form;
         private Point place;
@@ -27,7 +28,7 @@ namespace vIT_System.GUI
             }
         }
 
-        public FrmMenu(string namn, string efternamn, string email, ApplicationMode.Mode mode)
+        public FrmMenu(string namn, string efternamn, string email, ApplicationMode.Mode mode, string id)
         {
             InitializeComponent();
             place = new Point(0, 0);
@@ -45,6 +46,7 @@ namespace vIT_System.GUI
             MenyEfterNamn = efternamn;
             MenyEmail = email;
             MenyMode = mode;
+            MenyId = id;
 
         }
 
@@ -69,21 +71,25 @@ namespace vIT_System.GUI
                 form.MdiParent = this;
                 form.Show();
             }
-            if (MenyMode != ApplicationMode.Mode.OFFLINE){
+            else if (MenyMode == ApplicationMode.Mode.ADMINISTRATOR)
+            {
                 MessageBox.Show("Som chef kan du inte skapa en reseansökan.");
                 return;
             }
+            else
+            {
             deleteForm();
             form = new FrmCompensation(MenyMode);
             form.Location = place;
             form.MdiParent = this;
             form.Show();
         }
+        }
 
         private void mItemMyAppli_Click(object sender, EventArgs e)
         {
             deleteForm();
-            form = new FrmMyApplications();
+            form = new FrmMyApplications(MenyForNamn, MenyEfterNamn, MenyEmail, MenyMode, MenyId);
             form.Location = place;
             form.MdiParent = this;
             form.Show();
@@ -114,15 +120,18 @@ namespace vIT_System.GUI
                 form.MdiParent = this;
                 form.Show();
             }
-            if (MenyMode != ApplicationMode.Mode.OFFLINE)
+            else if (MenyMode == ApplicationMode.Mode.ADMINISTRATOR)
             {
                 MessageBox.Show("Som chef kan du inte skapa en reseorder.");
                 return;
             }
+            else
+            {
             form = new FrmTravelorderr(MenyMode);
             form.Location = place;
             form.MdiParent = this;
             form.Show();
+        }
         }
 
         private void sammanställKvartalsrapporterToolStripMenuItem_Click(object sender, EventArgs e)
@@ -145,7 +154,7 @@ namespace vIT_System.GUI
         private void hanteraReseersättningsansökanToolStripMenuItem_Click(object sender, EventArgs e)
         {
             deleteForm();
-            form = new Ansökningshantering();
+            form = new Ansökningshantering(MenyId);
             form.Location = place;
             form.MdiParent = this;
             form.Show();
@@ -154,7 +163,7 @@ namespace vIT_System.GUI
         private void hanteraFörskottsansökanToolStripMenuItem_Click(object sender, EventArgs e)
         {
             deleteForm();
-            form = new Forskottshantering();
+            form = new Forskottshantering(MenyId);
             form.Location = place;
             form.MdiParent = this;
             form.Show();
