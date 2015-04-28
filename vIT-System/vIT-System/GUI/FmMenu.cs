@@ -69,15 +69,19 @@ namespace vIT_System.GUI
                 form.MdiParent = this;
                 form.Show();
             }
-            if (MenyMode != ApplicationMode.Mode.OFFLINE){
+            if (MenyMode == ApplicationMode.Mode.ADMINISTRATOR)
+            {
                 MessageBox.Show("Som chef kan du inte skapa en reseansökan.");
                 return;
             }
-            deleteForm();
-            form = new FrmCompensation(MenyMode);
-            form.Location = place;
-            form.MdiParent = this;
-            form.Show();
+            else
+            {
+                deleteForm();
+                form = new FrmCompensation(MenyMode);
+                form.Location = place;
+                form.MdiParent = this;
+                form.Show();
+            }
         }
 
         private void mItemMyAppli_Click(object sender, EventArgs e)
@@ -114,15 +118,18 @@ namespace vIT_System.GUI
                 form.MdiParent = this;
                 form.Show();
             }
-            if (MenyMode != ApplicationMode.Mode.OFFLINE)
+            if (MenyMode == ApplicationMode.Mode.ADMINISTRATOR)
             {
                 MessageBox.Show("Som chef kan du inte skapa en reseorder.");
                 return;
             }
-            form = new FrmTravelorderr(MenyMode);
-            form.Location = place;
-            form.MdiParent = this;
-            form.Show();
+            else
+            {
+                form = new FrmTravelorderr(MenyMode);
+                form.Location = place;
+                form.MdiParent = this;
+                form.Show();
+            }
         }
 
         private void sammanställKvartalsrapporterToolStripMenuItem_Click(object sender, EventArgs e)

@@ -15,8 +15,8 @@ namespace vIT_System
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new GUI.frmFinancialStatement());
             
-            //Application.Run(new Login.Login());
-            Application.Run(new Formulärhantering.Ansökningshantering());
+            Application.Run(new Login.Login());
+            //Application.Run(new Formulärhantering.Ansökningshantering());
             
         }
     }
