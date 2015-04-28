@@ -462,7 +462,7 @@ namespace vIT_System.GUI
                totsum += Convert.ToInt32(dr["summa"]);
             }
 
-            var uträknadSumma = Convert.ToDouble(ersattning) - totsum;
+           // var uträknadSumma = Convert.ToDouble(ersattning) - totsum;
             // det sk räknas lite här. Men vi taR DET NÄSTA SPRINT.
 
             sqlHelper.Modify(queryInsert);
@@ -550,7 +550,7 @@ namespace vIT_System.GUI
                 AntalMiddag = Convert.ToInt32(tbMiddag.Text),
                 AntalFrukost = Convert.ToInt32(tbFrukost.Text),
                 AntalLunch = Convert.ToInt32(tbLunch.Text),
-                Uppdrag = valtUppdrag,
+                Uppdrag = uppdrag,
                 UtgifterFörResa = new List<Utgift>()
             };
 
