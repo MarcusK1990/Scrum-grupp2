@@ -350,6 +350,9 @@ namespace vIT_System.GUI
 
             ValidationCheck.CheckDates(dtpUtResa.Value, dtpHemResa.Value);
 
+            double avrundaDagar = Math.Ceiling((dtpHemResa.Value - dtpUtResa.Value).TotalDays);
+            double semesterDagar = Convert.ToDouble(tbSemesterdagar.Text);
+            ValidationCheck.CheckSemesterDagar(avrundaDagar, semesterDagar);
 
 
             var felmeddelanden = ValidationCheck.felString;
@@ -388,12 +391,6 @@ namespace vIT_System.GUI
             if (Validation.IsEmpty(tbLunch.Text))
             {
                 tbLunch.Text = @"0";
-            }
-            double avrundaDagar = Math.Ceiling((dtpHemResa.Value - dtpUtResa.Value).TotalDays);
-            if (avrundaDagar < Convert.ToDouble(tbSemesterdagar.Text))
-            {
-                MessageBox.Show("Semesterdagar måste vara mindre än totalt bortresta dagar");
-                return;
             }
             //Om databasen börjar funka validera med denna
             //if (ValdResa > -1 && ValdResa < AllaResor.Count)
